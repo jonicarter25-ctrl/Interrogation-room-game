@@ -82,6 +82,8 @@ a{color:var(--accent)}
 .tab.on{color:var(--accent);border-top-color:var(--accent)}
 .tab .cnt{position:absolute;display:none}
 .tabs-head{display:none}
+@media (max-width:599px){.head.incase .brand{display:none}}
+@media (min-width:860px) and (max-width:1023px){.head.incase .head-title{display:none}}
 @media (min-width:860px){
   :root{--tabs-h:0px}
   .tabs{display:none}
@@ -164,8 +166,8 @@ details summary{cursor:pointer;font-family:var(--font-display);letter-spacing:.1
 @media (min-width:860px){.inter{grid-template-columns:260px 1fr;align-items:start}}
 .roster{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
 @media (min-width:860px){.roster{flex-direction:column;overflow:visible;position:sticky;top:calc(var(--head-h) + env(safe-area-inset-top,0px) + 12px)}}
-.sus{flex:0 0 auto;min-width:150px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;color:var(--fg)}
-@media (min-width:860px){.sus{min-width:0}}
+button.sus{flex:0 0 auto;min-width:150px;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;color:var(--fg)}
+@media (min-width:860px){button.sus{min-width:0}}
 .sus.on{border-color:var(--accent);background:var(--panel-2)}
 .sus .nm{font-family:var(--font-display);font-size:14px;letter-spacing:.04em}
 .sus .rl{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
@@ -282,7 +284,7 @@ details summary{cursor:pointer;font-family:var(--font-display);letter-spacing:.1
 .score .parts b{font-family:var(--font-display);display:block;font-size:17px}
 .verdict{font-family:var(--font-type);font-size:15px;line-height:1.6;color:var(--fg)}
 .lies{display:grid;gap:10px}
-.lie{border-left:4px solid var(--lie);background:var(--panel);border-radius:0 10px 10px 0;padding:10px 12px;display:grid;gap:4px}
+div.lie{border-left:4px solid var(--lie);background:var(--panel);border-radius:0 10px 10px 0;padding:10px 12px;display:grid;gap:4px}
 .lie.mistaken{border-left-color:var(--warn)}
 .lie .who{font-family:var(--font-display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .lie .who b{color:var(--fg)}
@@ -311,10 +313,10 @@ details summary{cursor:pointer;font-family:var(--font-display);letter-spacing:.1
 .picker button:hover{border-color:var(--accent)}
 .picker .q{font-family:var(--font-type);font-size:13.5px}
 .picker small{color:var(--muted);font-size:12px}
-.toast{position:fixed;left:50%;bottom:calc(var(--tabs-h) + 16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;background:var(--fg);color:var(--bg);border-radius:9px;padding:9px 14px;font-size:14px;box-shadow:var(--shadow);max-width:calc(100% - 32px)}
+.toast{position:fixed;left:50%;top:calc(var(--head-h) + env(safe-area-inset-top,0px) + 12px);transform:translateX(-50%);z-index:60;background:var(--fg);color:var(--bg);border-radius:9px;padding:9px 14px;font-size:14px;box-shadow:var(--shadow);max-width:calc(100% - 32px)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
-<div id="app" class="app" aria-live="polite"></div>
+<div id="app" class="app"></div>
 <div id="modal" class="modal" hidden></div>
 <div id="toast" class="toast" hidden role="status"></div>
 <script>
@@ -592,12 +594,13 @@ Reply ONLY: {"motive": 0, "method": 0, "evidence": 0, "verdict": "...", "missed"
 function normalizeTruth(raw, st) {
   if (!raw || typeof raw !== 'object') throw new Error('truth not an object');
   const t = raw;
-  t.suspects = arr(t.suspects).slice(0, 4).map((s) => ({ name: str(s?.name, 80).trim(), age: num(s?.age), role: str(s?.role, 200), sketch: str(s?.sketch, 600), part: str(s?.part, 20) }));
+  t.suspects = arr(t.suspects).slice(0, 4).map((s) => ({ name: str(s?.name, 80).trim(), age: num(s?.age), role: str(s?.role, 200), sketch: str(s?.sketch, 600), part: ((p) => (['killer', 'liar', 'mistaken', 'honest'].includes(p) ? p : 'honest'))(str(s?.part, 20).trim().toLowerCase()) }));
   if (t.suspects.length !== 4 || t.suspects.some((s) => !s.name)) throw new Error('need 4 named suspects');
   const names = t.suspects.map((s) => s.name);
   t.killer = str(t.killer, 80).trim();
   if (!names.includes(t.killer)) {
-    const k = t.suspects.find((s) => s.part === 'killer') || t.suspects.find((s) => t.killer && (s.name.includes(t.killer) || t.killer.includes(s.name)));
+    const surname = (n) => n.split(/\s+/).pop().toLowerCase();
+    const k = t.suspects.find((s) => s.part === 'killer') || t.suspects.find((s) => t.killer && (s.name.includes(t.killer) || t.killer.includes(s.name))) || t.suspects.find((s) => t.killer && surname(s.name) === surname(t.killer));
     if (!k) throw new Error('killer not among suspects');
     t.killer = k.name;
   }
@@ -647,7 +650,7 @@ function normalizeBriefs(raw, truth) {
       opening: str(b.opening, 400) || 'Well, Inspector. Ask what you must.',
     });
   }
-  out.forEach((b) => { if (b.pressure.lawyerPoint <= b.pressure.breakPoint) b.pressure.lawyerPoint = Math.min(100, b.pressure.breakPoint + 12); });
+  out.forEach((b) => { if (b.pressure.lawyerPoint <= b.pressure.breakPoint) b.pressure.lawyerPoint = Math.min(100, b.pressure.breakPoint + 12); b.pressure.baseline = Math.min(b.pressure.baseline, b.pressure.breakPoint - 20); });
   return out;
 }
 
@@ -776,21 +779,24 @@ async function askSuspect(name, question, tone, present) {
   const s = G.suspects[name], brief = briefOf(name), st = stOf();
   if (!s || !brief || outOfTime() || s.state === 'lawyered') return;
   const det = { id: uid(), role: 'det', text: question, tone, presented: present ? { id: present.id, text: present.text, source: present.source } : null, clock: G.clock.used };
+  const game = G, charged = Math.min(st.questionCost, timeLeft());
   spend(st.questionCost);
   s.transcript.push(det);
   const pending = { id: uid(), role: 'sus', text: '', clock: G.clock.used, pending: true };
   s.transcript.push(pending);
   const ctl = new AbortController();
   busy = { ctl, kind: 'ask', name, msgId: pending.id };
+  const gone = () => { if (G === game) return false; if (busy?.ctl === ctl) busy = null; return true; };
   save(); render();
   let text = '';
   try {
     const res = await sample(actorInput(G, name, s, brief, st), { cache: false, signal: ctl.signal, ...actorOpts(), onText: ({ text: t }) => { text = t; const el = $(`[data-msg="${pending.id}"] .b`); if (el) { el.textContent = t; el.classList.remove('thinking'); } scrollChat(); } });
     text = (res.text || '').trim();
   } catch (e) {
+    if (gone()) return;
     s.transcript = s.transcript.filter((m) => m.id !== pending.id);
     if (e?.code !== 'cancelled') s.transcript.push({ id: uid(), role: 'sys', text: errCopy(e), clock: G.clock.used });
-    G.clock.used = Math.max(0, G.clock.used - st.questionCost);
+    G.clock.used = Math.max(0, G.clock.used - charged);
     busy = null; save(); render(); return;
   }
   // Referee pass: hidden from the player; it corrects leaks and annotates the claims.
@@ -798,6 +804,7 @@ async function askSuspect(name, question, tone, present) {
   try {
     ref = await sample.json(refereeInput(G, name, s, brief, det, text), { cache: false, signal: ctl.signal, modelTier: 'quick' });
   } catch (e) { if (e?.code === 'cancelled') { ref = null; } else { console.warn('referee failed', e); ref = null; } }
+  if (gone()) return;
   const finalText = (ref && ref.ok === false && typeof ref.answer === 'string' && ref.answer.trim()) ? ref.answer.trim() : text;
   const idx = s.transcript.findIndex((m) => m.id === pending.id);
   const msg = { id: pending.id, role: 'sus', text: finalText, clock: G.clock.used, refereed: !!ref, corrected: !!(ref && ref.ok === false) };
@@ -842,10 +849,12 @@ function requestForensic(id) {
 }
 
 async function submitAccusation(acc) {
-  if (!G || busy) return;
+  if (!G) return;
+  if (busy) { toast('Wait for the suspect to finish answering, then accuse.'); return; }
   const killerCorrect = acc.killer === G.truth.killer;
   G.accusation = { ...acc, killerCorrect, at: G.clock.used };
   G.phase = 'scoring'; save(); render();
+  const game = G;
   let parts = { motive: 0, method: 0, evidence: 0, verdict: '', missed: [], caught: [] };
   if (sample) {
     const ctl = new AbortController(); busy = { ctl, kind: 'score' };
@@ -857,7 +866,8 @@ async function submitAccusation(acc) {
       parts.verdict = killerCorrect ? 'The Chief Constable could not be reached for comment, but the name is right.' : 'The Chief Constable could not be reached for comment. The name is wrong.';
       parts.unscored = true;
     }
-    busy = null;
+    if (busy?.ctl === ctl) busy = null;
+    if (G !== game) return;
   } else {
     parts.unscored = true;
   }
@@ -875,9 +885,12 @@ function saveToCasebook() {
   if (!safeSet(KEY_BOOK, book)) { while (book.length > 4 && !safeSet(KEY_BOOK, book)) book.pop(); }
 }
 
-function caseCode() { return JSON.stringify({ ir: 1, settingId: G.settingId, truth: G.truth, briefs: G.briefs }); }
+const b64enc = (txt) => { const bytes = new TextEncoder().encode(txt); let bin = ''; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(bin); };
+const b64dec = (b64) => { const bin = atob(b64); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i); return new TextDecoder().decode(bytes); };
+function caseCode() { return 'IR1.' + b64enc(JSON.stringify({ ir: 1, settingId: G.settingId, truth: G.truth, briefs: G.briefs })); }
 function parseCaseCode(text) {
-  const o = JSON.parse(text);
+  text = String(text || '').trim();
+  const o = JSON.parse(text.startsWith('IR1.') ? b64dec(text.slice(4).replace(/\s+/g, '')) : text);
   if (!o || o.ir !== 1 || !SETTINGS[o.settingId]) throw new Error('bad code');
   const st = SETTINGS[o.settingId];
   const truth = normalizeTruth(o.truth, st);
@@ -903,11 +916,12 @@ let toastTimer = null;
 function toast(msg) { toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { toastEl.hidden = true; }, 2600); }
 
 function render() {
+  if (G && G.phase === 'play') { const ta = $('#q'); if (ta) ui.draft.q = ta.value; if ($('#accform')) ui.draft.acc = { killer: $('#acc-killer').value, motive: $('#acc-motive').value, method: $('#acc-method').value, pinIds: $$('input[name=ev]:checked').map((i) => i.value) }; }
   if (busy?.kind === 'gen' || (!G && ui.genStep && ui.genStep !== 'done')) { app.innerHTML = viewGenerating(); return; }
   if (!G) { app.innerHTML = viewMenu(); return; }
   if (G.phase === 'scoring') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap gen"><div class="eyebrow">Accusation lodged</div><h2 style="margin-top:6px">The Chief Constable is reading your reasoning</h2><div class="steps"><div class="step on"><i class="dot"></i>Comparing the accusation with the sealed truth file<span class="st">30s to 90s</span></div></div><p class="tip">${esc(pick(TIPS))}</p></div></div>`; return; }
   if (G.phase === 'verdict') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap pane">${viewVerdict()}</div></div>`; return; }
-  if (G.phase === 'reveal') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap pane">${viewReveal()}</div></div>`; return; }
+  if (G.phase === 'reveal') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap pane">${viewReveal(G.readOnly)}</div></div>`; return; }
   // play
   const body = ui.tab === 'interrogate' ? viewInterrogate() : ui.tab === 'board' ? viewBoard() : ui.tab === 'accuse' ? viewAccuse() : viewCase();
   app.innerHTML = header({ title: G.truth.title, tabs: true }) + `<div class="main gutter"><div class="wrap pane">${body}</div></div>` + tabsBar();
@@ -918,7 +932,7 @@ function header({ title, tabs }) {
   const left = timeLeft();
   const cls = !G ? '' : left <= 0 ? 'out' : left <= 60 ? 'low' : '';
   const clock = G ? `<div class="clock ${cls}" title="Case time remaining"><b>${left <= 0 ? 'Out of time' : fmtMin(left)}</b><span>${esc(clockAt(stOf().clock.start, G.clock.used))} · time left</span><div class="meter"><i style="width:${G.clock.budget ? Math.round(100 * left / G.clock.budget) : 0}%"></i></div></div>` : '';
-  return `<header class="head"><div class="wrap gutter">
+  return `<header class="head ${title ? 'incase' : ''}"><div class="wrap gutter">
     <div class="brand">Interrogation<br>Room</div>
     ${tabs ? `<nav class="tabs-head">${tabButtons()}</nav>` : ''}
     <div class="head-title" title="${esc(title || '')}">${esc(title || '')}</div>
@@ -1049,7 +1063,7 @@ function viewInterrogate() {
         ${ui.present ? `<span class="chip info"><span class="t" title="${esc(ui.present.text)}">Presenting: ${esc(ui.present.source)}: ${esc(ui.present.text.slice(0, 48))}${ui.present.text.length > 48 ? '…' : ''}</span><button class="x" data-act="unpresent" aria-label="Remove">×</button></span>` : `<button class="btn sm ghost" data-act="present" ${G.board.pins.length ? '' : 'disabled'} title="Put a pinned statement or report in front of the suspect">Present evidence</button>`}
         <span class="note" style="margin-left:auto">${st.questionCost} min per question</span>
       </div>
-      <div class="in"><textarea id="q" rows="1" placeholder="Ask ${esc(name.split(' ')[0])} something…" ${busy ? 'disabled' : ''}></textarea>${busy?.kind === 'ask' ? `<button class="btn send" data-act="stop" aria-label="Stop">Stop</button>` : `<button class="btn primary send" data-act="ask" aria-label="Ask">Ask</button>`}</div>
+      <div class="in"><textarea id="q" rows="1" placeholder="Ask ${esc(name)} something…" ${busy ? 'disabled' : ''}></textarea>${busy?.kind === 'ask' ? `<button class="btn send" data-act="stop" aria-label="Stop">Stop</button>` : `<button class="btn primary send" data-act="ask" aria-label="Ask">Ask</button>`}</div>
     </div>`;
   return `<div class="inter">
     <div class="roster">${roster}</div>
@@ -1066,7 +1080,7 @@ function msgHtml(m, name) {
   const pinned = G.board.pins.some((p) => p.msgId === m.id);
   return `<div class="msg sus" data-msg="${m.id}"><div class="b ${m.pending ? 'thinking' : ''}">${esc(m.text)}</div><div class="m">${esc(name)} · ${esc(clockAt(stOf().clock.start, m.clock))}${m.pending || m.opening ? '' : ` <button data-act="pin-msg" data-id="${m.id}" data-name="${esc(name)}">${pinned ? 'Pin another quote' : 'Pin quote'}</button>`}</div></div>`;
 }
-function scrollChat(instant) { const el = $('#msgs'); if (!el) return; const last = el.lastElementChild; if (last) last.scrollIntoView({ block: 'end', behavior: instant ? 'instant' : 'smooth' }); }
+function scrollChat(instant) { const el = $('#msgs'); if (!el || !el.lastElementChild) return; window.scrollTo({ top: document.documentElement.scrollHeight, behavior: instant ? 'instant' : 'smooth' }); }
 
 /* ----- board ----- */
 function viewBoard() {
@@ -1074,7 +1088,7 @@ function viewBoard() {
   const tools = `<div class="board-tools">
       <div class="seg" role="group" aria-label="View"><button data-act="bview" data-v="pins" class="${ui.boardView === 'pins' ? 'on' : ''}">Pins</button><button data-act="bview" data-v="timeline" class="${ui.boardView === 'timeline' ? 'on' : ''}">Timeline</button></div>
       <button class="btn sm ghost" data-act="add-note">Add a note</button>
-      <span class="note" style="margin-left:auto">${pins.length} pinned · ${G.board.links.filter((l) => l.type === 'contradicts').length} contradictions</span>
+      <span class="note" style="margin-left:auto">${pins.length} pinned · ${(n => `${n} contradiction${n === 1 ? '' : 's'}`)(G.board.links.filter((l) => l.type === 'contradicts').length)}</span>
     </div>`;
   const linkbar = ui.linkFrom ? `<div class="linkbar" style="margin-bottom:12px"><span class="grow">Linking from <b>“${esc((pins.find((p) => p.id === ui.linkFrom) || {}).text?.slice(0, 60) || '')}”</b>. Choose the second card.</span><button class="btn sm ghost" data-act="link-cancel">Cancel</button></div>` : '';
   if (!pins.length) return tools + `<div class="empty"><p>Nothing on the board yet.</p><p class="note" style="margin-top:6px">Pin quotes from the transcript, scene items from the case file, and forensic reports. Then link the ones that cannot both be true.</p></div>`;
@@ -1092,11 +1106,14 @@ function pinHtml(p) {
 }
 function viewTimeline(pins, events) {
   const t = G.truth; const start = toMin(t.night.start), span = nightOffset(t.night.end, t.night.start) || 390;
+  const off = (time) => { const o = nightOffset(time, t.night.start); return o > span + 360 ? o - 1440 : o; };
+  const bucket = (o) => Math.floor(o / 60) * 60;
   const hours = []; for (let m = 0; m <= span; m += 60) hours.push(m);
-  const bucket = (off) => Math.floor(off / 60) * 60;
+  for (const x of [...(events || []), ...pins]) { const b = bucket(off(x.time)); if (!hours.includes(b)) hours.push(b); }
+  hours.sort((a, b) => a - b);
   return `<div class="timeline">${hours.map((h) => {
-    const evs = (events || []).filter((e) => bucket(nightOffset(e.time, t.night.start)) === h).sort((a, b) => nightOffset(a.time, t.night.start) - nightOffset(b.time, t.night.start));
-    const ps = pins.filter((p) => bucket(nightOffset(p.time, t.night.start)) === h).sort((a, b) => nightOffset(a.time, t.night.start) - nightOffset(b.time, t.night.start));
+    const evs = (events || []).filter((e) => bucket(off(e.time)) === h).sort((a, b) => off(a.time) - off(b.time));
+    const ps = pins.filter((p) => bucket(off(p.time)) === h).sort((a, b) => off(a.time) - off(b.time));
     const has = evs.length || ps.length;
     return `<div class="tl-h ${has ? 'has' : ''}">${hhmm(start + h)}</div><div class="tl-c">${evs.map((e) => `<div class="tl-ev ${e.murder ? 'murder' : ''}"><b>${esc(e.time)}</b>${esc(e.event)} <em style="color:var(--muted)">${esc(e.place)}${arr(e.present).length ? ' · ' + esc(e.present.join(', ')) : ''}</em></div>`).join('')}${ps.map((p) => `<div class="tl-pin">“${esc(p.text)}”<small>${esc(p.source)} · refers to ${esc(p.time)}${linksOf(p.id).some((l) => l.type === 'contradicts') ? ' · <span style="color:var(--lie)">contradiction marked</span>' : ''}</small></div>`).join('')}</div>`;
   }).join('')}</div>`;
@@ -1170,7 +1187,7 @@ function viewReveal(readOnly) {
       <ol style="margin:8px 0 0;padding-left:20px;color:var(--fg-2)">${t.solutionPath.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
     </div>
     <div class="row">${readOnly ? `<button class="btn" data-act="home">Back</button>` : `<button class="btn primary" data-act="home">Close the case</button>`}<button class="btn ghost" data-act="copy-code">Copy case code to share</button><button class="btn ghost" data-act="replay">Play this case again</button></div>
-    <p class="note">Case code: anyone who pastes it under “Play a shared case” gets the same sealed night with fresh suspects.</p>
+    <p class="note">Case code: anyone who pastes it under “Play a shared case” gets the same sealed night with fresh suspects. The code is scrambled so it does not spoil the case at a glance.</p>
   </div>`;
 }
 
@@ -1212,7 +1229,7 @@ function menuSheet() {
       <button class="btn block" data-act="close-modal">Back to the case</button>
       <button class="btn block ghost" data-act="settings">Settings</button>
       <button class="btn block ghost" data-act="casebook">Casebook</button>
-      <button class="btn block ghost danger" data-act="abandon-confirm">Abandon this case</button>
+      ${G?.readOnly ? '<button class="btn block ghost" data-act="home">Back to the menu</button>' : '<button class="btn block ghost danger" data-act="abandon-confirm">Abandon this case</button>'}
     </div>`);
 }
 function settingsSheet() {
@@ -1228,7 +1245,7 @@ function casebookSheet() {
 }
 function importSheet() {
   openModal(`<h3>Play a shared case</h3><p class="note">Paste a case code from someone's reveal screen. You get the same sealed night, with the suspects fresh.</p>
-    <textarea id="import-text" rows="5" placeholder='{"ir":1,…}'></textarea><div id="import-err" class="err" hidden></div>
+    <textarea id="import-text" rows="5" placeholder="IR1.…"></textarea><div id="import-err" class="err" hidden></div>
     <div class="row"><button class="btn primary" data-act="import-confirm">Open the case</button><button class="btn ghost" data-act="close-modal">Cancel</button></div>`);
 }
 function confirmSheet(title, body, act, label) {
@@ -1255,15 +1272,17 @@ function handleAct(btn) {
     case 'import': return importSheet();
     case 'import-confirm': {
       const ta = $('#import-text'), err = $('#import-err');
-      try { const c = parseCaseCode(ta.value.trim()); closeModal(); G = newGame(c.settingId, c.truth, c.briefs); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); }
-      catch { err.textContent = 'That is not a valid case code. Copy the whole thing from the reveal screen.'; err.hidden = false; }
+      try { const c = parseCaseCode(ta.value.trim()); const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.importOk) { ui.importOk = c; return confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'import-do', 'Open shared case'); } closeModal(); G = newGame(c.settingId, c.truth, c.briefs); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); }
+      catch { if (err) { err.textContent = 'That is not a valid case code. Copy the whole thing from the reveal screen.'; err.hidden = false; } }
       return;
     }
+    case 'import-do': { const c = ui.importOk; ui.importOk = null; if (!c) return closeModal(); closeModal(); safeDel(KEY_GAME); G = newGame(c.settingId, c.truth, c.briefs); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); return; }
     case 'close-modal': return closeModal();
     case 'home': closeModal(); if (G && (G.phase === 'reveal' || G.phase === 'verdict')) { if (!G.readOnly) safeDel(KEY_GAME); } G = null; ui.genStep = null; ui.genError = null; return render();
-    case 'new': closeModal(); ui.tab = 'case'; return generateCase('country_house');
+    case 'new': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.genError) return confirmSheet('Start a new case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'new-do', 'Start new case'); closeModal(); ui.tab = 'case'; return generateCase('country_house'); }
+    case 'new-do': closeModal(); safeDel(KEY_GAME); ui.tab = 'case'; return generateCase('country_house');
     case 'stop-gen': stopBusy(); ui.genStep = null; G = null; return render();
-    case 'resume': { const saved = safeGet(KEY_GAME, null); if (saved?.truth) { G = saved; ui.tab = 'case'; render(); } return; }
+    case 'resume': { const saved = safeGet(KEY_GAME, null); if (saved?.truth) { G = tidy(saved); ui.tab = 'case'; render(); } return; }
     case 'abandon': return confirmSheet('Abandon the saved case?', 'The case in progress is deleted. Finished cases in the casebook are kept.', 'abandon-do', 'Abandon');
     case 'abandon-confirm': return confirmSheet('Abandon this case?', 'You lose the transcript and the board. The night stays sealed and is not revealed.', 'abandon-do', 'Abandon');
     case 'abandon-do': stopBusy(); closeModal(); safeDel(KEY_GAME); G = null; return render();
@@ -1306,19 +1325,21 @@ function sendQuestion() {
   const ta = $('#q'); if (!ta) return;
   const q = ta.value.trim(); if (!q) { ta.focus(); return; }
   if (!sample) { toast(errCopy({ code: 'not_granted' })); return; }
-  ui.draft.q = '';
+  ta.value = ''; ui.draft.q = '';
   const present = ui.present; ui.present = null;
   askSuspect(G.active, q, ui.tone, present);
 }
 
+let downOnBackdrop = false;
+document.addEventListener('pointerdown', (ev) => { downOnBackdrop = ev.target === modalEl; });
 document.addEventListener('click', (ev) => {
   const btn = ev.target.closest('[data-act]');
   if (btn) { ev.preventDefault(); handleAct(btn); return; }
-  if (ev.target === modalEl) closeModal();
+  if (ev.target === modalEl && downOnBackdrop) closeModal();
 });
 document.addEventListener('keydown', (ev) => {
   if (ev.key === 'Escape' && !modalEl.hidden) { closeModal(); return; }
-  if (ev.key === 'Enter' && !ev.shiftKey && ev.target?.id === 'q') { ev.preventDefault(); sendQuestion(); }
+  if (ev.key === 'Enter' && !ev.shiftKey && !ev.isComposing && ev.target?.id === 'q') { ev.preventDefault(); sendQuestion(); }
 });
 document.addEventListener('submit', (ev) => {
   if (ev.target?.id !== 'accform') return;
@@ -1345,9 +1366,15 @@ document.addEventListener('click', (ev) => {
 document.addEventListener('input', (ev) => { if (ev.target?.id === 'q') { ev.target.style.height = 'auto'; ev.target.style.height = Math.min(140, ev.target.scrollHeight) + 'px'; } });
 
 /* ───────────────────────── boot ───────────────────────── */
+function tidy(g) {
+  if (g.phase === 'scoring') g.phase = 'play';
+  const cost = (SETTINGS[g.settingId] || SETTINGS.country_house).questionCost;
+  for (const s of Object.values(g.suspects || {})) { const n = arr(s.transcript).length; s.transcript = arr(s.transcript).filter((m) => !m.pending); if (s.transcript.length < n && g.clock) g.clock.used = Math.max(0, g.clock.used - cost); }
+  return g;
+}
 function start(snap) {
-  if (snap && snap.G && snap.G.truth) { G = snap.G; Object.assign(ui, snap.ui || {}); }
-  else { const saved = safeGet(KEY_GAME, null); if (saved?.truth && saved.phase && saved.phase !== 'reveal') { G = saved; if (G.phase === 'scoring') G.phase = 'play'; ui.tab = 'case'; } }
+  if (snap && snap.G && snap.G.truth) { G = tidy(snap.G); Object.assign(ui, snap.ui || {}); }
+  else { const saved = safeGet(KEY_GAME, null); if (saved?.truth && saved.phase && saved.phase !== 'reveal') { G = tidy(saved); ui.tab = 'case'; } }
   render();
   (async () => {
     try { sample = window.claude?.use ? await window.claude.use('sample') : null; } catch { sample = null; }
