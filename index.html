@@ -404,17 +404,17 @@ Mix ages, sexes and stations (family, guests, staff). Give each a distinct voice
 FAIR PLAY RULES:
 - The solution must be deducible from (a) honest testimony, (b) forensics, and (c) contradictions in the killer's own statements. The killer's alibi for the murder window must be false, and exposable in at least TWO independent ways (one forensic report, one witness or physical trace).
 - Every lie in the case has a specific piece of evidence that can expose it.
-- Physical evidence RESULTS from the events in the timeline, nothing arbitrary. 4-7 items. Mark which are visible at the scene when the body is found.
+- Physical evidence RESULTS from the events in the timeline, nothing arbitrary. 4-6 items. Mark which are visible at the scene when the body is found.
 - Motive is concrete and discoverable (a will, a debt, blackmail, an affair, a past wrong) through questioning and evidence.
 - Method is specific and period-appropriate, leaves traces, and fits the timeline.
 - Include one red herring that honest investigation will dispel.
 
-FORENSIC REPORTS the detective may request. Write a TRUE, specific result for every one (2-3 sentences each). At least one must directly contradict the killer's planned alibi; one should help clear the non-killer liar:
+FORENSIC REPORTS the detective may request. Write a TRUE, specific result for every one (1-2 sentences each). At least one must directly contradict the killer's planned alibi; one should help clear the non-killer liar:
 ${st.forensics.map((f) => `- ${f.id}: ${f.name}`).join('\n')}
 
-TIMELINE: 16-24 entries covering the whole night at minute precision: the murder, every suspect's movements (so each suspect is accounted for at every moment, including moments nobody saw them), the discovery of the body and what the household did afterwards. Each entry lists who is present and who could have witnessed it.
+TIMELINE: 14-18 entries covering the whole night at minute precision: the murder, every suspect's movements (so each suspect is accounted for at every moment, including moments nobody saw them), the discovery of the body and what the household did afterwards. Each entry lists who is present and who could have witnessed it. Keep each event to one sentence.
 
-PUBLIC FACTS: 5-8 things everyone in the house knows by morning (who died, where and when the body was found and by whom, that the police were called, the weather, who was staying).
+PUBLIC FACTS: 5-7 things everyone in the house knows by morning (who died, where and when the body was found and by whom, that the police were called, the weather, who was staying).
 
 Reply with ONLY a JSON object, no commentary, exactly this shape:
 {
@@ -455,12 +455,12 @@ Reply with ONLY a JSON object: {"briefs": [ four items, in the same order as tru
 {
  "name": "exactly as in truth.suspects",
  "part": "killer|liar|mistaken|honest",
- "personality": "3 sentences: temperament, manner under questioning, vocabulary and verbal habits; period-appropriate (${st.era})",
+ "personality": "2-3 sentences: temperament, manner under questioning, vocabulary and verbal habits; period-appropriate (${st.era})",
  "voiceSample": "one typical sentence in their voice",
  "relationship": "how they truly felt about the victim",
- "movements": [{"from": "HH:MM", "to": "HH:MM", "where": "", "doing": "true account", "seenBy": ["names"]}],
- "knows": ["specific facts they truly know, each stating how (saw/heard/did)"],
- "doesNotKnow": ["key truths they cannot know and must never state or hint at: who the killer is, the method, events they were absent from"],
+ "movements": [{"from": "HH:MM", "to": "HH:MM", "where": "", "doing": "true account, one sentence", "seenBy": ["names"]}],
+ "knows": ["5-9 specific facts they truly know, each stating how (saw/heard/did)"],
+ "doesNotKnow": ["3-6 key truths they cannot know and must never state or hint at: who the killer is, the method, events they were absent from"],
  "secret": "what they hide and why, or null",
  "lies": [{"claim": "the false statement they will make, in their own words", "truth": "what actually happened", "when": "what topic or question triggers it", "crack": "what evidence or contradiction, if presented, makes them abandon this lie"}],
  "honestMistake": {"claim": "", "truth": "", "why": "how the mistake arose"} or null,
@@ -747,27 +747,27 @@ async function generateCase(settingId, seedTruth) {
   const st = SETTINGS[settingId];
   const ctl = new AbortController();
   busy = { ctl, kind: 'gen' };
-  ui.genError = null; ui.genBytes = {}; ui.genStep = 'truth';
-  G = null; render();
+  ui.genError = null; ui.genBytes = {}; ui.genStep = 'truth'; ui.genStart = Date.now();
+  G = null; render(); startGenTicker();
   try {
     let truth = seedTruth?.truth || null, briefs = seedTruth?.briefs || null;
     if (!truth) {
       const seed = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
-      const raw = await sample.json(truthPrompt(st, seed), { cache: false, signal: ctl.signal, modelTier: 'default', onText: ({ text }) => { ui.genBytes.truth = text.length; paintGen(); } });
+      const raw = await sample.json(truthPrompt(st, seed), { cache: false, signal: ctl.signal, modelTier: 'default', effort: 'low', onText: ({ text }) => { ui.genBytes.truth = text.length; paintGen(); } });
       truth = normalizeTruth(raw, st);
     }
     ui.genStep = 'briefs'; paintGen();
     if (!briefs) {
-      const raw = await sample.json(briefsPrompt(st, truth), { cache: false, signal: ctl.signal, modelTier: 'default', onText: ({ text }) => { ui.genBytes.briefs = text.length; paintGen(); } });
+      const raw = await sample.json(briefsPrompt(st, truth), { cache: false, signal: ctl.signal, modelTier: 'default', effort: 'low', onText: ({ text }) => { ui.genBytes.briefs = text.length; paintGen(); } });
       briefs = normalizeBriefs(raw, truth);
     }
-    ui.genStep = 'done'; paintGen();
+    ui.genStep = 'done'; paintGen(); stopGenTicker();
     G = newGame(settingId, truth, briefs);
     ui.tab = 'case'; ui.linkFrom = null; ui.present = null;
     save(); busy = null; render();
     toast('The case is open. Read the file, then start asking.');
   } catch (e) {
-    busy = null;
+    busy = null; stopGenTicker();
     ui.genError = e && e.code ? errCopy(e) : 'The case file came back malformed. Try again.';
     console.error(e);
     render();
@@ -919,7 +919,7 @@ function render() {
   if (G && G.phase === 'play') { const ta = $('#q'); if (ta) ui.draft.q = ta.value; if ($('#accform')) ui.draft.acc = { killer: $('#acc-killer').value, motive: $('#acc-motive').value, method: $('#acc-method').value, pinIds: $$('input[name=ev]:checked').map((i) => i.value) }; }
   if (busy?.kind === 'gen' || (!G && ui.genStep && ui.genStep !== 'done')) { app.innerHTML = viewGenerating(); return; }
   if (!G) { app.innerHTML = viewMenu(); return; }
-  if (G.phase === 'scoring') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap gen"><div class="eyebrow">Accusation lodged</div><h2 style="margin-top:6px">The Chief Constable is reading your reasoning</h2><div class="steps"><div class="step on"><i class="dot"></i>Comparing the accusation with the sealed truth file<span class="st">30s to 90s</span></div></div><p class="tip">${esc(pick(TIPS))}</p></div></div>`; return; }
+  if (G.phase === 'scoring') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap gen"><div class="eyebrow">Accusation lodged</div><h2 style="margin-top:6px">The Chief Constable is reading your reasoning</h2><div class="steps"><div class="step on"><i class="dot"></i>Comparing the accusation with the sealed truth file<span class="st">about a minute</span></div></div><p class="tip">${esc(pick(TIPS))}</p></div></div>`; return; }
   if (G.phase === 'verdict') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap pane">${viewVerdict()}</div></div>`; return; }
   if (G.phase === 'reveal') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap pane">${viewReveal(G.readOnly)}</div></div>`; return; }
   // play
@@ -1003,12 +1003,24 @@ function viewGenerating() {
     <div class="eyebrow">Writing the night</div>
     <h2 style="margin-top:6px">${step === 'done' ? 'Opening the case' : 'Sealing the truth file'}</h2>
     <p class="lede" style="margin-top:6px">The night is written first, minute by minute, and sealed. The suspects are briefed from it. You only ever see what they choose to tell you.</p>
-    <div class="steps">${row('truth', 'Timeline, killer, motive, method, evidence, forensics', '30s to 90s')}${row('briefs', 'Four private briefs: what each saw, knows and will lie about', '30s to 90s')}</div>
-    ${ui.genError ? `<div class="err" style="margin-top:14px">${esc(ui.genError)}</div><div class="row" style="margin-top:10px"><button class="btn primary" data-act="new">Try again</button><button class="btn ghost" data-act="home">Back</button></div>` : `<div class="row" style="margin-top:14px"><button class="btn ghost" data-act="stop-gen">Stop</button></div>`}
-    <p class="tip">${esc(pick(TIPS))}</p>
+    <div class="steps">${row('truth', 'Timeline, killer, motive, method, evidence, forensics', 'about a minute')}${row('briefs', 'Four private briefs: what each saw, knows and will lie about', 'about a minute')}</div>
+    ${ui.genError ? `<div class="err" style="margin-top:14px">${esc(ui.genError)}</div><div class="row" style="margin-top:10px"><button class="btn primary" data-act="new">Try again</button><button class="btn ghost" data-act="home">Back</button></div>` : `<p class="note" style="margin-top:12px" data-genmsg>${esc(genMessage())}</p><div class="row" style="margin-top:10px"><button class="btn ghost" data-act="stop-gen">Stop</button><span class="note" data-elapsed>${genElapsed()}</span></div>`}
+    <p class="tip" data-tip>${esc(pick(TIPS))}</p>
   </div></div>`;
 }
-function paintGen() { for (const k of ['truth', 'briefs']) { const el = $(`[data-gen="${k}"]`); if (el && ui.genStep === k) el.textContent = ui.genBytes[k] ? `${(ui.genBytes[k] / 1024).toFixed(1)} KB` : 'thinking'; } if (ui.genStep === 'briefs' || ui.genStep === 'done') { const steps = $$('.step'); if (steps[0]) { steps[0].classList.remove('on'); steps[0].classList.add('done'); const st = steps[0].querySelector('.st'); if (st) st.textContent = 'done'; } if (steps[1] && ui.genStep === 'briefs') steps[1].classList.add('on'); } }
+const genElapsed = () => (ui.genStart ? `${Math.floor((Date.now() - ui.genStart) / 1000)}s elapsed` : '');
+function genMessage() {
+  const k = ui.genStep, secs = ui.genStart ? (Date.now() - ui.genStart) / 1000 : 0;
+  if (k === 'done') return 'Opening the case.';
+  if (ui.genBytes[k]) return k === 'truth' ? 'Writing the night. The timeline comes first, then the evidence.' : 'Writing the briefs, one suspect at a time.';
+  if (secs > 180) return 'This is taking longer than usual. Claude may be busy. You can stop and try again.';
+  if (secs > 60) return 'Still working. Nothing shows until Claude starts writing, which can take a couple of minutes for a whole night.';
+  return k === 'truth' ? 'Claude works the night out in silence before it writes. The size counter starts when text begins.' : 'Claude is deriving what each suspect could have seen.';
+}
+let genTicker = null, tipAt = 0;
+function startGenTicker() { stopGenTicker(); tipAt = Date.now(); genTicker = setInterval(() => { const e = $('[data-elapsed]'); if (e) e.textContent = genElapsed(); const m = $('[data-genmsg]'); if (m) m.textContent = genMessage(); if (Date.now() - tipAt > 9000) { tipAt = Date.now(); const t = $('[data-tip]'); if (t) t.textContent = pick(TIPS); } }, 1000); }
+function stopGenTicker() { if (genTicker) { clearInterval(genTicker); genTicker = null; } }
+function paintGen() { const m = $('[data-genmsg]'); if (m) m.textContent = genMessage(); for (const k of ['truth', 'briefs']) { const el = $(`[data-gen="${k}"]`); if (el && ui.genStep === k) el.textContent = ui.genBytes[k] ? `${(ui.genBytes[k] / 1024).toFixed(1)} KB` : 'thinking'; } if (ui.genStep === 'briefs' || ui.genStep === 'done') { const steps = $$('.step'); if (steps[0]) { steps[0].classList.remove('on'); steps[0].classList.add('done'); const st = steps[0].querySelector('.st'); if (st) st.textContent = 'done'; } if (steps[1] && ui.genStep === 'briefs') steps[1].classList.add('on'); } }
 
 /* ----- case file ----- */
 function viewCase() {
@@ -1281,7 +1293,7 @@ function handleAct(btn) {
     case 'home': closeModal(); if (G && (G.phase === 'reveal' || G.phase === 'verdict')) { if (!G.readOnly) safeDel(KEY_GAME); } G = null; ui.genStep = null; ui.genError = null; return render();
     case 'new': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.genError) return confirmSheet('Start a new case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'new-do', 'Start new case'); closeModal(); ui.tab = 'case'; return generateCase('country_house'); }
     case 'new-do': closeModal(); safeDel(KEY_GAME); ui.tab = 'case'; return generateCase('country_house');
-    case 'stop-gen': stopBusy(); ui.genStep = null; G = null; return render();
+    case 'stop-gen': stopBusy(); stopGenTicker(); ui.genStep = null; G = null; return render();
     case 'resume': { const saved = safeGet(KEY_GAME, null); if (saved?.truth) { G = tidy(saved); ui.tab = 'case'; render(); } return; }
     case 'abandon': return confirmSheet('Abandon the saved case?', 'The case in progress is deleted. Finished cases in the casebook are kept.', 'abandon-do', 'Abandon');
     case 'abandon-confirm': return confirmSheet('Abandon this case?', 'You lose the transcript and the board. The night stays sealed and is not revealed.', 'abandon-do', 'Abandon');
