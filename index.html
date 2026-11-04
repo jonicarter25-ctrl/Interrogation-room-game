@@ -673,6 +673,44 @@ ANNOTATE the final answer:
 - "hit": true if the question or the evidence presented touched one of this suspect's lies, their secret, or their honest mistake.
 Reply ONLY: {"ok": true, "problems": [], "answer": "...", "claims": [{"text": "", "label": "true", "truth": ""}], "pressureDelta": 0, "cracked": [], "hit": false}`;
 }
+const reviewerName = (settingId) => (settingId === 'noir_docks' ? 'a 1947 police captain' : settingId === 'antarctic' ? 'the expedition director, by telex from Cambridge' : 'a 1920s Chief Constable');
+const HINT_MINUTES = 30, HINT_PENALTY = 3;
+function hintPrompt(G) {
+  const t = G.truth, st = stOf();
+  const asked = G.briefs.map((b) => { const s = G.suspects[b.name]; const qs = s.transcript.filter((m) => m.role === 'det').map((m) => m.text); return `${b.name}: ${qs.length ? qs.map((q) => JSON.stringify(q)).join(', ') : 'not questioned'}`; }).join('\n');
+  const pins = G.board.pins.map((p) => `[${p.source}${p.time ? ' @' + p.time : ''}] "${p.text.slice(0, 160)}"`).join('\n') || 'nothing pinned';
+  const reports = st.forensics.map((f) => `${f.name}: ${G.forensics[f.id] ? 'requested' : 'not requested'}`).join('; ');
+  const links = G.board.links.length;
+  return `You are ${reviewerName(G.settingId)}, and the detective working this case has asked you for a nudge. You know the sealed truth; the detective does not. Give ONE nudge of one or two sentences that points at the single most useful next action: a question nobody has asked, a person nobody has asked about a time, a report that would settle something, or two pinned statements that cannot both be true. Never name the killer, the accomplice, the method, the motive, or say that any statement is a lie. Prefer to point at a gap in what the detective has done. Speak in your own dry period voice, addressed to the detective, no dashes. Reply with ONLY JSON: {"hint": "..."}
+
+SEALED TRUTH: killer ${t.killer}; accomplice ${t.accomplice || 'none'}; alibi gap ${t.alibiGap?.from}-${t.alibiGap?.to}. Solution path: ${arr(t.solutionPath).join(' / ')}
+Timeline: ${arr(t.timeline).map((e) => `${e.time} ${e.place}: ${e.event}`).join(' | ')}
+
+WHAT THE DETECTIVE HAS DONE (case clock ${clockAt(st.clock.start, G.clock.used)}, ${fmtMin(timeLeft())} left):
+Questions asked:
+${asked}
+Pinned to the board:
+${pins}
+Links marked: ${links}. Forensics: ${reports}.
+Earlier nudges given: ${arr(G.hints).map((h) => JSON.stringify(h.text)).join(', ') || 'none'}`;
+}
+async function requestHint() {
+  if (!G || busy || !sample) { if (!sample) toast(errCopy({ code: 'not_granted' })); return; }
+  if (timeLeft() < HINT_MINUTES) { toast('Not enough time left for that.'); return; }
+  const ctl = new AbortController(); busy = { ctl, kind: 'hint' };
+  const game = G; ui.hintBusy = true; render();
+  try {
+    const r = await sample.json(hintPrompt(G), { cache: false, signal: ctl.signal, modelTier: 'default', effort: 'low' });
+    if (G !== game) return;
+    const text = str(r?.hint, 600).trim();
+    if (!text) throw { code: 'empty_completion' };
+    spend(HINT_MINUTES);
+    G.hints = arr(G.hints); G.hints.push({ text, clock: G.clock.used, at: Date.now() });
+    save(); toast(`${fmtMin(HINT_MINUTES)} spent on the nudge.`);
+  } catch (e) { if (e?.code !== 'cancelled') toast(errCopy(e)); }
+  finally { if (busy?.ctl === ctl) busy = null; ui.hintBusy = false; if (G === game) render(); }
+}
+
 function scorePrompt(G, acc, killerCorrect) {
   const t = G.truth;
   const lies = G.lieLog.filter((l) => l.label === 'lie' || l.label === 'mistaken').map((l) => `${l.suspect} (${l.label}): "${l.text}" / truth: ${l.truth}`);
@@ -681,7 +719,7 @@ function scorePrompt(G, acc, killerCorrect) {
     const a = G.board.pins.find((p) => p.id === l.a), b = G.board.pins.find((p) => p.id === l.b);
     return a && b ? `${l.type.toUpperCase()}: "${a.text}" <> "${b.text}"` : null;
   }).filter(Boolean);
-  const chief = G.settingId === 'noir_docks' ? 'a 1947 police captain' : G.settingId === 'antarctic' ? 'the expedition director, by telex from Cambridge' : 'a 1920s Chief Constable';
+  const chief = reviewerName(G.settingId);
   return `You are ${chief}, reviewing a detective's accusation at the close of a case. Grade the reasoning against the sealed truth. Reply with ONLY JSON.
 
 TRUTH: the killer is ${t.killer}. Accomplice: ${t.accomplice || 'none'}. Motive: ${t.motive} Method: ${t.method}
@@ -1156,8 +1194,9 @@ async function submitAccusation(acc) {
     parts.unscored = true;
   }
   if (!killerCorrect) { parts.motive = Math.min(parts.motive, 8); parts.method = Math.min(parts.method, 8); }
-  const total = killerPts + parts.motive + parts.method + parts.evidence;
-  G.score = { ...parts, killer: killerPts, total, rank: total >= 85 ? 'Chief Inspector' : total >= 70 ? 'Inspector' : total >= 50 ? 'Sergeant' : 'Constable' };
+  const hintCost = Math.min(10, arr(G.hints).length * HINT_PENALTY);
+  const total = Math.max(0, killerPts + parts.motive + parts.method + parts.evidence - hintCost);
+  G.score = { ...parts, killer: killerPts, hintCost, total, rank: total >= 85 ? 'Chief Inspector' : total >= 70 ? 'Inspector' : total >= 50 ? 'Sergeant' : 'Constable' };
   G.phase = 'verdict'; G.finishedAt = Date.now();
   saveToCasebook(); recordSharedScore().catch(() => {}); save(); render();
 }
@@ -1361,6 +1400,12 @@ function viewCase() {
         return `<div class="fo"><div class="hd"><b>${esc(f.name)}</b>${got ? `<span class="cost">received ${esc(clockAt(st.clock.start, got.at))}</span>` : `<button class="btn sm" data-act="forensic" data-id="${f.id}" ${outOfTime() || timeLeft() < f.minutes ? 'disabled' : ''}>Request · ${fmtMin(f.minutes)}</button>`}</div>${got ? `<div class="res">${esc(got.result)}</div><div class="row"><button class="btn sm" data-act="pin-forensic" data-id="${f.id}" ${pinned ? 'disabled' : ''}>${pinned ? 'Pinned' : 'Pin to board'}</button><button class="btn sm ghost" data-act="present-forensic" data-id="${f.id}">Present to a suspect</button></div>` : ''}</div>`;
       }).join('')}</div>
     </div>
+    <div class="card">
+      <div class="eyebrow">Stuck?</div>
+      <p class="note" style="margin:6px 0 10px">Ask ${esc(reviewerName(G.settingId))} for a nudge. It costs ${fmtMin(HINT_MINUTES)} of case time and ${HINT_PENALTY} points off the final score. It never names names.</p>
+      ${arr(G.hints).length ? `<div class="stack" style="margin-bottom:10px">${G.hints.map((h) => `<div class="msg sus" style="max-width:none"><div class="b">${esc(h.text)}</div><div class="m">${esc(clockAt(st.clock.start, h.clock))}</div></div>`).join('')}</div>` : ''}
+      <button class="btn sm" data-act="hint" ${outOfTime() || timeLeft() < HINT_MINUTES || busy ? 'disabled' : ''}>${ui.hintBusy ? 'Thinking…' : `Request a nudge · ${fmtMin(HINT_MINUTES)}`}</button>
+    </div>
   </div>`;
 }
 
@@ -1482,6 +1527,7 @@ function viewVerdict() {
       <p class="${a.killerCorrect ? 'ok' : 'err'}">${a.killerCorrect ? `You named ${esc(t.killer)}. Correct.` : `You accused ${esc(a.killer)}. The killer was ${esc(t.killer)}.`}${t.accomplice ? ` ${a.accCorrect ? `${esc(t.accomplice)} was the accomplice, as you said.` : a.accomplice ? `${esc(a.accomplice)} did not help; ${esc(t.accomplice)} did.` : `You missed the accomplice: ${esc(t.accomplice)}.`}` : a.accomplice ? ` Nobody helped; naming ${esc(a.accomplice)} ${a.killerCorrect ? 'cost you five points' : 'was wrong as well'}.` : ''}</p>
       ${sc.verdict ? `<p class="verdict" style="margin-top:12px">${esc(sc.verdict)}</p>` : ''}
       ${sc.unscored ? `<p class="note" style="margin-top:8px">Motive, method and evidence could not be graded (Claude was unavailable), so only the name counts here.</p>` : ''}
+      ${sc.hintCost ? `<p class="note" style="margin-top:8px">${arr(G.hints).length} ${arr(G.hints).length === 1 ? 'nudge' : 'nudges'} requested: ${sc.hintCost} points off.</p>` : ''}
       ${sc.caught?.length ? `<h3 style="margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--truth)">What you caught</h3><ul style="margin:6px 0 0;padding-left:18px">${sc.caught.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       ${sc.missed?.length ? `<h3 style="margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--warn)">What you missed</h3><ul style="margin:6px 0 0;padding-left:18px">${sc.missed.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       <div class="row" style="margin-top:16px"><button class="btn primary" data-act="reveal">Replay the true night</button></div>
@@ -1634,6 +1680,7 @@ function handleAct(btn) {
     case 'training': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play') { return confirmSheet('Open the training case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'training-do', 'Open training case'); } return handleAct({ dataset: { act: 'training-do' } }); }
     case 'training-do': { closeModal(); const tc = TRAINING[S.setting]; if (!tc) return; safeDel(KEY_GAME); const st = SETTINGS[tc.settingId]; const dials = normDials(tc.dials || { suspects: arr(tc.truth?.suspects).length || 4, liars: 1, mistaken: true, accomplice: !!tc.truth?.accomplice, hours: 6 }); try { const truth = normalizeTruth(JSON.parse(JSON.stringify(tc.truth)), st, dials); const briefs = normalizeBriefs({ briefs: JSON.parse(JSON.stringify(tc.briefs)) }, truth); G = newGame(tc.settingId, truth, briefs, dials, { training: true }); ui.tab = 'case'; save(); render(); toast('Training case open. Read the file, then start asking.'); } catch (e) { console.error(e); toast('The training case could not be loaded.'); } return; }
     case 'gallery': return gallerySheet();
+    case 'hint': return requestHint();
     case 'play-shared': return playShared(id);
     case 'play-shared-do': { const sid = ui.sharedPending; ui.sharedPending = null; closeModal(); return playShared(sid, true); }
     case 'share-case': return shareCase();
