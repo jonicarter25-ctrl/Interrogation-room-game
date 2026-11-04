@@ -148,6 +148,52 @@ label.f{display:block;font-family:var(--font-display);text-transform:uppercase;l
 .howto li{margin:4px 0}
 details summary{cursor:pointer;font-family:var(--font-display);letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:var(--accent)}
 
+.settings-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+@media (min-width:640px){.settings-grid{grid-template-columns:repeat(3,1fr)}}
+.scard{position:relative;overflow:hidden;text-align:left;background:var(--panel-2);border:1px solid var(--line-2);border-radius:10px;padding:12px 12px 10px;color:var(--fg);display:flex;flex-direction:column;gap:4px;min-height:96px}
+.scard .deco{position:absolute;right:-18px;top:-14px;width:110px;height:110px;opacity:.14;pointer-events:none}
+.scard b{font-family:var(--font-display);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.scard span{font-size:12.5px;color:var(--muted)}
+.scard.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.scard.on .deco{opacity:.3;color:var(--accent)}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.presets .chip{cursor:pointer}
+.presets .chip.on{border-color:var(--accent);color:var(--accent)}
+.dials{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+@media (min-width:520px){.dials{grid-template-columns:1fr 1fr}}
+.dial{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:14px}
+.dial .k{color:var(--fg-2)}
+.stepper{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line-2);border-radius:8px;overflow:hidden}
+.stepper button{border:0;background:transparent;width:30px;height:30px;color:var(--accent);font-size:16px}
+.stepper b{min-width:22px;text-align:center;font-family:var(--font-display);font-variant-numeric:tabular-nums}
+.switch{border:1px solid var(--line-2);border-radius:999px;width:44px;height:24px;position:relative;background:var(--bg)}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--muted);transition:left .15s}
+.switch.on{background:var(--accent);border-color:var(--accent)}
+.switch.on::after{left:23px;background:var(--on-accent)}
+.cast{margin-top:12px;font-family:var(--font-type);font-size:14px;color:var(--fg-2)}
+.linklist{display:grid;gap:10px}
+.lpair{display:grid;grid-template-columns:1fr;gap:6px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px}
+@media (min-width:640px){.lpair{grid-template-columns:1fr auto 1fr}}
+.lpair.contradicts{border-color:var(--lie)}
+.lpair.supports{border-color:var(--truth)}
+.lpair .lmid{display:flex;align-items:center;gap:8px;justify-content:center;font-family:var(--font-display);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.lpair.contradicts .lmid{color:var(--lie)}
+.lpair.supports .lmid{color:var(--truth)}
+.lpair .lmid .x{border:0;background:none;color:var(--muted);font-size:16px;padding:0 4px}
+.lp{background:var(--paper);color:var(--paper-ink);border-radius:4px;padding:8px 10px;font-family:var(--font-type);font-size:13.5px;min-width:0;overflow-wrap:anywhere}
+.lp small{display:block;font-family:var(--font-body);color:var(--paper-muted);font-size:12px;margin-top:3px}
+.tr-sus{border:1px solid var(--line);border-radius:10px;padding:0 12px}
+.tr-sus summary{padding:10px 0;font-size:13px}
+.tr-sus .msgs{padding:4px 0 12px}
+mark.lie{background:transparent;color:inherit;border-bottom:2px solid var(--lie);box-shadow:inset 0 -6px 0 color-mix(in srgb,var(--lie) 22%,transparent)}
+mark.mistaken{background:transparent;color:inherit;border-bottom:2px solid var(--warn);box-shadow:inset 0 -6px 0 color-mix(in srgb,var(--warn) 25%,transparent)}
+.flag{font-size:12px;color:var(--lie);margin-top:4px}
+.flag.mistaken{color:var(--warn)}
+.career{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.career div{border:1px solid var(--line);border-radius:9px;padding:8px 10px;text-align:center}
+.career b{display:block;font-family:var(--font-display);font-size:20px;color:var(--accent);font-variant-numeric:tabular-nums}
+.career span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-family:var(--font-display)}
+.stamp.tr{border-color:var(--info);color:var(--info)}
 /* Generating */
 .gen{max-width:620px;margin:28px auto 0}
 .gen .steps{display:grid;gap:10px;margin-top:16px}
@@ -324,36 +370,93 @@ div.lie{border-left:4px solid var(--lie);background:var(--panel);border-radius:0
 'use strict';
 
 /* ───────────────────────── settings & config ───────────────────────── */
+const FORENSIC_IDS = ['tod', 'prints', 'comms', 'tox', 'logs'];
 const SETTINGS = {
   country_house: {
-    id: 'country_house',
-    name: '1920s Country House',
-    era: 'England, November 1924',
+    id: 'country_house', name: '1920s Country House', short: 'Country house', era: 'England, November 1924',
     blurb: 'A shooting-party weekend at a draughty Wiltshire house. Sleet on the windows, a gong for dinner, a single telephone in the hall whose trunk calls go through the village exchange.',
     designerNotes: 'Country-house conventions apply: dinner at eight, the gun room, the servants’ hall, a study that locks, the back stairs, a motor that must be cranked, one lane to the village. Plausible methods include poison from the garden or the dispensary, a blow with something heavy from the room, a fall arranged on the stairs, a shotgun “accident” in the gun room. The telephone exchange operator logs trunk calls. Staff keep a key register. Everyone dressed for dinner; shoes, cuffs and gloves carry traces.',
     detective: 'a Detective Inspector sent down from Scotland Yard, who arrived at dawn',
+    speech: 'period English of 1924, class-marked: family clipped and formal, guests worldly, staff deferential',
     forensics: [
-      { id: 'tod',      name: 'Police surgeon: time of death', minutes: 40 },
-      { id: 'prints',   name: 'Fingerprint comparison', minutes: 60 },
-      { id: 'exchange', name: 'Telephone exchange log', minutes: 30 },
-      { id: 'tox',      name: 'Home Office analyst: toxicology', minutes: 90 },
-      { id: 'staff',    name: 'Servants’ movements and key register', minutes: 25 },
+      { id: 'tod', name: 'Police surgeon: time of death', minutes: 40 },
+      { id: 'prints', name: 'Fingerprint comparison', minutes: 60 },
+      { id: 'comms', name: 'Telephone exchange log', minutes: 30 },
+      { id: 'tox', name: 'Home Office analyst: toxicology', minutes: 90 },
+      { id: 'logs', name: 'Servants’ movements and key register', minutes: 25 },
     ],
-    clock: { start: '08:00', budget: 360 },
-    night: { start: '19:30', end: '02:00' },
-    questionCost: 5,
-    solicitorWait: 45,
+    clock: { start: '08:00' }, night: { start: '19:30', end: '02:00' }, questionCost: 5,
+    counsel: { refuse: 'Wants a solicitor', present: 'Solicitor present', wait: 'Wait for the solicitor', minutes: 45, arrive: 'A solicitor from the village arrives after {t} and sits in.', guarded: 'Your solicitor sits beside you. You answer direct factual questions briefly and decline anything speculative; your solicitor may interject in *asterisks* with a single line.', refuseLine: 'refuses to go on without a solicitor.' },
+    deco: '<svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 90V40l40-30 40 30v50"/><path d="M30 90V60h12v30M58 90V60h12v30M44 50h12v10H44zM20 50h8v8h-8zM72 50h8v8h-8z"/><path d="M50 10v-8M60 25l10-6M40 25l-10-6"/></g></svg>',
+  },
+  noir_docks: {
+    id: 'noir_docks', name: 'Noir Docks', short: 'Docks', era: 'San Pedro waterfront, California, February 1947',
+    blurb: 'Fog over the cargo piers, a union hall with a broken sign, a payphone outside a bar that never closes. A stevedore is dead and the night shift saw nothing.',
+    designerNotes: 'Waterfront conventions apply: a night shift at the pier, the union hall, a bar, a boarding house, a shipping office with a safe, a tide that moves bodies, hooks and winches, trucks that leave at dawn, a payphone with a company record, a harbour master who logs every vessel and gate. Plausible methods: a blow from a cargo hook, a shove into the water at the right tide, a pistol muffled by fog, a doctored bottle. Everyone has a grudge: union men, company fixers, a widow, a bookie’s runner, a bartender, a night watchman.',
+    detective: 'a homicide detective from the city, called down to the pier before dawn',
+    speech: 'clipped 1947 American, waterfront slang, nobody volunteers anything to a cop',
+    forensics: [
+      { id: 'tod', name: 'Coroner: time of death', minutes: 40 },
+      { id: 'prints', name: 'Police lab: fingerprints', minutes: 60 },
+      { id: 'comms', name: 'Telephone company: call records', minutes: 30 },
+      { id: 'tox', name: 'City lab: toxicology and ballistics', minutes: 90 },
+      { id: 'logs', name: 'Harbour master’s log and tide tables', minutes: 25 },
+    ],
+    clock: { start: '06:00' }, night: { start: '21:00', end: '04:00' }, questionCost: 5,
+    counsel: { refuse: 'Wants a lawyer', present: 'Lawyer present', wait: 'Wait for the lawyer', minutes: 45, arrive: 'A lawyer from the union hall turns up after {t} and sits in.', guarded: 'Your lawyer sits beside you. You answer direct factual questions in as few words as possible and decline anything else; your lawyer may cut in with a single line in *asterisks*.', refuseLine: 'wants a lawyer and stops talking.' },
+    deco: '<svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 80h90M15 80V30l30-20v70M45 30h20M65 30v20M65 50l-12 8M62 62a4 4 0 1 0 0 .1"/><path d="M10 92c8-6 16-6 24 0s16 6 24 0 16-6 24 0M28 80V50M36 80V50"/><circle cx="80" cy="20" r="6"/></g></svg>',
+  },
+  antarctic: {
+    id: 'antarctic', name: 'Antarctic Station', short: 'Station', era: 'British station on the ice shelf, midwinter 1983',
+    blurb: 'Nine people, four months of dark, one radio schedule a day. A scientist is dead in the generator shed and nobody can leave.',
+    designerNotes: 'Station conventions apply: a crew of nine, a cold porch and door seals, a generator shed with a log, a radio room with a schedule and a log, a lab with chemicals, a surgery with a drug cabinet, a melt tank, skidoos, a weather mast, bunk rooms with thin walls, dark around the clock, wind that stops anyone going outside. Plausible methods: carbon monoxide in a sealed hut, a blow in the generator shed, a drug from the surgery, a door left open in a blizzard. Tensions: a disputed finding, an affair in close quarters, a stolen ration, a radio message somebody should not have read. The suspects are drawn from the crew; the rest are off-stage and named in the public facts.',
+    detective: 'the base commander’s deputy, deputised by radio from Cambridge to investigate before the morning schedule',
+    speech: 'British Antarctic Survey, 1983: technical, understated, dark humour, first names and nicknames',
+    forensics: [
+      { id: 'tod', name: 'Station doctor: time of death', minutes: 40 },
+      { id: 'prints', name: 'Fingerprints (station lab; gloves limit it)', minutes: 60 },
+      { id: 'comms', name: 'Radio log and telex record', minutes: 30 },
+      { id: 'tox', name: 'Lab assay: toxicology and air samples', minutes: 90 },
+      { id: 'logs', name: 'Generator, door and cold-porch logs', minutes: 25 },
+    ],
+    clock: { start: '07:00' }, night: { start: '17:00', end: '01:00' }, questionCost: 5,
+    counsel: { refuse: 'Wants the commander present', present: 'Commander present', wait: 'Fetch the base commander', minutes: 20, arrive: 'The base commander comes through from the radio room after {t} and sits in.', guarded: 'The base commander sits beside you. You answer direct factual questions briefly and refuse to speculate; the commander may cut in with a single line in *asterisks*.', refuseLine: 'will not say another word without the commander present.' },
+    deco: '<svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 78h84M20 78V58h40v20M20 58l20-12h20l0 12M44 78V66h8v12M70 78V20M64 24h12M66 32h8M60 42l10 4"/><path d="M6 90l10-5 10 5 10-5 10 5 10-5 10 5 10-5 10 5 10-5"/><circle cx="18" cy="24" r="5"/><path d="M26 18l6-4M26 30l6 4"/></g></svg>',
   },
 };
-const COMING = [
-  { name: 'Noir docks', what: '1947 waterfront, fog, union men, a dead stevedore' },
-  { name: 'Antarctic research station', what: 'Winter-over crew, no way out, a radio log' },
-  { name: 'Difficulty dials', what: 'Suspect count, number of liars, accomplice, unreliable witness' },
-];
-
+const SETTING_ORDER = ['country_house', 'noir_docks', 'antarctic'];
+const PRESETS = {
+  inspector: { name: 'Inspector', desc: 'Four suspects, one liar, and an honest witness who is wrong about one thing.', dials: { suspects: 4, liars: 1, accomplice: false, mistaken: true, hours: 6 } },
+  chief: { name: 'Chief Inspector', desc: 'Five suspects, two liars, and the killer had help.', dials: { suspects: 5, liars: 2, accomplice: true, mistaken: true, hours: 6 } },
+  yard: { name: 'Scotland Yard', desc: 'Six suspects, three liars, an accomplice, and four hours.', dials: { suspects: 6, liars: 3, accomplice: true, mistaken: true, hours: 4 } },
+};
+function normDials(d) {
+  d = d || {}; const p = PRESETS.inspector.dials;
+  const n = (v, dflt) => (Number.isFinite(+v) ? +v : dflt);
+  return { suspects: Math.max(3, Math.min(6, Math.round(n(d.suspects, p.suspects)))), liars: Math.max(0, Math.min(3, Math.round(n(d.liars, p.liars)))), accomplice: !!d.accomplice, mistaken: d.mistaken !== false, hours: [4, 6, 8].includes(+d.hours) ? +d.hours : 6 };
+}
+function castPlan(d) {
+  const parts = ['killer'];
+  if (d.accomplice) parts.push('accomplice');
+  if (d.mistaken) parts.push('mistaken');
+  for (let i = 0; i < d.liars; i++) parts.push('liar');
+  while (parts.length > d.suspects) { const i = parts.lastIndexOf('liar'); if (i > 0) parts.splice(i, 1); else { const j = parts.indexOf('mistaken'); if (j > 0) parts.splice(j, 1); else parts.pop(); } }
+  while (parts.length < d.suspects) parts.push('honest');
+  return parts;
+}
+function describeCast(parts) {
+  const c = {}; parts.forEach((x) => { c[x] = (c[x] || 0) + 1; });
+  const bits = ['a killer'];
+  if (c.accomplice) bits.push('an accomplice');
+  if (c.liar) bits.push(`${c.liar} ${c.liar === 1 ? 'liar' : 'liars'} hiding something else`);
+  if (c.mistaken) bits.push('an honest witness who is wrong about one thing');
+  if (c.honest) bits.push(`${c.honest} honest`);
+  return bits.join(', ');
+}
+const PART_LABEL = { killer: 'the killer', accomplice: 'the accomplice', liar: 'lied to hide a secret', mistaken: 'honest but mistaken', honest: 'honest' };
 const TONES = { gentle: 'gentle, building rapport', direct: 'direct and businesslike', hard: 'hard, pressing and accusatory' };
-const STATE_LABEL = { calm: 'Composed', tense: 'Uneasy', rattled: 'Rattled', shutdown: 'Shut down', lawyered: 'Wants a solicitor', guarded: 'Solicitor present' };
-
+const STATE_LABEL = { calm: 'Composed', tense: 'Uneasy', rattled: 'Rattled', shutdown: 'Shut down', lawyered: 'Wants counsel', guarded: 'Counsel present' };
+const stateLabel = (state, st) => (state === 'lawyered' ? st.counsel.refuse : state === 'guarded' ? st.counsel.present : STATE_LABEL[state] || state);
 const TIPS = [
   'Pin the exact words. A time said aloud is a claim you can test.',
   'The honest witness can be wrong. Check what they saw against who else was there.',
@@ -385,77 +488,91 @@ const arr = (v) => (Array.isArray(v) ? v : []);
 const num = (v, d = 0) => (Number.isFinite(+v) ? +v : d);
 
 /* ───────────────────────── prompts ───────────────────────── */
-function truthPrompt(st, seed) {
-  return `You are the case designer for "Interrogation Room", a fair-play detective game. Design the sealed TRUTH FILE for one murder case. The player (a detective) will question 4 suspects in free text, request forensic reports, pin statements to an evidence board, and must finally name the killer, the motive and the method, citing evidence. Every answer the suspects give will be checked against this file, so it must be complete, concrete and internally consistent.
+function castRules(parts) {
+  const c = {}; parts.forEach((x) => { c[x] = (c[x] || 0) + 1; });
+  const out = ['- Exactly one KILLER.'];
+  if (c.accomplice) out.push('- Exactly one ACCOMPLICE: knew of the killing (before, or immediately after) and actively helps cover it: supports the killer\'s alibi with coordinated lies, moved or hid something, or lied about a time. Their reason for helping is their own (love, debt, fear, shared gain). Their story matches the killer\'s, but each of the two has a different weak point that evidence can expose, and neither is in the room for every moment the other claims.');
+  else out.push('- No accomplice.');
+  if (c.liar) out.push(`- ${c.liar === 1 ? 'One NON-KILLER LIAR' : c.liar + ' NON-KILLER LIARS, each'} hiding a different serious secret unrelated to the murder (an affair, a debt, a theft, a forged letter, a secret meeting, a past conviction) and lying about their movements for part of the night. Each lie must make them look suspicious for the murder window, and there must be evidence in the case that clears them.`);
+  else out.push('- No non-killer liars: everyone else tells the truth as they know it.');
+  if (c.mistaken) out.push('- One HONEST BUT MISTAKEN witness: tells the truth as they believe it, but one detail is wrong (a time off by 20-40 minutes, or a person misidentified by coat, voice or silhouette). The mistake should point the wrong way until it is corrected.');
+  if (c.honest) out.push(`- ${c.honest === 1 ? 'One HONEST suspect' : c.honest + ' HONEST suspects'}, with at most a small embarrassment they are reluctant about.`);
+  return out.join('\n');
+}
+
+function truthPrompt(st, seed, dials) {
+  const parts = castPlan(dials), n = parts.length;
+  return `You are the case designer for "Interrogation Room", a fair-play detective game. Design the sealed TRUTH FILE for one murder case. The player (a detective) will question ${n} suspects in free text, request forensic reports, pin statements to an evidence board, and must finally name the killer${dials.accomplice ? ' and any accomplice' : ''}, the motive and the method, citing evidence. Every answer the suspects give will be checked against this file, so it must be complete, concrete and internally consistent.
 
 SETTING: ${st.name}. ${st.era}. ${st.blurb}
 Designer notes for this setting: ${st.designerNotes}
-Variety seed: ${seed}. Invent a fresh house, family and household for this seed. Avoid these overused names: Ashworth, Blackwood, Pemberton, Hargreaves, Fairfax, Whitmore, Thornton, Lady Margaret, Lord Edmund, Eleanor. Use plausible period names and vocabulary, and name the house and the village.
+Speech: ${st.speech}.
+Variety seed: ${seed}. Invent a fresh place, people and household for this seed. Avoid these overused names: Ashworth, Blackwood, Pemberton, Hargreaves, Fairfax, Whitmore, Thornton, Lady Margaret, Lord Edmund, Eleanor, Haldane, Lusk, Varley. Use plausible period names and vocabulary, and name the place.
 
 THE NIGHT runs from ${st.night.start} to ${st.night.end}. The body is discovered before ${st.night.end}. The detective begins questioning at ${st.clock.start} the next morning.
 
-CAST (exactly 4 suspects; the victim is not a suspect):
-- Exactly one KILLER. No accomplice.
-- One NON-KILLER LIAR hiding a serious secret unrelated to the murder (an affair, a debt, a theft, a forged letter, a secret meeting) who lies about their movements for part of the night. Their lie must make them look suspicious for the murder window, and there must be evidence that clears them.
-- One HONEST BUT MISTAKEN witness: tells the truth as they believe it, but one detail is wrong (a time off by 20-40 minutes, or a person misidentified by coat, voice or silhouette). The mistake should point the wrong way until it is corrected.
-- The fourth suspect is HONEST, with at most a small embarrassment they are reluctant about.
-Mix ages, sexes and stations (family, guests, staff). Give each a distinct voice.
+CAST (exactly ${n} suspects; the victim is not a suspect). Parts, in this order: ${parts.join(', ')}.
+${castRules(parts)}
+Mix ages, sexes and stations. Give each a distinct voice.
 
 FAIR PLAY RULES:
-- The solution must be deducible from (a) honest testimony, (b) forensics, and (c) contradictions in the killer's own statements. The killer's alibi for the murder window must be false, and exposable in at least TWO independent ways (one forensic report, one witness or physical trace).
+- The solution must be deducible from (a) honest testimony, (b) forensics, and (c) contradictions in the guilty parties' own statements. The killer's alibi for the murder window must be false, and exposable in at least TWO independent ways (one forensic report, one witness or physical trace).
 - Every lie in the case has a specific piece of evidence that can expose it.
 - Physical evidence RESULTS from the events in the timeline, nothing arbitrary. 4-6 items. Mark which are visible at the scene when the body is found.
-- Motive is concrete and discoverable (a will, a debt, blackmail, an affair, a past wrong) through questioning and evidence.
+- Motive is concrete and discoverable (money, fear, blackmail, an affair, a past wrong) through questioning and evidence.
 - Method is specific and period-appropriate, leaves traces, and fits the timeline.
 - Include one red herring that honest investigation will dispel.
 
-FORENSIC REPORTS the detective may request. Write a TRUE, specific result for every one (1-2 sentences each). At least one must directly contradict the killer's planned alibi; one should help clear the non-killer liar:
+FORENSIC REPORTS the detective may request. Write a TRUE, specific result for every one (1-2 sentences each). At least one must directly contradict the killer's planned alibi; one should help clear a non-killer liar if there is one:
 ${st.forensics.map((f) => `- ${f.id}: ${f.name}`).join('\n')}
 
-TIMELINE: 14-18 entries covering the whole night at minute precision: the murder, every suspect's movements (so each suspect is accounted for at every moment, including moments nobody saw them), the discovery of the body and what the household did afterwards. Each entry lists who is present and who could have witnessed it. Keep each event to one sentence.
+TIMELINE: 14-18 entries covering the whole night at minute precision: the murder, every suspect's movements (so each suspect is accounted for at every moment, including moments nobody saw them), the discovery of the body and what people did afterwards. Each entry lists who is present and who could have witnessed it. Keep each event to one sentence.
 
-PUBLIC FACTS: 5-7 things everyone in the house knows by morning (who died, where and when the body was found and by whom, that the police were called, the weather, who was staying).
+PUBLIC FACTS: 5-7 things everyone there knows by morning (who died, where and when the body was found and by whom, that the authorities were called, the weather, who was present).
 
 Reply with ONLY a JSON object, no commentary, exactly this shape:
 {
  "title": "a 3-5 word case title, e.g. The Something Affair",
- "house": "name and one-line description of the house",
+ "house": "name and one-line description of the place",
  "victim": {"name": "", "age": 0, "role": "", "sketch": "2 sentences"},
- "night": {"start": "${st.night.start}", "end": "${st.night.end}", "discovered": "HH:MM", "discoveredBy": "name", "where": "room"},
+ "night": {"start": "${st.night.start}", "end": "${st.night.end}", "discovered": "HH:MM", "discoveredBy": "name", "where": "room or place"},
  "weather": "",
  "publicFacts": ["..."],
- "suspects": [{"name": "", "age": 0, "role": "relation to household and victim", "sketch": "2 sentences the detective would note on sight", "part": "killer|liar|mistaken|honest"}],
+ "suspects": [{"name": "", "age": 0, "role": "relation to the place and the victim", "sketch": "2 sentences the detective would note on sight", "part": "${[...new Set(parts)].join('|')}"}],
  "killer": "name (must match a suspect name exactly)",
+ "accomplice": ${dials.accomplice ? '"name of the accomplice (must match a suspect name exactly)"' : 'null'},
  "motive": "2 sentences",
  "method": "2-3 sentences: means, place, time, how it was concealed",
  "alibiGap": {"from": "HH:MM", "to": "HH:MM", "killerClaims": "what the killer will say they were doing", "actually": "what they did"},
- "timeline": [{"time": "HH:MM", "place": "", "present": ["names"], "event": "one or two sentences", "witnesses": ["names who saw or heard this; may be empty"]}],
+ "timeline": [{"time": "HH:MM", "place": "", "present": ["names"], "event": "one sentence", "witnesses": ["names who saw or heard this; may be empty"]}],
  "evidence": [{"id": "ev1", "name": "", "where": "", "detail": "what it is and its condition", "proves": "what a careful detective can infer", "atScene": true}],
  "forensics": {${st.forensics.map((f) => `"${f.id}": "result"`).join(', ')}},
  "redHerring": "what it is and what dispels it",
  "solutionPath": ["5-7 steps a sharp detective would take, each naming the statement, report or item used"]
 }`;
 }
-
 function briefsPrompt(st, truth) {
-  return `You are the case designer for "Interrogation Room", a detective game. Below is the sealed TRUTH FILE of a case. Write a PRIVATE BRIEF for each of the 4 suspects. An actor will play each suspect under free-text interrogation using ONLY their brief, so every brief must be complete enough to answer any reasonable question about the night, and strict enough that the suspect never states anything they could not know.
+  const n = truth.suspects.length;
+  return `You are the case designer for "Interrogation Room", a detective game. Below is the sealed TRUTH FILE of a case. Write a PRIVATE BRIEF for each of the ${n} suspects. An actor will play each suspect under free-text interrogation using ONLY their brief, so every brief must be complete enough to answer any reasonable question about the night, and strict enough that the suspect never states anything they could not know.
 
 Derive everything from the truth file:
-- A suspect knows only what they did, saw and heard, per the timeline (entries where they are present or listed as a witness), plus the public facts and ordinary knowledge of the household and its people.
+- A suspect knows only what they did, saw and heard, per the timeline (entries where they are present or listed as a witness), plus the public facts and ordinary knowledge of the place and its people.
 - The suspect whose part is "killer" knows everything about the murder and lies about the alibi gap; they know which traces they left and steer away from them.
-- The suspect whose part is "liar" lies only to cover their secret; they are otherwise a truthful witness.
+- A suspect whose part is "accomplice" knows what they did to help and what the killer told them; their lies are coordinated with the killer's story, and their "crack" conditions differ from the killer's. They do not confess for the killer unless cracked.
+- A suspect whose part is "liar" lies only to cover their own secret; they are otherwise a truthful witness.
 - The suspect whose part is "mistaken" tells the truth as they believe it, with exactly one wrong detail, and sticks to it unless shown proof.
-- The suspect whose part is "honest" tells the truth; they may be reluctant about one small embarrassment.
+- A suspect whose part is "honest" tells the truth; they may be reluctant about one small embarrassment.
 - Each "knows" list should include what the suspect noticed about OTHER suspects' whereabouts, so cross-examination works.
+Speech: ${st.speech}.
 
 TRUTH FILE:
 ${JSON.stringify(truth)}
 
-Reply with ONLY a JSON object: {"briefs": [ four items, in the same order as truth.suspects ]}, each item exactly this shape:
+Reply with ONLY a JSON object: {"briefs": [ ${n} items, in the same order as truth.suspects ]}, each item exactly this shape:
 {
  "name": "exactly as in truth.suspects",
- "part": "killer|liar|mistaken|honest",
- "personality": "2-3 sentences: temperament, manner under questioning, vocabulary and verbal habits; period-appropriate (${st.era})",
+ "part": "exactly as in truth.suspects",
+ "personality": "2-3 sentences: temperament, manner under questioning, vocabulary and verbal habits; period-appropriate",
  "voiceSample": "one typical sentence in their voice",
  "relationship": "how they truly felt about the victim",
  "movements": [{"from": "HH:MM", "to": "HH:MM", "where": "", "doing": "true account, one sentence", "seenBy": ["names"]}],
@@ -468,10 +585,9 @@ Reply with ONLY a JSON object: {"briefs": [ four items, in the same order as tru
  "pressure": {"baseline": 10-35, "breakPoint": 55-80, "lawyerPoint": 80-95, "style": "shutdown|lawyer|anger|tears"},
  "opening": "their first words when the detective sits down (1-2 sentences, in character)"
 }
-The killer has 2-4 lies; the liar 1-3; the mistaken and honest suspects have an empty lies list. Only the mistaken suspect has a non-null honestMistake.`;
+The killer has 2-4 lies; an accomplice 2-3; a liar 1-3; mistaken and honest suspects have an empty lies list. Only the mistaken suspect has a non-null honestMistake.`;
 }
-
-function stateText(s, brief) {
+function stateText(s, brief, st) {
   const style = brief.pressure?.style || 'shutdown';
   switch (s.state) {
     case 'calm': return 'You are composed and answer in your own manner.';
@@ -482,11 +598,10 @@ function stateText(s, brief) {
         ? 'You are close to tears, rambling, and may let slip more than you intend.'
         : 'You are badly shaken and your answers wander; you may let slip more than you intend.';
     case 'shutdown': return 'You have closed up. One short sentence at a time. "I have told you what I know." You volunteer nothing and avoid eye contact.';
-    case 'guarded': return 'Your solicitor sits beside you. You answer direct factual questions briefly and decline anything speculative; your solicitor may interject in *asterisks* with a single line.';
-    default: return 'You refuse to say anything further without your solicitor.';
+    case 'guarded': return st.counsel.guarded;
+    default: return 'You refuse to say anything further without someone to speak for you.';
   }
 }
-
 function actorInput(G, name, s, brief, st) {
   const t = G.truth;
   const actorBrief = { ...brief };
@@ -494,7 +609,7 @@ function actorInput(G, name, s, brief, st) {
   const admitted = (s.cracked || []).map((i) => brief.lies?.[i]?.truth).filter(Boolean);
   const instr = `You are playing ${name} in a detective game set in ${st.era}. ${t.victim.name} (${t.victim.role}) was found dead at ${t.night.discovered} in ${t.night.where} by ${t.night.discoveredBy}. It is now the morning after, at ${t.house}. A police officer (${st.detective}) is questioning you. Stay fully in character at all times.
 
-HOW TO REPLY: only ${name}'s spoken words, with at most one brief action in *asterisks*. Usually 20-90 words; longer only when the question invites an account. Period speech. Never mention being an AI, a game, a brief or an actor. Never speak for the detective. Do not volunteer information nobody asked for. Refer to people the way ${name} would.
+HOW TO REPLY: only ${name}'s spoken words, with at most one brief action in *asterisks*. Usually 20-90 words; longer only when the question invites an account. Speech: ${st.speech}. Never mention being an AI, a game, a brief or an actor. Never speak for the detective. Do not volunteer information nobody asked for. Refer to people the way ${name} would.
 
 WHAT EVERYONE IN THE HOUSE KNOWS: ${arr(t.publicFacts).join(' ')}
 
@@ -503,7 +618,7 @@ ${JSON.stringify(actorBrief)}
 
 RULES OF KNOWLEDGE: You know only what is in "knows", "movements", "relationship" and "secret", plus what everyone knows. You never state or hint at anything in "doesNotKnow". If asked about something you could not have seen, say so in your own way.
 RULES OF LYING: Tell the lies in "lies" whenever their topic comes up, and keep them consistent with everything you have already said. Abandon a lie only if the detective presents evidence that meets its "crack" condition, or if your pressure has passed your breaking point and your nature makes you crumble.${brief.honestMistake ? ' You sincerely believe your "honestMistake" claim; repeat it with confidence unless shown proof.' : ''}
-${admitted.length ? `YOU HAVE ALREADY ADMITTED: ${admitted.join(' | ')}\n` : ''}${s.claims?.length ? `STATEMENTS YOU HAVE MADE SO FAR (stay consistent with them): ${s.claims.slice(-30).map((c) => JSON.stringify(c.text)).join(' ')}\n` : ''}YOUR PRESSURE: ${s.pressure}/100 (breaking point ${brief.pressure?.breakPoint ?? 70}). ${stateText(s, brief)}`;
+${admitted.length ? `YOU HAVE ALREADY ADMITTED: ${admitted.join(' | ')}\n` : ''}${s.claims?.length ? `STATEMENTS YOU HAVE MADE SO FAR (stay consistent with them): ${s.claims.slice(-30).map((c) => JSON.stringify(c.text)).join(' ')}\n` : ''}YOUR PRESSURE: ${s.pressure}/100 (breaking point ${brief.pressure?.breakPoint ?? 70}). ${stateText(s, brief, st)}`;
 
   const turns = [{ role: 'user', content: instr }];
   const recent = s.transcript.filter((m) => m.role !== 'sys').slice(-22);
@@ -525,10 +640,11 @@ function refereeInput(G, name, s, brief, det, answer) {
   const t = G.truth;
   const tl = arr(t.timeline).map((e) => `${e.time} ${e.place}: ${e.event} [present: ${arr(e.present).join(', ')}]`).join('\n');
   const pres = det.presented ? `, placing on the table ${det.presented.source}: "${det.presented.text}"` : '';
+  const guilty = brief.part === 'killer' || brief.part === 'accomplice';
   return `You are the REFEREE of a detective game. An actor playing the suspect ${name} has just answered the detective. Check the answer against the sealed truth and the suspect's private brief, correct it if needed, then annotate it. Reply with ONLY JSON.
 
 SEALED TRUTH (the player must never be told this directly):
-Killer: ${t.killer}. Method: ${t.method} Motive: ${t.motive}
+Killer: ${t.killer}. Accomplice: ${t.accomplice || 'none'}. Method: ${t.method} Motive: ${t.motive}
 Alibi gap ${t.alibiGap?.from}-${t.alibiGap?.to}: the killer claims "${t.alibiGap?.killerClaims}"; actually ${t.alibiGap?.actually}
 Timeline:
 ${tl}
@@ -542,9 +658,9 @@ DETECTIVE (tone: ${TONES[det.tone] || 'direct'}${pres}): ${det.text}
 PROPOSED ANSWER: ${answer}
 
 CHECKS:
-1. LEAK: the answer states or clearly hints at something this suspect cannot know (anything in doesNotKnow; events they were not present at and did not witness; the killer's identity or the method if they are not the killer). Repeating public facts is fine.
+1. LEAK: the answer states or clearly hints at something this suspect cannot know (anything in doesNotKnow; events they were not present at and did not witness; the killer's identity, the accomplice's part or the method if they are not one of the guilty). Repeating public facts is fine.
 2. CONSISTENCY: the answer contradicts one of their prior statements or a listed lie without an in-character reason (a lie's crack condition met by what the detective presented, or pressure past the break point).
-3. CONFESSION: the killer may admit the murder only if pressure >= breakPoint AND the detective has presented evidence meeting one of the lies' crack conditions. A non-killer must never claim to be the killer.
+3. CONFESSION: ${guilty ? 'this suspect is guilty and' : 'a guilty party'} may admit their part only if pressure >= breakPoint AND the detective has presented evidence meeting one of the lies' crack conditions. A non-guilty suspect must never claim to be the killer or to have helped.
 4. FORM: in character, no AI or game references, does not speak for the detective, under 120 words.
 If any check fails, set "ok": false and write "answer": a corrected reply in the same voice that fixes only the problem and keeps the rest. Otherwise "ok": true and copy the proposed answer verbatim into "answer".
 
@@ -555,7 +671,6 @@ ANNOTATE the final answer:
 - "hit": true if the question or the evidence presented touched one of this suspect's lies, their secret, or their honest mistake.
 Reply ONLY: {"ok": true, "problems": [], "answer": "...", "claims": [{"text": "", "label": "true", "truth": ""}], "pressureDelta": 0, "cracked": [], "hit": false}`;
 }
-
 function scorePrompt(G, acc, killerCorrect) {
   const t = G.truth;
   const lies = G.lieLog.filter((l) => l.label === 'lie' || l.label === 'mistaken').map((l) => `${l.suspect} (${l.label}): "${l.text}" / truth: ${l.truth}`);
@@ -564,16 +679,17 @@ function scorePrompt(G, acc, killerCorrect) {
     const a = G.board.pins.find((p) => p.id === l.a), b = G.board.pins.find((p) => p.id === l.b);
     return a && b ? `${l.type.toUpperCase()}: "${a.text}" <> "${b.text}"` : null;
   }).filter(Boolean);
-  return `You are the Chief Constable reviewing a detective's accusation at the close of a case. Grade the reasoning against the sealed truth. Reply with ONLY JSON.
+  const chief = G.settingId === 'noir_docks' ? 'a 1947 police captain' : G.settingId === 'antarctic' ? 'the expedition director, by telex from Cambridge' : 'a 1920s Chief Constable';
+  return `You are ${chief}, reviewing a detective's accusation at the close of a case. Grade the reasoning against the sealed truth. Reply with ONLY JSON.
 
-TRUTH: the killer is ${t.killer}. Motive: ${t.motive} Method: ${t.method}
+TRUTH: the killer is ${t.killer}. Accomplice: ${t.accomplice || 'none'}. Motive: ${t.motive} Method: ${t.method}
 Solution path: ${arr(t.solutionPath).join(' / ')}
 Evidence in the case: ${arr(t.evidence).map((e) => `${e.name}: ${e.proves}`).join('; ')}
 Forensic results available: ${Object.entries(t.forensics || {}).map(([k, v]) => `${k}: ${v}`).join(' | ')}
 
 LIES AND MISTAKES ACTUALLY TOLD during questioning (what the detective could have caught): ${lies.length ? lies.join(' || ') : 'none recorded'}
 
-THE ACCUSATION: the detective accused ${acc.killer}. This is ${killerCorrect ? 'CORRECT' : 'WRONG'} (already scored separately; do not score the name again).
+THE ACCUSATION: the detective accused ${acc.killer}${acc.accomplice ? ` with ${acc.accomplice} as accomplice` : ' and named no accomplice'}. The name${t.accomplice ? 's are' : ' is'} ${killerCorrect ? 'CORRECT' : 'WRONG'} (already scored separately; do not score the names again).
 Motive given: "${acc.motive}"
 Method given: "${acc.method}"
 Evidence cited: ${cited.length ? cited.join(' ; ') : 'none'}
@@ -583,28 +699,39 @@ SCORE:
 - "motive": 0-20. Does the stated motive match the true motive in substance? Partial credit for the right area (money, love, fear) with wrong specifics.
 - "method": 0-20. Means, place and time. Partial credit for means alone.
 - "evidence": 0-20. Do the cited items actually support the accusation? Is the decisive contradiction or forensic report among them? Penalise padding with irrelevant items. Zero if nothing cited bears on the accused.
-If the accused is wrong, motive and method score at most 8 each.
-- "verdict": 3-4 sentences in the dry voice of a 1920s Chief Constable, addressed to the detective, naming what was sharp and what was sloppy. Do not use dashes.
+If the accused killer is wrong, motive and method score at most 8 each.
+- "verdict": 3-4 sentences in the dry voice of ${chief}, addressed to the detective, naming what was sharp and what was sloppy. Do not use dashes.
 - "missed": up to 4 short items the detective did not use or notice (from the solution path and the lies told).
 - "caught": up to 4 lies or contradictions the detective did expose or cite.
 Reply ONLY: {"motive": 0, "method": 0, "evidence": 0, "verdict": "...", "missed": ["..."], "caught": ["..."]}`;
 }
 
 /* ───────────────────────── validation ───────────────────────── */
-function normalizeTruth(raw, st) {
+const PARTS = ['killer', 'accomplice', 'liar', 'mistaken', 'honest'];
+function normalizeTruth(raw, st, dials) {
   if (!raw || typeof raw !== 'object') throw new Error('truth not an object');
   const t = raw;
-  t.suspects = arr(t.suspects).slice(0, 4).map((s) => ({ name: str(s?.name, 80).trim(), age: num(s?.age), role: str(s?.role, 200), sketch: str(s?.sketch, 600), part: ((p) => (['killer', 'liar', 'mistaken', 'honest'].includes(p) ? p : 'honest'))(str(s?.part, 20).trim().toLowerCase()) }));
-  if (t.suspects.length !== 4 || t.suspects.some((s) => !s.name)) throw new Error('need 4 named suspects');
-  const names = t.suspects.map((s) => s.name);
-  t.killer = str(t.killer, 80).trim();
-  if (!names.includes(t.killer)) {
-    const surname = (n) => n.split(/\s+/).pop().toLowerCase();
-    const k = t.suspects.find((s) => s.part === 'killer') || t.suspects.find((s) => t.killer && (s.name.includes(t.killer) || t.killer.includes(s.name))) || t.suspects.find((s) => t.killer && surname(s.name) === surname(t.killer));
-    if (!k) throw new Error('killer not among suspects');
-    t.killer = k.name;
-  }
-  t.suspects.forEach((s) => { if (s.name === t.killer) s.part = 'killer'; else if (s.part === 'killer') s.part = 'liar'; });
+  const want = dials ? castPlan(normDials(dials)).length : 4;
+  t.suspects = arr(t.suspects).slice(0, 6).map((s) => ({ name: str(s?.name, 80).trim(), age: num(s?.age), role: str(s?.role, 200), sketch: str(s?.sketch, 600), part: ((p) => (PARTS.includes(p) ? p : 'honest'))(str(s?.part, 20).trim().toLowerCase()) }));
+  if (t.suspects.length < 3 || t.suspects.some((s) => !s.name)) throw new Error('need at least 3 named suspects');
+  if (t.suspects.length > want && want >= 3) t.suspects = t.suspects.slice(0, want);
+  const surname = (n) => String(n).split(/\s+/).pop().toLowerCase();
+  const resolve = (given) => {
+    const g = str(given, 80).trim(); if (!g) return null;
+    return t.suspects.find((s) => s.name === g) || t.suspects.find((s) => s.name.includes(g) || g.includes(s.name)) || t.suspects.find((s) => surname(s.name) === surname(g)) || null;
+  };
+  let k = resolve(t.killer) || t.suspects.find((s) => s.part === 'killer');
+  if (!k) throw new Error('killer not among suspects');
+  t.killer = k.name;
+  let a = (!dials || dials.accomplice) ? (resolve(t.accomplice) || t.suspects.find((s) => s.part === 'accomplice' && s.name !== t.killer)) : null;
+  if (a && a.name === t.killer) a = null;
+  t.accomplice = a ? a.name : null;
+  t.suspects.forEach((s) => {
+    if (s.name === t.killer) s.part = 'killer';
+    else if (t.accomplice && s.name === t.accomplice) s.part = 'accomplice';
+    else if (s.part === 'killer' || s.part === 'accomplice') s.part = 'liar';
+  });
+  if (t.suspects.filter((s) => s.part === 'mistaken').length > 1) { let seen = false; t.suspects.forEach((s) => { if (s.part === 'mistaken') { if (seen) s.part = 'honest'; seen = true; } }); }
   t.victim = { name: str(t.victim?.name, 80) || 'The victim', age: num(t.victim?.age), role: str(t.victim?.role, 200), sketch: str(t.victim?.sketch, 600) };
   t.night = { start: toMin(t.night?.start) != null ? t.night.start : st.night.start, end: toMin(t.night?.end) != null ? t.night.end : st.night.end, discovered: str(t.night?.discovered, 10) || '23:30', discoveredBy: str(t.night?.discoveredBy, 80), where: str(t.night?.where, 120) };
   t.publicFacts = arr(t.publicFacts).map((x) => str(x, 300)).filter(Boolean);
@@ -612,8 +739,8 @@ function normalizeTruth(raw, st) {
   t.timeline.sort((a, b) => nightOffset(a.time, t.night.start) - nightOffset(b.time, t.night.start));
   if (t.timeline.length < 6) throw new Error('timeline too short');
   t.evidence = arr(t.evidence).map((e, i) => ({ id: str(e?.id, 20) || `ev${i + 1}`, name: str(e?.name, 160), where: str(e?.where, 200), detail: str(e?.detail, 600), proves: str(e?.proves, 600), atScene: !!e?.atScene }));
-  const fo = {};
-  for (const f of st.forensics) fo[f.id] = str(t.forensics?.[f.id], 1200) || 'The report is inconclusive.';
+  const fo = {}, old = { exchange: 'comms', staff: 'logs' };
+  for (const f of st.forensics) fo[f.id] = str(t.forensics?.[f.id] ?? t.forensics?.[Object.keys(old).find((o) => old[o] === f.id)], 1200) || 'The report is inconclusive.';
   t.forensics = fo;
   t.title = str(t.title, 80) || 'An Unnamed Affair';
   t.house = str(t.house, 300);
@@ -626,6 +753,34 @@ function normalizeTruth(raw, st) {
   return t;
 }
 
+/* deterministic audit of a truth file: returns a list of problems for one repair call */
+function auditTruth(t, dials) {
+  const probs = [];
+  const names = t.suspects.map((s) => s.name);
+  for (const n of names) { const c = t.timeline.filter((e) => e.present.some((p) => p === n || p.includes(n) || n.includes(p))).length; if (c < 2) probs.push(`Suspect ${n} appears in fewer than two timeline entries; account for their movements through the night.`); }
+  const gf = nightOffset(t.alibiGap.from, t.night.start), gt = nightOffset(t.alibiGap.to, t.night.start);
+  if (gf == null || gt == null) probs.push('alibiGap.from and alibiGap.to must be HH:MM times inside the night.');
+  else if (!t.timeline.some((e) => { const o = nightOffset(e.time, t.night.start); return o >= gf && o <= gt; })) probs.push('No timeline entry falls inside the alibi gap; the murder must appear in the timeline within it.');
+  if (!t.evidence.length || t.evidence.length < 3) probs.push('Provide at least 4 evidence items that result from the timeline.');
+  else if (!t.evidence.some((e) => e.atScene)) probs.push('Mark at least one evidence item atScene: true.');
+  if (t.publicFacts.length < 3) probs.push('Provide at least 5 public facts.');
+  if (dials?.accomplice && !t.accomplice) probs.push('The case requires an accomplice: name one suspect as "accomplice" (part and top-level field).');
+  if (dials?.mistaken && !t.suspects.some((s) => s.part === 'mistaken')) probs.push('One suspect must have part "mistaken".');
+  const liars = t.suspects.filter((s) => s.part === 'liar').length;
+  if (dials && liars < dials.liars) probs.push(`The case requires ${dials.liars} non-killer liar(s); only ${liars} suspect(s) have part "liar".`);
+  for (const f of Object.keys(t.forensics)) if (t.forensics[f] === 'The report is inconclusive.') probs.push(`Forensic report "${f}" is missing a true, specific result.`);
+  if (!t.solutionPath.length) probs.push('Provide a solutionPath of 5-7 steps.');
+  return probs;
+}
+function repairPrompt(t, probs) {
+  return `You are the case designer for a detective game. The TRUTH FILE below has problems. Fix ONLY these problems, keeping everything else the same, and reply with the COMPLETE corrected JSON object in exactly the same shape, no commentary.
+
+PROBLEMS:
+${probs.map((x) => '- ' + x).join('\n')}
+
+TRUTH FILE:
+${JSON.stringify(t)}`;
+}
 function normalizeBriefs(raw, truth) {
   const list = arr(raw?.briefs ?? raw);
   const out = [];
@@ -647,7 +802,7 @@ function normalizeBriefs(raw, truth) {
       honestMistake: b.honestMistake && b.honestMistake.claim ? { claim: str(b.honestMistake.claim, 400), truth: str(b.honestMistake.truth, 400), why: str(b.honestMistake.why, 400) } : null,
       tells: arr(b.tells).map((x) => str(x, 200)).filter(Boolean),
       pressure: { baseline: clamp(num(p.baseline, 20), 0, 60), breakPoint: clamp(num(p.breakPoint, 70), 40, 95), lawyerPoint: clamp(num(p.lawyerPoint, 88), 50, 100), style: ['shutdown', 'lawyer', 'anger', 'tears'].includes(p.style) ? p.style : 'shutdown' },
-      opening: str(b.opening, 400) || 'Well, Inspector. Ask what you must.',
+      opening: str(b.opening, 400) || 'Well then. Ask what you must.',
     });
   }
   out.forEach((b) => { if (b.pressure.lawyerPoint <= b.pressure.breakPoint) b.pressure.lawyerPoint = Math.min(100, b.pressure.breakPoint + 12); b.pressure.baseline = Math.min(b.pressure.baseline, b.pressure.breakPoint - 20); });
@@ -657,18 +812,19 @@ function normalizeBriefs(raw, truth) {
 /* ───────────────────────── state ───────────────────────── */
 const KEY_GAME = 'ir.game.v1', KEY_BOOK = 'ir.casebook.v1', KEY_SET = 'ir.settings.v1';
 let G = null;                 // current game
-let S = Object.assign({ tier: 'quick' }, safeGet(KEY_SET, {}));
+let S = Object.assign({ tier: 'quick', writer: 'standard', setting: 'country_house', preset: 'inspector', dials: null }, safeGet(KEY_SET, {}));
 let sample = null;            // capability namespace, or null
 let sampleReady = false;      // use() has resolved
 let busy = null;              // {ctl, kind}
 const ui = { tab: 'case', boardView: 'pins', linkFrom: null, tone: 'direct', present: null, genStep: null, genBytes: {}, genError: null, draft: {}, closedTranscriptFor: null };
 
-function newGame(settingId, truth, briefs) {
+function newGame(settingId, truth, briefs, dials, opts) {
   const st = SETTINGS[settingId];
+  dials = normDials(dials);
   const g = {
-    v: 1, id: uid(), settingId, createdAt: Date.now(), phase: 'play',
-    truth, briefs,
-    clock: { used: 0, budget: st.clock.budget },
+    v: 2, id: uid(), settingId, dials, createdAt: Date.now(), phase: 'play',
+    truth, briefs, training: !!opts?.training, sharedFrom: opts?.sharedFrom || null,
+    clock: { used: 0, budget: dials.hours * 60 },
     suspects: {}, board: { pins: [], links: [] }, forensics: {}, lieLog: [], accusation: null, score: null,
     active: briefs[0]?.name || null,
   };
@@ -678,7 +834,6 @@ function newGame(settingId, truth, briefs) {
   }
   return g;
 }
-
 function applyState(s, brief) {
   const { breakPoint, lawyerPoint, style } = brief.pressure;
   const p = s.pressure;
@@ -725,6 +880,112 @@ function lieStatus(l) {
   return { pinned, linked, cited };
 }
 
+/* ───────────────────────── cloud: casebook sync and shared gallery ─────────────────────────
+   Uses the db and user capabilities when the viewer is signed in on claude.ai; otherwise the
+   casebook stays in this browser only. Per-viewer cases live under data/users/<id>/ (private);
+   shared cases live in shared_index (light rows) and shared_cases (the sealed night). */
+const cloud = { db: null, user: null, uid: null, canWrite: false, ready: false, synced: false, names: {} };
+async function initCloud() {
+  try {
+    if (!window.claude?.use) { cloud.ready = true; return; }
+    const [db, user] = await Promise.all([window.claude.use('db').catch(() => null), window.claude.use('user').catch(() => null)]);
+    cloud.db = db || null; cloud.user = user || null;
+    if (cloud.user) {
+      try { cloud.uid = await cloud.user.id(); } catch { cloud.uid = null; }
+      try { const w = await cloud.user.can('data.write'); cloud.canWrite = w !== false; } catch { cloud.canWrite = true; }
+    }
+  } catch { /* absent */ }
+  cloud.ready = true;
+  if (cloud.db && cloud.uid) cloudSyncCasebook().catch((e) => console.warn('casebook sync failed', e));
+}
+const myCases = () => cloud.db.collection('data/users/' + cloud.uid);
+function caseDoc(entry) {
+  const doc = { type: 'case', id: entry.id, title: entry.title, setting: entry.setting, settingId: entry.settingId, dials: entry.dials, finishedAt: entry.finishedAt, total: entry.total, rank: entry.rank, killerCorrect: entry.killerCorrect, training: !!entry.training, game: entry.game };
+  if (JSON.stringify(doc).length > 240000) { doc.game = null; doc.tooLarge = true; }
+  return doc;
+}
+async function cloudSaveCase(entry) {
+  if (!cloud.db || !cloud.uid || !cloud.canWrite) return;
+  try { await myCases().doc('case_' + entry.id).set(caseDoc(entry)); }
+  catch (e) { console.warn('cloud save failed', e); if (e?.code === 'invalid_argument') cloud.canWrite = false; }
+}
+async function cloudSyncCasebook() {
+  if (!cloud.db || !cloud.uid || cloud.synced) return;
+  cloud.synced = true;
+  const snap = await myCases().where('type', '==', 'case').orderBy('finishedAt', 'desc').limit(40).get();
+  const local = casebook();
+  const byId = new Map(local.map((c) => [c.id, c]));
+  let changed = false;
+  for (const d of snap.docs) {
+    const x = d.data(); if (!x || !x.id) continue;
+    if (!byId.has(x.id)) { byId.set(x.id, { id: x.id, title: x.title, setting: x.setting, settingId: x.settingId, dials: x.dials, finishedAt: x.finishedAt, total: x.total, rank: x.rank, killerCorrect: !!x.killerCorrect, training: !!x.training, game: x.game || null, cloudOnly: !x.game }); changed = true; }
+  }
+  if (changed) {
+    const merged = Array.from(byId.values()).sort((a, b) => (b.finishedAt || 0) - (a.finishedAt || 0)).slice(0, 24);
+    safeSet(KEY_BOOK, merged);
+    if (!G) render();
+  }
+  // push up to five local-only cases, one at a time
+  const have = new Set(snap.docs.map((d) => d.id));
+  let pushed = 0;
+  for (const c of local) { if (pushed >= 5) break; if (!have.has('case_' + c.id) && c.game) { await cloudSaveCase(c); pushed++; } }
+}
+async function shareCase() {
+  if (!G || !cloud.db || !cloud.uid || !cloud.canWrite || G.training) return;
+  if (G.sharedId) { toast('Already in the gallery.'); return; }
+  const id = G.sharedFrom || G.id;
+  if (G.sharedFrom) { toast('This case came from the gallery already.'); return; }
+  const st = stOf();
+  try {
+    await cloud.db.doc('shared_cases/' + id).set({ id, settingId: G.settingId, dials: G.dials, truth: G.truth, briefs: G.briefs, by: cloud.uid, at: Date.now() });
+    await cloud.db.doc('shared_index/' + id).set({ id, title: G.truth.title, settingId: G.settingId, setting: st.name, dials: G.dials, cast: describeCast(castPlan(G.dials)), by: cloud.uid, at: Date.now(), authorScore: G.score?.total ?? null, authorRank: G.score?.rank || '' });
+    G.sharedId = id; save(); render(); toast('Shared. Anyone who can open this page can play it from the gallery.');
+  } catch (e) { console.warn('share failed', e); toast(e?.code === 'quota_exceeded' ? 'The gallery is full.' : 'Sharing failed. Try again in a moment.'); }
+}
+async function recordSharedScore() {
+  if (!G?.sharedFrom || !cloud.db || !cloud.uid || !cloud.canWrite || !G.score) return;
+  try { await cloud.db.doc('shared_scores/' + G.sharedFrom + '_' + cloud.uid).set({ caseId: G.sharedFrom, by: cloud.uid, total: G.score.total, rank: G.score.rank, killerCorrect: !!G.accusation?.killerCorrect, at: Date.now() }); } catch (e) { console.warn('score record failed', e); }
+}
+async function resolveNames(ids) {
+  const want = ids.filter((x) => x && !(x in cloud.names));
+  if (want.length && cloud.user?.profiles) { try { const ps = await cloud.user.profiles(want); for (const id of want) cloud.names[id] = (ps?.[id]?.name) || ''; } catch { for (const id of want) cloud.names[id] = ''; } }
+  return cloud.names;
+}
+function gallerySheet() {
+  if (!cloud.db) { openModal(`<h3>Shared gallery</h3><p class="note">${cloud.ready ? 'The gallery needs a signed-in claude.ai viewer. Case codes still work: copy one from a reveal screen and paste it under “Play a shared case”.' : 'Connecting…'}</p><div class="row"><button class="btn ghost" data-act="close-modal">Close</button></div>`); return; }
+  openModal(`<h3>Shared gallery</h3><p class="note">Sealed nights other players have finished and shared. Play one; the suspects are fresh for you.</p><div class="casebook" id="gallery-list"><p class="note">Loading…</p></div><div class="row"><button class="btn ghost" data-act="close-modal">Close</button></div>`);
+  (async () => {
+    const list = $('#gallery-list'); if (!list) return;
+    try {
+      const [snap, scores] = await Promise.all([cloud.db.collection('shared_index').orderBy('at', 'desc').limit(30).get(), cloud.db.collection('shared_scores').orderBy('at', 'desc').limit(300).get().catch(() => null)]);
+      const rows = snap.docs.map((d) => d.data()).filter((x) => x && x.id);
+      const stats = {};
+      for (const d of (scores?.docs || [])) { const x = d.data(); if (!x?.caseId) continue; const s = stats[x.caseId] || (stats[x.caseId] = { plays: 0, best: 0, mine: null }); s.plays++; s.best = Math.max(s.best, num(x.total)); if (x.by === cloud.uid) s.mine = num(x.total); }
+      const names = await resolveNames(rows.map((r) => r.by));
+      const el = $('#gallery-list'); if (!el) return;
+      el.innerHTML = rows.length ? rows.map((r) => { const s = stats[r.id]; return `<div class="cb"><span class="sc" title="Author's score">${r.authorScore != null ? esc(r.authorScore) : '–'}</span><span class="ti"><b>${esc(r.title)}</b><span>${esc(r.setting)} · ${esc(r.cast || '')} · by ${esc(names[r.by] || 'Someone')}${r.by === cloud.uid ? ' (you)' : ''} · ${new Date(r.at).toLocaleDateString()}${s ? ` · ${s.plays} ${s.plays === 1 ? 'play' : 'plays'}, best ${s.best}${s.mine != null ? `, yours ${s.mine}` : ''}` : ''}</span></span><button class="btn sm primary" data-act="play-shared" data-id="${esc(r.id)}">Play</button></div>`; }).join('') : '<p class="note">Nothing shared yet. Finish a case and choose “Share to the gallery” on the reveal screen.</p>';
+    } catch (e) { console.warn('gallery failed', e); const el = $('#gallery-list'); if (el) el.innerHTML = '<p class="note">The gallery could not be loaded right now.</p>'; }
+  })();
+}
+async function playShared(id) {
+  if (!cloud.db || !id) return;
+  const saved = safeGet(KEY_GAME, null);
+  if (!G && saved?.phase === 'play' && ui.sharedOk !== id) { ui.sharedOk = id; confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'play-shared-do', 'Open shared case'); ui.sharedPending = id; return; }
+  ui.sharedOk = null;
+  try {
+    const d = await cloud.db.doc('shared_cases/' + id).get();
+    const x = d.exists ? d.data() : null;
+    if (!x || !SETTINGS[x.settingId]) { toast('That case is no longer available.'); return; }
+    const st = SETTINGS[x.settingId], dials = normDials(x.dials);
+    const truth = normalizeTruth(JSON.parse(JSON.stringify(x.truth)), st, null);
+    const briefs = normalizeBriefs({ briefs: JSON.parse(JSON.stringify(x.briefs)) }, truth);
+    closeModal(); safeDel(KEY_GAME);
+    G = newGame(x.settingId, truth, briefs, dials, { sharedFrom: id }); ui.tab = 'case'; save(); render();
+    toast('Shared case open. Read the file, then start asking.');
+  } catch (e) { console.warn('play shared failed', e); toast('That case could not be opened.'); }
+}
+const TRAINING = {};
+
 /* ───────────────────────── Claude calls ───────────────────────── */
 function errCopy(e) {
   switch (e?.code) {
@@ -741,28 +1002,38 @@ function errCopy(e) {
   }
 }
 const actorOpts = () => (S.tier === 'deep' ? { modelTier: 'default', effort: 'low' } : { modelTier: 'quick' });
+const writerOpts = () => (S.writer === 'quick' ? { modelTier: 'quick' } : S.writer === 'deep' ? { modelTier: 'default' } : { modelTier: 'default', effort: 'low' });
 
-async function generateCase(settingId, seedTruth) {
-  if (!sample) { ui.genError = errCopy({ code: 'not_granted' }); render(); return; }
-  const st = SETTINGS[settingId];
+async function generateCase(settingId, dials, seedCase) {
+  if (!sample && !seedCase) { ui.genError = errCopy({ code: 'not_granted' }); render(); return; }
+  const st = SETTINGS[settingId] || SETTINGS.country_house; settingId = st.id;
+  dials = normDials(dials);
   const ctl = new AbortController();
   busy = { ctl, kind: 'gen' };
-  ui.genError = null; ui.genBytes = {}; ui.genStep = 'truth'; ui.genStart = Date.now();
+  ui.genError = null; ui.genBytes = {}; ui.genStep = 'truth'; ui.genStart = Date.now(); ui.genSetting = settingId; ui.genDials = dials;
   G = null; render(); startGenTicker();
   try {
-    let truth = seedTruth?.truth || null, briefs = seedTruth?.briefs || null;
+    let truth = seedCase?.truth || null, briefs = seedCase?.briefs || null;
     if (!truth) {
       const seed = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`;
-      const raw = await sample.json(truthPrompt(st, seed), { cache: false, signal: ctl.signal, modelTier: 'default', effort: 'low', onText: ({ text }) => { ui.genBytes.truth = text.length; paintGen(); } });
-      truth = normalizeTruth(raw, st);
+      const raw = await sample.json(truthPrompt(st, seed, dials), { cache: false, signal: ctl.signal, ...writerOpts(), onText: ({ text }) => { ui.genBytes.truth = text.length; paintGen(); } });
+      truth = normalizeTruth(raw, st, dials);
+      const probs = auditTruth(truth, dials);
+      if (probs.length) {
+        ui.genStep = 'repair'; paintGen();
+        try {
+          const fixed = await sample.json(repairPrompt(truth, probs), { cache: false, signal: ctl.signal, ...writerOpts(), onText: ({ text }) => { ui.genBytes.repair = text.length; paintGen(); } });
+          truth = normalizeTruth(fixed, st, dials);
+        } catch (e) { if (e?.code === 'cancelled') throw e; console.warn('repair failed; using original truth', e); }
+      }
     }
     ui.genStep = 'briefs'; paintGen();
     if (!briefs) {
-      const raw = await sample.json(briefsPrompt(st, truth), { cache: false, signal: ctl.signal, modelTier: 'default', effort: 'low', onText: ({ text }) => { ui.genBytes.briefs = text.length; paintGen(); } });
+      const raw = await sample.json(briefsPrompt(st, truth), { cache: false, signal: ctl.signal, ...writerOpts(), onText: ({ text }) => { ui.genBytes.briefs = text.length; paintGen(); } });
       briefs = normalizeBriefs(raw, truth);
     }
     ui.genStep = 'done'; paintGen(); stopGenTicker();
-    G = newGame(settingId, truth, briefs);
+    G = newGame(settingId, truth, briefs, dials, { training: !!seedCase?.training, sharedFrom: seedCase?.sharedFrom });
     ui.tab = 'case'; ui.linkFrom = null; ui.present = null;
     save(); busy = null; render();
     toast('The case is open. Read the file, then start asking.');
@@ -773,7 +1044,6 @@ async function generateCase(settingId, seedTruth) {
     render();
   }
 }
-
 async function askSuspect(name, question, tone, present) {
   if (!G || busy || !sample) return;
   const s = G.suspects[name], brief = briefOf(name), st = stOf();
@@ -822,22 +1092,21 @@ async function askSuspect(name, question, tone, present) {
   }
   s.pressure = clamp(s.pressure + delta, 0, 100);
   applyState(s, brief);
-  if (s.state === 'lawyered' && !s.transcript.some((m) => m.role === 'sys' && m.lawyer)) s.transcript.push({ id: uid(), role: 'sys', lawyer: true, text: `${name} refuses to go on without a solicitor.`, clock: G.clock.used });
+  if (s.state === 'lawyered' && !s.transcript.some((m) => m.role === 'sys' && m.lawyer)) s.transcript.push({ id: uid(), role: 'sys', lawyer: true, text: `${name} ${st.counsel.refuseLine}`, clock: G.clock.used });
   busy = null; save(); render();
 }
 
 function stopBusy() { if (busy?.ctl) busy.ctl.abort(); }
 
-function waitForSolicitor(name) {
+function waitForCounsel(name) {
   const s = G.suspects[name], brief = briefOf(name), st = stOf();
   if (!s || s.state !== 'lawyered' || s.waited) return;
-  if (timeLeft() < st.solicitorWait) { toast('Not enough time left to wait for the solicitor.'); return; }
-  spend(st.solicitorWait);
+  if (timeLeft() < st.counsel.minutes) { toast('Not enough time left for that.'); return; }
+  spend(st.counsel.minutes);
   s.waited = true; s.solicitor = true; s.state = 'guarded'; s.pressure = Math.min(s.pressure, brief.pressure.baseline + 10);
-  s.transcript.push({ id: uid(), role: 'sys', text: `A solicitor from the village arrives after ${fmtMin(st.solicitorWait)} and sits in. ${name} will answer again, carefully.`, clock: G.clock.used });
+  s.transcript.push({ id: uid(), role: 'sys', text: `${st.counsel.arrive.replace('{t}', fmtMin(st.counsel.minutes))} ${name} will answer again, carefully.`, clock: G.clock.used });
   save(); render();
 }
-
 function requestForensic(id) {
   const st = stOf(), f = st.forensics.find((x) => x.id === id);
   if (!f || G.forensics[id]) return;
@@ -851,19 +1120,22 @@ function requestForensic(id) {
 async function submitAccusation(acc) {
   if (!G) return;
   if (busy) { toast('Wait for the suspect to finish answering, then accuse.'); return; }
+  const hasAcc = !!G.truth.accomplice;
   const killerCorrect = acc.killer === G.truth.killer;
-  G.accusation = { ...acc, killerCorrect, at: G.clock.used };
+  const accCorrect = hasAcc ? acc.accomplice === G.truth.accomplice : !acc.accomplice;
+  const killerPts = hasAcc ? (killerCorrect ? 30 : 0) + (accCorrect ? 10 : 0) : Math.max(0, (killerCorrect ? 40 : 0) - (acc.accomplice ? 5 : 0));
+  G.accusation = { ...acc, killerCorrect, accCorrect, at: G.clock.used };
   G.phase = 'scoring'; save(); render();
   const game = G;
   let parts = { motive: 0, method: 0, evidence: 0, verdict: '', missed: [], caught: [] };
   if (sample) {
     const ctl = new AbortController(); busy = { ctl, kind: 'score' };
     try {
-      const r = await sample.json(scorePrompt(G, G.accusation, killerCorrect), { cache: false, signal: ctl.signal, modelTier: 'default' });
+      const r = await sample.json(scorePrompt(G, G.accusation, killerCorrect), { cache: false, signal: ctl.signal, modelTier: 'default', effort: 'low' });
       parts = { motive: clamp(Math.round(num(r?.motive)), 0, 20), method: clamp(Math.round(num(r?.method)), 0, 20), evidence: clamp(Math.round(num(r?.evidence)), 0, 20), verdict: str(r?.verdict, 1200), missed: arr(r?.missed).map((x) => str(x, 300)).slice(0, 4), caught: arr(r?.caught).map((x) => str(x, 300)).slice(0, 4) };
     } catch (e) {
       console.warn('scoring failed', e);
-      parts.verdict = killerCorrect ? 'The Chief Constable could not be reached for comment, but the name is right.' : 'The Chief Constable could not be reached for comment. The name is wrong.';
+      parts.verdict = killerCorrect ? 'The reviewing officer could not be reached for comment, but the name is right.' : 'The reviewing officer could not be reached for comment. The name is wrong.';
       parts.unscored = true;
     }
     if (busy?.ctl === ctl) busy = null;
@@ -872,30 +1144,31 @@ async function submitAccusation(acc) {
     parts.unscored = true;
   }
   if (!killerCorrect) { parts.motive = Math.min(parts.motive, 8); parts.method = Math.min(parts.method, 8); }
-  const total = (killerCorrect ? 40 : 0) + parts.motive + parts.method + parts.evidence;
-  G.score = { ...parts, killer: killerCorrect ? 40 : 0, total, rank: total >= 85 ? 'Chief Inspector' : total >= 70 ? 'Inspector' : total >= 50 ? 'Sergeant' : 'Constable' };
+  const total = killerPts + parts.motive + parts.method + parts.evidence;
+  G.score = { ...parts, killer: killerPts, total, rank: total >= 85 ? 'Chief Inspector' : total >= 70 ? 'Inspector' : total >= 50 ? 'Sergeant' : 'Constable' };
   G.phase = 'verdict'; G.finishedAt = Date.now();
-  saveToCasebook(); save(); render();
+  saveToCasebook(); recordSharedScore().catch(() => {}); save(); render();
 }
-
 function saveToCasebook() {
   const book = casebook().filter((c) => c.id !== G.id);
-  book.unshift({ id: G.id, title: G.truth.title, setting: stOf().name, finishedAt: G.finishedAt || Date.now(), total: G.score?.total ?? 0, killerCorrect: !!G.accusation?.killerCorrect, game: G });
+  const entry = { id: G.id, title: G.truth.title, setting: stOf().name, settingId: G.settingId, dials: G.dials, finishedAt: G.finishedAt || Date.now(), total: G.score?.total ?? 0, rank: G.score?.rank || '', killerCorrect: !!G.accusation?.killerCorrect, training: !!G.training, game: G };
+  book.unshift(entry);
   while (book.length > 24) book.pop();
   if (!safeSet(KEY_BOOK, book)) { while (book.length > 4 && !safeSet(KEY_BOOK, book)) book.pop(); }
+  cloudSaveCase(entry).catch(() => {});
 }
-
 const b64enc = (txt) => { const bytes = new TextEncoder().encode(txt); let bin = ''; for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(bin); };
 const b64dec = (b64) => { const bin = atob(b64); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i); return new TextDecoder().decode(bytes); };
-function caseCode() { return 'IR1.' + b64enc(JSON.stringify({ ir: 1, settingId: G.settingId, truth: G.truth, briefs: G.briefs })); }
+function caseCode() { return 'IR1.' + b64enc(JSON.stringify({ ir: 1, settingId: G.settingId, dials: G.dials, truth: G.truth, briefs: G.briefs })); }
 function parseCaseCode(text) {
   text = String(text || '').trim();
   const o = JSON.parse(text.startsWith('IR1.') ? b64dec(text.slice(4).replace(/\s+/g, '')) : text);
   if (!o || o.ir !== 1 || !SETTINGS[o.settingId]) throw new Error('bad code');
   const st = SETTINGS[o.settingId];
-  const truth = normalizeTruth(o.truth, st);
+  const dials = normDials(o.dials);
+  const truth = normalizeTruth(o.truth, st, null);
   const briefs = normalizeBriefs({ briefs: o.briefs }, truth);
-  return { settingId: o.settingId, truth, briefs };
+  return { settingId: o.settingId, dials, truth, briefs };
 }
 
 async function copyText(text) {
@@ -916,7 +1189,7 @@ let toastTimer = null;
 function toast(msg) { toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { toastEl.hidden = true; }, 2600); }
 
 function render() {
-  if (G && G.phase === 'play') { const ta = $('#q'); if (ta) ui.draft.q = ta.value; if ($('#accform')) ui.draft.acc = { killer: $('#acc-killer').value, motive: $('#acc-motive').value, method: $('#acc-method').value, pinIds: $$('input[name=ev]:checked').map((i) => i.value) }; }
+  if (G && G.phase === 'play') { const ta = $('#q'); if (ta) ui.draft.q = ta.value; if ($('#accform')) ui.draft.acc = { killer: $('#acc-killer').value, accomplice: $('#acc-accomplice')?.value || '', motive: $('#acc-motive').value, method: $('#acc-method').value, pinIds: $$('input[name=ev]:checked').map((i) => i.value) }; }
   if (busy?.kind === 'gen' || (!G && ui.genStep && ui.genStep !== 'done')) { app.innerHTML = viewGenerating(); return; }
   if (!G) { app.innerHTML = viewMenu(); return; }
   if (G.phase === 'scoring') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap gen"><div class="eyebrow">Accusation lodged</div><h2 style="margin-top:6px">The Chief Constable is reading your reasoning</h2><div class="steps"><div class="step on"><i class="dot"></i>Comparing the accusation with the sealed truth file<span class="st">about a minute</span></div></div><p class="tip">${esc(pick(TIPS))}</p></div></div>`; return; }
@@ -948,62 +1221,81 @@ function tabButtons() {
 const tabsBar = () => `<nav class="tabs" aria-label="Sections"><div class="wrap">${tabButtons()}</div></nav>`;
 
 /* ----- menu ----- */
+function currentDials() { return S.preset === 'custom' ? normDials(S.dials) : normDials((PRESETS[S.preset] || PRESETS.inspector).dials); }
 function viewMenu() {
-  const st = SETTINGS.country_house;
   const saved = safeGet(KEY_GAME, null);
   const book = casebook();
   const noClaude = sampleReady && !sample;
+  const st = SETTINGS[S.setting] || SETTINGS.country_house;
+  const d = currentDials(), parts = castPlan(d);
+  const hasTraining = !!TRAINING[st.id];
+  const career = careerStats(book);
   return `<header class="head"><div class="wrap gutter"><div class="brand">Interrogation<br>Room</div><div class="head-title"></div><button class="iconbtn" data-act="settings" aria-label="Settings"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div></header>
   <div class="main gutter"><div class="wrap">
-    <div class="hero"><div class="eyebrow">A detective game</div><h1>Interrogation <span>Room</span></h1><p class="sub">Four suspects. One night, sealed in a file you never see. Ask anything. Pin what they say. Catch the lie.</p></div>
+    <div class="hero"><div class="eyebrow">A detective game</div><h1>Interrogation <span>Room</span></h1><p class="sub">Suspects who remember what they told you. One night, sealed in a file you never see. Ask anything. Pin what they say. Catch the lie.</p></div>
     ${noClaude ? `<div class="err" style="margin-bottom:12px">This page needs Claude to play the suspects and referee their answers. Open it in claude.ai, signed in, to start a case.</div>` : ''}
+    ${saved && saved.phase === 'play' ? `<div class="card" style="margin-bottom:12px"><div class="eyebrow">Case in progress</div><div class="row" style="margin-top:6px"><div class="grow"><b style="font-family:var(--font-display)">${esc(saved.truth?.title || 'Untitled')}</b><div class="note">${esc(SETTINGS[saved.settingId]?.short || '')} · ${esc(fmtMin(Math.max(0, (saved.clock?.budget || 0) - (saved.clock?.used || 0))))} left · ${saved.board?.pins?.length || 0} pins</div></div><button class="btn primary" data-act="resume">Resume</button><button class="btn ghost danger sm" data-act="abandon">Abandon</button></div></div>` : ''}
     <div class="menu-grid">
       <div class="stack">
-        ${saved && saved.phase === 'play' ? `<div class="card"><div class="eyebrow">Case in progress</div><div class="row" style="margin-top:6px"><div class="grow"><b style="font-family:var(--font-display)">${esc(saved.truth?.title || 'Untitled')}</b><div class="note">${esc(fmtMin(Math.max(0, (saved.clock?.budget || 0) - (saved.clock?.used || 0))))} left · ${saved.board?.pins?.length || 0} pins</div></div><button class="btn primary" data-act="resume">Resume</button><button class="btn ghost danger sm" data-act="abandon">Abandon</button></div></div>` : ''}
-        <div class="setting">
-          <svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 90V40l40-30 40 30v50"/><path d="M30 90V60h12v30M58 90V60h12v30M44 50h12v10H44zM20 50h8v8h-8zM72 50h8v8h-8z"/><path d="M50 10v-8M60 25l10-6M40 25l-10-6"/></g></svg>
-          <div class="eyebrow">Setting · v1</div>
-          <h2>${esc(st.name)}</h2>
-          <p class="blurb">${esc(st.blurb)}</p>
-          <div class="row" style="margin-top:14px"><button class="btn primary" data-act="new" ${noClaude ? 'disabled' : ''}>Begin a new case</button><span class="note">Takes a minute or two to write the night.</span></div>
+        <div class="card">
+          <div class="eyebrow">New case · Setting</div>
+          <div class="settings-grid">${SETTING_ORDER.map((id) => { const x = SETTINGS[id]; return `<button class="scard ${S.setting === id ? 'on' : ''}" data-act="setting" data-id="${id}">${x.deco}<b>${esc(x.name)}</b><span>${esc(x.era)}</span></button>`; }).join('')}</div>
+          <p class="lede" style="margin-top:10px;font-size:14.5px">${esc(st.blurb)}</p>
+          <div class="eyebrow" style="margin-top:16px">Difficulty</div>
+          <div class="presets">${Object.entries(PRESETS).map(([k, v]) => `<button class="chip ${S.preset === k ? 'on' : ''}" data-act="preset" data-id="${k}">${esc(v.name)}</button>`).join('')}<button class="chip ${S.preset === 'custom' ? 'on' : ''}" data-act="preset" data-id="custom">Custom</button></div>
+          ${S.preset === 'custom' ? `<div class="dials">
+            <div class="dial"><span class="k">Suspects</span><span class="stepper"><button data-act="dial" data-k="suspects" data-d="-1" aria-label="Fewer suspects">−</button><b>${d.suspects}</b><button data-act="dial" data-k="suspects" data-d="1" aria-label="More suspects">+</button></span></div>
+            <div class="dial"><span class="k">Liars besides the killer</span><span class="stepper"><button data-act="dial" data-k="liars" data-d="-1" aria-label="Fewer liars">−</button><b>${d.liars}</b><button data-act="dial" data-k="liars" data-d="1" aria-label="More liars">+</button></span></div>
+            <div class="dial"><span class="k">Accomplice</span><button class="switch ${d.accomplice ? 'on' : ''}" data-act="dial-toggle" data-k="accomplice" role="switch" aria-checked="${d.accomplice}" aria-label="Accomplice"></button></div>
+            <div class="dial"><span class="k">Unreliable witness</span><button class="switch ${d.mistaken ? 'on' : ''}" data-act="dial-toggle" data-k="mistaken" role="switch" aria-checked="${d.mistaken}" aria-label="Unreliable witness"></button></div>
+            <div class="dial"><span class="k">Time budget</span><span class="seg">${[4, 6, 8].map((h) => `<button data-act="dial-set" data-k="hours" data-v="${h}" class="${d.hours === h ? 'on' : ''}">${h}h</button>`).join('')}</span></div>
+          </div>` : `<p class="note" style="margin-top:8px">${esc((PRESETS[S.preset] || PRESETS.inspector).desc)}</p>`}
+          <p class="cast">Cast: ${esc(describeCast(parts))}. ${d.hours} hours on the clock.</p>
+          <div class="row" style="margin-top:12px"><button class="btn primary" data-act="new" ${noClaude ? 'disabled' : ''}>Begin a new case</button>${hasTraining ? `<button class="btn" data-act="training" ${noClaude ? 'disabled' : ''}>Play the training case</button>` : ''}</div>
+          <p class="note" style="margin-top:8px">A fresh case takes a minute or two to write and is different every time.${hasTraining ? ' The training case is hand-written, opens at once, and is the same for everyone.' : ''}</p>
         </div>
         <div class="card">
           <div class="eyebrow">Casebook</div>
-          ${book.length ? `<div class="casebook" style="margin-top:10px">${book.slice(0, 4).map(cbRow).join('')}</div>${book.length > 4 ? `<button class="btn ghost sm" style="margin-top:8px" data-act="casebook">All ${book.length} cases</button>` : ''}` : `<p class="note" style="margin-top:6px">Finished cases are kept here for replay or sharing. Nothing yet.</p>`}
-          <div class="row" style="margin-top:10px"><button class="btn ghost sm" data-act="import">Play a shared case</button></div>
+          ${book.length ? `<div class="career">${['cases', 'solved', 'best'].map((k) => `<div><b>${career[k]}</b><span>${k}</span></div>`).join('')}</div><div class="casebook" style="margin-top:10px">${book.slice(0, 4).map(cbRow).join('')}</div>${book.length > 4 ? `<button class="btn ghost sm" style="margin-top:8px" data-act="casebook">All ${book.length} cases</button>` : ''}` : `<p class="note" style="margin-top:6px">Finished cases are kept here for replay or sharing. Nothing yet.</p>`}
+          <div class="row" style="margin-top:10px"><button class="btn ghost sm" data-act="import">Play a shared case</button><button class="btn ghost sm" data-act="gallery">Shared gallery</button></div>
         </div>
       </div>
       <div class="stack">
         <div class="card howto"><div class="eyebrow">How it plays</div>
           <ol>
-            <li>Read the case file. Scene, household, what everyone already knows.</li>
-            <li>Question the four suspects in your own words. They remember what they told you.</li>
+            <li>Read the case file. Scene, the people, what everyone already knows.</li>
+            <li>Question the suspects in your own words. They remember what they told you.</li>
             <li>Pin exact quotes to the board. Put times on the timeline. Link contradictions.</li>
             <li>Order forensics when a report would settle something. Each costs clock time.</li>
             <li>Accuse: killer, motive, method, and the evidence you are standing on.</li>
             <li>The reveal replays the true night and every lie, in the order it was told.</li>
           </ol>
-          <p class="note" style="margin-top:8px">Pressure matters. Confront someone with a contradiction and they sweat. Push too hard too early and they clam up or send for a solicitor.</p>
+          <p class="note" style="margin-top:8px">Pressure matters. Confront someone with a contradiction and they sweat. Push too hard too early and they clam up or send for help.</p>
         </div>
-        <div class="card"><div class="eyebrow">Coming in v2</div><div class="soon" style="margin-top:8px">${COMING.map((c) => `<div class="it"><b>${esc(c.name)}</b><span>${esc(c.what)}</span></div>`).join('')}</div></div>
+        <div class="card"><div class="eyebrow">Under the hood</div><p class="note" style="margin-top:6px">Every case starts as a sealed truth file: the whole night, minute by minute. Each suspect is briefed only on what they could know and what they will lie about. A referee checks every answer against the truth so lies stay consistent and nobody reveals what they should not. Not every liar is the killer.</p></div>
       </div>
     </div>
   </div></div>`;
 }
+function careerStats(book) {
+  const cases = book.length, solved = book.filter((c) => c.killerCorrect).length, best = book.reduce((m, c) => Math.max(m, num(c.total)), 0);
+  return { cases, solved, best };
+}
 function cbRow(c) {
-  return `<button class="cb" data-act="open-case" data-id="${esc(c.id)}"><span class="sc">${esc(c.total)}</span><span class="ti"><b>${esc(c.title)}</b><span>${esc(c.setting)} · ${new Date(c.finishedAt).toLocaleDateString()} · ${c.killerCorrect ? 'killer named' : 'wrong name'}</span></span></button>`;
+  return `<button class="cb" data-act="open-case" data-id="${esc(c.id)}"><span class="sc">${esc(c.total)}</span><span class="ti"><b>${esc(c.title)}</b><span>${esc(c.setting)}${c.training ? ' · training' : ''} · ${new Date(c.finishedAt).toLocaleDateString()} · ${c.killerCorrect ? 'killer named' : 'wrong name'}</span></span></button>`;
 }
 
 /* ----- generating ----- */
 function viewGenerating() {
   const step = ui.genStep;
-  const row = (k, label, est) => { const on = step === k, done = step === 'done' || (k === 'truth' && step === 'briefs'); return `<div class="step ${on ? 'on' : ''} ${done ? 'done' : ''}"><i class="dot"></i><span>${label}</span><span class="st" data-gen="${k}">${done ? 'done' : on ? (ui.genBytes[k] ? `${(ui.genBytes[k] / 1024).toFixed(1)} KB` : 'thinking') : est}</span></div>`; };
+  const order = ['truth', 'repair', 'briefs', 'done']; const row = (k, label, est) => { const on = step === k, done = order.indexOf(step) > order.indexOf(k); return `<div class="step ${on ? 'on' : ''} ${done ? 'done' : ''}"><i class="dot"></i><span>${label}</span><span class="st" data-gen="${k}">${done ? 'done' : on ? (ui.genBytes[k] ? `${(ui.genBytes[k] / 1024).toFixed(1)} KB` : 'thinking') : est}</span></div>`; };
   return `<header class="head"><div class="wrap gutter"><div class="brand">Interrogation<br>Room</div><div class="head-title">New case</div></div></header>
   <div class="main gutter"><div class="wrap gen">
     <div class="eyebrow">Writing the night</div>
     <h2 style="margin-top:6px">${step === 'done' ? 'Opening the case' : 'Sealing the truth file'}</h2>
     <p class="lede" style="margin-top:6px">The night is written first, minute by minute, and sealed. The suspects are briefed from it. You only ever see what they choose to tell you.</p>
-    <div class="steps">${row('truth', 'Timeline, killer, motive, method, evidence, forensics', 'about a minute')}${row('briefs', 'Four private briefs: what each saw, knows and will lie about', 'about a minute')}</div>
+    <p class="cast" style="margin-top:8px">${esc((SETTINGS[ui.genSetting] || SETTINGS.country_house).name)} · ${esc(describeCast(castPlan(ui.genDials || currentDials())))}.</p>
+    <div class="steps">${row('truth', 'Timeline, killer, motive, method, evidence, forensics', 'about a minute')}${(step === 'repair' || ui.genBytes.repair) ? row('repair', 'Tightening the night where the audit found gaps', 'a few seconds') : ''}${row('briefs', `${(ui.genDials || currentDials()).suspects} private briefs: what each saw, knows and will lie about`, 'about a minute')}</div>
     ${ui.genError ? `<div class="err" style="margin-top:14px">${esc(ui.genError)}</div><div class="row" style="margin-top:10px"><button class="btn primary" data-act="new">Try again</button><button class="btn ghost" data-act="home">Back</button></div>` : `<p class="note" style="margin-top:12px" data-genmsg>${esc(genMessage())}</p><div class="row" style="margin-top:10px"><button class="btn ghost" data-act="stop-gen">Stop</button><span class="note" data-elapsed>${genElapsed()}</span></div>`}
     <p class="tip" data-tip>${esc(pick(TIPS))}</p>
   </div></div>`;
@@ -1012,7 +1304,7 @@ const genElapsed = () => (ui.genStart ? `${Math.floor((Date.now() - ui.genStart)
 function genMessage() {
   const k = ui.genStep, secs = ui.genStart ? (Date.now() - ui.genStart) / 1000 : 0;
   if (k === 'done') return 'Opening the case.';
-  if (ui.genBytes[k]) return k === 'truth' ? 'Writing the night. The timeline comes first, then the evidence.' : 'Writing the briefs, one suspect at a time.';
+  if (ui.genBytes[k]) return k === 'truth' ? 'Writing the night. The timeline comes first, then the evidence.' : k === 'repair' ? 'Patching the gaps the audit found.' : 'Writing the briefs, one suspect at a time.';
   if (secs > 180) return 'This is taking longer than usual. Claude may be busy. You can stop and try again.';
   if (secs > 60) return 'Still working. Nothing shows until Claude starts writing, which can take a couple of minutes for a whole night.';
   return k === 'truth' ? 'Claude works the night out in silence before it writes. The size counter starts when text begins.' : 'Claude is deriving what each suspect could have seen.';
@@ -1020,7 +1312,7 @@ function genMessage() {
 let genTicker = null, tipAt = 0;
 function startGenTicker() { stopGenTicker(); tipAt = Date.now(); genTicker = setInterval(() => { const e = $('[data-elapsed]'); if (e) e.textContent = genElapsed(); const m = $('[data-genmsg]'); if (m) m.textContent = genMessage(); if (Date.now() - tipAt > 9000) { tipAt = Date.now(); const t = $('[data-tip]'); if (t) t.textContent = pick(TIPS); } }, 1000); }
 function stopGenTicker() { if (genTicker) { clearInterval(genTicker); genTicker = null; } }
-function paintGen() { const m = $('[data-genmsg]'); if (m) m.textContent = genMessage(); for (const k of ['truth', 'briefs']) { const el = $(`[data-gen="${k}"]`); if (el && ui.genStep === k) el.textContent = ui.genBytes[k] ? `${(ui.genBytes[k] / 1024).toFixed(1)} KB` : 'thinking'; } if (ui.genStep === 'briefs' || ui.genStep === 'done') { const steps = $$('.step'); if (steps[0]) { steps[0].classList.remove('on'); steps[0].classList.add('done'); const st = steps[0].querySelector('.st'); if (st) st.textContent = 'done'; } if (steps[1] && ui.genStep === 'briefs') steps[1].classList.add('on'); } }
+function paintGen() { if (busy?.kind === 'gen' && !$('[data-gen="' + ui.genStep + '"]') && ui.genStep !== 'done') { app.innerHTML = viewGenerating(); return; } const m = $('[data-genmsg]'); if (m) m.textContent = genMessage(); for (const k of ['truth', 'repair', 'briefs']) { const el = $(`[data-gen="${k}"]`); if (!el) continue; const row = el.closest('.step'); const order = ['truth', 'repair', 'briefs', 'done']; if (ui.genStep === k) { el.textContent = ui.genBytes[k] ? `${(ui.genBytes[k] / 1024).toFixed(1)} KB` : 'thinking'; row.classList.add('on'); } else if (order.indexOf(ui.genStep) > order.indexOf(k)) { el.textContent = 'done'; row.classList.remove('on'); row.classList.add('done'); } } }
 
 /* ----- case file ----- */
 function viewCase() {
@@ -1029,20 +1321,21 @@ function viewCase() {
   const pinnedScene = (id) => G.board.pins.some((p) => p.kind === 'scene' && p.msgId === id);
   return `<div class="stack">
     <div class="file">
-      <div class="stamp">Confidential</div>
+      <div class="stamp">Confidential</div>${G.training ? ' <div class="stamp tr">Training case</div>' : ''}
       <h2>${esc(t.title)}</h2>
-      <p>${esc(t.house)} ${esc(t.weather)}</p>
+      <p>${esc(st.era)}. ${esc(t.house)} ${esc(t.weather)}</p>
+      <p style="margin-top:4px;color:var(--paper-muted)">${t.suspects.length} suspects. ${esc(describeCast(castPlan(G.dials)))}.</p>
       <h3>The deceased</h3>
       <p><b>${esc(t.victim.name)}</b>, ${esc(t.victim.age || '')}${t.victim.age ? ', ' : ''}${esc(t.victim.role)}. ${esc(t.victim.sketch)}</p>
       <h3>Discovery</h3>
       <p>Found at <b>${esc(t.night.discovered)}</b> in ${esc(t.night.where)} by ${esc(t.night.discoveredBy)}. Questioning began at ${esc(st.clock.start)}; you have ${fmtMin(G.clock.budget)} before the Chief Constable wants a name.</p>
-      <h3>What the household already knows</h3>
+      <h3>What everyone already knows</h3>
       <ul>${t.publicFacts.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
       <h3>Noted at the scene</h3>
       ${scene.length ? scene.map((e) => `<div class="evitem"><div class="d"><b>${esc(e.name)}</b>${esc(e.where)}. ${esc(e.detail)}</div><button data-act="pin-scene" data-id="${esc(e.id)}" ${pinnedScene(e.id) ? 'disabled' : ''}>${pinnedScene(e.id) ? 'Pinned' : 'Pin'}</button></div>`).join('') : '<p>Nothing of note was recorded at the scene.</p>'}
     </div>
     <div class="card">
-      <div class="eyebrow">The household</div>
+      <div class="eyebrow">${G.settingId === 'antarctic' ? 'The crew' : G.settingId === 'noir_docks' ? 'The people on the pier' : 'The household'}</div>
       <div class="bios" style="margin-top:10px">${t.suspects.map((s) => `<div class="bio"><b>${esc(s.name)}</b>${s.age ? `, ${esc(s.age)}` : ''}<div class="r">${esc(s.role)}</div><p>${esc(s.sketch)}</p><button class="btn sm" style="margin-top:8px" data-act="goto-sus" data-name="${esc(s.name)}">Question</button></div>`).join('')}</div>
     </div>
     <div class="card">
@@ -1062,12 +1355,12 @@ function viewInterrogate() {
   const name = G.active && G.suspects[G.active] ? G.active : G.briefs[0].name;
   G.active = name;
   const s = G.suspects[name], brief = briefOf(name), sus = G.truth.suspects.find((x) => x.name === name), st = stOf();
-  const roster = G.briefs.map((b) => { const x = G.suspects[b.name]; const r = G.truth.suspects.find((q) => q.name === b.name); return `<button class="sus ${b.name === name ? 'on' : ''}" data-act="pick-sus" data-name="${esc(b.name)}"><span class="nm">${esc(b.name)}</span><span class="rl">${esc(r?.role || '')}</span><span class="pbar ${x.state}"><i style="width:${x.pressure}%"></i></span><span class="stt ${x.state}">${STATE_LABEL[x.state]} · ${x.transcript.filter((m) => m.role === 'det').length} q</span></button>`; }).join('');
+  const roster = G.briefs.map((b) => { const x = G.suspects[b.name]; const r = G.truth.suspects.find((q) => q.name === b.name); return `<button class="sus ${b.name === name ? 'on' : ''}" data-act="pick-sus" data-name="${esc(b.name)}"><span class="nm">${esc(b.name)}</span><span class="rl">${esc(r?.role || '')}</span><span class="pbar ${x.state}"><i style="width:${x.pressure}%"></i></span><span class="stt ${x.state}">${stateLabel(x.state, st)} · ${x.transcript.filter((m) => m.role === 'det').length} q</span></button>`; }).join('');
   const msgs = s.transcript.map((m) => msgHtml(m, name)).join('');
   const closed = outOfTime()
     ? `<div class="closed"><b>Out of time.</b> The Chief Constable wants a name. Go to Accuse.<button class="btn primary" data-act="tab" data-tab="accuse">Make the accusation</button></div>`
     : s.state === 'lawyered'
-      ? `<div class="closed"><b>${esc(name)} will not answer without a solicitor.</b> ${s.waited ? 'You have already waited once. This witness is done talking.' : `Waiting for one costs ${fmtMin(st.solicitorWait)} and they will answer more carefully afterwards.`}${s.waited ? '' : `<button class="btn" data-act="solicitor" data-name="${esc(name)}">Wait for the solicitor · ${fmtMin(st.solicitorWait)}</button>`}</div>`
+      ? `<div class="closed"><b>${esc(name)} ${esc(st.counsel.refuseLine)}</b> ${s.waited ? 'You have already waited once. This witness is done talking.' : `That costs ${fmtMin(st.counsel.minutes)} and they will answer more carefully afterwards.`}${s.waited ? '' : `<button class="btn" data-act="counsel" data-name="${esc(name)}">${esc(st.counsel.wait)} · ${fmtMin(st.counsel.minutes)}</button>`}</div>`
       : null;
   const composer = closed || `<div class="composer">
       <div class="tools">
@@ -1080,7 +1373,7 @@ function viewInterrogate() {
   return `<div class="inter">
     <div class="roster">${roster}</div>
     <div class="transcript">
-      <div class="t-head"><div class="who"><b>${esc(name)}</b><span>${esc(sus?.role || '')}</span></div><div class="stt">${STATE_LABEL[s.state]}<br><span style="color:var(--fg-2)">pressure ${s.pressure}</span></div></div>
+      <div class="t-head"><div class="who"><b>${esc(name)}</b><span>${esc(sus?.role || '')}</span></div><div class="stt">${stateLabel(s.state, st)}<br><span style="color:var(--fg-2)">pressure ${s.pressure}</span></div></div>
       <div class="msgs" id="msgs">${msgs}</div>
       ${composer}
     </div>
@@ -1098,14 +1391,21 @@ function scrollChat(instant) { const el = $('#msgs'); if (!el || !el.lastElement
 function viewBoard() {
   const pins = G.board.pins;
   const tools = `<div class="board-tools">
-      <div class="seg" role="group" aria-label="View"><button data-act="bview" data-v="pins" class="${ui.boardView === 'pins' ? 'on' : ''}">Pins</button><button data-act="bview" data-v="timeline" class="${ui.boardView === 'timeline' ? 'on' : ''}">Timeline</button></div>
+      <div class="seg" role="group" aria-label="View"><button data-act="bview" data-v="pins" class="${ui.boardView === 'pins' ? 'on' : ''}">Pins</button><button data-act="bview" data-v="timeline" class="${ui.boardView === 'timeline' ? 'on' : ''}">Timeline</button><button data-act="bview" data-v="links" class="${ui.boardView === 'links' ? 'on' : ''}">Links</button></div>
       <button class="btn sm ghost" data-act="add-note">Add a note</button>
       <span class="note" style="margin-left:auto">${pins.length} pinned · ${(n => `${n} contradiction${n === 1 ? '' : 's'}`)(G.board.links.filter((l) => l.type === 'contradicts').length)}</span>
     </div>`;
   const linkbar = ui.linkFrom ? `<div class="linkbar" style="margin-bottom:12px"><span class="grow">Linking from <b>“${esc((pins.find((p) => p.id === ui.linkFrom) || {}).text?.slice(0, 60) || '')}”</b>. Choose the second card.</span><button class="btn sm ghost" data-act="link-cancel">Cancel</button></div>` : '';
   if (!pins.length) return tools + `<div class="empty"><p>Nothing on the board yet.</p><p class="note" style="margin-top:6px">Pin quotes from the transcript, scene items from the case file, and forensic reports. Then link the ones that cannot both be true.</p></div>`;
   if (ui.boardView === 'timeline') return tools + linkbar + viewTimeline(pins.filter((p) => p.time), null) + unplaced(pins.filter((p) => !p.time));
+  if (ui.boardView === 'links') return tools + viewLinks();
   return tools + linkbar + `<div class="pins">${pins.slice().reverse().map(pinHtml).join('')}</div>`;
+}
+function viewLinks() {
+  const links = G.board.links, pin = (id) => G.board.pins.find((p) => p.id === id);
+  const mini = (p) => `<div class="lp">“${esc(p.text)}”<small>${esc(p.source)}${p.time ? ' · refers to ' + esc(p.time) : ''}</small></div>`;
+  if (!links.length) return `<div class="empty"><p>No links yet.</p><p class="note" style="margin-top:6px">In Pins, choose Link on a card, then pick the second card and mark the pair as contradicting or supporting. Contradictions are what break an alibi.</p></div>`;
+  return `<div class="linklist">${links.slice().reverse().map((l) => { const a = pin(l.a), b = pin(l.b); if (!a || !b) return ''; return `<div class="lpair ${l.type}">${mini(a)}<div class="lmid"><span>${l.type}</span><button class="x" data-act="unlink" data-id="${l.id}" aria-label="Remove link">×</button></div>${mini(b)}</div>`; }).join('')}</div>`;
 }
 function pinHtml(p) {
   const links = linksOf(p.id);
@@ -1144,6 +1444,7 @@ function viewAccuse() {
     <p class="lede" style="margin:6px 0 14px">Name the killer, the motive and the method, and cite the evidence you stand on. You are scored on the reasoning, not only the name. ${outOfTime() ? '' : `You still have ${fmtMin(timeLeft())}; the suspects will wait.`}</p>
     <form class="form" id="accform">
       <div><label class="f" for="acc-killer">The killer</label><select id="acc-killer"><option value="">Choose…</option>${G.truth.suspects.map((s) => `<option value="${esc(s.name)}" ${a.killer === s.name ? 'selected' : ''}>${esc(s.name)} · ${esc(s.role)}</option>`).join('')}</select></div>
+      ${G.dials?.accomplice ? `<div><label class="f" for="acc-accomplice">Accomplice</label><select id="acc-accomplice"><option value="">Nobody helped</option>${G.truth.suspects.map((s) => `<option value="${esc(s.name)}" ${a.accomplice === s.name ? 'selected' : ''}>${esc(s.name)} · ${esc(s.role)}</option>`).join('')}</select><p class="note" style="margin-top:4px">This case was set up with an accomplice in play. Name them, or say nobody helped.</p></div>` : ''}
       <div><label class="f" for="acc-motive">Motive</label><textarea id="acc-motive" placeholder="Why did they do it? Be specific.">${esc(a.motive || '')}</textarea></div>
       <div><label class="f" for="acc-method">Method</label><textarea id="acc-method" placeholder="How, where and when. What did they do with the weapon or the traces?">${esc(a.method || '')}</textarea></div>
       <div><label class="f">Evidence cited (${pins.length} on the board)</label>
@@ -1164,7 +1465,7 @@ function viewVerdict() {
       <div class="score" style="margin-top:8px"><div><div class="big">${sc.total}</div><div class="rank">${esc(sc.rank)}</div></div>
         <div class="parts"><span><b>${sc.killer}/40</b>killer</span><span><b>${sc.motive}/20</b>motive</span><span><b>${sc.method}/20</b>method</span><span><b>${sc.evidence}/20</b>evidence</span></div></div>
       <div class="rule"></div>
-      <p class="${a.killerCorrect ? 'ok' : 'err'}">${a.killerCorrect ? `You named ${esc(t.killer)}. Correct.` : `You accused ${esc(a.killer)}. The killer was ${esc(t.killer)}.`}</p>
+      <p class="${a.killerCorrect ? 'ok' : 'err'}">${a.killerCorrect ? `You named ${esc(t.killer)}. Correct.` : `You accused ${esc(a.killer)}. The killer was ${esc(t.killer)}.`}${t.accomplice ? ` ${a.accCorrect ? `${esc(t.accomplice)} was the accomplice, as you said.` : a.accomplice ? `${esc(a.accomplice)} did not help; ${esc(t.accomplice)} did.` : `You missed the accomplice: ${esc(t.accomplice)}.`}` : a.accomplice ? ` Nobody helped; naming ${esc(a.accomplice)} cost you five points.` : ''}</p>
       ${sc.verdict ? `<p class="verdict" style="margin-top:12px">${esc(sc.verdict)}</p>` : ''}
       ${sc.unscored ? `<p class="note" style="margin-top:8px">Motive, method and evidence could not be graded (Claude was unavailable), so only the name counts here.</p>` : ''}
       ${sc.caught?.length ? `<h3 style="margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--truth)">What you caught</h3><ul style="margin:6px 0 0;padding-left:18px">${sc.caught.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
@@ -1178,17 +1479,22 @@ function viewReveal(readOnly) {
   const murderTime = t.alibiGap?.from;
   const events = t.timeline.map((e) => ({ ...e, murder: murderTime && nightOffset(e.time, t.night.start) >= nightOffset(murderTime, t.night.start) && nightOffset(e.time, t.night.start) <= (nightOffset(t.alibiGap?.to, t.night.start) ?? -1) }));
   const lies = G.lieLog.filter((l) => l.label === 'lie' || l.label === 'mistaken');
-  const parts = { killer: 'the killer', liar: 'lied to hide a secret', mistaken: 'honest but mistaken', honest: 'honest' };
   return `<div class="stack">
     <div class="card">
       <div class="eyebrow">What really happened</div>
       <h2 style="margin-top:6px;font-size:22px">${esc(t.title)}</h2>
       <dl class="kv" style="margin-top:10px"><dt>Killer</dt><dd><b>${esc(t.killer)}</b></dd><dt>Motive</dt><dd>${esc(t.motive)}</dd><dt>Method</dt><dd>${esc(t.method)}</dd><dt>Red herring</dt><dd>${esc(t.redHerring)}</dd></dl>
-      <div class="row" style="margin-top:12px">${G.briefs.map((b) => `<span class="chip ${b.part === 'killer' ? 'lie' : b.part === 'liar' ? 'warn' : b.part === 'mistaken' ? 'info' : 'truth'}"><span class="t">${esc(b.name)} · ${parts[b.part] || b.part}</span></span>`).join('')}</div>
+      <div class="row" style="margin-top:12px">${G.briefs.map((b) => `<span class="chip ${b.part === 'killer' || b.part === 'accomplice' ? 'lie' : b.part === 'liar' ? 'warn' : b.part === 'mistaken' ? 'info' : 'truth'}"><span class="t">${esc(b.name)} · ${PART_LABEL[b.part] || b.part}</span></span>`).join('')}</div>
+      ${G.briefs.some((b) => b.secret) ? `<dl class="kv" style="margin-top:12px">${G.briefs.filter((b) => b.secret).map((b) => `<dt>${esc(b.name.split(' ').slice(-1)[0])}</dt><dd>${esc(b.secret)}</dd>`).join('')}</dl>` : ''}
     </div>
     <div class="card">
       <div class="eyebrow">The lies, in the order they were told</div>
       ${lies.length ? `<div class="lies" style="margin-top:10px">${lies.map((l) => { const s = lieStatus(l); return `<div class="lie ${l.label}"><div class="who"><b>${esc(l.suspect)}</b><span>${esc(clockAt(stOf().clock.start, l.clock))}</span><span class="badge ${l.label}">${l.label === 'lie' ? 'lie' : 'honest mistake'}</span>${s.cited ? '<span class="badge caught">cited</span>' : s.linked ? '<span class="badge caught">contradiction marked</span>' : s.pinned ? '<span class="badge caught">pinned</span>' : ''}${l.admitted ? '<span class="badge admit">later admitted</span>' : ''}</div><div class="q">“${esc(l.text)}”</div><div class="tr">${esc(l.truth || '')}</div></div>`; }).join('')}</div>` : `<p class="note" style="margin-top:6px">No lies were recorded during questioning. Either nobody was pressed, or the referee could not annotate the answers.</p>`}
+    </div>
+    <div class="card">
+      <div class="eyebrow">The transcript, with every lie marked</div>
+      <p class="note" style="margin:6px 0 10px">Red underlines are lies. Amber is the honest mistake. Open a suspect to read the morning back.</p>
+      <div class="stack">${G.briefs.map((b) => { const s = G.suspects[b.name]; const n = G.lieLog.filter((l) => l.suspect === b.name && (l.label === 'lie' || l.label === 'mistaken')).length; return `<details class="tr-sus"><summary><b style="font-family:var(--font-display)">${esc(b.name)}</b> · ${PART_LABEL[b.part] || b.part} · ${s.transcript.filter((m) => m.role === 'det').length} questions · ${n} ${n === 1 ? 'lie' : 'lies'}</summary><div class="msgs">${s.transcript.map((m) => replayMsg(m, b.name)).join('')}</div></details>`; }).join('')}</div>
     </div>
     <div class="card">
       <div class="eyebrow">The true night, with your pins</div>
@@ -1198,9 +1504,31 @@ function viewReveal(readOnly) {
       <div class="eyebrow">How a sharp detective gets there</div>
       <ol style="margin:8px 0 0;padding-left:20px;color:var(--fg-2)">${t.solutionPath.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
     </div>
-    <div class="row">${readOnly ? `<button class="btn" data-act="home">Back</button>` : `<button class="btn primary" data-act="home">Close the case</button>`}<button class="btn ghost" data-act="copy-code">Copy case code to share</button><button class="btn ghost" data-act="replay">Play this case again</button></div>
+    <div class="row">${readOnly ? `<button class="btn" data-act="home">Back</button>` : `<button class="btn primary" data-act="home">Close the case</button>`}<button class="btn ghost" data-act="copy-code">Copy case code to share</button>${cloud.db && cloud.canWrite && !G.training ? `<button class="btn ghost" data-act="share-case" ${G.sharedId ? 'disabled' : ''}>${G.sharedId ? 'In the shared gallery' : 'Share to the gallery'}</button>` : ''}<button class="btn ghost" data-act="replay">Play this case again</button></div>
     <p class="note">Case code: anyone who pastes it under “Play a shared case” gets the same sealed night with fresh suspects. The code is scrambled so it does not spoil the case at a glance.</p>
   </div>`;
+}
+
+function markLies(text, lies) {
+  const spans = [];
+  for (const l of lies) {
+    const needle = String(l.text || '').trim(); if (needle.length < 6) continue;
+    const i = text.toLowerCase().indexOf(needle.toLowerCase()); if (i < 0) continue;
+    if (spans.some((s) => i < s.end && i + needle.length > s.start)) continue;
+    spans.push({ start: i, end: i + needle.length, label: l.label, found: true }); l.found = true;
+  }
+  spans.sort((a, b) => a.start - b.start);
+  let out = '', pos = 0;
+  for (const s of spans) { out += esc(text.slice(pos, s.start)) + `<mark class="${s.label}">${esc(text.slice(s.start, s.end))}</mark>`; pos = s.end; }
+  return out + esc(text.slice(pos));
+}
+function replayMsg(m, name) {
+  if (m.role === 'sys') return `<div class="msg sys"><div class="b">${esc(m.text)}</div></div>`;
+  if (m.role === 'det') return `<div class="msg det"><div class="b">${esc(m.text)}</div><div class="m">You · ${esc(m.tone || '')}${m.presented ? ' · presented ' + esc(m.presented.source) : ''}</div></div>`;
+  const lies = G.lieLog.filter((l) => l.msgId === m.id && (l.label === 'lie' || l.label === 'mistaken')).map((l) => ({ ...l }));
+  const body = markLies(m.text, lies);
+  const unfound = lies.filter((l) => !l.found);
+  return `<div class="msg sus"><div class="b">${body}</div>${unfound.map((l) => `<div class="flag ${l.label}">${l.label === 'lie' ? 'Lie' : 'Mistaken'}: “${esc(l.text)}” · ${esc(l.truth)}</div>`).join('')}<div class="m">${esc(name)}</div></div>`;
 }
 
 /* ----- modals ----- */
@@ -1248,7 +1576,10 @@ function settingsSheet() {
   openModal(`<h3>Settings</h3>
     <div><label class="f">Suspects are played by</label>
       <div class="seg"><button data-act="tier" data-tier="quick" class="${S.tier === 'quick' ? 'on' : ''}">Quick</button><button data-act="tier" data-tier="deep" class="${S.tier === 'deep' ? 'on' : ''}">Thoughtful</button></div>
-      <p class="note" style="margin-top:8px">Quick answers in a few seconds. Thoughtful suspects reason more before speaking and take noticeably longer each turn. The referee and case writer are unaffected.</p></div>
+      <p class="note" style="margin-top:8px">Quick answers in a few seconds. Thoughtful suspects reason more before speaking and take noticeably longer each turn. The referee is unaffected.</p></div>
+    <div><label class="f">Cases are written by</label>
+      <div class="seg"><button data-act="writer" data-tier="quick" class="${S.writer === 'quick' ? 'on' : ''}">Quick draft</button><button data-act="writer" data-tier="standard" class="${S.writer === 'standard' ? 'on' : ''}">Standard</button><button data-act="writer" data-tier="deep" class="${S.writer === 'deep' ? 'on' : ''}">Deep</button></div>
+      <p class="note" style="margin-top:8px">Quick draft starts writing at once and finishes in under a minute; puzzles are simpler. Standard thinks briefly first. Deep thinks longest and writes the tightest mysteries; expect several minutes.</p></div>
     <div class="row"><button class="btn primary" data-act="close-modal">Done</button></div>`);
 }
 function casebookSheet() {
@@ -1267,6 +1598,7 @@ function confirmSheet(title, body, act, label) {
 /* ───────────────────────── events ───────────────────────── */
 function openCaseFromBook(id) {
   const c = casebook().find((x) => x.id === id);
+  if (c && !c.game) { toast(c.cloudOnly ? 'That case was saved from another device without its transcript.' : 'That case could not be loaded.'); return; }
   if (!c?.game) { toast('That case could not be loaded.'); return; }
   closeModal();
   G = c.game; G.phase = 'reveal'; G.readOnly = true;
@@ -1279,21 +1611,33 @@ function handleAct(btn) {
     case 'menu': return menuSheet();
     case 'settings': return settingsSheet();
     case 'tier': S.tier = btn.dataset.tier === 'deep' ? 'deep' : 'quick'; safeSet(KEY_SET, S); return settingsSheet();
+    case 'writer': S.writer = ['quick', 'standard', 'deep'].includes(btn.dataset.tier) ? btn.dataset.tier : 'standard'; safeSet(KEY_SET, S); return settingsSheet();
+    case 'setting': if (SETTINGS[id]) { S.setting = id; safeSet(KEY_SET, S); } return render();
+    case 'preset': S.preset = PRESETS[id] ? id : 'custom'; if (S.preset === 'custom' && !S.dials) S.dials = { ...PRESETS.inspector.dials }; safeSet(KEY_SET, S); return render();
+    case 'dial': { const d = currentDials(); const k = btn.dataset.k; d[k] = (d[k] || 0) + num(btn.dataset.d); S.dials = normDials(d); S.preset = 'custom'; safeSet(KEY_SET, S); return render(); }
+    case 'dial-toggle': { const d = currentDials(); d[btn.dataset.k] = !d[btn.dataset.k]; S.dials = normDials(d); S.preset = 'custom'; safeSet(KEY_SET, S); return render(); }
+    case 'dial-set': { const d = currentDials(); d[btn.dataset.k] = num(btn.dataset.v); S.dials = normDials(d); S.preset = 'custom'; safeSet(KEY_SET, S); return render(); }
+    case 'training': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.trainingOk) { ui.trainingOk = true; return confirmSheet('Open the training case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'training-do', 'Open training case'); } return handleAct({ dataset: { act: 'training-do' } }); }
+    case 'training-do': { ui.trainingOk = false; closeModal(); const tc = TRAINING[S.setting]; if (!tc) return; safeDel(KEY_GAME); const st = SETTINGS[tc.settingId]; const dials = normDials(tc.dials || { suspects: 4, liars: 1, mistaken: true, accomplice: false, hours: 6 }); try { const truth = normalizeTruth(JSON.parse(JSON.stringify(tc.truth)), st, dials); const briefs = normalizeBriefs({ briefs: JSON.parse(JSON.stringify(tc.briefs)) }, truth); G = newGame(tc.settingId, truth, briefs, dials, { training: true }); ui.tab = 'case'; save(); render(); toast('Training case open. Read the file, then start asking.'); } catch (e) { console.error(e); toast('The training case could not be loaded.'); } return; }
+    case 'gallery': return gallerySheet();
+    case 'play-shared': return playShared(id);
+    case 'play-shared-do': { const sid = ui.sharedPending; ui.sharedPending = null; closeModal(); return playShared(sid); }
+    case 'share-case': return shareCase();
     case 'casebook': return casebookSheet();
     case 'open-case': return openCaseFromBook(id);
     case 'import': return importSheet();
     case 'import-confirm': {
       const ta = $('#import-text'), err = $('#import-err');
-      try { const c = parseCaseCode(ta.value.trim()); const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.importOk) { ui.importOk = c; return confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'import-do', 'Open shared case'); } closeModal(); G = newGame(c.settingId, c.truth, c.briefs); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); }
+      try { const c = parseCaseCode(ta.value.trim()); const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.importOk) { ui.importOk = c; return confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'import-do', 'Open shared case'); } closeModal(); G = newGame(c.settingId, c.truth, c.briefs, c.dials); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); }
       catch { if (err) { err.textContent = 'That is not a valid case code. Copy the whole thing from the reveal screen.'; err.hidden = false; } }
       return;
     }
-    case 'import-do': { const c = ui.importOk; ui.importOk = null; if (!c) return closeModal(); closeModal(); safeDel(KEY_GAME); G = newGame(c.settingId, c.truth, c.briefs); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); return; }
+    case 'import-do': { const c = ui.importOk; ui.importOk = null; if (!c) return closeModal(); closeModal(); safeDel(KEY_GAME); G = newGame(c.settingId, c.truth, c.briefs, c.dials); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); return; }
     case 'close-modal': return closeModal();
     case 'home': closeModal(); if (G && (G.phase === 'reveal' || G.phase === 'verdict')) { if (!G.readOnly) safeDel(KEY_GAME); } G = null; ui.genStep = null; ui.genError = null; return render();
-    case 'new': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.genError) return confirmSheet('Start a new case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'new-do', 'Start new case'); closeModal(); ui.tab = 'case'; return generateCase('country_house'); }
-    case 'new-do': closeModal(); safeDel(KEY_GAME); ui.tab = 'case'; return generateCase('country_house');
-    case 'stop-gen': stopBusy(); stopGenTicker(); ui.genStep = null; G = null; return render();
+    case 'new': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.genError) return confirmSheet('Start a new case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'new-do', 'Start new case'); closeModal(); ui.tab = 'case'; return generateCase(S.setting, currentDials()); }
+    case 'new-do': closeModal(); safeDel(KEY_GAME); ui.tab = 'case'; return generateCase(S.setting, currentDials());
+    case 'stop-gen': stopBusy(); stopGenTicker(); ui.genStep = null; ui.genError = null; G = null; return render();
     case 'resume': { const saved = safeGet(KEY_GAME, null); if (saved?.truth) { G = tidy(saved); ui.tab = 'case'; render(); } return; }
     case 'abandon': return confirmSheet('Abandon the saved case?', 'The case in progress is deleted. Finished cases in the casebook are kept.', 'abandon-do', 'Abandon');
     case 'abandon-confirm': return confirmSheet('Abandon this case?', 'You lose the transcript and the board. The night stays sealed and is not revealed.', 'abandon-do', 'Abandon');
@@ -1309,7 +1653,7 @@ function handleAct(btn) {
     case 'unpresent': ui.present = null; { const ta = $('#q'); if (ta) ui.draft.q = ta.value; } return render();
     case 'ask': return sendQuestion();
     case 'stop': return stopBusy();
-    case 'solicitor': return waitForSolicitor(name);
+    case 'counsel': return waitForCounsel(name);
     case 'forensic': return requestForensic(id);
     case 'pin-forensic': { const st = stOf(), f = st.forensics.find((x) => x.id === id), got = G.forensics[id]; if (f && got && !G.board.pins.some((x) => x.kind === 'forensic' && x.msgId === id)) { addPin({ kind: 'forensic', text: got.result, source: f.name, msgId: id }); toast('Report pinned.'); } return render(); }
     case 'pin-scene': { const e = G.truth.evidence.find((x) => x.id === id); if (e && !G.board.pins.some((x) => x.kind === 'scene' && x.msgId === id)) { addPin({ kind: 'scene', text: `${e.name}: ${e.detail}`, source: `Scene · ${e.where}`, msgId: id }); toast('Scene item pinned.'); } return render(); }
@@ -1328,7 +1672,7 @@ function handleAct(btn) {
     case 'unlink': G.board.links = G.board.links.filter((l) => l.id !== id); save(); return render();
     case 'reveal': G.phase = 'reveal'; save(); return render();
     case 'copy-code': return copyText(caseCode()).then((ok) => { if (!ok) openModal(`<h3>Case code</h3><p class="note">Copying was blocked. Select the text below and copy it yourself.</p><textarea rows="8" readonly onclick="this.select()">${esc(caseCode())}</textarea><div class="row"><button class="btn ghost" data-act="close-modal">Close</button></div>`); });
-    case 'replay': { const c = { settingId: G.settingId, truth: G.truth, briefs: G.briefs }; closeModal(); G = newGame(c.settingId, c.truth, c.briefs); ui.tab = 'case'; save(); render(); toast('Same night, fresh suspects.'); return; }
+    case 'replay': { const c = { settingId: G.settingId, truth: G.truth, briefs: G.briefs, dials: G.dials, training: G.training }; closeModal(); G = newGame(c.settingId, c.truth, c.briefs, c.dials, { training: c.training }); ui.tab = 'case'; save(); render(); toast('Same night, fresh suspects.'); return; }
     default: return;
   }
 }
@@ -1356,17 +1700,18 @@ document.addEventListener('keydown', (ev) => {
 document.addEventListener('submit', (ev) => {
   if (ev.target?.id !== 'accform') return;
   ev.preventDefault();
-  const killer = $('#acc-killer').value, motive = $('#acc-motive').value.trim(), method = $('#acc-method').value.trim();
+  const killer = $('#acc-killer').value, accomplice = $('#acc-accomplice')?.value || '', motive = $('#acc-motive').value.trim(), method = $('#acc-method').value.trim();
   const pinIds = $$('input[name=ev]:checked').map((i) => i.value);
-  ui.draft.acc = { killer, motive, method, pinIds };
+  ui.draft.acc = { killer, accomplice, motive, method, pinIds };
   const err = $('#acc-err');
   const problems = [];
   if (!killer) problems.push('name the killer');
+  if (accomplice && accomplice === killer) problems.push('the accomplice cannot be the killer');
   if (motive.length < 12) problems.push('give a motive in a sentence or two');
   if (method.length < 12) problems.push('describe the method');
   if (!pinIds.length) problems.push('cite at least one piece of evidence');
   if (problems.length) { err.textContent = `Before you lodge it: ${problems.join('; ')}.`; err.hidden = false; return; }
-  confirmSheet('Lodge the accusation?', `You accuse ${killer}. This closes the case and reveals the night.`, 'accuse-do', 'Accuse');
+  confirmSheet('Lodge the accusation?', `You accuse ${killer}${accomplice ? ` and name ${accomplice} as accomplice` : ''}. This closes the case and reveals the night.`, 'accuse-do', 'Accuse');
 });
 document.addEventListener('click', (ev) => {
   const b = ev.target.closest('[data-act="accuse-do"]');
@@ -1380,6 +1725,8 @@ document.addEventListener('input', (ev) => { if (ev.target?.id === 'q') { ev.tar
 /* ───────────────────────── boot ───────────────────────── */
 function tidy(g) {
   if (g.phase === 'scoring') g.phase = 'play';
+  if (g.truth) { const ren = { exchange: 'comms', staff: 'logs' }; for (const [o, n] of Object.entries(ren)) { if (g.truth.forensics && o in g.truth.forensics) { g.truth.forensics[n] = g.truth.forensics[o]; delete g.truth.forensics[o]; } if (g.forensics && o in g.forensics) { g.forensics[n] = g.forensics[o]; delete g.forensics[o]; } } if (!('accomplice' in g.truth)) g.truth.accomplice = null; }
+  if (!g.dials) g.dials = normDials({ suspects: Object.keys(g.suspects || {}).length || 4, liars: 1, mistaken: true, accomplice: false, hours: Math.round((g.clock?.budget || 360) / 60) });
   const cost = (SETTINGS[g.settingId] || SETTINGS.country_house).questionCost;
   for (const s of Object.values(g.suspects || {})) { const n = arr(s.transcript).length; s.transcript = arr(s.transcript).filter((m) => !m.pending); if (s.transcript.length < n && g.clock) g.clock.used = Math.max(0, g.clock.used - cost); }
   return g;
@@ -1393,6 +1740,7 @@ function start(snap) {
     sampleReady = true;
     if (!G) render();
   })();
+  initCloud();
 }
 try { window.claude?.hot?.snapshot?.(() => ({ G, ui: { tab: ui.tab, boardView: ui.boardView, tone: ui.tone } })); } catch { /* not in a viewer */ }
 if (window.claude?.hot?.ready) window.claude.hot.ready(start); else start(window.claude?.hot?.data ?? null);
