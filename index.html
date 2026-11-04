@@ -711,21 +711,23 @@ const PARTS = ['killer', 'accomplice', 'liar', 'mistaken', 'honest'];
 function normalizeTruth(raw, st, dials) {
   if (!raw || typeof raw !== 'object') throw new Error('truth not an object');
   const t = raw;
-  const want = dials ? castPlan(normDials(dials)).length : 4;
-  t.suspects = arr(t.suspects).slice(0, 6).map((s) => ({ name: str(s?.name, 80).trim(), age: num(s?.age), role: str(s?.role, 200), sketch: str(s?.sketch, 600), part: ((p) => (PARTS.includes(p) ? p : 'honest'))(str(s?.part, 20).trim().toLowerCase()) }));
+  const want = dials ? castPlan(normDials(dials)).length : 6;
+  t.suspects = arr(t.suspects).slice(0, 12).map((s) => ({ name: str(s?.name, 80).trim(), age: num(s?.age), role: str(s?.role, 200), sketch: str(s?.sketch, 600), part: ((p) => (PARTS.includes(p) ? p : 'honest'))(str(s?.part, 20).trim().toLowerCase()) })).filter((s, i, xs) => !s.name || xs.findIndex((x) => x.name === s.name) === i);
   if (t.suspects.length < 3 || t.suspects.some((s) => !s.name)) throw new Error('need at least 3 named suspects');
-  if (t.suspects.length > want && want >= 3) t.suspects = t.suspects.slice(0, want);
   const surname = (n) => String(n).split(/\s+/).pop().toLowerCase();
-  const resolve = (given) => {
+  const resolve = (given, part) => {
     const g = str(given, 80).trim(); if (!g) return null;
-    return t.suspects.find((s) => s.name === g) || t.suspects.find((s) => s.name.includes(g) || g.includes(s.name)) || t.suspects.find((s) => surname(s.name) === surname(g)) || null;
+    const best = (xs) => (xs.length > 1 ? xs.find((s) => s.part === part) || xs[0] : xs[0] || null);
+    return best(t.suspects.filter((s) => s.name === g)) || best(t.suspects.filter((s) => s.name.includes(g) || g.includes(s.name))) || best(t.suspects.filter((s) => surname(s.name) === surname(g)));
   };
-  let k = resolve(t.killer) || t.suspects.find((s) => s.part === 'killer');
+  let k = resolve(t.killer, 'killer') || t.suspects.find((s) => s.part === 'killer');
   if (!k) throw new Error('killer not among suspects');
   t.killer = k.name;
-  let a = (!dials || dials.accomplice) ? (resolve(t.accomplice) || t.suspects.find((s) => s.part === 'accomplice' && s.name !== t.killer)) : null;
-  if (a && a.name === t.killer) a = null;
+  let a = (!dials || dials.accomplice) ? (resolve(t.accomplice, 'accomplice') || t.suspects.find((s) => s.part === 'accomplice' && s.name !== t.killer)) : null;
+  if (a && a.name === t.killer) a = t.suspects.find((s) => s.part === 'accomplice' && s.name !== t.killer) || null;
   t.accomplice = a ? a.name : null;
+  // more suspects than asked for: drop from the end, never the killer or the accomplice
+  while (t.suspects.length > Math.min(6, Math.max(3, want))) { let i = t.suspects.length - 1; while (i > 0 && (t.suspects[i] === k || t.suspects[i] === a)) i--; t.suspects.splice(i, 1); }
   t.suspects.forEach((s) => {
     if (s.name === t.killer) s.part = 'killer';
     else if (t.accomplice && s.name === t.accomplice) s.part = 'accomplice';
@@ -735,7 +737,7 @@ function normalizeTruth(raw, st, dials) {
   t.victim = { name: str(t.victim?.name, 80) || 'The victim', age: num(t.victim?.age), role: str(t.victim?.role, 200), sketch: str(t.victim?.sketch, 600) };
   t.night = { start: toMin(t.night?.start) != null ? t.night.start : st.night.start, end: toMin(t.night?.end) != null ? t.night.end : st.night.end, discovered: str(t.night?.discovered, 10) || '23:30', discoveredBy: str(t.night?.discoveredBy, 80), where: str(t.night?.where, 120) };
   t.publicFacts = arr(t.publicFacts).map((x) => str(x, 300)).filter(Boolean);
-  t.timeline = arr(t.timeline).map((e) => ({ time: str(e?.time, 10), place: str(e?.place, 120), present: arr(e?.present).map((x) => str(x, 80)), event: str(e?.event, 600), witnesses: arr(e?.witnesses).map((x) => str(x, 80)) })).filter((e) => toMin(e.time) != null && e.event);
+  t.timeline = arr(t.timeline).map((e) => ({ time: str(e?.time, 10), place: str(e?.place, 120), present: arr(e?.present).map((x) => str(x, 80).trim()).filter(Boolean), event: str(e?.event, 600), witnesses: arr(e?.witnesses).map((x) => str(x, 80).trim()).filter(Boolean) })).filter((e) => toMin(e.time) != null && e.event);
   t.timeline.sort((a, b) => nightOffset(a.time, t.night.start) - nightOffset(b.time, t.night.start));
   if (t.timeline.length < 6) throw new Error('timeline too short');
   t.evidence = arr(t.evidence).map((e, i) => ({ id: str(e?.id, 20) || `ev${i + 1}`, name: str(e?.name, 160), where: str(e?.where, 200), detail: str(e?.detail, 600), proves: str(e?.proves, 600), atScene: !!e?.atScene }));
@@ -764,10 +766,11 @@ function auditTruth(t, dials) {
   if (!t.evidence.length || t.evidence.length < 3) probs.push('Provide at least 4 evidence items that result from the timeline.');
   else if (!t.evidence.some((e) => e.atScene)) probs.push('Mark at least one evidence item atScene: true.');
   if (t.publicFacts.length < 3) probs.push('Provide at least 5 public facts.');
-  if (dials?.accomplice && !t.accomplice) probs.push('The case requires an accomplice: name one suspect as "accomplice" (part and top-level field).');
-  if (dials?.mistaken && !t.suspects.some((s) => s.part === 'mistaken')) probs.push('One suspect must have part "mistaken".');
-  const liars = t.suspects.filter((s) => s.part === 'liar').length;
-  if (dials && liars < dials.liars) probs.push(`The case requires ${dials.liars} non-killer liar(s); only ${liars} suspect(s) have part "liar".`);
+  const plan = dials ? castPlan(normDials(dials)) : [];
+  if (plan.includes('accomplice') && !t.accomplice) probs.push('The case requires an accomplice: name one suspect as "accomplice" (part and top-level field).');
+  if (plan.includes('mistaken') && !t.suspects.some((s) => s.part === 'mistaken')) probs.push('One suspect must have part "mistaken".');
+  const liars = t.suspects.filter((s) => s.part === 'liar').length, wantLiars = plan.filter((x) => x === 'liar').length;
+  if (liars < wantLiars) probs.push(`The case requires ${wantLiars} non-killer liar(s); only ${liars} suspect(s) have part "liar".`);
   for (const f of Object.keys(t.forensics)) if (t.forensics[f] === 'The report is inconclusive.') probs.push(`Forensic report "${f}" is missing a true, specific result.`);
   if (!t.solutionPath.length) probs.push('Provide a solutionPath of 5-7 steps.');
   return probs;
@@ -901,7 +904,7 @@ async function initCloud() {
 const myCases = () => cloud.db.collection('data/users/' + cloud.uid);
 function caseDoc(entry) {
   const doc = { type: 'case', id: entry.id, title: entry.title, setting: entry.setting, settingId: entry.settingId, dials: entry.dials, finishedAt: entry.finishedAt, total: entry.total, rank: entry.rank, killerCorrect: entry.killerCorrect, training: !!entry.training, game: entry.game };
-  if (JSON.stringify(doc).length > 240000) { doc.game = null; doc.tooLarge = true; }
+  if (new TextEncoder().encode(JSON.stringify(doc)).length > 240000) { doc.game = null; doc.tooLarge = true; }
   return doc;
 }
 async function cloudSaveCase(entry) {
@@ -939,7 +942,9 @@ async function shareCase() {
   try {
     await cloud.db.doc('shared_cases/' + id).set({ id, settingId: G.settingId, dials: G.dials, truth: G.truth, briefs: G.briefs, by: cloud.uid, at: Date.now() });
     await cloud.db.doc('shared_index/' + id).set({ id, title: G.truth.title, settingId: G.settingId, setting: st.name, dials: G.dials, cast: describeCast(castPlan(G.dials)), by: cloud.uid, at: Date.now(), authorScore: G.score?.total ?? null, authorRank: G.score?.rank || '' });
-    G.sharedId = id; save(); render(); toast('Shared. Anyone who can open this page can play it from the gallery.');
+    G.sharedId = id; if (!G.readOnly) save();
+    const book = casebook(), c = book.find((x) => x.id === G.id); if (c?.game) { c.game.sharedId = id; safeSet(KEY_BOOK, book); }
+    render(); toast('Shared. Anyone who can open this page can play it from the gallery.');
   } catch (e) { console.warn('share failed', e); toast(e?.code === 'quota_exceeded' ? 'The gallery is full.' : 'Sharing failed. Try again in a moment.'); }
 }
 async function recordSharedScore() {
@@ -967,11 +972,10 @@ function gallerySheet() {
     } catch (e) { console.warn('gallery failed', e); const el = $('#gallery-list'); if (el) el.innerHTML = '<p class="note">The gallery could not be loaded right now.</p>'; }
   })();
 }
-async function playShared(id) {
+async function playShared(id, confirmed) {
   if (!cloud.db || !id) return;
   const saved = safeGet(KEY_GAME, null);
-  if (!G && saved?.phase === 'play' && ui.sharedOk !== id) { ui.sharedOk = id; confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'play-shared-do', 'Open shared case'); ui.sharedPending = id; return; }
-  ui.sharedOk = null;
+  if (!G && saved?.phase === 'play' && !confirmed) { confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'play-shared-do', 'Open shared case'); ui.sharedPending = id; return; }
   try {
     const d = await cloud.db.doc('shared_cases/' + id).get();
     const x = d.exists ? d.data() : null;
@@ -985,6 +989,10 @@ async function playShared(id) {
   } catch (e) { console.warn('play shared failed', e); toast('That case could not be opened.'); }
 }
 const TRAINING = {};
+try {
+  const el = document.getElementById('training-data'), o = el ? JSON.parse(el.textContent) : null;
+  if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) { const sid = SETTINGS[v?.settingId] ? v.settingId : k; if (SETTINGS[sid] && v?.truth && Array.isArray(v.briefs)) TRAINING[sid] = { ...v, settingId: sid }; }
+} catch (e) { console.warn('training data ignored', e); }
 
 /* ───────────────────────── Claude calls ───────────────────────── */
 function errCopy(e) {
@@ -1038,7 +1046,9 @@ async function generateCase(settingId, dials, seedCase) {
     save(); busy = null; render();
     toast('The case is open. Read the file, then start asking.');
   } catch (e) {
+    if (busy && busy.ctl !== ctl) return;
     busy = null; stopGenTicker();
+    if (e?.code === 'cancelled' && !ui.genStep) { ui.genError = null; return; }
     ui.genError = e && e.code ? errCopy(e) : 'The case file came back malformed. Try again.';
     console.error(e);
     render();
@@ -1465,7 +1475,7 @@ function viewVerdict() {
       <div class="score" style="margin-top:8px"><div><div class="big">${sc.total}</div><div class="rank">${esc(sc.rank)}</div></div>
         <div class="parts"><span><b>${sc.killer}/40</b>killer</span><span><b>${sc.motive}/20</b>motive</span><span><b>${sc.method}/20</b>method</span><span><b>${sc.evidence}/20</b>evidence</span></div></div>
       <div class="rule"></div>
-      <p class="${a.killerCorrect ? 'ok' : 'err'}">${a.killerCorrect ? `You named ${esc(t.killer)}. Correct.` : `You accused ${esc(a.killer)}. The killer was ${esc(t.killer)}.`}${t.accomplice ? ` ${a.accCorrect ? `${esc(t.accomplice)} was the accomplice, as you said.` : a.accomplice ? `${esc(a.accomplice)} did not help; ${esc(t.accomplice)} did.` : `You missed the accomplice: ${esc(t.accomplice)}.`}` : a.accomplice ? ` Nobody helped; naming ${esc(a.accomplice)} cost you five points.` : ''}</p>
+      <p class="${a.killerCorrect ? 'ok' : 'err'}">${a.killerCorrect ? `You named ${esc(t.killer)}. Correct.` : `You accused ${esc(a.killer)}. The killer was ${esc(t.killer)}.`}${t.accomplice ? ` ${a.accCorrect ? `${esc(t.accomplice)} was the accomplice, as you said.` : a.accomplice ? `${esc(a.accomplice)} did not help; ${esc(t.accomplice)} did.` : `You missed the accomplice: ${esc(t.accomplice)}.`}` : a.accomplice ? ` Nobody helped; naming ${esc(a.accomplice)} ${a.killerCorrect ? 'cost you five points' : 'was wrong as well'}.` : ''}</p>
       ${sc.verdict ? `<p class="verdict" style="margin-top:12px">${esc(sc.verdict)}</p>` : ''}
       ${sc.unscored ? `<p class="note" style="margin-top:8px">Motive, method and evidence could not be graded (Claude was unavailable), so only the name counts here.</p>` : ''}
       ${sc.caught?.length ? `<h3 style="margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--truth)">What you caught</h3><ul style="margin:6px 0 0;padding-left:18px">${sc.caught.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
@@ -1514,7 +1524,7 @@ function markLies(text, lies) {
   for (const l of lies) {
     const needle = String(l.text || '').trim(); if (needle.length < 6) continue;
     const i = text.toLowerCase().indexOf(needle.toLowerCase()); if (i < 0) continue;
-    if (spans.some((s) => i < s.end && i + needle.length > s.start)) continue;
+    if (spans.some((s) => i < s.end && i + needle.length > s.start)) { l.found = true; continue; }
     spans.push({ start: i, end: i + needle.length, label: l.label, found: true }); l.found = true;
   }
   spans.sort((a, b) => a.start - b.start);
@@ -1601,7 +1611,7 @@ function openCaseFromBook(id) {
   if (c && !c.game) { toast(c.cloudOnly ? 'That case was saved from another device without its transcript.' : 'That case could not be loaded.'); return; }
   if (!c?.game) { toast('That case could not be loaded.'); return; }
   closeModal();
-  G = c.game; G.phase = 'reveal'; G.readOnly = true;
+  G = tidy(c.game); G.phase = 'reveal'; G.readOnly = true;
   render();
 }
 
@@ -1617,18 +1627,18 @@ function handleAct(btn) {
     case 'dial': { const d = currentDials(); const k = btn.dataset.k; d[k] = (d[k] || 0) + num(btn.dataset.d); S.dials = normDials(d); S.preset = 'custom'; safeSet(KEY_SET, S); return render(); }
     case 'dial-toggle': { const d = currentDials(); d[btn.dataset.k] = !d[btn.dataset.k]; S.dials = normDials(d); S.preset = 'custom'; safeSet(KEY_SET, S); return render(); }
     case 'dial-set': { const d = currentDials(); d[btn.dataset.k] = num(btn.dataset.v); S.dials = normDials(d); S.preset = 'custom'; safeSet(KEY_SET, S); return render(); }
-    case 'training': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.trainingOk) { ui.trainingOk = true; return confirmSheet('Open the training case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'training-do', 'Open training case'); } return handleAct({ dataset: { act: 'training-do' } }); }
-    case 'training-do': { ui.trainingOk = false; closeModal(); const tc = TRAINING[S.setting]; if (!tc) return; safeDel(KEY_GAME); const st = SETTINGS[tc.settingId]; const dials = normDials(tc.dials || { suspects: 4, liars: 1, mistaken: true, accomplice: false, hours: 6 }); try { const truth = normalizeTruth(JSON.parse(JSON.stringify(tc.truth)), st, dials); const briefs = normalizeBriefs({ briefs: JSON.parse(JSON.stringify(tc.briefs)) }, truth); G = newGame(tc.settingId, truth, briefs, dials, { training: true }); ui.tab = 'case'; save(); render(); toast('Training case open. Read the file, then start asking.'); } catch (e) { console.error(e); toast('The training case could not be loaded.'); } return; }
+    case 'training': { const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play') { return confirmSheet('Open the training case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'training-do', 'Open training case'); } return handleAct({ dataset: { act: 'training-do' } }); }
+    case 'training-do': { closeModal(); const tc = TRAINING[S.setting]; if (!tc) return; safeDel(KEY_GAME); const st = SETTINGS[tc.settingId]; const dials = normDials(tc.dials || { suspects: arr(tc.truth?.suspects).length || 4, liars: 1, mistaken: true, accomplice: !!tc.truth?.accomplice, hours: 6 }); try { const truth = normalizeTruth(JSON.parse(JSON.stringify(tc.truth)), st, dials); const briefs = normalizeBriefs({ briefs: JSON.parse(JSON.stringify(tc.briefs)) }, truth); G = newGame(tc.settingId, truth, briefs, dials, { training: true }); ui.tab = 'case'; save(); render(); toast('Training case open. Read the file, then start asking.'); } catch (e) { console.error(e); toast('The training case could not be loaded.'); } return; }
     case 'gallery': return gallerySheet();
     case 'play-shared': return playShared(id);
-    case 'play-shared-do': { const sid = ui.sharedPending; ui.sharedPending = null; closeModal(); return playShared(sid); }
+    case 'play-shared-do': { const sid = ui.sharedPending; ui.sharedPending = null; closeModal(); return playShared(sid, true); }
     case 'share-case': return shareCase();
     case 'casebook': return casebookSheet();
     case 'open-case': return openCaseFromBook(id);
     case 'import': return importSheet();
     case 'import-confirm': {
       const ta = $('#import-text'), err = $('#import-err');
-      try { const c = parseCaseCode(ta.value.trim()); const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play' && !ui.importOk) { ui.importOk = c; return confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'import-do', 'Open shared case'); } closeModal(); G = newGame(c.settingId, c.truth, c.briefs, c.dials); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); }
+      try { const c = parseCaseCode(ta.value.trim()); const saved = safeGet(KEY_GAME, null); if (!G && saved?.phase === 'play') { ui.importOk = c; return confirmSheet('Open the shared case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'import-do', 'Open shared case'); } closeModal(); G = newGame(c.settingId, c.truth, c.briefs, c.dials); ui.tab = 'case'; save(); render(); toast('Shared case opened.'); }
       catch { if (err) { err.textContent = 'That is not a valid case code. Copy the whole thing from the reveal screen.'; err.hidden = false; } }
       return;
     }
@@ -1672,7 +1682,8 @@ function handleAct(btn) {
     case 'unlink': G.board.links = G.board.links.filter((l) => l.id !== id); save(); return render();
     case 'reveal': G.phase = 'reveal'; save(); return render();
     case 'copy-code': return copyText(caseCode()).then((ok) => { if (!ok) openModal(`<h3>Case code</h3><p class="note">Copying was blocked. Select the text below and copy it yourself.</p><textarea rows="8" readonly onclick="this.select()">${esc(caseCode())}</textarea><div class="row"><button class="btn ghost" data-act="close-modal">Close</button></div>`); });
-    case 'replay': { const c = { settingId: G.settingId, truth: G.truth, briefs: G.briefs, dials: G.dials, training: G.training }; closeModal(); G = newGame(c.settingId, c.truth, c.briefs, c.dials, { training: c.training }); ui.tab = 'case'; save(); render(); toast('Same night, fresh suspects.'); return; }
+    case 'replay': { const saved = safeGet(KEY_GAME, null); if (G.readOnly && saved?.phase === 'play' && saved.id !== G.id) return confirmSheet('Play this case again?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'replay-do', 'Play again'); return handleAct({ dataset: { act: 'replay-do' } }); }
+    case 'replay-do': { const c = { settingId: G.settingId, truth: G.truth, briefs: G.briefs, dials: G.dials, training: G.training, sharedFrom: G.sharedFrom }; closeModal(); G = newGame(c.settingId, c.truth, c.briefs, c.dials, { training: c.training, sharedFrom: c.sharedFrom }); ui.tab = 'case'; save(); render(); toast('Same night, fresh suspects.'); return; }
     default: return;
   }
 }
@@ -1725,7 +1736,7 @@ document.addEventListener('input', (ev) => { if (ev.target?.id === 'q') { ev.tar
 /* ───────────────────────── boot ───────────────────────── */
 function tidy(g) {
   if (g.phase === 'scoring') g.phase = 'play';
-  if (g.truth) { const ren = { exchange: 'comms', staff: 'logs' }; for (const [o, n] of Object.entries(ren)) { if (g.truth.forensics && o in g.truth.forensics) { g.truth.forensics[n] = g.truth.forensics[o]; delete g.truth.forensics[o]; } if (g.forensics && o in g.forensics) { g.forensics[n] = g.forensics[o]; delete g.forensics[o]; } } if (!('accomplice' in g.truth)) g.truth.accomplice = null; }
+  if (g.truth) { const ren = { exchange: 'comms', staff: 'logs' }; for (const [o, n] of Object.entries(ren)) { if (g.truth.forensics && o in g.truth.forensics) { g.truth.forensics[n] = g.truth.forensics[o]; delete g.truth.forensics[o]; } if (g.forensics && o in g.forensics) { g.forensics[n] = g.forensics[o]; delete g.forensics[o]; } for (const p of arr(g.board?.pins)) if (p.kind === 'forensic' && p.msgId === o) p.msgId = n; } if (!('accomplice' in g.truth)) g.truth.accomplice = null; }
   if (!g.dials) g.dials = normDials({ suspects: Object.keys(g.suspects || {}).length || 4, liars: 1, mistaken: true, accomplice: false, hours: Math.round((g.clock?.budget || 360) / 60) });
   const cost = (SETTINGS[g.settingId] || SETTINGS.country_house).questionCost;
   for (const s of Object.values(g.suspects || {})) { const n = arr(s.transcript).length; s.transcript = arr(s.transcript).filter((m) => !m.pending); if (s.transcript.length < n && g.clock) g.clock.used = Math.max(0, g.clock.used - cost); }
