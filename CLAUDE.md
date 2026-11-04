@@ -18,7 +18,11 @@ Publish `index.html` with the Artifact tool to the existing URL in `README.md`. 
 
 ## Testing
 
-`test/harness.js` is a Playwright script with a mocked `window.claude` (sample, db, user). Run `node test/harness.js` from the repo root; it drives the full flow at phone and desktop widths and writes screenshots to `test/shots/`. Chromium and Playwright are preinstalled in the cloud session. Syntax-check the script after edits:
+`test/harness.js` is a Playwright script with a mocked `window.claude` (sample, db, user). Run `node test/harness.js` from the repo root; it drives the full flow at phone and desktop widths and writes screenshots to `test/shots/`. Chromium and Playwright are preinstalled in the cloud session.
+
+`test/live/play.js` plays a real case with a live model through the Claude CLI (`claude -p`, never with `--bare`, which breaks authentication): `node test/live/play.js --setting=antarctic --preset=yard`. Read the report it writes under `test/live/out/` to judge prompt changes; a case costs well under a dollar.
+
+Syntax-check the script after edits:
 
 ```
 sed -n '/^<script>/,/^<\/script>/p' index.html | sed '1d;$d' > /tmp/app.js && node --check /tmp/app.js
