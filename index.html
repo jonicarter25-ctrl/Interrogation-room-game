@@ -1191,8 +1191,12 @@ async function askSuspect(name, question, tone, present) {
 }
 
 function stripSpeakerLabel(text, name) {
-  const labels = [name, name.split(' ').slice(-1)[0], 'Suspect', 'Answer', 'Reply'].filter(Boolean);
-  for (const l of labels) { const re = new RegExp('^\\**' + l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\**\\s*:\\s*', 'i'); if (re.test(text)) return text.replace(re, '').trim(); }
+  const labels = [name, name.split(' ').slice(-1)[0], 'Suspect', 'Answer', 'Reply'].filter((x) => x && x.length > 1);
+  for (const l of labels) {
+    const q = l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp('^(?:\\*\\*)?\\s*' + q + '\\s*(?::\\s*(?:\\*\\*)?|(?:\\*\\*)\\s*:)\\s*', 'i');
+    if (re.test(text)) return text.replace(re, '').trim();
+  }
   return text;
 }
 function stopBusy() { if (busy?.ctl) busy.ctl.abort(); }
