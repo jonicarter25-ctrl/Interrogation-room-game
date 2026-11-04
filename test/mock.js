@@ -122,8 +122,10 @@ function mockInit({ base, seed, over }) {
     }
     if (p.includes('Write a PRIVATE BRIEF')) {
       log.push({ kind: 'briefs', prompt: p });
-      const tf = JSON.parse(p.split('TRUTH FILE:\n')[1].split('\n\nReply with ONLY')[0]);
+      const tf = JSON.parse(p.split('TRUTH FILE:\n')[1].split('\n\n')[0]);
+      const onlyM = /WRITE BRIEFS ONLY FOR: (.+?) \(the other/.exec(p); const only = onlyM ? onlyM[1].split(', ') : null;
       const b = buildBriefs(tf);
+      if (only) b.briefs = b.briefs.filter((x) => only.includes(x.name));
       await stream(JSON.stringify(b), opts, 4, cfg.genDelay);
       return b;
     }

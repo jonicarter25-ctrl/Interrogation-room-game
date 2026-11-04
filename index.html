@@ -532,6 +532,8 @@ TIMELINE: 14-18 entries covering the whole night at minute precision: the murder
 
 PUBLIC FACTS: 5-7 things everyone there knows by morning (who died, where and when the body was found and by whom, that the authorities were called, the weather, who was present).
 
+LENGTH: be concrete but economical. Keep the whole reply under about ${n <= 4 ? '9,000' : n === 5 ? '10,500' : '12,000'} characters: one sentence per timeline event, two for each forensic result, no filler.
+
 Reply with ONLY a JSON object, no commentary, exactly this shape:
 {
  "title": "a 3-5 word case title, e.g. The Something Affair",
@@ -553,8 +555,9 @@ Reply with ONLY a JSON object, no commentary, exactly this shape:
  "solutionPath": ["5-7 steps a sharp detective would take, each naming the statement, report or item used"]
 }`;
 }
-function briefsPrompt(st, truth) {
+function briefsPrompt(st, truth, only) {
   const n = truth.suspects.length;
+  const subset = only && only.length ? only : null;
   return `You are the case designer for "Interrogation Room", a detective game. Below is the sealed TRUTH FILE of a case. Write a PRIVATE BRIEF for each of the ${n} suspects. An actor will play each suspect under free-text interrogation using ONLY their brief, so every brief must be complete enough to answer any reasonable question about the night, and strict enough that the suspect never states anything they could not know.
 
 Derive everything from the truth file:
@@ -570,7 +573,10 @@ Speech: ${st.speech}.
 TRUTH FILE:
 ${JSON.stringify(truth)}
 
-Reply with ONLY a JSON object: {"briefs": [ ${n} items, in the same order as truth.suspects ]}, each item exactly this shape:
+${subset ? `WRITE BRIEFS ONLY FOR: ${subset.join(', ')} (the other suspects are briefed separately; you still need the whole truth file to know what these ones saw).` : ''}
+LENGTH: keep each brief under about 2,200 characters.
+
+Reply with ONLY a JSON object: {"briefs": [ ${subset ? subset.length : n} items, ${subset ? 'in the order listed above' : 'in the same order as truth.suspects'} ]}, each item exactly this shape:
 {
  "name": "exactly as in truth.suspects",
  "part": "exactly as in truth.suspects",
@@ -611,7 +617,7 @@ function actorInput(G, name, s, brief, st) {
   const admitted = (s.cracked || []).map((i) => brief.lies?.[i]?.truth).filter(Boolean);
   const instr = `You are playing ${name} in a detective game set in ${st.era}. ${t.victim.name} (${t.victim.role}) was found dead at ${t.night.discovered} in ${t.night.where} by ${t.night.discoveredBy}. It is now the morning after, at ${t.house}. A police officer (${st.detective}) is questioning you. Stay fully in character at all times.
 
-HOW TO REPLY: only ${name}'s spoken words, with at most one brief action in *asterisks*. Usually 20-90 words; longer only when the question invites an account. Speech: ${st.speech}. Never mention being an AI, a game, a brief or an actor. Never speak for the detective. Do not volunteer information nobody asked for. Refer to people the way ${name} would.
+HOW TO REPLY: only ${name}'s spoken words. An action in *asterisks* is allowed on some turns, never on every turn, and never the same action or opening phrase twice in this conversation; vary how you begin. Usually 20-90 words; longer only when the question invites an account. Answer the question that was actually asked, for the time it asks about. Speech: ${st.speech}. Never mention being an AI, a game, a brief or an actor. Never speak for the detective. Do not volunteer information nobody asked for. Refer to people the way ${name} would.
 
 WHAT EVERYONE IN THE HOUSE KNOWS: ${arr(t.publicFacts).join(' ')}
 
@@ -667,7 +673,7 @@ CHECKS:
 If any check fails, set "ok": false and write "answer": a corrected reply in the same voice that fixes only the problem and keeps the rest. Otherwise "ok": true and copy the proposed answer verbatim into "answer".
 
 ANNOTATE the final answer:
-- "claims": every distinct factual assertion about the night or the people in it (times, places, who was where, what was seen or heard, relationships, money), each as {"text": exact words or close paraphrase under 25 words, "label": "true"|"lie"|"mistaken"|"evasion", "truth": for lie or mistaken, one sentence of what is actually true; otherwise ""}. Feelings and refusals produce no claim.
+- "claims": the distinct factual assertions about the night or the people in it (times, places, who was where, what was seen or heard, relationships, money), at most 4, merging restatements of the same assertion into one, each as {"text": exact words or close paraphrase under 25 words, "label": "true"|"lie"|"mistaken"|"evasion", "truth": for lie or mistaken, one sentence of what is actually true; otherwise ""}. Judge a claim against the question that was asked: an answer about the murder window is not a lie because something different happened hours later. Use "mistaken" only for the suspect's listed honestMistake or a sincere error about their own memory; what they think others noticed is not a claim. Feelings, opinions and refusals produce no claim.
 - "pressureDelta": integer from -10 to 25. Rapport or a gentle question: -8 to 0. Neutral probing: 0 to 5. A direct accusation, or a confrontation with a genuine contradiction or relevant evidence: 10 to 25 (top of the range when it hits one of this suspect's lies or their secret). Irrelevant evidence or bluster: 2 to 6.
 - "cracked": indexes into the brief's "lies" that the suspect has abandoned in this answer (usually []).
 - "hit": true if the question or the evidence presented touched one of this suspect's lies, their secret, or their honest mistake.
@@ -796,10 +802,13 @@ function normalizeTruth(raw, st, dials) {
 }
 
 /* deterministic audit of a truth file: returns a list of problems for one repair call */
+const TITLES = new Set(['mr', 'mrs', 'miss', 'ms', 'dr', 'sir', 'lady', 'lord', 'captain', 'capt', 'colonel', 'col', 'major', 'rev', 'the', 'hon', 'professor', 'prof', 'nurse', 'sister', 'father', 'brother']);
+const nameTokens = (n) => String(n || '').toLowerCase().replace(/[^a-z0-9\s]+/g, ' ').split(/\s+/).filter((w) => w.length >= 3 && !TITLES.has(w));
+function sameName(a, b) { if (!a || !b) return false; if (a === b) return true; const ta = nameTokens(a), tb = nameTokens(b); return ta.some((w) => tb.includes(w)); }
 function auditTruth(t, dials) {
   const probs = [];
   const names = t.suspects.map((s) => s.name);
-  for (const n of names) { const c = t.timeline.filter((e) => e.present.some((p) => p === n || p.includes(n) || n.includes(p))).length; if (c < 2) probs.push(`Suspect ${n} appears in fewer than two timeline entries; account for their movements through the night.`); }
+  for (const n of names) { const c = t.timeline.filter((e) => e.present.some((p) => sameName(p.trim(), n))).length; if (c < 2) probs.push(`Suspect ${n} appears in fewer than two timeline entries; account for their movements through the night.`); }
   const gf = nightOffset(t.alibiGap.from, t.night.start), gt = nightOffset(t.alibiGap.to, t.night.start);
   if (gf == null || gt == null) probs.push('alibiGap.from and alibiGap.to must be HH:MM times inside the night.');
   else if (!t.timeline.some((e) => { const o = nightOffset(e.time, t.night.start); return o >= gf && o <= gt; })) probs.push('No timeline entry falls inside the alibi gap; the murder must appear in the timeline within it.');
@@ -915,8 +924,19 @@ function addLink(a, b, type) {
 const linksOf = (id) => G.board.links.filter((l) => l.a === id || l.b === id).map((l) => ({ ...l, other: G.board.pins.find((p) => p.id === (l.a === id ? l.b : l.a)) })).filter((l) => l.other);
 
 /* lie bookkeeping: was a lie pinned / linked / cited by the player? */
+function lieGroups() {
+  const out = [];
+  for (const l of G.lieLog) {
+    if (l.label !== 'lie' && l.label !== 'mistaken') continue;
+    const k = out.find((g) => g.suspect === l.suspect && g.label === l.label && (overlap(l.text, g.text) >= 0.55 || overlap(g.text, l.text) >= 0.55));
+    if (k) { k.repeats++; k.msgIds.push(l.msgId); if (l.admitted) k.admitted = true; }
+    else out.push({ ...l, repeats: 1, msgIds: [l.msgId] });
+  }
+  return out;
+}
 function lieStatus(l) {
-  const pins = G.board.pins.filter((p) => p.kind === 'quote' && (p.msgId === l.msgId || overlap(l.text, p.text) >= 0.6 || overlap(p.text, l.text) >= 0.6));
+  const ids = l.msgIds || [l.msgId];
+  const pins = G.board.pins.filter((p) => p.kind === 'quote' && (ids.includes(p.msgId) || overlap(l.text, p.text) >= 0.6 || overlap(p.text, l.text) >= 0.6));
   const pinned = pins.length > 0;
   const linked = pins.some((p) => linksOf(p.id).some((k) => k.type === 'contradicts'));
   const cited = !!G.accusation && pins.some((p) => G.accusation.pinIds.includes(p.id));
@@ -1077,8 +1097,12 @@ async function generateCase(settingId, dials, seedCase) {
     }
     ui.genStep = 'briefs'; paintGen();
     if (!briefs) {
-      const raw = await sample.json(briefsPrompt(st, truth), { cache: false, signal: ctl.signal, ...writerOpts(), onText: ({ text }) => { ui.genBytes.briefs = text.length; paintGen(); } });
-      briefs = normalizeBriefs(raw, truth);
+      const names = truth.suspects.map((s) => s.name);
+      const halves = names.length >= 4 ? [names.slice(0, Math.ceil(names.length / 2)), names.slice(Math.ceil(names.length / 2))] : [names];
+      const sizes = halves.map(() => 0);
+      const results = await Promise.all(halves.map((h, i) => sample.json(briefsPrompt(st, truth, halves.length > 1 ? h : null), { cache: false, signal: ctl.signal, ...writerOpts(), onText: ({ text }) => { sizes[i] = text.length; ui.genBytes.briefs = sizes.reduce((a, b) => a + b, 0); paintGen(); } })));
+      const merged = { briefs: results.flatMap((r) => arr(r?.briefs ?? r)) };
+      briefs = normalizeBriefs(merged, truth);
     }
     ui.genStep = 'done'; paintGen(); stopGenTicker();
     G = newGame(settingId, truth, briefs, dials, { training: !!seedCase?.training, sharedFrom: seedCase?.sharedFrom });
@@ -1348,7 +1372,7 @@ function viewGenerating() {
     <h2 style="margin-top:6px">${step === 'done' ? 'Opening the case' : 'Sealing the truth file'}</h2>
     <p class="lede" style="margin-top:6px">The night is written first, minute by minute, and sealed. The suspects are briefed from it. You only ever see what they choose to tell you.</p>
     <p class="cast" style="margin-top:8px">${esc((SETTINGS[ui.genSetting] || SETTINGS.country_house).name)} · ${esc(describeCast(castPlan(ui.genDials || currentDials())))}.</p>
-    <div class="steps">${row('truth', 'Timeline, killer, motive, method, evidence, forensics', 'about a minute')}${(step === 'repair' || ui.genBytes.repair) ? row('repair', 'Tightening the night where the audit found gaps', 'a few seconds') : ''}${row('briefs', `${(ui.genDials || currentDials()).suspects} private briefs: what each saw, knows and will lie about`, 'about a minute')}</div>
+    <div class="steps">${row('truth', 'Timeline, killer, motive, method, evidence, forensics', 'one to two minutes')}${(step === 'repair' || ui.genBytes.repair) ? row('repair', 'Tightening the night where the audit found gaps', 'a few seconds') : ''}${row('briefs', `${(ui.genDials || currentDials()).suspects} private briefs: what each saw, knows and will lie about`, 'about a minute')}</div>
     ${ui.genError ? `<div class="err" style="margin-top:14px">${esc(ui.genError)}</div><div class="row" style="margin-top:10px"><button class="btn primary" data-act="new">Try again</button><button class="btn ghost" data-act="home">Back</button></div>` : `<p class="note" style="margin-top:12px" data-genmsg>${esc(genMessage())}</p><div class="row" style="margin-top:10px"><button class="btn ghost" data-act="stop-gen">Stop</button><span class="note" data-elapsed>${genElapsed()}</span></div>`}
     <p class="tip" data-tip>${esc(pick(TIPS))}</p>
   </div></div>`;
@@ -1359,7 +1383,7 @@ function genMessage() {
   if (k === 'done') return 'Opening the case.';
   if (ui.genBytes[k]) return k === 'truth' ? 'Writing the night. The timeline comes first, then the evidence.' : k === 'repair' ? 'Patching the gaps the audit found.' : 'Writing the briefs, one suspect at a time.';
   if (secs > 180) return 'This is taking longer than usual. Claude may be busy. You can stop and try again.';
-  if (secs > 60) return 'Still working. Nothing shows until Claude starts writing, which can take a couple of minutes for a whole night.';
+  if (secs > 60) return 'Still working. Nothing shows until Claude starts writing, which often takes one to two minutes for a whole night.';
   return k === 'truth' ? 'Claude works the night out in silence before it writes. The size counter starts when text begins.' : 'Claude is deriving what each suspect could have seen.';
 }
 let genTicker = null, tipAt = 0;
@@ -1538,7 +1562,7 @@ function viewReveal(readOnly) {
   const t = G.truth;
   const murderTime = t.alibiGap?.from;
   const events = t.timeline.map((e) => ({ ...e, murder: murderTime && nightOffset(e.time, t.night.start) >= nightOffset(murderTime, t.night.start) && nightOffset(e.time, t.night.start) <= (nightOffset(t.alibiGap?.to, t.night.start) ?? -1) }));
-  const lies = G.lieLog.filter((l) => l.label === 'lie' || l.label === 'mistaken');
+  const lies = lieGroups();
   return `<div class="stack">
     <div class="card">
       <div class="eyebrow">What really happened</div>
@@ -1549,7 +1573,7 @@ function viewReveal(readOnly) {
     </div>
     <div class="card">
       <div class="eyebrow">The lies, in the order they were told</div>
-      ${lies.length ? `<div class="lies" style="margin-top:10px">${lies.map((l) => { const s = lieStatus(l); return `<div class="lie ${l.label}"><div class="who"><b>${esc(l.suspect)}</b><span>${esc(clockAt(stOf().clock.start, l.clock))}</span><span class="badge ${l.label}">${l.label === 'lie' ? 'lie' : 'honest mistake'}</span>${s.cited ? '<span class="badge caught">cited</span>' : s.linked ? '<span class="badge caught">contradiction marked</span>' : s.pinned ? '<span class="badge caught">pinned</span>' : ''}${l.admitted ? '<span class="badge admit">later admitted</span>' : ''}</div><div class="q">“${esc(l.text)}”</div><div class="tr">${esc(l.truth || '')}</div></div>`; }).join('')}</div>` : `<p class="note" style="margin-top:6px">No lies were recorded during questioning. Either nobody was pressed, or the referee could not annotate the answers.</p>`}
+      ${lies.length ? `<div class="lies" style="margin-top:10px">${lies.map((l) => { const s = lieStatus(l); return `<div class="lie ${l.label}"><div class="who"><b>${esc(l.suspect)}</b><span>${esc(clockAt(stOf().clock.start, l.clock))}</span><span class="badge ${l.label}">${l.label === 'lie' ? 'lie' : 'honest mistake'}</span>${l.repeats > 1 ? `<span class="badge">repeated ×${l.repeats}</span>` : ''}${s.cited ? '<span class="badge caught">cited</span>' : s.linked ? '<span class="badge caught">contradiction marked</span>' : s.pinned ? '<span class="badge caught">pinned</span>' : ''}${l.admitted ? '<span class="badge admit">later admitted</span>' : ''}</div><div class="q">“${esc(l.text)}”</div><div class="tr">${esc(l.truth || '')}</div></div>`; }).join('')}</div>` : `<p class="note" style="margin-top:6px">No lies were recorded during questioning. Either nobody was pressed, or the referee could not annotate the answers.</p>`}
     </div>
     <div class="card">
       <div class="eyebrow">The transcript, with every lie marked</div>
