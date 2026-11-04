@@ -512,8 +512,15 @@ function castRules(parts) {
   return out.join('\n');
 }
 
-function truthPrompt(st, seed, dials) {
+const MOTIVES = ['money the killer had already taken and was about to be found out over', 'an inheritance or a will about to be changed', 'blackmail: the victim knew a secret the killer could not survive', 'jealousy over a lover or a spouse', 'revenge for a wrong done years ago, which the victim thought forgotten', 'a professional discovery or claim the victim was about to take credit for or expose', 'protecting someone else the victim threatened to ruin', 'fear: the victim had recognised the killer from a past life under another name'];
+const METHODS = ['a blow with something heavy that belonged in the room', 'a poison or drug the killer had legitimate access to', 'a fall arranged to look like an accident', 'smothering or strangling in a quiet room', 'a shot that most people took for something else', 'cold, water or exposure: the victim left somewhere they could not survive', 'gas, fumes or smoke in a closed space'];
+const TITLE_STYLES = ['"The <Place> <Object>" (e.g. The Larchmere Decanter)', '"<Weather or time> at <Place>" (e.g. Sleet at Sallowmere)', '"The <Adjective> <Guest or Role>" (e.g. The Quiet Botanist)', '"Death <in/on/at> the <Place>" (e.g. Death on the Lower Stair)', 'a short phrase someone says in the case (e.g. Ask the Exchange)'];
+function caseFlavor() {
+  return { motive: pick(MOTIVES), method: pick(METHODS), title: pick(TITLE_STYLES) };
+}
+function truthPrompt(st, seed, dials, flavor) {
   const parts = castPlan(dials), n = parts.length;
+  flavor = flavor || caseFlavor();
   return `You are the case designer for "Interrogation Room", a fair-play detective game. Design the sealed TRUTH FILE for one murder case. The player (a detective) will question ${n} suspects in free text, request forensic reports, pin statements to an evidence board, and must finally name the killer${dials.accomplice ? ' and any accomplice' : ''}, the motive and the method, citing evidence. Every answer the suspects give will be checked against this file, so it must be complete, concrete and internally consistent.
 
 SETTING: ${st.name}. ${st.era}. ${st.blurb}
@@ -531,8 +538,9 @@ FAIR PLAY RULES:
 - The solution must be deducible from (a) honest testimony, (b) forensics, and (c) contradictions in the guilty parties' own statements. The killer's alibi for the murder window must be false, and exposable in at least TWO independent ways (one forensic report, one witness or physical trace).
 - Every lie in the case has a specific piece of evidence that can expose it.
 - Physical evidence RESULTS from the events in the timeline, nothing arbitrary. 4-6 items. Mark which are visible at the scene when the body is found.
-- Motive is concrete and discoverable (money, fear, blackmail, an affair, a past wrong) through questioning and evidence.
-- Method is specific and period-appropriate, leaves traces, and fits the timeline.
+- MOTIVE FAMILY for this case: ${flavor.motive}. Make it concrete and discoverable through questioning and evidence.
+- METHOD FAMILY for this case: ${flavor.method}, adapted to the setting. Make it specific and period-appropriate; it leaves traces and fits the timeline.
+- TITLE STYLE for this case: ${flavor.title}. Never use the words Ledger, Affair, Matter or Business in the title.
 - Include one red herring that honest investigation will dispel.
 
 FORENSIC REPORTS the detective may request. Write a TRUE, specific result for every one (1-2 sentences each). At least one must directly contradict the killer's planned alibi; one should help clear a non-killer liar if there is one:
@@ -546,7 +554,7 @@ LENGTH: be concrete but economical. Keep the whole reply under about ${n <= 4 ? 
 
 Reply with ONLY a JSON object, no commentary, exactly this shape:
 {
- "title": "a 3-5 word case title, e.g. The Something Affair",
+ "title": "a 2-5 word case title in the title style above",
  "house": "name and one-line description of the place",
  "victim": {"name": "", "age": 0, "role": "", "sketch": "2 sentences"},
  "night": {"start": "${st.night.start}", "end": "${st.night.end}", "discovered": "HH:MM", "discoveredBy": "name", "where": "room or place"},
