@@ -88,6 +88,13 @@ const say = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
   for (const n of names) { const m = await ask(n, `Where were you between ${gap.from} and ${gap.to}, and who can confirm it?`, 'gentle'); if (m) await pinQuote(n, m, gap.from); }
   // round 2: everyone, direct, what they saw of the others
   for (const n of names) await ask(n, `Did you see or hear any of the others after ${gap.from}? Be exact about times.`, 'direct');
+  // nudge from the reviewing officer (costs 30 minutes and 3 points)
+  await page.click('.tabs [data-act=tab][data-tab=case]');
+  await page.waitForSelector('[data-act=hint]');
+  await page.click('[data-act=hint]');
+  await page.waitForFunction(() => !document.querySelector('[data-act=hint]')?.textContent.includes('Thinking'), null, { timeout: 300000 });
+  G = await game();
+  say(`  NUDGE: ${(G.hints?.[0]?.text || '(none)').replace(/\s+/g, ' ')}`);
   // round 3: motive probes to the killer and one other
   await ask(killer, `How did you get on with ${t.victim.name}? Any trouble between you lately?`, 'direct');
   const other = names.find((n) => n !== killer);
@@ -124,7 +131,7 @@ const say = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
   const lines = [];
   lines.push(`# Live play: ${t.title}`, '', `Setting ${SETTING}, preset ${PRESET}, writer ${WRITER}, suspects ${TIER}. Generation ${(genMs / 1000).toFixed(0)}s. Page errors: ${errs.length ? errs.join(' | ') : 'none'}`, '');
   lines.push(`Killer: ${t.killer}. Accomplice: ${t.accomplice || 'none'}. Gap ${gap.from}-${gap.to}.`, `Motive: ${t.motive}`, `Method: ${t.method}`, '', `Cast: ${t.suspects.map((s) => `${s.name} (${s.part})`).join('; ')}`, '', `Audit problems on the final truth: (run validate for details)`, '');
-  lines.push('## Score', `Total ${G.score.total} (${G.score.rank}): killer ${G.score.killer}, motive ${G.score.motive}, method ${G.score.method}, evidence ${G.score.evidence}${G.score.unscored ? ' [UNSCORED]' : ''}`, '', `Verdict: ${G.score.verdict}`, '', `Caught: ${(G.score.caught || []).join(' / ')}`, `Missed: ${(G.score.missed || []).join(' / ')}`, '');
+  lines.push('## Score', `Total ${G.score.total} (${G.score.rank}): killer ${G.score.killer}, motive ${G.score.motive}, method ${G.score.method}, evidence ${G.score.evidence}${G.score.hintCost ? ', nudges -' + G.score.hintCost : ''}${G.score.unscored ? ' [UNSCORED]' : ''}`, '', `Verdict: ${G.score.verdict}`, '', `Caught: ${(G.score.caught || []).join(' / ')}`, `Missed: ${(G.score.missed || []).join(' / ')}`, '', `Nudge: ${G.hints?.[0]?.text || 'none'}`, '');
   lines.push('## Transcript with referee labels');
   for (const b of G.briefs) {
     const s = G.suspects[b.name];

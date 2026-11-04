@@ -1163,6 +1163,7 @@ async function askSuspect(name, question, tone, present) {
     busy = null; save(); render(); return;
   }
   // Referee pass: hidden from the player; it corrects leaks and annotates the claims.
+  { const el = $('[data-stage]'); if (el) el.textContent = 'Noting the statement…'; }
   let ref = null;
   try {
     ref = await sample.json(refereeInput(G, name, s, brief, det, text), { cache: false, signal: ctl.signal, modelTier: 'quick' });
@@ -1468,7 +1469,7 @@ function viewInterrogate() {
       <div class="tools">
         <div class="seg" role="group" aria-label="Tone">${Object.keys(TONES).map((k) => `<button data-act="tone" data-tone="${k}" class="${ui.tone === k ? 'on' : ''}">${k}</button>`).join('')}</div>
         ${ui.present ? `<span class="chip info"><span class="t" title="${esc(ui.present.text)}">Presenting: ${esc(ui.present.source)}: ${esc(ui.present.text.slice(0, 48))}${ui.present.text.length > 48 ? '…' : ''}</span><button class="x" data-act="unpresent" aria-label="Remove">×</button></span>` : `<button class="btn sm ghost" data-act="present" ${G.board.pins.length ? '' : 'disabled'} title="Put a pinned statement or report in front of the suspect">Present evidence</button>`}
-        <span class="note" style="margin-left:auto">${st.questionCost} min per question</span>
+        <span class="note" style="margin-left:auto" data-stage>${busy?.kind === 'ask' ? 'Listening…' : `${st.questionCost} min per question`}</span>
       </div>
       <div class="chips" aria-label="Suggested questions">${suggestedQuestions(name).map((q) => `<button class="chip" data-act="chip" data-q="${esc(q)}"><span class="t">${esc(q)}</span></button>`).join('')}</div>
       <div class="in"><textarea id="q" rows="1" placeholder="${name.length <= 14 ? `Ask ${esc(name)} something…` : 'Your question…'}" ${busy ? 'disabled' : ''}></textarea>${busy?.kind === 'ask' ? `<button class="btn send" data-act="stop" aria-label="Stop">Stop</button>` : `<button class="btn primary send" data-act="ask" aria-label="Ask">Ask</button>`}</div>
