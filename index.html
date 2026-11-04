@@ -257,6 +257,16 @@ button.sus{flex:0 0 auto;min-width:150px;text-align:left;background:var(--panel)
 .composer .send{min-width:44px;height:44px;border-radius:9px}
 .closed{padding:14px;border-top:1px solid var(--line);color:var(--fg-2);font-size:14.5px;display:flex;flex-direction:column;gap:10px}
 
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--panel-2);border:1px solid var(--accent);color:var(--accent);font-family:var(--font-display);font-size:11px;letter-spacing:.04em;display:inline-grid;place-items:center;flex:none;text-transform:uppercase}
+.avatar.lg{width:40px;height:40px;font-size:13px}
+.sus{flex-direction:row;align-items:center;gap:10px}
+.sus .col{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;min-width:0;max-width:100%}
+.composer>*{min-width:0}
+.transcript{min-width:0}
+.chips::-webkit-scrollbar{display:none}
+.chips .chip{flex:none;cursor:pointer;white-space:nowrap}
+.chips .chip:hover{border-color:var(--accent);color:var(--accent)}
 /* Board */
 .board-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
 .pins{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
@@ -898,6 +908,7 @@ function applyState(s, brief) {
 }
 
 const briefOf = (name) => G.briefs.find((b) => b.name === name);
+const initials = (name) => nameTokens(name).map((w) => w[0]).slice(0, 2).join('') || String(name || '?').slice(0, 2);
 const stOf = () => SETTINGS[G.settingId] || SETTINGS.country_house;
 const timeLeft = () => Math.max(0, G.clock.budget - G.clock.used);
 const outOfTime = () => timeLeft() <= 0;
@@ -1438,7 +1449,7 @@ function viewInterrogate() {
   const name = G.active && G.suspects[G.active] ? G.active : G.briefs[0].name;
   G.active = name;
   const s = G.suspects[name], brief = briefOf(name), sus = G.truth.suspects.find((x) => x.name === name), st = stOf();
-  const roster = G.briefs.map((b) => { const x = G.suspects[b.name]; const r = G.truth.suspects.find((q) => q.name === b.name); return `<button class="sus ${b.name === name ? 'on' : ''}" data-act="pick-sus" data-name="${esc(b.name)}"><span class="nm">${esc(b.name)}</span><span class="rl">${esc(r?.role || '')}</span><span class="pbar ${x.state}"><i style="width:${x.pressure}%"></i></span><span class="stt ${x.state}">${stateLabel(x.state, st)} · ${x.transcript.filter((m) => m.role === 'det').length} q</span></button>`; }).join('');
+  const roster = G.briefs.map((b) => { const x = G.suspects[b.name]; const r = G.truth.suspects.find((q) => q.name === b.name); return `<button class="sus ${b.name === name ? 'on' : ''}" data-act="pick-sus" data-name="${esc(b.name)}"><span class="avatar">${esc(initials(b.name))}</span><span class="col"><span class="nm">${esc(b.name)}</span><span class="rl">${esc(r?.role || '')}</span><span class="pbar ${x.state}"><i style="width:${x.pressure}%"></i></span><span class="stt ${x.state}">${stateLabel(x.state, st)} · ${x.transcript.filter((m) => m.role === 'det').length} q</span></span></button>`; }).join('');
   const msgs = s.transcript.map((m) => msgHtml(m, name)).join('');
   const closed = outOfTime()
     ? `<div class="closed"><b>Out of time.</b> The Chief Constable wants a name. Go to Accuse.<button class="btn primary" data-act="tab" data-tab="accuse">Make the accusation</button></div>`
@@ -1451,16 +1462,30 @@ function viewInterrogate() {
         ${ui.present ? `<span class="chip info"><span class="t" title="${esc(ui.present.text)}">Presenting: ${esc(ui.present.source)}: ${esc(ui.present.text.slice(0, 48))}${ui.present.text.length > 48 ? '…' : ''}</span><button class="x" data-act="unpresent" aria-label="Remove">×</button></span>` : `<button class="btn sm ghost" data-act="present" ${G.board.pins.length ? '' : 'disabled'} title="Put a pinned statement or report in front of the suspect">Present evidence</button>`}
         <span class="note" style="margin-left:auto">${st.questionCost} min per question</span>
       </div>
+      <div class="chips" aria-label="Suggested questions">${suggestedQuestions(name).map((q) => `<button class="chip" data-act="chip" data-q="${esc(q)}"><span class="t">${esc(q)}</span></button>`).join('')}</div>
       <div class="in"><textarea id="q" rows="1" placeholder="${name.length <= 14 ? `Ask ${esc(name)} something…` : 'Your question…'}" ${busy ? 'disabled' : ''}></textarea>${busy?.kind === 'ask' ? `<button class="btn send" data-act="stop" aria-label="Stop">Stop</button>` : `<button class="btn primary send" data-act="ask" aria-label="Ask">Ask</button>`}</div>
     </div>`;
   return `<div class="inter">
     <div class="roster">${roster}</div>
     <div class="transcript">
-      <div class="t-head"><div class="who"><b>${esc(name)}</b><span>${esc(sus?.role || '')}</span></div><div class="stt">${stateLabel(s.state, st)}<br><span style="color:var(--fg-2)">pressure ${s.pressure}</span></div></div>
+      <div class="t-head"><span class="avatar lg">${esc(initials(name))}</span><div class="who"><b>${esc(name)}</b><span>${esc(sus?.role || '')}</span></div><div class="stt">${stateLabel(s.state, st)}<br><span style="color:var(--fg-2)">pressure ${s.pressure}</span></div></div>
       <div class="msgs" id="msgs">${msgs}</div>
       ${composer}
     </div>
   </div>`;
+}
+function suggestedQuestions(name) {
+  const t = G.truth, s = G.suspects[name], asked = s.transcript.filter((m) => m.role === 'det').length;
+  const first = t.victim.name.split(' ').slice(-1)[0];
+  const out = [];
+  if (!asked) out.push(`Take me through your evening, from dinner until ${t.victim.name} was found.`);
+  out.push('Who did you see after dinner, and at what times?');
+  out.push(`How did you get on with ${t.victim.name}?`);
+  const scene = t.evidence.filter((e) => e.atScene).slice(0, 2);
+  for (const e of scene) out.push(`What do you know about the ${e.name.toLowerCase()}?`);
+  out.push(`When did you last see ${first} alive?`);
+  out.push('Is there anything you have not told me?');
+  return out.slice(0, 6);
 }
 function msgHtml(m, name) {
   if (m.role === 'sys') return `<div class="msg sys"><div class="b">${esc(m.text)}</div></div>`;
@@ -1554,7 +1579,7 @@ function viewVerdict() {
       ${sc.hintCost ? `<p class="note" style="margin-top:8px">${arr(G.hints).length} ${arr(G.hints).length === 1 ? 'nudge' : 'nudges'} requested: ${sc.hintCost} points off.</p>` : ''}
       ${sc.caught?.length ? `<h3 style="margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--truth)">What you caught</h3><ul style="margin:6px 0 0;padding-left:18px">${sc.caught.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       ${sc.missed?.length ? `<h3 style="margin-top:14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--warn)">What you missed</h3><ul style="margin:6px 0 0;padding-left:18px">${sc.missed.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-      <div class="row" style="margin-top:16px"><button class="btn primary" data-act="reveal">Replay the true night</button></div>
+      <div class="row" style="margin-top:16px"><button class="btn primary" data-act="reveal">Replay the true night</button><button class="btn ghost" data-act="copy-result">Copy result</button></div>
     </div>
   </div>`;
 }
@@ -1737,6 +1762,7 @@ function handleAct(btn) {
     case 'present-forensic': { const st = stOf(), f = st.forensics.find((x) => x.id === id), got = G.forensics[id]; if (!f || !got) return; let p = G.board.pins.find((x) => x.kind === 'forensic' && x.msgId === id); if (!p) p = addPin({ kind: 'forensic', text: got.result, source: f.name, msgId: id }); ui.present = p; ui.tab = 'interrogate'; render(); toast(`Presenting the report to ${G.active}. Ask your question.`); return; }
     case 'unpresent': ui.present = null; { const ta = $('#q'); if (ta) ui.draft.q = ta.value; } return render();
     case 'ask': return sendQuestion();
+    case 'chip': { const ta = $('#q'); if (ta) { ta.value = btn.dataset.q || ''; ta.focus(); ta.dispatchEvent(new Event('input')); } return; }
     case 'stop': return stopBusy();
     case 'counsel': return waitForCounsel(name);
     case 'forensic': return requestForensic(id);
@@ -1756,6 +1782,7 @@ function handleAct(btn) {
     case 'link-to': if (ui.linkFrom) { addLink(ui.linkFrom, id, btn.dataset.type === 'supports' ? 'supports' : 'contradicts'); ui.linkFrom = null; toast(btn.dataset.type === 'supports' ? 'Marked as supporting.' : 'Contradiction marked.'); } return render();
     case 'unlink': G.board.links = G.board.links.filter((l) => l.id !== id); save(); return render();
     case 'reveal': G.phase = 'reveal'; save(); return render();
+    case 'copy-result': { const r = `${G.truth.title} · ${stOf().short} · ${G.score.total}/100, ${G.score.rank}${G.accusation?.killerCorrect ? ', killer named' : ', wrong name'} · Interrogation Room`; return copyText(r).then((ok) => { if (!ok) openModal(`<h3>Your result</h3><textarea rows="3" readonly onclick="this.select()">${esc(r)}</textarea><div class="row"><button class="btn ghost" data-act="close-modal">Close</button></div>`); }); }
     case 'copy-code': return copyText(caseCode()).then((ok) => { if (!ok) openModal(`<h3>Case code</h3><p class="note">Copying was blocked. Select the text below and copy it yourself.</p><textarea rows="8" readonly onclick="this.select()">${esc(caseCode())}</textarea><div class="row"><button class="btn ghost" data-act="close-modal">Close</button></div>`); });
     case 'replay': { const saved = safeGet(KEY_GAME, null); if (G.readOnly && saved?.phase === 'play' && saved.id !== G.id) return confirmSheet('Play this case again?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'replay-do', 'Play again'); return handleAct({ dataset: { act: 'replay-do' } }); }
     case 'replay-do': { const c = { settingId: G.settingId, truth: G.truth, briefs: G.briefs, dials: G.dials, training: G.training, sharedFrom: G.sharedFrom }; closeModal(); G = newGame(c.settingId, c.truth, c.briefs, c.dials, { training: c.training, sharedFrom: c.sharedFrom }); ui.tab = 'case'; save(); render(); toast('Same night, fresh suspects.'); return; }
