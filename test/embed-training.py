@@ -7,7 +7,8 @@ data = {}
 for f in sorted(os.listdir(d)):
     if not f.endswith('.json'): continue
     o = json.load(open(os.path.join(d, f), encoding='utf-8'))
-    data[o['settingId']] = o
+    o['id'] = os.path.splitext(f)[0]
+    data.setdefault(o['settingId'], []).append(o)
 blob = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
 # a JSON script block must not contain the sequence "</script" (case-insensitive); escape defensively
 blob = re.sub(r'</(script)', r'<\\/\1', blob, flags=re.I)
