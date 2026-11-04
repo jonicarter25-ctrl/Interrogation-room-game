@@ -1,0 +1,240 @@
+{
+ "settingId": "antarctic",
+ "truth": {
+  "title": "Dead Air at Kittiwake",
+  "house": "Kittiwake, a British Antarctic Survey wintering base on the Loder Ice Shelf: a main hut of bunk rooms, lounge, galley, surgery, labs and radio room behind a cold porch, and a generator shed forty metres off along a handline.",
+  "victim": {"name": "Neil Cathcart", "age": 34, "role": "glaciologist, on the night-duty rota for Midwinter night", "sketch": "Clever, sociable and careless with other people, the best darts player on base and its best-liked man until the dark set in. He has a fiancee in Edinburgh and, it turns out, a past in Cambridge."},
+  "night": {"start": "17:00", "end": "01:00", "discovered": "00:02", "discoveredBy": "Kevin Ord", "where": "the generator shed"},
+  "weather": "Midwinter's Day, 21 June 1983: full dark, minus 38, a 45-knot easterly with heavy drift and visibility of a few metres.",
+  "publicFacts": [
+   "Dr Neil Cathcart was found dead on the generator shed floor beside the day-tank pump at two minutes past midnight by Kevin Ord and Roger Beal, after he failed to sign back in from his night-duty generator check.",
+   "The wintering crew of nine: Roger Beal (Base Commander), Dr Hugh Sorley (doctor), Kevin Ord (radio operator), Dave Lyle (diesel mechanic), Iain Rennick (ionospheric physicist), Neil Cathcart (glaciologist), Pete Nolan (met observer), Stu Ferris (general assistant) and Mal Jessop (builder).",
+   "It was Midwinter: drinks at 18:30, dinner at 19:00, then a film in the lounge from 21:45 to 23:15 with a reel change at about half past ten, and cards afterwards.",
+   "A 45-knot easterly blew drift all evening; nobody goes out except along the handlines, and everyone must sign the outside log in the cold porch.",
+   "Dr Sorley tried oxygen in the surgery and pronounced Cathcart dead at 00:20; Beal radioed Cambridge at 00:28. There is no aircraft until October.",
+   "Beal has sealed the generator shed with the duty Lister left running, and the crew were mustered in the lounge at 00:40."
+  ],
+  "suspects": [
+   {"name": "Iain Rennick", "age": 37, "role": "ionospheric physicist, on his second winter; shared two winters with Cathcart", "sketch": "Tall, gaunt and bearded, very neat in a Fair Isle jumper, his hair still faintly damp. He speaks softly and watches your hands rather than your face.", "part": "killer"},
+   {"name": "Roger Beal", "age": 45, "role": "Base Commander and surveyor", "sketch": "A thickset ex-Navy man with a grey crew cut who moves stiffly from a bad back. Used to giving orders, he dislikes being on the wrong side of the table.", "part": "liar"},
+   {"name": "Kevin Ord", "age": 26, "role": "radio operator, who handles every message in and out", "sketch": "A skinny Liverpudlian with headphone-flattened hair and bitten nails who talks fast and jokes when frightened. He has not slept.", "part": "mistaken"},
+   {"name": "Dave Lyle", "age": 29, "role": "diesel mechanic, responsible for the generator shed", "sketch": "A broad Geordie with oil worked permanently into his knuckles and a moustache he is growing for Midwinter. He sits with his arms folded like a man waiting to be blamed.", "part": "honest"}
+  ],
+  "killer": "Iain Rennick",
+  "accomplice": null,
+  "motive": "On the 16:00 radio schedule a familygram came in from Rennick's wife Fiona saying she was leaving him and that her affair with Neil Cathcart had begun in Cambridge the summer before they sailed. Rennick read it at 17:05, sat through the Midwinter dinner opposite Cathcart, and decided to kill him that night.",
+  "method": "Knowing Cathcart was on night duty and would make the 23:00 generator check and hand-pump the day tank, Rennick went out unsigned at 22:24, switched off the shed's extractor fan at 22:31, shut the air louvre and slackened the silencer clamp so the Lister's exhaust poured into the sealed shed. Cathcart collapsed by the pump soon after 23:00; at 23:44 Rennick, wearing Dave Lyle's windproof because his own was soaked, tightened the clamp, opened the louvre and switched the fan back on so the shed would clear and the death would pass for a drunk man's collapse.",
+  "alibiGap": {"from": "22:20", "to": "23:51", "killerClaims": "That he left the film at 22:20 with a headache, went to his bunk and did not stir until the shouting at midnight.", "actually": "He went out to the generator shed from 22:24 to 22:38 to rig the exhaust leak, and again from 23:35 to 23:49 in Lyle's windproof to undo it while Cathcart lay dead."},
+  "timeline": [
+   {"time": "17:05", "place": "ionosonde lab", "present": ["Kevin Ord", "Iain Rennick"], "event": "Ord hands Rennick a sealed familygram that came in on the 16:00 schedule, and Rennick reads it, goes white and asks to be left alone.", "witnesses": ["Kevin Ord"]},
+   {"time": "17:30", "place": "generator shed and main hut", "present": ["Dave Lyle", "Iain Rennick", "Roger Beal", "Kevin Ord"], "event": "Lyle signs out for his routine evening check of the Lister while Rennick sits alone in his lab, Beal works in the BC's office and Ord helps decorate the lounge.", "witnesses": ["Kevin Ord"]},
+   {"time": "18:30", "place": "lounge", "present": ["Iain Rennick", "Roger Beal", "Kevin Ord", "Dave Lyle", "Neil Cathcart"], "event": "All nine gather for Midwinter drinks and Ord reads out greetings from the other bases, Rennick drinking almost nothing.", "witnesses": ["Iain Rennick", "Roger Beal", "Kevin Ord", "Dave Lyle"]},
+   {"time": "19:00", "place": "dining room", "present": ["Iain Rennick", "Roger Beal", "Kevin Ord", "Dave Lyle", "Neil Cathcart"], "event": "Midwinter dinner for all nine, Cathcart in high spirits and Rennick seated opposite him saying hardly a word.", "witnesses": ["Iain Rennick", "Roger Beal", "Kevin Ord", "Dave Lyle"]},
+   {"time": "21:00", "place": "generator shed", "present": ["Dave Lyle"], "event": "Lyle, signed out 21:00 to 21:15, makes his last check of the evening and logs the exhaust sound, the extractor fan running and the air louvre open.", "witnesses": []},
+   {"time": "21:45", "place": "lounge", "present": ["Iain Rennick", "Roger Beal", "Kevin Ord", "Dave Lyle", "Neil Cathcart"], "event": "The film show begins with Beal at the projector and the whole crew watching.", "witnesses": ["Iain Rennick", "Roger Beal", "Kevin Ord", "Dave Lyle"]},
+   {"time": "22:20", "place": "lounge and cold porch", "present": ["Iain Rennick"], "event": "Rennick leaves the film saying he is turning in, and at 22:24 kits up in his own windproof and goes out along the handline without signing the outside log.", "witnesses": ["Roger Beal", "Kevin Ord", "Dave Lyle"]},
+   {"time": "22:28", "place": "lounge", "present": ["Roger Beal", "Kevin Ord", "Dave Lyle", "Neil Cathcart"], "event": "Reel change: the lights are up for six minutes while Beal threads the second reel, with Lyle, Ord, Cathcart and the others in their seats.", "witnesses": ["Roger Beal", "Kevin Ord", "Dave Lyle"]},
+   {"time": "22:31", "place": "generator shed", "present": ["Iain Rennick"], "event": "Rennick switches off the extractor fan, shuts the air louvre and slackens the silencer clamp with the shed's spanner, leaves at 22:35 and is back inside by 22:38, hanging his drift-soaked windproof in the drying room.", "witnesses": []},
+   {"time": "22:42", "place": "lounge and cold porch", "present": ["Neil Cathcart", "Roger Beal"], "event": "Cathcart leaves the film for his night-duty check and signs the outside log 'Gen shed 22:45', and Beal, slipping out two minutes after him, sees him signing as he passes the porch.", "witnesses": ["Roger Beal", "Kevin Ord", "Dave Lyle"]},
+   {"time": "22:46", "place": "surgery", "present": ["Roger Beal"], "event": "Beal opens the drug cabinet with the duplicate key from the station safe, takes a strip of DF118, overwrites the register and is back at the projector by 22:58.", "witnesses": []},
+   {"time": "22:47", "place": "generator shed", "present": ["Neil Cathcart"], "event": "Cathcart takes the readings, writes a 22:50 log entry in a worsening hand and starts hand-pumping the day tank, collapsing beside the pump soon after 23:00 and dying within the half hour.", "witnesses": []},
+   {"time": "22:52", "place": "main corridor and radio room", "present": ["Kevin Ord", "Roger Beal"], "event": "Ord, fetching the Midwinter telegrams from the radio room, sees Rennick's windproof dripping on the drying-room rail and at 22:57 sees Beal coming from the surgery corridor with a hand in his pocket.", "witnesses": ["Kevin Ord"]},
+   {"time": "23:15", "place": "lounge", "present": ["Roger Beal", "Kevin Ord", "Dave Lyle"], "event": "The film ends, Ord reads the telegrams aloud, and Beal, Lyle, Nolan and Ferris play cards until Lyle goes to his bunk at 23:30, next to Rennick's single cabin.", "witnesses": ["Roger Beal", "Kevin Ord", "Dave Lyle"]},
+   {"time": "23:35", "place": "bunk rooms, cold porch and generator shed", "present": ["Iain Rennick", "Dave Lyle"], "event": "Rennick leaves his cabin, which Lyle hears through the plywood, takes Lyle's windproof from its peg, goes out unsigned and in the shed tightens the clamp, opens the louvre and switches the fan back on at 23:44, his bare fingertip leaving a print in the fresh soot.", "witnesses": ["Dave Lyle"]},
+   {"time": "23:49", "place": "cold porch", "present": ["Iain Rennick", "Kevin Ord", "Dave Lyle"], "event": "Ord, passing the porch on the way to the gash room, sees through the porthole a hooded figure with LYLE stencilled on its back hang the windproof on Lyle's peg and takes it for Dave, and Lyle hears Rennick get back into his cabin at 23:51.", "witnesses": ["Kevin Ord", "Dave Lyle"]},
+   {"time": "23:55", "place": "cold porch and generator shed", "present": ["Kevin Ord", "Roger Beal"], "event": "Ord notices Cathcart is still signed out, fetches Beal from the cards, and at 00:02 the two of them find Cathcart dead on the shed floor beside the day-tank pump with the fan running.", "witnesses": ["Kevin Ord", "Roger Beal"]},
+   {"time": "00:08", "place": "surgery, radio room, cold porch and lounge", "present": ["Roger Beal", "Kevin Ord", "Dave Lyle", "Iain Rennick"], "event": "Dr Sorley pronounces Cathcart dead at 00:20 and finds the drug count short, Beal radios Cambridge at 00:28 with Ord, Lyle finds his own windproof wet when he kits up at 00:30 to look over the shed from the doorway, and at the 00:40 muster Rennick arrives last from his cabin.", "witnesses": ["Roger Beal", "Kevin Ord", "Dave Lyle", "Iain Rennick"]}
+  ],
+  "evidence": [
+   {"id": "ev1", "name": "Generator log", "where": "on the bench in the generator shed", "detail": "Lyle's 21:00 entry reads 'exhaust sound, fan on, louvre open'; Cathcart's 22:50 entry wanders across the ruled lines and stops mid-figure, and there is no 23:00 entry.", "proves": "Cathcart was in the shed and already impaired at about 22:50, and stopped working soon afterwards.", "atScene": true},
+   {"id": "ev2", "name": "Silencer clamp and soot", "where": "the exhaust run behind the duty Lister", "detail": "The clamp at the silencer joint is tight, but its nut shows fresh bright spanner marks, and a fan of new soot spreads across the wall behind it and the slats of the air louvre; the Gun Gum patch on the manifold flange is intact.", "proves": "Exhaust escaped into the shed from a joint someone loosened and later tightened again, not from the old patched flange.", "atScene": true},
+   {"id": "ev3", "name": "Extractor fan isolator switch", "where": "beside the shed door", "detail": "A grey plastic rocker switch, set to ON, filmed with fresh soot and carrying one clean fingertip print.", "proves": "Someone switched the fan with a bare finger after the soot had settled; the print can be compared.", "atScene": true},
+   {"id": "ev4", "name": "Rennick's windproof", "where": "drying room rail", "detail": "His stencilled green windproof, still damp inside at 00:45 with drift-melt in the hood seams.", "proves": "Its owner was outside in drift sometime late in the evening.", "atScene": false},
+   {"id": "ev5", "name": "Lyle's windproof and mukluks", "where": "Lyle's peg and boot rack in the cold porch", "detail": "The LYLE windproof has drift packed in the hood and a soot smudge on the right cuff, while Lyle's mukluks beneath it are frozen stiff and bone dry.", "proves": "Someone went out in Lyle's windproof that night without wearing Lyle's boots.", "atScene": false},
+   {"id": "ev6", "name": "Drug cabinet and register", "where": "surgery", "detail": "The DF118 count is a strip short, and the last register line has been overwritten in a different pen.", "proves": "Someone other than the doctor took drugs from the cabinet and tried to hide it.", "atScene": false}
+  ],
+  "forensics": {
+   "tod": "Cherry-pink lividity and bright red blood point to carbon monoxide; with the shed at about 18 degrees and rigor beginning at 00:45, death came between 23:00 and 23:40, after he collapsed beside the day-tank pump.",
+   "prints": "A fresh right index print of Iain Rennick lies on top of the soot film on the extractor-fan switch, so it was made after the leak began; the clamp and spanner show only glove smears, and Lyle's many prints in the shed all lie under the soot. Beal's prints are on the drug cabinet and register but nowhere in the shed.",
+   "comms": "Radio log: 16:22, telex familygram for I. Rennick from Fiona Rennick, Cambridge: 'Leaving you. It began with Neil Cathcart last summer before you sailed and it has not ended. Sorry. F.' No further transmission until Beal's emergency call to Cambridge via Rothera at 00:28.",
+   "tox": "Cathcart's blood carboxyhaemoglobin is about 60 per cent, a lethal level, with modest alcohol and no DF118, pethidine or other drug. Draeger-tube samples at 00:30 found only traces of CO in the shed, so the leak had been stopped and the shed ventilated before he was found.",
+   "logs": "The power chart recorder shows the extractor fan's load drop out at 22:31 and come back at 23:44. The outside log shows nobody out after 17:00 but Lyle (17:30-17:45 and 21:00-21:15), Cathcart (out 22:45, never signed in) and Beal and Ord at 23:58; Rennick last signed in from the aerial field at 15:10."
+  },
+  "redHerring": "Three days ago Lyle patched a weeping exhaust flange with Gun Gum and never logged it, and his prints are all over the shed, so the death looks like an accident from slack maintenance or Lyle's doing. But the patch is on the manifold flange and still sound, the leak was at the silencer clamp with fresh spanner marks, an accident does not switch off a fan or shut a louvre, and at 22:31, when the fan went off, Lyle was in the lounge at the reel change.",
+  "solutionPath": [
+   "Doctor and lab assay: carbon monoxide, death 23:00 to 23:40, no drugs, and the shed air clear by 00:30, so the leak was stopped before anyone found him.",
+   "Chart recorder: the fan went off at 22:31 and on at 23:44, yet the outside log shows nobody out at either time, so someone went to the shed twice unsigned; at 22:31 Beal, Lyle, Ord and Cathcart were all in the lit lounge at the reel change, and Rennick had left at 22:20.",
+   "Ord saw Rennick's windproof dripping in the drying room at 22:52, though the outside log has Rennick last coming in at 15:10, which breaks his 'wet from the afternoon' excuse and his 'in my bunk' alibi.",
+   "Ord's 'Dave in the porch at ten to twelve' is wrong: Lyle's prints lie under the soot while Rennick's lies on top of it on the fan switch, Lyle's mukluks were dry, and through the plywood Lyle heard Rennick go out at 23:35 and come back at 23:51.",
+   "Motive from the radio log and Ord: Fiona Rennick's familygram naming Cathcart, which Rennick passes off as 'the cat and the mortgage'.",
+   "Beal is cleared: toxicology finds no DF118 in Cathcart, Beal was threading the projector at 22:31, and his prints are on the drug cabinet but not in the shed; his lie hides taking painkillers for his back.",
+   "Name Iain Rennick: jealousy over the affair, carbon monoxide from the Lister's exhaust, rigged at 22:31 and undone at 23:44."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Iain Rennick",
+   "part": "killer",
+   "personality": "Precise, dry and very controlled, an Edinburgh physicist who corrects loose language ('strictly speaking') and hides inside technical vocabulary. He gives short, exact answers; when the walls close in he goes completely silent and stares at the table.",
+   "voiceSample": "Strictly speaking, I was asleep, which is less an alibi than a condition.",
+   "relationship": "Cathcart was his friend for two seasons; since 17:05 he has hated him with a cold, complete hatred, and he still does.",
+   "movements": [
+    {"from": "17:05", "to": "18:30", "where": "ionosonde lab", "doing": "Read Fiona's familygram and sat alone with it.", "seenBy": ["Kevin Ord"]},
+    {"from": "18:30", "to": "21:45", "where": "lounge and dining room", "doing": "Midwinter drinks and dinner, opposite Cathcart.", "seenBy": ["Roger Beal", "Kevin Ord", "Dave Lyle"]},
+    {"from": "21:45", "to": "22:20", "where": "lounge", "doing": "Watched the first reel, then said he was turning in.", "seenBy": ["Roger Beal", "Kevin Ord", "Dave Lyle"]},
+    {"from": "22:20", "to": "22:38", "where": "cold porch and generator shed", "doing": "Went out unsigned, switched off the fan, shut the louvre and slackened the silencer clamp.", "seenBy": []},
+    {"from": "22:38", "to": "23:35", "where": "drying room, then his single cabin", "doing": "Hung up his soaked windproof and lay awake, dressed.", "seenBy": []},
+    {"from": "23:35", "to": "23:51", "where": "cold porch and generator shed", "doing": "Went out in Lyle's windproof, found Cathcart dead, tightened the clamp, opened the louvre and switched the fan on.", "seenBy": ["Kevin Ord", "Dave Lyle"]},
+    {"from": "23:51", "to": "01:00", "where": "his cabin, then the lounge muster", "doing": "Waited in his cabin until called, arriving last at the 00:40 muster.", "seenBy": ["Roger Beal", "Kevin Ord", "Dave Lyle"]}
+   ],
+   "knows": [
+    "Fiona's familygram, which he read at 17:05, says she is leaving him and that her affair with Cathcart began last summer in Cambridge (he read it).",
+    "Cathcart was on the night-duty rota for Midwinter and would make the 23:00 generator check and hand-pump the day tank for a quarter of an hour (he saw the rota and has done the duty himself).",
+    "At about 22:31, wearing gloves, he switched off the extractor fan, shut the air louvre and slackened the silencer clamp with the shed spanner (he did it).",
+    "He did not sign the outside log either time he went out (he did it).",
+    "His own windproof came back soaked with drift and he hung it in the drying room at 22:38 (he did it).",
+    "At about 23:38 he found Cathcart slumped dead by the day-tank pump; he tightened the clamp, opened the louvre and, mitt off, switched the fan back on at about 23:44 (he did it).",
+    "He wore Lyle's windproof the second time because his own was still wet, and hung it back on Lyle's peg at 23:49 (he did it).",
+    "Cathcart was in the lounge, laughing, when he left at 22:20 (he saw it)."
+   ],
+   "doesNotKnow": [
+    "That Ord saw his windproof dripping in the drying room at 22:52.",
+    "That Ord watched him through the porch porthole at 23:49.",
+    "That Lyle heard him leave and return through the cabin wall.",
+    "That his fingertip left a print in the soot on the fan switch.",
+    "That the chart recorder logs the fan's load.",
+    "That Beal took drugs from the surgery."
+   ],
+   "secret": "He killed Cathcart over the affair with Fiona.",
+   "lies": [
+    {"claim": "I left the film at twenty past ten with a head, went to my pit and didn't stir till the shouting.", "truth": "He was in the generator shed from about 22:28 to 22:35 and again from 23:38 to 23:46.", "when": "Asked where he was after leaving the film.", "crack": "Lyle hearing him leave his cabin at 23:35 and return at 23:51, Ord seeing his windproof dripping at 22:52, or the chart recorder's 22:31 fan-off when everyone else was in the lounge at the reel change."},
+    {"claim": "I've not been in the generator shed since my gash week, a fortnight ago.", "truth": "He was there twice that night and switched the fan on at 23:44.", "when": "Asked about the generator shed.", "crack": "The fingerprint report: his fresh print lying on top of the soot on the extractor-fan switch."},
+    {"claim": "Fiona's familygram? The cat, the mortgage, her mother's hip. The usual.", "truth": "It told him she was leaving him for Cathcart.", "when": "Asked about his familygram or his mood at dinner.", "crack": "The radio log and telex text, or Ord, who typed it."},
+    {"claim": "My windproof's been damp since I went out to the aerial field this afternoon.", "truth": "It was soaked on his 22:24 trip to the shed.", "when": "Asked why his windproof was wet.", "crack": "The outside log showing him signed in at 15:10, seven hours before Ord saw it dripping at 22:52."}
+   ],
+   "honestMistake": null,
+   "tells": ["Squares the edges of anything on the table.", "Says 'strictly speaking' before an evasion."],
+   "pressure": {"baseline": 15, "breakPoint": 70, "lawyerPoint": 88, "style": "shutdown"},
+   "opening": "I'll help where I can. Neil and I wintered together twice; I'd like to know what happened as much as anyone."
+  },
+  {
+   "name": "Roger Beal",
+   "part": "liar",
+   "personality": "Brusque ex-Navy, a man of orders and lists who starts every other sentence with 'Right then'; protective of his base and his authority and short with questions he thinks impertinent. His back makes him shorter still, and cornered he blusters and shouts.",
+   "voiceSample": "Right then. I ran the projector, I ran the cards, and I run this base. What else do you want?",
+   "relationship": "He thought Cathcart able but slack, the sort who left the porch door unlatched; he is truly shaken to lose a man on his watch.",
+   "movements": [
+    {"from": "17:00", "to": "18:30", "where": "BC's office", "doing": "Paperwork and the Midwinter messages.", "seenBy": []},
+    {"from": "18:30", "to": "21:45", "where": "lounge and dining room", "doing": "Midwinter drinks and dinner.", "seenBy": ["Iain Rennick", "Kevin Ord", "Dave Lyle"]},
+    {"from": "21:45", "to": "22:44", "where": "lounge, at the projector", "doing": "Ran the film and threaded the second reel at 22:28 to 22:34 with the lights up.", "seenBy": ["Kevin Ord", "Dave Lyle"]},
+    {"from": "22:44", "to": "22:58", "where": "cold-porch corridor and surgery", "doing": "Saw Cathcart signing out, then took DF118 from the drug cabinet with the duplicate key and overwrote the register.", "seenBy": ["Kevin Ord"]},
+    {"from": "22:58", "to": "23:55", "where": "lounge", "doing": "Finished the film, then played cards with Lyle, Nolan and Ferris.", "seenBy": ["Kevin Ord", "Dave Lyle"]},
+    {"from": "23:55", "to": "00:08", "where": "cold porch and generator shed", "doing": "Went out with Ord, found Cathcart and helped carry him in.", "seenBy": ["Kevin Ord"]},
+    {"from": "00:08", "to": "01:00", "where": "surgery, radio room, lounge", "doing": "Stood by the doctor, radioed Cambridge at 00:28 and mustered the crew at 00:40.", "seenBy": ["Kevin Ord", "Dave Lyle", "Iain Rennick"]}
+   ],
+   "knows": [
+    "Rennick left the film at 22:20 saying he was turning in (he saw it).",
+    "He threaded the second reel from about 22:28 to 22:34 with the lights up, and Lyle, Ord and Cathcart were in their seats (he did it and saw them).",
+    "At about 22:45, passing the cold porch, he saw Cathcart kitted up and signing the outside log for the generator shed (he saw it).",
+    "He took a strip of DF118 from the drug cabinet with the BC's duplicate key and overwrote the register (he did it).",
+    "At 23:30 Lyle left the cards for his bunk, a bit the worse for homebrew (he saw it).",
+    "At 00:02 he and Ord found Cathcart on the shed floor by the pump; the fan was running, the louvre open and the air seemed all right apart from the usual diesel (he saw it).",
+    "At about 00:10 Dr Sorley said the drug count was short (he heard it).",
+    "At the 00:40 muster Rennick came last from his cabin, fully dressed, his hair damp (he saw it)."
+   ],
+   "doesNotKnow": [
+    "Who killed Cathcart, or how.",
+    "What happened in the shed before 00:02.",
+    "That Ord saw him coming from the surgery at 22:57.",
+    "What Rennick's familygram said."
+   ],
+   "secret": "A slipped disc from coming off the Muskeg in March; the doctor rations his painkillers, so he has been taking DF118 from the cabinet with the BC's duplicate key and altering the register. Found out, he would lose his command and probably his career.",
+   "lies": [
+    {"claim": "I was at that projector from the first reel to the last; I didn't leave the lounge till Kevin came for me at five to twelve.", "truth": "He left from 22:44 to 22:58 to raid the drug cabinet.", "when": "Asked where he was during the film.", "crack": "Ord's sighting of him coming from the surgery corridor at 22:57, or his prints on the drug cabinet and register."},
+    {"claim": "The drug cabinet? The duplicate key hasn't left my safe since we arrived. Ask the doc.", "truth": "He used it that night and overwrote the register.", "when": "Asked about the drug shortfall or the keys.", "crack": "The fingerprint report placing his prints on the cabinet and the register page, and the overwritten line."}
+   ],
+   "honestMistake": null,
+   "tells": ["Presses a hand into the small of his back and shifts in his chair.", "Says 'Right then' and changes the subject."],
+   "pressure": {"baseline": 25, "breakPoint": 65, "lawyerPoint": 85, "style": "anger"},
+   "opening": "Right then. I've a dead man in the surgery and eight people who can't leave till October, so let's be quick about it."
+  },
+  {
+   "name": "Kevin Ord",
+   "part": "mistaken",
+   "personality": "Chirpy, nervy Scouser who talks too fast and jokes when frightened ('not exactly Butlins, is it'); eager to help and hurt if doubted. He reads everyone's messages for a living and feels guilty about it, and under pressure he goes to pieces and cries.",
+   "voiceSample": "It was Dave, honest, I saw LYLE on his back clear as day, hanging his windproof on his own peg.",
+   "relationship": "He liked Neil, who taught him darts and lent him tapes; he is shocked and frightened.",
+   "movements": [
+    {"from": "17:00", "to": "17:05", "where": "radio room, then the ionosonde lab", "doing": "Finished typing up the sked traffic and took Rennick his familygram.", "seenBy": ["Iain Rennick"]},
+    {"from": "17:05", "to": "21:45", "where": "lounge, galley and dining room", "doing": "Decorated, read out the greetings at 18:30 and ate Midwinter dinner.", "seenBy": ["Iain Rennick", "Roger Beal", "Dave Lyle"]},
+    {"from": "21:45", "to": "22:52", "where": "lounge", "doing": "Watched the film, including the reel change.", "seenBy": ["Roger Beal", "Dave Lyle"]},
+    {"from": "22:52", "to": "23:00", "where": "main corridor and radio room", "doing": "Fetched the Midwinter telegrams, passing the drying room and seeing Beal by the surgery corridor.", "seenBy": []},
+    {"from": "23:00", "to": "23:48", "where": "lounge", "doing": "Read the telegrams aloud at 23:15 and watched the cards.", "seenBy": ["Roger Beal", "Dave Lyle"]},
+    {"from": "23:48", "to": "23:58", "where": "corridor by the cold porch", "doing": "Saw the figure in Lyle's windproof, then noticed Cathcart still signed out and fetched Beal.", "seenBy": ["Roger Beal"]},
+    {"from": "23:58", "to": "01:00", "where": "generator shed, surgery, radio room, lounge", "doing": "Found Cathcart with Beal, helped carry him in and set up the HF for Beal's 00:28 call.", "seenBy": ["Roger Beal", "Dave Lyle", "Iain Rennick"]}
+   ],
+   "knows": [
+    "He took Rennick's familygram off the teleprinter at 16:22 and read it, as he reads everything: Fiona leaving Iain, and the affair with Neil Cathcart since last summer (he read it).",
+    "He handed it to Rennick at 17:05 in the lab; Rennick went white and asked to be left alone (he saw it).",
+    "At the reel change, about 22:28 to 22:34, Lyle, Beal and Cathcart were in the lit lounge; Rennick had gone at 22:20 (he saw it).",
+    "At about 22:52 he saw Rennick's stencilled windproof dripping wet on the drying-room rail (he saw it).",
+    "At about 22:57 he saw Beal coming from the surgery corridor with a hand in his pocket (he saw it).",
+    "At about 23:49, through the porch porthole, he saw a hooded figure with LYLE on its back hang the windproof on Lyle's peg; he did not see its face (he saw it).",
+    "At 23:55 he noticed in the outside log that Cathcart had been signed out since 22:45 and never signed in (he read it).",
+    "At 00:02 he and Beal found Cathcart on the floor by the day-tank pump, the fan running and the shed smelling of diesel (he saw it).",
+    "He set up the HF for Beal's emergency call to Cambridge via Rothera at 00:28 (he did it)."
+   ],
+   "doesNotKnow": [
+    "Who killed Cathcart, or how.",
+    "That the figure in the porch was Rennick in Lyle's windproof.",
+    "What Beal was doing in the surgery.",
+    "That the fan had been switched off earlier."
+   ],
+   "secret": null,
+   "lies": [],
+   "honestMistake": {"claim": "It was Dave I saw in the porch at ten to twelve, coming in from the genny; LYLE on his back, and he hung it on his own peg.", "truth": "It was Iain Rennick wearing Dave Lyle's windproof, because his own was soaked from his first trip.", "why": "He saw the figure only from behind through the fogged porthole with the hood up and read the stencilled name; Dave coming in from a late generator check is so ordinary he never questioned it."},
+   "tells": ["Drums his fingers on the table like he's keying Morse.", "Cracks a joke and then apologises for it."],
+   "pressure": {"baseline": 30, "breakPoint": 60, "lawyerPoint": 82, "style": "tears"},
+   "opening": "Sorry, I've not slept, I'm all over the place. Ask us anything, I'll tell you straight."
+  },
+  {
+   "name": "Dave Lyle",
+   "part": "honest",
+   "personality": "Blunt, slow-spoken Geordie who says 'aye', 'nowt' and 'man' and trusts machines more than people. Defensive about his generator and his maintenance; if he thinks he is being fitted up he folds his arms and says he'll have a solicitor on the radio before he says owt else.",
+   "voiceSample": "That clamp was tight at nine o'clock, man; I'd put my name to it, and I did, it's in the log.",
+   "relationship": "He got on fine with Neil, who sometimes gave him a hand in the shed; they were not close.",
+   "movements": [
+    {"from": "17:30", "to": "17:45", "where": "generator shed", "doing": "Routine evening check, signed out and in.", "seenBy": []},
+    {"from": "17:45", "to": "21:00", "where": "lounge and dining room", "doing": "Midwinter drinks and dinner.", "seenBy": ["Iain Rennick", "Roger Beal", "Kevin Ord"]},
+    {"from": "21:00", "to": "21:15", "where": "generator shed", "doing": "Last check of the evening, logged the clamp sound, fan on and louvre open.", "seenBy": []},
+    {"from": "21:15", "to": "23:15", "where": "lounge", "doing": "Watched the film, including the reel change.", "seenBy": ["Roger Beal", "Kevin Ord"]},
+    {"from": "23:15", "to": "23:30", "where": "lounge", "doing": "Played cards with Beal, Nolan and Ferris.", "seenBy": ["Roger Beal", "Kevin Ord"]},
+    {"from": "23:30", "to": "00:30", "where": "his bunk room, next to Rennick's cabin", "doing": "Lay in his bunk and heard Rennick go out and come back.", "seenBy": []},
+    {"from": "00:30", "to": "00:40", "where": "cold porch and generator shed doorway", "doing": "Kitted up, found his windproof wet, and looked over the shed with a torch from the doorway.", "seenBy": ["Roger Beal"]},
+    {"from": "00:40", "to": "01:00", "where": "lounge", "doing": "Mustered with the crew.", "seenBy": ["Roger Beal", "Kevin Ord", "Iain Rennick"]}
+   ],
+   "knows": [
+    "At his 21:00 check the silencer clamp was tight, the extractor fan running and the louvre open, and he logged it (he did it).",
+    "Three days ago he patched a weeping manifold flange with Gun Gum and never logged it (he did it).",
+    "Rennick left the film at 22:20; at the reel change Beal, Ord and Cathcart were in the lounge and Rennick was not (he saw it).",
+    "The fan is on a manual isolator and the louvre on a hand lever; neither changes by itself, and the chart recorder in the shed traces the load, fan included (he knows his shed).",
+    "He went to his bunk at 23:30, a bit merry; the cabin walls are plywood and Rennick has the single cabin next door (he was there).",
+    "At about 23:35 he heard Rennick's door, steps towards the porch and the double clunk of the porch doors; at about 23:51 the porch doors again and Rennick's bunk creak (he heard it).",
+    "At 00:30, kitting up, he found his own windproof on its peg with drift in the hood and soot on the right cuff, though he had not been out since 21:15; his mukluks were frozen stiff and dry (he saw it).",
+    "From the shed doorway with a torch he saw fresh bright spanner marks on the silencer clamp nut and a fan of new soot on the wall and louvre slats, his flange patch untouched (he saw it)."
+   ],
+   "doesNotKnow": [
+    "Who loosened the clamp or switched off the fan.",
+    "That Ord thinks he saw Dave in the porch.",
+    "What Beal did in the surgery.",
+    "What was in Rennick's familygram."
+   ],
+   "secret": "His small embarrassment: the unlogged Gun Gum patch, which he fears will get the death blamed on his maintenance.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": ["Folds his arms tighter.", "Wipes his palms on his knees."],
+   "pressure": {"baseline": 20, "breakPoint": 65, "lawyerPoint": 85, "style": "lawyer"},
+   "opening": "Before you start: that generator was right as rain at nine o'clock, and it's in the log in my own hand."
+  }
+ ]
+}

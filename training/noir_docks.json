@@ -1,0 +1,235 @@
+{
+ "settingId": "noir_docks",
+ "truth": {
+  "title": "Ebb Tide at Berth 54",
+  "house": "The San Pedro waterfront: Berths 54 and 55 on the main channel behind Gate 3, the Anchor Bar on Beacon Street three hundred yards up the hill, and the longshore union hall on Sixth Street with half its neon sign dark.",
+  "victim": {"name": "Mike Radovich", "age": 38, "role": "longshoreman on a day gang, member of the local", "sketch": "A big, loud, well-liked hold man from a San Pedro Croatian fishing family, with a bad knee and a sick boy whose doctor bills had him borrowing from everybody. In the last week he had been flashing money and telling people his luck had turned."},
+  "night": {"start": "21:00", "end": "04:00", "discovered": "02:50", "discoveredBy": "Gus Lindqvist", "where": "the water under Berth 55, in the stern lines of the freighter Mariposa Bay"},
+  "weather": "Friday 21 February 1947: dense fog off the channel from dusk, visibility under fifty yards, foghorns every half minute, 52 degrees and dead calm.",
+  "publicFacts": [
+   "Mike Radovich was pulled out of the water under Berth 55 a little before three in the morning, tangled in the stern lines of the freighter Mariposa Bay.",
+   "Gus Lindqvist, the Pacific Coastwise night watchman at Gate 3, found him and called Harbor Division from the gate phone.",
+   "Mike spent the evening drinking at the Anchor Bar on Beacon Street, which never closes.",
+   "Fog lay on the channel all night; the night gang loading the Mariposa Bay at Berth 55 say they saw and heard nothing over the winches.",
+   "The local votes Monday, and Vince Corrigan, the business agent, is standing again.",
+   "Mike leaves a wife, Rosa, and two kids in a room at Mrs. Ferrante's boarding house on 14th Street.",
+   "The word on the waterfront is that a drunk fell off the pier."
+  ],
+  "suspects": [
+   {"name": "Vince Corrigan", "age": 46, "role": "business agent of the longshore local, up for re-election Monday", "sketch": "Barrel-chested and silver at the temples in a good gray suit with a union button in the lapel; he shakes hands like he's counting votes. There is a fresh scrape across the back of his right hand and he keeps it in his pocket.", "part": "killer"},
+   {"name": "Rosa Radovich", "age": 33, "role": "Mike's wife", "sketch": "A small, dark, tired woman in her good coat over a house dress, red-eyed but not crying. She keeps looking at the clock on the wall.", "part": "liar"},
+   {"name": "Dee Mahan", "age": 41, "role": "owner and night bartender of the Anchor Bar, where Mike drank", "sketch": "Bottle-blonde and sharp-eyed, sleeves rolled, a pencil behind her ear and a voice like a cement mixer. She has met every kind of cop and likes none of them.", "part": "mistaken"},
+   {"name": "Gus Lindqvist", "age": 62, "role": "night watchman for Pacific Coastwise Stevedoring at Gate 3", "sketch": "A stooped old Swede in a pea coat and watch cap with a lantern jaw and a smell of muscatel he hopes you won't notice. Forty years at sea and on the docks; he uses as few words as he can.", "part": "honest"}
+  ],
+  "killer": "Vince Corrigan",
+  "accomplice": null,
+  "motive": "During the October 1946 strike Corrigan took $500 from Pacific Coastwise Stevedoring to steer the local toward a settlement, and Mike got hold of a carbon of the company voucher. Mike had squeezed $300 out of him and wanted $200 more on Friday night, or he would read the voucher aloud at Monday's election meeting, which would finish Corrigan on the waterfront and maybe put him in the channel.",
+  "method": "Corrigan brought a half-pint of Old Crow and met Mike, very drunk, at the dark open end of Berth 54, out of sight of the floodlit night gang at 55. At 00:40, on a running ebb, he shoved him off the end; when Mike caught the fender piling, Corrigan knelt on the stringer and prised his fingers loose until he went under, trusting the ebb to carry him out past Angels Gate and make it look like a drunk's fall.",
+  "alibiGap": {"from": "00:15", "to": "01:15", "killerClaims": "That he left the Anchor at 00:15 with Mike still in the booth, drove straight to the union hall to work on the election rolls, and telephoned his wife from the hall at about one.", "actually": "He followed Mike through Gate 3 at 00:18, drowned him off the end of Berth 54 at 00:40, sat shaking in his parked Buick outside the Anchor, telephoned his wife from the Anchor's payphone at 01:04 and reached the hall at 01:15."},
+  "timeline": [
+   {"time": "21:00", "place": "Gate 3", "present": ["Gus Lindqvist"], "event": "Gus comes on watch in the gate shack as the night gang starts loading the Mariposa Bay under floodlights at Berth 55.", "witnesses": ["Gus Lindqvist"]},
+   {"time": "21:05", "place": "Anchor Bar", "present": ["Mike Radovich", "Dee Mahan"], "event": "Mike takes a stool at the bar and starts on beer with whiskey chasers, telling Dee he is coming into money.", "witnesses": ["Dee Mahan"]},
+   {"time": "21:30", "place": "union hall", "present": ["Vince Corrigan", "Tony Agnello", "Bert Shaw"], "event": "Corrigan works over the election rolls with two committee men until 23:30, then drives down to Beacon Street.", "witnesses": ["Tony Agnello", "Bert Shaw"]},
+   {"time": "21:30", "place": "Mrs. Ferrante's boarding house, 14th Street", "present": ["Rosa Radovich"], "event": "Rosa puts the children to bed and begins packing a cardboard suitcase for the 6:40 morning bus to Fresno.", "witnesses": []},
+   {"time": "22:30", "place": "Anchor Bar", "present": ["Mike Radovich", "Dee Mahan", "Sammy Kolb"], "event": "Sammy Kolb, a bookie's runner, leans on Mike over a $180 marker, and Mike peels the cash off a roll and pays him at the bar before Sammy leaves by cab at 22:45.", "witnesses": ["Dee Mahan"]},
+   {"time": "23:20", "place": "end of Berth 54", "present": ["Gus Lindqvist"], "event": "Shortly after high water at 23:12, Gus punches the watch-clock station at the empty end of Berth 54 and goes back to sit in the dark gate shack with a pint of muscatel.", "witnesses": ["Gus Lindqvist"]},
+   {"time": "23:50", "place": "Anchor Bar", "present": ["Vince Corrigan", "Mike Radovich", "Dee Mahan"], "event": "Corrigan parks his Buick at the curb and joins Mike in the back booth, and Dee, serving two beers, hears Mike say 'Friday's price, Vince, or I read it out Monday.'", "witnesses": ["Dee Mahan"]},
+   {"time": "00:10", "place": "Anchor Bar", "present": ["Mike Radovich", "Vince Corrigan", "Dee Mahan"], "event": "Just after the midnight news Mike cracks wise about Truman and walks out alone toward the waterfront.", "witnesses": ["Dee Mahan", "Vince Corrigan"]},
+   {"time": "00:12", "place": "Gate 3", "present": ["Mike Radovich", "Gus Lindqvist"], "event": "Gus, in the dark shack, sees Mike pass unsteadily under the gate lamp and out onto the pier toward Berth 54.", "witnesses": ["Gus Lindqvist"]},
+   {"time": "00:15", "place": "Anchor Bar", "present": ["Vince Corrigan", "Dee Mahan"], "event": "Corrigan pays, announces 'Quarter past twelve, Dee, I've got the rolls to finish,' and leaves on foot, leaving the Buick at the curb.", "witnesses": ["Dee Mahan"]},
+   {"time": "00:18", "place": "Gate 3", "present": ["Vince Corrigan", "Gus Lindqvist"], "event": "Gus sees Corrigan, hat brim down, pass under the lamp and out onto the pier without a glance at the dark shack.", "witnesses": ["Gus Lindqvist"]},
+   {"time": "00:24", "place": "Mrs. Ferrante's boarding house", "present": ["Rosa Radovich"], "event": "Rosa places a collect call from the hall telephone to her sister Ana in Fresno and talks until 00:49 while Mrs. Ferrante bangs on the wall.", "witnesses": ["Mrs. Ferrante"]},
+   {"time": "00:40", "place": "end of Berth 54", "present": ["Vince Corrigan", "Mike Radovich"], "event": "With the Old Crow nearly gone, Corrigan shoves Mike off the open end, kneels to prise his fingers off the fender pile, and Mike goes under on the ebb, his watch stopping at 00:41.", "witnesses": []},
+   {"time": "00:44", "place": "Gate 3", "present": ["Vince Corrigan", "Gus Lindqvist"], "event": "Gus sees Corrigan come back off the pier alone and fast, hat in his hand, his trouser knees dark and wet.", "witnesses": ["Gus Lindqvist"]},
+   {"time": "00:50", "place": "Beacon Street, outside the Anchor", "present": ["Dee Mahan", "Vince Corrigan"], "event": "Dee, carrying empties to the alley, notices Corrigan's Buick still at the curb, not seeing him sitting in the dark inside it wiping his hands.", "witnesses": ["Dee Mahan"]},
+   {"time": "01:04", "place": "payphone outside the Anchor", "present": ["Vince Corrigan", "Dee Mahan"], "event": "Corrigan calls his wife in Long Beach to say he is at the hall and will be late, Dee glimpsing him at the phone through the fogged window, and drives off at 01:08.", "witnesses": ["Dee Mahan"]},
+   {"time": "01:15", "place": "union hall", "present": ["Vince Corrigan"], "event": "Corrigan lets himself in, changes into the spare slacks he keeps in his office, hangs the wet trousers over the radiator and sits alone at the rolls until morning.", "witnesses": []},
+   {"time": "02:50", "place": "Berth 55", "present": ["Gus Lindqvist"], "event": "Gus, back on his rounds since 02:45, finds Mike in the stern lines of the Mariposa Bay and phones Harbor Division at 02:58; patrolmen arrive at 03:10, question Dee at the Anchor at 03:30 and tell Rosa, sitting up dressed beside her suitcase, at 03:45.", "witnesses": ["Gus Lindqvist", "Dee Mahan", "Rosa Radovich"]}
+  ],
+  "evidence": [
+   {"id": "ev1", "name": "Mike's wristwatch", "where": "on the body", "detail": "A steel Elgin, crystal fogged with seawater, stopped at 12:41.", "proves": "Mike was most likely in the water by about 00:41.", "atScene": true},
+   {"id": "ev2", "name": "Old Crow half-pint", "where": "on the stringer at the open end of Berth 54", "detail": "A flat half-pint bottle with the cap missing and an inch of whiskey left, beaded with fog.", "proves": "Someone drank at the dark end of 54 that night; Mike was not necessarily alone there.", "atScene": true},
+   {"id": "ev3", "name": "Scraped fender pile", "where": "outer fender pile at the end of Berth 54", "detail": "Fresh scratches through the creosote and weed just below the stringer, with a torn fingernail lodged in one, and scuff marks on the stringer edge above.", "proves": "A man clung to the pile after going in, and someone stood or knelt at the edge above him.", "atScene": true},
+   {"id": "ev4", "name": "Corrigan's gray trousers", "where": "over the radiator in Corrigan's office at the union hall", "detail": "Gray worsted suit trousers, the knees salt-stiff and smeared black with creosote and fuel oil.", "proves": "Their owner knelt on wet, creosoted timber that night, not the sort of thing found in a union office.", "atScene": false},
+   {"id": "ev5", "name": "Voucher carbon", "where": "pinned inside the lining of Mike's Sunday jacket at the boarding house", "detail": "A carbon copy of a Pacific Coastwise Stevedoring voucher: 'Consulting services, V. Corrigan, $500, Oct. 14 1946', initialed by the company's labor-relations man.", "proves": "Mike held paper showing the business agent was paid by the company during the strike.", "atScene": false},
+   {"id": "ev6", "name": "Rosa's packed suitcase", "where": "Rosa's room at Mrs. Ferrante's", "detail": "A cardboard suitcase packed with her clothes and the children's, a Greyhound timetable with the 6:40 to Fresno circled, and $120 in small bills in her purse.", "proves": "Rosa meant to leave town at dawn, with money she has not explained.", "atScene": false}
+  ],
+  "forensics": {
+   "tod": "Drowned: froth in the airway and waterlogged lungs mean he was alive when he went in, with a bruise on the right temple and three torn fingernails with creosote under them from a piling. Rigor and the 56-degree water put death between 00:20 and 01:10.",
+   "prints": "The Old Crow half-pint from the end of Berth 54 carries Mike Radovich's prints and the right thumb and two fingers of Vincent Corrigan. Neither Rosa Radovich nor August Lindqvist left prints on it.",
+   "comms": "Two toll tickets: a collect call accepted in Fresno from the hall telephone of Mrs. Ferrante's boarding house, 00:24 to 00:49, and a call from the payphone outside the Anchor Bar to Long Beach 6-3317, the Corrigan residence, 01:04 to 01:06. No toll call went out from the union hall's line after 21:00.",
+   "tox": "Blood alcohol 0.19 per cent, very drunk, with no drug or poison, and the Old Crow dregs are plain bonded whiskey. No bullet, powder burn or knife wound anywhere on the body.",
+   "logs": "High water 23:12, with the ebb running toward Angels Gate from about 23:40; a man going in off the end of Berth 54 near 00:40 would be carried along the pier face into the stern lines of the Mariposa Bay, where he was found. No vessel or launch moved in the main channel between 22:00 and 03:30, and the watch-clock tape shows Berth 54 punched at 23:20 and not again until 02:45."
+  },
+  "redHerring": "Sammy Kolb, a bookie's runner, leaned on Mike in the Anchor at 22:30 over a $180 marker, which looks like a gambling hit. Dee watched Mike pay him in full and Sammy leave by cab at 22:45, Gus saw nobody but Mike and Corrigan come through Gate 3, and the coroner and ballistics find no bullet or knife.",
+  "solutionPath": [
+   "Coroner: Mike drowned alive between 00:20 and 01:10; his watch stopped at 00:41, and the tide tables show a body off the end of Berth 54 at that hour would fetch up in the Mariposa Bay's stern lines.",
+   "Dee's 'Mike left after the twelve-thirty news' is corrected by Gus (Mike through Gate 3 at 00:12) and the stopped watch; Mike left before Corrigan, not after, which breaks Corrigan's 'Mike was still in the booth'.",
+   "Gus saw Corrigan follow Mike onto the pier at 00:18 and come back alone at 00:44 with wet knees; Corrigan's trousers at the hall have creosote on the knees to match the scraped fender pile.",
+   "Fingerprints put Corrigan's hand on the Old Crow bottle at the end of Berth 54, breaking 'I never set foot on the pier'.",
+   "The toll tickets show his 'call from the hall' came from the Anchor payphone at 01:04, which Dee saw; she also saw his Buick still at the curb at 00:50, breaking 'I drove straight to the hall'.",
+   "Motive: Rosa says Mike was collecting $200 from Vince that night, Dee heard 'or I read it out Monday', and the voucher carbon in Mike's Sunday jacket shows Corrigan on the company payroll before Monday's election.",
+   "Rosa is cleared by her Fresno call 00:24 to 00:49; her lie only hides that she was leaving Mike with $120 from his coffee can. Name Vince Corrigan: blackmail, drowned off Berth 54 on the ebb."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Vince Corrigan",
+   "part": "killer",
+   "personality": "Big, warm and loud, a backslapper who calls every man 'brother' and every cop 'pal', with the union-hall habit of answering a question with a speech. Pushed, the warmth goes out of him in an instant and he gets loud and ugly, jabbing a finger.",
+   "voiceSample": "Brother, I been carrying this waterfront on my back since '34; you think I'd hurt one of my own men?",
+   "relationship": "He liked Mike once; by the end he was terrified of him and hated the grin he wore while he squeezed.",
+   "movements": [
+    {"from": "21:00", "to": "23:30", "where": "union hall", "doing": "Worked on the election rolls with Tony Agnello and Bert Shaw.", "seenBy": ["Tony Agnello", "Bert Shaw"]},
+    {"from": "23:30", "to": "23:50", "where": "his Buick, Sixth Street to Beacon Street", "doing": "Drove down and parked outside the Anchor with a half-pint of Old Crow in his coat.", "seenBy": []},
+    {"from": "23:50", "to": "00:15", "where": "Anchor Bar, back booth", "doing": "Argued with Mike over the $200; Mike walked out at 00:10 and he followed five minutes later.", "seenBy": ["Dee Mahan", "Mike Radovich"]},
+    {"from": "00:15", "to": "00:44", "where": "Gate 3 and the end of Berth 54", "doing": "Drank with Mike, shoved him in at 00:40 and prised his fingers off the pile.", "seenBy": ["Gus Lindqvist", "Mike Radovich"]},
+    {"from": "00:44", "to": "01:04", "where": "his parked Buick outside the Anchor", "doing": "Sat in the dark wiping his hands with a rag.", "seenBy": []},
+    {"from": "01:04", "to": "01:08", "where": "payphone outside the Anchor", "doing": "Called his wife Marge and told her he was at the hall.", "seenBy": ["Dee Mahan"]},
+    {"from": "01:15", "to": "04:00", "where": "union hall, alone", "doing": "Changed into spare slacks, hung the wet trousers on the radiator and sat over the rolls.", "seenBy": []}
+   ],
+   "knows": [
+    "Mike had a carbon of the Pacific Coastwise voucher paying him $500 in October 1946, and showed it to him a week ago (he saw it).",
+    "He paid Mike $300 last Friday and was to pay $200 more tonight, or Mike would read the voucher out Monday (he did it).",
+    "Mike walked out of the Anchor at about 00:10, before him; he followed at 00:15 after loudly telling Dee the time (he did it).",
+    "Mike told him in the booth that he had paid off Sammy Kolb that evening (he heard it).",
+    "At about 00:40 he shoved Mike off the end of Berth 54 and knelt on the stringer to prise his fingers off the fender pile; his knees got soaked with oily water and creosote and the pile scraped his hand (he did it).",
+    "He set the Old Crow bottle down on the stringer in the dark and could not find it afterwards (he did it).",
+    "He called Marge from the payphone outside the Anchor at about 01:04 and said he was at the hall (he did it).",
+    "At the hall he changed into spare slacks and hung the wet trousers over the radiator, meaning to take them to the cleaner's (he did it).",
+    "Dee was behind the bar the whole time he was in the Anchor (he saw it)."
+   ],
+   "doesNotKnow": [
+    "That Gus Lindqvist was sitting in the dark gate shack and saw him go onto the pier and come back.",
+    "That Mike's watch stopped at 00:41.",
+    "That the phone company tickets toll calls from payphones.",
+    "That Dee noticed his Buick at 00:50 or saw him at the payphone.",
+    "That Rosa was leaving Mike, or where she was that night."
+   ],
+   "secret": "He took company money during the strike, Mike was blackmailing him over it, and he drowned Mike to stop him.",
+   "lies": [
+    {"claim": "Mike was still sitting in the booth when I left at a quarter past twelve. I went straight to the hall.", "truth": "Mike left at 00:10 and Corrigan followed him onto the pier.", "when": "Asked when he last saw Mike or where he went after the Anchor.", "crack": "Gus Lindqvist's sighting of Mike through Gate 3 at 00:12 and Corrigan at 00:18, or Mike's watch stopped at 00:41."},
+    {"claim": "I haven't set foot on that pier in a month, pal.", "truth": "He was at the end of Berth 54 from about 00:20 to 00:42.", "when": "Asked whether he went down to the berths.", "crack": "His prints on the Old Crow half-pint from the end of Berth 54, or the creosote on his trouser knees matching the scraped fender pile."},
+    {"claim": "I called Marge from the hall around one, told her I'd be late. Ask her.", "truth": "He called from the payphone outside the Anchor at 01:04 and reached the hall at 01:15.", "when": "Asked to account for himself between midnight and two.", "crack": "The toll ticket from the Anchor payphone at 01:04 and no call from the hall line, or Dee seeing him at the payphone and his Buick still at the curb at 00:50."},
+    {"claim": "Mike? Mike was a pal. He wanted a loan for the kid's doctor, I said I'd see what the welfare fund could do.", "truth": "Mike was blackmailing him with the voucher carbon.", "when": "Asked what he and Mike talked about.", "crack": "The voucher carbon in Mike's Sunday jacket, Rosa's account of the $200, or Dee overhearing 'or I read it out Monday'."}
+   ],
+   "honestMistake": null,
+   "tells": ["Calls the detective 'pal' more and more often.", "Shoves his scraped right hand into his pocket."],
+   "pressure": {"baseline": 20, "breakPoint": 70, "lawyerPoint": 88, "style": "anger"},
+   "opening": "Let's make this quick, pal. I got a membership in mourning and an election Monday, and Mike Radovich was a brother of mine."
+  },
+  {
+   "name": "Rosa Radovich",
+   "part": "liar",
+   "personality": "Quiet, proud and stubborn, she speaks plainly with the odd Croatian word ('Bože moj') and comes back to her children every other sentence. Cornered, she cries, then gets angry at herself for crying.",
+   "voiceSample": "I got two kids asleep in one room and a husband in the morgue, mister, so ask what you want and let me go home.",
+   "relationship": "She loved Mike and was worn out by him: the drinking, the debts, and lately money she knew came from somewhere bad. She had decided to leave him and now feels as if deciding killed him.",
+   "movements": [
+    {"from": "21:00", "to": "00:24", "where": "her room at Mrs. Ferrante's", "doing": "Put the children to bed and packed a suitcase.", "seenBy": []},
+    {"from": "00:24", "to": "00:49", "where": "the boarding-house hall telephone", "doing": "Talked to her sister Ana in Fresno on a collect call.", "seenBy": ["Mrs. Ferrante"]},
+    {"from": "00:49", "to": "03:45", "where": "her room", "doing": "Sat up dressed beside the suitcase, waiting for Mike or for morning.", "seenBy": []},
+    {"from": "03:45", "to": "04:00", "where": "the boarding-house front hall", "doing": "Was told by two patrolmen that Mike had been pulled out of the water.", "seenBy": ["Mrs. Ferrante"]}
+   ],
+   "knows": [
+    "At supper Mike said Vince Corrigan was paying him $200 at the Anchor tonight 'and regular after that' (she heard it).",
+    "Mike's 'insurance' is a carbon of a company paper with Vince Corrigan's name and $500 on it, pinned inside the lining of his Sunday jacket (she has seen it).",
+    "Mike owed Sammy Kolb $180 and said he would pay him tonight (she heard it).",
+    "Mike left for the Anchor at about 20:50 in his pea coat and she never saw him alive again (she saw it).",
+    "She called Ana in Fresno collect from the hall phone from about 00:24 to 00:49 to say she and the kids were coming on the 6:40 bus (she did it).",
+    "She took $120 Mike had hidden in the coffee can in the closet (she did it).",
+    "Mrs. Ferrante banged on the wall during the call (she heard it).",
+    "The patrolmen came at about 03:45 (she saw them)."
+   ],
+   "doesNotKnow": [
+    "Who killed Mike, or how.",
+    "Anything that happened at the Anchor or on the waterfront that night.",
+    "That Corrigan was seen going onto the pier.",
+    "That Mike paid Sammy Kolb at the bar."
+   ],
+   "secret": "She was leaving Mike: the suitcase packed, the 6:40 Greyhound to Fresno, and $120 taken from his coffee can, money she suspects came from Vince. She is ashamed and afraid it makes her look as though she knew he would die.",
+   "lies": [
+    {"claim": "I was in bed by ten. I never stirred till the cops knocked.", "truth": "She was on the hall telephone to Fresno from 00:24 to 00:49 and sat up dressed all night.", "when": "Asked where she was during the night.", "crack": "The toll ticket for the collect call from the boarding-house hall phone to Fresno, 00:24 to 00:49."},
+    {"claim": "Me and Mike were fine. I wasn't going nowhere.", "truth": "She had packed to leave him on the 6:40 bus with the children and the coffee-can money.", "when": "Asked about the marriage, the suitcase or the money.", "crack": "The packed suitcase with the circled Greyhound timetable and the $120 in her purse, or the Fresno call."}
+   ],
+   "honestMistake": null,
+   "tells": ["Glances at the clock on the wall.", "Smooths her coat over her knees again and again."],
+   "pressure": {"baseline": 30, "breakPoint": 60, "lawyerPoint": 85, "style": "tears"},
+   "opening": "They told me at a quarter to four. I haven't slept, I haven't told the kids, so please, mister, don't waste my time."
+  },
+  {
+   "name": "Dee Mahan",
+   "part": "mistaken",
+   "personality": "Brassy, quick and unsentimental; calls everybody 'honey' or 'sugar' and talks out of the side of her mouth while she polishes glasses. She has been raided and shaken down by better cops than you, and if pushed she asks whether she needs her lawyer.",
+   "voiceSample": "Honey, I pour the drinks, I don't read the minds; but Mike went out right after the twelve-thirty news, I'd put money on it.",
+   "relationship": "She liked Mike, a good tipper and a funny drunk, and worried about his wife and kids.",
+   "movements": [
+    {"from": "21:00", "to": "22:30", "where": "behind the bar of the Anchor", "doing": "Served Mike beer and chasers from 21:05.", "seenBy": ["Mike Radovich"]},
+    {"from": "22:30", "to": "22:45", "where": "behind the bar", "doing": "Watched Mike pay Sammy Kolb $180 and Sammy leave by cab.", "seenBy": ["Mike Radovich", "Sammy Kolb"]},
+    {"from": "22:45", "to": "00:15", "where": "bar and back booths", "doing": "Served Corrigan and Mike in the back booth from 23:50 and saw both leave.", "seenBy": ["Vince Corrigan", "Mike Radovich"]},
+    {"from": "00:15", "to": "00:52", "where": "bar, then the alley", "doing": "Served the swing shift crowd and at 00:50 carried empties out past Corrigan's parked Buick.", "seenBy": []},
+    {"from": "00:52", "to": "03:30", "where": "behind the bar", "doing": "Worked the bar and at about 01:05 saw Corrigan at the payphone outside.", "seenBy": []},
+    {"from": "03:30", "to": "04:00", "where": "behind the bar", "doing": "Answered questions from two Harbor Division patrolmen.", "seenBy": []}
+   ],
+   "knows": [
+    "Mike came in about 21:05, sat at the bar on beer and whiskey chasers, and said he was 'coming into money' (she saw and heard it).",
+    "At about 22:30 Sammy Kolb leaned on Mike over a $180 marker; Mike paid him in cash at the bar and Sammy left by cab around 22:45 (she saw it).",
+    "Vince Corrigan came in about 23:50, parked his Buick out front and sat with Mike in the back booth; she served them two beers (she saw it).",
+    "Wiping the next table, she heard Mike laugh and say 'Friday's price, Vince, or I read it out Monday'; Corrigan didn't laugh (she heard it).",
+    "Mike made a crack about Truman after a radio newscast and walked out alone toward the waterfront (she saw and heard it).",
+    "Corrigan paid up and said loudly 'Quarter past twelve, Dee, I've got the rolls to finish', and left on foot (she saw and heard it).",
+    "At about 00:50, putting empties in the alley, she saw Corrigan's Buick still at the curb, lights off (she saw it).",
+    "At about 01:05 she saw Corrigan at the payphone outside through the fogged window, collar up, hat in his hand; the Buick was gone by 01:10 (she saw it).",
+    "The swing shift crowd came in after midnight and kept her run off her feet till two (she was there)."
+   ],
+   "doesNotKnow": [
+    "Who killed Mike, or how.",
+    "What happened on the pier or at Gate 3.",
+    "Anything about Rosa's night.",
+    "What paper Mike meant to 'read out Monday'."
+   ],
+   "secret": null,
+   "lies": [],
+   "honestMistake": {"claim": "Mike went out right after the twelve-thirty news, say twenty-five to one, a good while after Vince left.", "truth": "Mike left at 00:10, just after the midnight news, five minutes before Corrigan.", "why": "The swing shift was pouring in and both newscasts end the same way; she remembers Mike's crack about Truman and has hung it on the wrong bulletin."},
+   "tells": ["Polishes the same glass over and over.", "Says 'honey' with an edge on it."],
+   "pressure": {"baseline": 15, "breakPoint": 65, "lawyerPoint": 85, "style": "lawyer"},
+   "opening": "Coffee's on the house, sugar; answers cost extra. Ask your questions, I got a bar to run."
+  },
+  {
+   "name": "Gus Lindqvist",
+   "part": "honest",
+   "personality": "Slow and laconic, an old Swedish sailor who says 'ja' and 'I mind my gate' and offers nothing unasked. Ashamed of the muscatel, he answers in short plain sentences, and if he is bullied he stops talking and looks at the floor.",
+   "voiceSample": "Ja, I see him. Union man, Corrigan. He go out on the pier, he come back. Union business is not my business.",
+   "relationship": "He knew Mike only to nod to; Mike once gave him a cigar on the Fourth of July.",
+   "movements": [
+    {"from": "21:00", "to": "23:12", "where": "gate shack and rounds of the transit shed", "doing": "Came on watch and walked his rounds.", "seenBy": []},
+    {"from": "23:12", "to": "23:25", "where": "end of Berth 54", "doing": "Punched the watch clock at 23:20; the pier end was empty.", "seenBy": []},
+    {"from": "23:25", "to": "02:45", "where": "gate shack, lamp off", "doing": "Sat drinking muscatel instead of walking his rounds and watched the gate.", "seenBy": []},
+    {"from": "02:45", "to": "02:58", "where": "Berths 54 and 55, then the gate phone", "doing": "Walked his round, found Mike at 02:50 and phoned Harbor Division.", "seenBy": []},
+    {"from": "03:10", "to": "04:00", "where": "Berth 55", "doing": "Showed the patrolmen the body and answered questions.", "seenBy": []}
+   ],
+   "knows": [
+    "At 23:20 he punched the clock at the end of 54; nobody there, just a coil of line and the open end where the stringer has no rail (he saw it).",
+    "At about 00:12 Mike passed under the gate lamp alone, unsteady, heading out toward 54 (he saw it).",
+    "At about 00:18 Vince Corrigan passed under the lamp with his hat brim down; Gus knows the face from the election posters and the union picnic, and Corrigan did not look at the dark shack (he saw it).",
+    "At about 00:44 Corrigan came back alone, walking fast, hat in his hand, his trouser knees dark and wet; there was no Mike (he saw it).",
+    "Nobody else came through Gate 3 between 23:00 and 02:45 (he watched the gate).",
+    "Out on the pier he heard nothing over the winches at 55 and the foghorn (he heard nothing).",
+    "He sat in the shack from about 23:25 to 02:45 with a pint of muscatel instead of walking his rounds, and the clock tape will show it (he did it).",
+    "At 02:50 his flashlight found Mike face down in the stern lines of the Mariposa Bay (he saw it).",
+    "At 02:58 he phoned Harbor Division from the gate phone (he did it)."
+   ],
+   "doesNotKnow": [
+    "What happened at the end of 54.",
+    "Who killed Mike, or how.",
+    "What was said or done in the Anchor.",
+    "Anything about Rosa, the blackmail or the voucher."
+   ],
+   "secret": "His small embarrassment: he sat drinking in the shack for over three hours instead of walking his rounds, and could lose the job.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": ["Rubs his thumb along the brim of his cap.", "Says 'Ja, maybe' when he means yes."],
+   "pressure": {"baseline": 25, "breakPoint": 60, "lawyerPoint": 85, "style": "shutdown"},
+   "opening": "I find him. I call. That's all, mister. You want more, you ask, I tell."
+  }
+ ]
+}

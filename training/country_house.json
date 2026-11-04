@@ -1,0 +1,238 @@
+{
+ "settingId": "country_house",
+ "truth": {
+  "title": "Sleet at Sallowmere",
+  "house": "Sallowmere House, a draughty flint-and-stone Jacobean house on the edge of Salisbury Plain, a mile and a half up a single lane from the village of Coombe Abbas, Wiltshire.",
+  "victim": {"name": "Sir Aubrey Callender", "age": 63, "role": "baronet, owner of Sallowmere and host of the shooting party", "sketch": "A choleric, exacting old Etonian who ran his estate from his own ledgers and trusted few people with them. He was childless; his nephew Hugo is heir to the title and the entailed land."},
+  "night": {"start": "19:30", "end": "02:00", "discovered": "01:10", "discoveredBy": "Beatrice Orme", "where": "the study"},
+  "weather": "Sleet from dusk on Saturday 8 November 1924, driven by a north-westerly; the lane to Coombe Abbas ankle-deep in chalk slurry; no frost.",
+  "publicFacts": [
+   "Sir Aubrey Callender was found dead on the hearthrug of his study at ten past one in the morning by his sister, Mrs Beatrice Orme.",
+   "He had been struck on the back of the head; the police surgeon came out from Devizes before dawn.",
+   "The party for Saturday's shoot: Lady Callender, Mr Hugo Callender (nephew and heir), Mrs Orme, Mr Cyril Mabey (the land agent), and Colonel and Mrs Rudd.",
+   "At about twenty to ten Sir Aubrey left the port to put through a trunk call to London on the hall telephone, and at five past ten he shut himself in his study saying he had accounts to see to.",
+   "Sleet fell all night; the motor was laid up in the coach house and nobody used the lane after dinner, so far as the household knows.",
+   "Ruddle the butler telephoned the Devizes police through the Coombe Abbas exchange at 01:28; PC Gully bicycled up from the village, and Scotland Yard was asked for at first light."
+  ],
+  "suspects": [
+   {"name": "Cyril Mabey", "age": 47, "role": "land agent to the Sallowmere estate for nine years, invited to shoot with the party", "sketch": "A plump, beautifully barbered man in a dinner jacket a shade too new, who turns his signet ring when he thinks. He is anxious to be taken for a gentleman and keeps saying 'Sir Aubrey and I'.", "part": "killer"},
+   {"name": "Hugo Callender", "age": 29, "role": "Sir Aubrey's nephew and heir", "sketch": "Tall, fair and rumpled, with a chipped front tooth, a heavy cold and the look of a man who has not slept. He smokes Turkish cigarettes end to end.", "part": "liar"},
+   {"name": "Beatrice Orme", "age": 66, "role": "Sir Aubrey's widowed elder sister, who has kept house at Sallowmere since 1919", "sketch": "Upright and beaky in black silk and jet, with a lorgnette she taps when displeased. She addresses the Inspector as she would a junior curate.", "part": "mistaken"},
+   {"name": "Ivy Dunn", "age": 22, "role": "second housemaid, a carter's daughter from Coombe Abbas", "sketch": "A thin, freckled girl in a print dress and cap, her hands red from blacking grates. She keeps her eyes on the Inspector's boots.", "part": "honest"}
+  ],
+  "killer": "Cyril Mabey",
+  "accomplice": null,
+  "motive": "Over three years Mabey sold Ridgeway Copse timber through Gedge & Sons of Devizes and banked about £3,800 of the proceeds as his own. A letter from Gedge put Sir Aubrey on to it; he telephoned his solicitor at 21:52 to arrange an audit for Monday and told Mabey to his face that he would be prosecuted.",
+  "method": "At 22:55 in the study, after a quarter of an hour of pleading, Mabey snatched the bronze stag from the mantelpiece as Sir Aubrey turned to ring for Ruddle, and struck him twice on the back of the head. He wiped the stag with his handkerchief and put it back, burned Gedge's letter and his own timber summary in the grate, left the lamp burning and the door shut, and went up the back stairs to scrub a spot of blood from his left shirt cuff before joining Colonel Rudd at billiards.",
+  "alibiGap": {"from": "22:35", "to": "23:15", "killerClaims": "That he left the drawing room at 22:35 to write letters in his bedroom, stayed there until about a quarter past eleven, and then went down to the billiard room.", "actually": "He went straight to the study at 22:40, killed Sir Aubrey at 22:55, left at 23:04 and spent 23:06 to 23:13 in his room scrubbing his cuff and burning his handkerchief."},
+  "timeline": [
+   {"time": "19:30", "place": "bedrooms", "present": ["Cyril Mabey", "Hugo Callender", "Beatrice Orme", "Ivy Dunn"], "event": "The dressing gong sounds and the party dress for dinner while Ivy carries hot-water cans to the guest rooms.", "witnesses": ["Ivy Dunn"]},
+   {"time": "20:00", "place": "dining room", "present": ["Sir Aubrey Callender", "Lady Callender", "Hugo Callender", "Beatrice Orme", "Cyril Mabey", "Colonel Rudd", "Mrs Rudd"], "event": "Dinner is served to the family and guests while Ivy works in the servants' hall and still-room.", "witnesses": ["Hugo Callender", "Beatrice Orme", "Cyril Mabey"]},
+   {"time": "21:12", "place": "hall", "present": ["Hugo Callender", "Ruddle"], "event": "Ruddle fetches Hugo from the table to the hall telephone for a three-minute local call from the Plough Inn at Coombe Abbas, and Hugo comes back to the table white.", "witnesses": ["Beatrice Orme", "Cyril Mabey", "Sir Aubrey Callender", "Ruddle"]},
+   {"time": "21:20", "place": "dining room and drawing room", "present": ["Beatrice Orme", "Lady Callender", "Mrs Rudd", "Sir Aubrey Callender", "Hugo Callender", "Cyril Mabey", "Colonel Rudd"], "event": "The ladies withdraw to the drawing room and the men sit over the port.", "witnesses": ["Beatrice Orme", "Hugo Callender", "Cyril Mabey"]},
+   {"time": "21:40", "place": "dining room", "present": ["Sir Aubrey Callender", "Hugo Callender", "Cyril Mabey", "Colonel Rudd"], "event": "Sir Aubrey leaves the port saying he must telephone Prothero in London about 'the Ridgeway timber money', and books a trunk call from the hall.", "witnesses": ["Hugo Callender", "Cyril Mabey", "Colonel Rudd"]},
+   {"time": "21:52", "place": "hall", "present": ["Sir Aubrey Callender", "Cyril Mabey"], "event": "The exchange rings back and Sir Aubrey speaks to Mr Prothero for six minutes, arranging for him and an accountant, Mr Gell, to come down on Monday, while Mabey, out of the dining room for the cloakroom, overhears from the passage.", "witnesses": ["Cyril Mabey"]},
+   {"time": "22:05", "place": "hall and study", "present": ["Sir Aubrey Callender", "Ruddle"], "event": "After looking in on the drawing room, Sir Aubrey orders Ruddle to lock up at a quarter to eleven and send the servants to bed, then shuts himself in the study; Ruddle passes the order on in the servants' hall at 22:10.", "witnesses": ["Beatrice Orme", "Cyril Mabey", "Hugo Callender", "Ivy Dunn"]},
+   {"time": "22:15", "place": "drawing room", "present": ["Beatrice Orme", "Hugo Callender", "Cyril Mabey", "Lady Callender", "Colonel Rudd", "Mrs Rudd"], "event": "Mrs Orme retires to her bedroom directly above the study and dozes off, and at 22:20 Hugo says good night, pleading his cold.", "witnesses": ["Cyril Mabey", "Hugo Callender"]},
+   {"time": "22:27", "place": "back passage and garden door", "present": ["Hugo Callender"], "event": "Hugo takes the garden-door key from the board, hears his uncle cough behind the study door, lets himself out, locks the door behind him and walks down the lane towards the Plough, unseen.", "witnesses": []},
+   {"time": "22:40", "place": "back passage outside the study", "present": ["Cyril Mabey", "Sir Aubrey Callender", "Ivy Dunn"], "event": "Mabey, who left the drawing room at 22:35 saying he had letters to write, knocks and goes into the study, and Ivy, passing behind him with hot-water bottles, hears Sir Aubrey say 'Come in and shut that door, Mabey.'", "witnesses": ["Ivy Dunn"]},
+   {"time": "22:47", "place": "back passage and bachelors' corridor", "present": ["Ruddle", "Ivy Dunn", "Beatrice Orme"], "event": "Ruddle, on his early lock-up round, rattles the garden door beneath Mrs Orme's window and notes its key missing from the board, waking her, while Ivy, banking the bachelors'-corridor fires from 22:45 to 22:58, finds Mr Mabey's and Mr Hugo's rooms dark and empty.", "witnesses": ["Ruddle", "Ivy Dunn", "Beatrice Orme"]},
+   {"time": "22:55", "place": "study", "present": ["Cyril Mabey", "Sir Aubrey Callender"], "event": "Mabey strikes Sir Aubrey twice on the back of the head with the bronze stag, and Mrs Orme, overhead, hears raised voices end in a heavy thump and a chair going over.", "witnesses": ["Beatrice Orme"]},
+   {"time": "22:55", "place": "the Plough Inn, Coombe Abbas", "present": ["Hugo Callender", "Ruby Lacey", "Jos Lacey"], "event": "Hugo reaches the Plough and sits in the back parlour with Ruby Lacey, his secret wife, and her furious father until 23:20, when he starts back up the lane.", "witnesses": ["Ruby Lacey", "Jos Lacey"]},
+   {"time": "23:04", "place": "study, back passage and back stairs", "present": ["Cyril Mabey", "Ivy Dunn", "Albert"], "event": "Having wiped the stag and burned the papers, Mabey leaves the lamp burning and at 23:06 hurries up the back stairs gripping his left cuff, watched by Ivy and the footman Albert from the linen-room doorway, where they have been courting since 23:00.", "witnesses": ["Ivy Dunn", "Albert"]},
+   {"time": "23:15", "place": "billiard room", "present": ["Cyril Mabey", "Colonel Rudd"], "event": "Mabey, his cuff scrubbed, joins Colonel Rudd at billiards, remarks that he has been writing letters, and plays until 00:30, while Ivy goes up to bed in the maids' attic.", "witnesses": ["Colonel Rudd", "Ruddle"]},
+   {"time": "23:50", "place": "garden door and back stairs", "present": ["Hugo Callender"], "event": "Hugo lets himself back in soaked and chalked to the shins, hangs the key on its hook, sees lamplight under the study door, hears billiard balls, and goes softly up the back stairs, which Mrs Orme hears.", "witnesses": ["Beatrice Orme"]},
+   {"time": "01:10", "place": "study", "present": ["Beatrice Orme"], "event": "Mrs Orme, sleepless and puzzled by the study lamplight still lying on the sleet below her window, comes down the back stairs and finds her brother dead on the hearthrug, while Mabey, Hugo and Ivy are in bed.", "witnesses": ["Beatrice Orme"]},
+   {"time": "01:20", "place": "hall", "present": ["Cyril Mabey", "Hugo Callender", "Beatrice Orme", "Ivy Dunn", "Ruddle", "Lady Callender", "Colonel Rudd", "Mrs Rudd"], "event": "Ruddle rouses the house, everyone gathers in the hall, and at 01:28 he telephones the Devizes police, PC Gully arriving from the village at 01:55.", "witnesses": ["Cyril Mabey", "Hugo Callender", "Beatrice Orme", "Ivy Dunn"]}
+  ],
+  "evidence": [
+   {"id": "ev1", "name": "Bronze stag", "where": "study mantelpiece", "detail": "A six-pound bronze stag on a squared plinth, back in its place but wiped bright, with blood and two grey hairs caught where the antlers meet the plinth.", "proves": "The weapon came from the room and was put back and wiped by someone composed enough to tidy up: a visitor Sir Aubrey had let in, not a stranger.", "atScene": true},
+   {"id": "ev2", "name": "Burnt papers in the study grate", "where": "study fireplace", "detail": "Charred letter paper with part of a printed heading, '...EDGE & SONS, TIMBER MERCHANTS, DEVIZES', and a fragment of a ruled sheet reading 'Ridgeway Copse ... £1,1', on top of the fire's last coals.", "proves": "Papers about estate timber money were burned after the fire was last made up, by someone with an interest in the estate accounts.", "atScene": true},
+   {"id": "ev3", "name": "Study door finger-plate", "where": "inside of the study door", "detail": "A brass finger-plate the housemaid polishes every evening at six, showing fresh smudged prints at hand height.", "proves": "Someone pushed the study door shut from inside after six that evening; whose hand it was can be settled by comparison.", "atScene": true},
+   {"id": "ev4", "name": "Mr Mabey's dress shirt", "where": "folded at the bottom of the wardrobe in Mabey's bedroom", "detail": "The stiff evening shirt he wore at dinner, its left cuff scrubbed and still faintly damp, with a pinkish-brown ring at the stud hole.", "proves": "The wearer tried that same night to wash a stain out of his cuff rather than leave the shirt for the laundry.", "atScene": false},
+   {"id": "ev5", "name": "Hugo's evening shoes", "where": "outside Hugo's bedroom door, collected by the boot boy", "detail": "Patent evening shoes soaked through and caked with white chalk mud to the ankle, trouser hems the same.", "proves": "Their owner walked a long way outdoors in the sleet after dinner, which is not where a man in bed with a cold would be.", "atScene": false}
+  ],
+  "forensics": {
+   "tod": "Two blows to the back of the skull from a heavy, sharp-edged object, the first fatal within minutes. Body heat and early rigor in the jaw at 02:15 put death between 22:40 and 23:20, nearer the earlier hour.",
+   "prints": "The bronze stag has been wiped clean, but the study door's inner finger-plate, polished at six, bears Sir Aubrey's prints and a fresh right thumb and two fingers of Cyril Mabey. Hugo Callender's prints are nowhere in the study.",
+   "comms": "Coombe Abbas exchange: 21:12, a three-minute local call from Coombe Abbas 7 (the Plough Inn) to Sallowmere; 21:41, Sir Aubrey books a trunk call to Western 2214 (Mr Prothero, solicitor, Kensington), connected 21:52 and cleared 21:58. The only other call is Sallowmere to Devizes police at 01:28.",
+   "tox": "No poison or drug in Sir Aubrey's blood or in the study decanter; alcohol consistent with dinner wine, port and one whisky. The ring at the stud hole of Mr Mabey's scrubbed left shirt cuff gives a positive benzidine reaction for blood.",
+   "logs": "Ruddle's register shows lock-up begun at 22:45, an hour early on Sir Aubrey's order, with the garden-door key missing from the board at 22:47 and back on its hook at his 00:15 round. The staff book records Ivy Dunn banking the bachelors'-corridor fires from 22:45 to 22:58 and finding Mr Mabey's room dark, his writing case strapped shut, and Mr Hugo's room empty."
+  },
+  "redHerring": "An unsigned draft codicil in Sir Aubrey's desk, cutting Hugo's allowance and leaving the unentailed farms to a cousin, looks like a motive for the heir. It is dated March 1921, drawn up when Hugo was sent down from Oxford and dropped that Christmas, as Mrs Orme can say from her brother's own lips; and Hugo was a mile away at the Plough when the blows fell.",
+  "solutionPath": [
+   "Police surgeon: death between 22:40 and 23:20; the servants' log shows lock-up began at 22:45 that night, so Mrs Orme's thump 'after Ruddle's half past eleven round' really came at about 22:55.",
+   "Ivy Dunn saw Mabey go into the study at 22:40 and heard Sir Aubrey tell him to shut the door; fingerprint comparison puts Mabey's hand on the finger-plate polished at six, breaking his claim that he never entered the study.",
+   "The servants' log has Mabey's room dark and empty at 22:50, and Ivy (with Albert) saw him hurry up the back stairs at 23:06 holding his cuff, breaking 'I was writing letters in my room'.",
+   "Toxicology finds blood in the scrubbed stud hole of Mabey's left cuff; the wiped bronze stag on the mantel is the weapon.",
+   "Motive: Hugo heard Sir Aubrey mention 'the Ridgeway timber money' at the port, the exchange log shows the trunk call to his solicitor Prothero at 21:52, and the grate holds burnt Gedge & Sons timber papers, all pointing at the land agent's handling of estate money.",
+   "Hugo is cleared: the exchange log shows the call from the Plough, the key register has the garden-door key out over the murder, his shoes are soaked with chalk from the lane, and none of his prints are in the study; his lie hides a secret marriage, and the 1921 codicil is stale.",
+   "Name Cyril Mabey: to stop Monday's audit of his timber embezzlement, he struck Sir Aubrey with the bronze stag at about 22:55."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Cyril Mabey",
+   "part": "killer",
+   "personality": "Smooth, ingratiating and quick to agree, a Devizes ironmonger's son who has studied how gentlemen talk and overdoes it ('if I may say so', 'Sir Aubrey and I'). Pressed, he turns precise and legalistic; cornered, he retreats behind his rights and asks for a solicitor.",
+   "voiceSample": "Sir Aubrey and I understood one another perfectly, Inspector; nine years without a cross word, if I may say so.",
+   "relationship": "He feared and resented Sir Aubrey, who treated him as an upper servant, and in the last hour hated him for refusing even a week's grace.",
+   "movements": [
+    {"from": "19:30", "to": "20:00", "where": "his bedroom, then the drawing room", "doing": "Dressed for dinner and took sherry with the party.", "seenBy": ["Ivy Dunn", "Hugo Callender", "Beatrice Orme"]},
+    {"from": "20:00", "to": "21:50", "where": "dining room", "doing": "Dined, then sat over the port and heard Sir Aubrey speak of telephoning Prothero about the Ridgeway timber money.", "seenBy": ["Hugo Callender", "Beatrice Orme", "Colonel Rudd"]},
+    {"from": "21:50", "to": "22:00", "where": "cloakroom passage off the hall", "doing": "Overheard Sir Aubrey's trunk call arranging the Monday audit.", "seenBy": []},
+    {"from": "22:00", "to": "22:35", "where": "drawing room", "doing": "Sat silent over coffee, then said he had letters to write and went out.", "seenBy": ["Hugo Callender", "Beatrice Orme", "Lady Callender", "Colonel Rudd", "Mrs Rudd"]},
+    {"from": "22:35", "to": "23:04", "where": "study", "doing": "Went in at 22:40, pleaded with Sir Aubrey, struck him with the bronze stag at 22:55, wiped it and burned the papers.", "seenBy": ["Ivy Dunn"]},
+    {"from": "23:04", "to": "23:13", "where": "back stairs and his bedroom", "doing": "Hurried up the back stairs, scrubbed his cuff at the basin and burned his handkerchief in the banked fire.", "seenBy": ["Ivy Dunn", "Albert"]},
+    {"from": "23:15", "to": "00:30", "where": "billiard room", "doing": "Played billiards with Colonel Rudd and told him he had been writing letters.", "seenBy": ["Colonel Rudd", "Ruddle"]},
+    {"from": "00:30", "to": "01:20", "where": "his bedroom", "doing": "Took off the shirt, hid it in the wardrobe and lay awake until roused to the hall.", "seenBy": []}
+   ],
+   "knows": [
+    "He has taken about £3,800 of Ridgeway Copse timber money through Gedge & Sons over three years (he did it).",
+    "He overheard Sir Aubrey's trunk call at 21:52 arranging for Prothero and the accountant Gell to come on Monday (he heard it).",
+    "Sir Aubrey told him in the study that he would be prosecuted and turned to ring for Ruddle to have him put out of the house (he was there).",
+    "He struck Sir Aubrey twice with the bronze stag at about 22:55, wiped it with his handkerchief and set it back on the mantel (he did it).",
+    "He burned Gedge's letter and his own timber summary in the study grate before leaving at 23:04 (he did it).",
+    "He pushed the study door shut with his bare hand when told to, and knows he wore no gloves (he did it).",
+    "A spot of blood on his left cuff, which he scrubbed with soap at 23:08 and then hid the shirt in his wardrobe (he did it).",
+    "Hugo was called to the telephone during dinner, came back white, and left the drawing room at 22:20 pleading a cold; Mrs Orme went up at 22:15 (he saw it).",
+    "He told Colonel Rudd at the billiard table that he had been writing letters (he said it)."
+   ],
+   "doesNotKnow": [
+    "That Ivy Dunn saw him enter the study at 22:40 and, with Albert, saw him on the back stairs at 23:06.",
+    "That Ivy found his room dark and empty at 22:50 and it went into the staff book.",
+    "That the study finger-plate is polished every evening at six.",
+    "That Mrs Orme heard the voices and the thump through the floor.",
+    "Where Hugo went that night, or that he is secretly married."
+   ],
+   "secret": "He embezzled the timber money and killed Sir Aubrey to stop Monday's audit.",
+   "lies": [
+    {"claim": "I left the drawing room at about twenty-five to eleven and went straight up to write letters in my room; I came down to billiards at a quarter past.", "truth": "He was in the study from 22:40 to 23:04 and in his room only from 23:06 to 23:13.", "when": "Asked where he was after leaving the drawing room.", "crack": "The servants' log showing his room dark and empty with the writing case strapped shut at 22:50, or Ivy Dunn's sighting of him entering the study or on the back stairs."},
+    {"claim": "I never set foot in the study after dinner; Sir Aubrey had made it plain he was not to be disturbed.", "truth": "He was in the study for twenty-four minutes and pushed the door shut with his hand.", "when": "Asked whether he saw Sir Aubrey after 22:05.", "crack": "The fingerprint report: his fresh prints on the inner finger-plate polished at six."},
+    {"claim": "The estate accounts are in perfect order, Inspector; Sir Aubrey was entirely satisfied with my stewardship.", "truth": "He had embezzled about £3,800 and Sir Aubrey had called in a solicitor and an accountant.", "when": "Asked about his work, the accounts, or Sir Aubrey's telephone call.", "crack": "The exchange log of the trunk call to Prothero together with the burnt Gedge & Sons papers, or Hugo's account of 'the Ridgeway timber money' at the port."},
+    {"claim": "That mark on my cuff? Claret at dinner; I sponged it myself rather than trouble the servants.", "truth": "It is Sir Aubrey's blood.", "when": "Shown or asked about the shirt.", "crack": "The Home Office analyst's positive benzidine test for blood on the cuff."}
+   ],
+   "honestMistake": null,
+   "tells": ["Turns his signet ring round and round.", "Pays the Inspector a compliment just before an untruth."],
+   "pressure": {"baseline": 20, "breakPoint": 70, "lawyerPoint": 85, "style": "lawyer"},
+   "opening": "Good morning, Inspector. A dreadful business; anything I can do to help, anything at all, you have only to ask."
+  },
+  {
+   "name": "Hugo Callender",
+   "part": "liar",
+   "personality": "Restless, charming and sulky by turns, full of Oxford slang ('I say', 'frightful rot') and inclined to answer a question with a question. He lies badly, gets cross when cornered, and is underneath a decent young man frightened for his wife.",
+   "voiceSample": "Look here, Inspector, I was in bed with a stinking cold, and I don't see that it's anybody's business but mine.",
+   "relationship": "Fond of his uncle in an exasperated way; Sir Aubrey paid his debts twice and lectured him for it, and Hugo dreaded what he would say about Ruby.",
+   "movements": [
+    {"from": "19:30", "to": "21:12", "where": "his bedroom, drawing room, dining room", "doing": "Dressed, took sherry and dined.", "seenBy": ["Beatrice Orme", "Cyril Mabey", "Ivy Dunn"]},
+    {"from": "21:12", "to": "21:15", "where": "hall telephone", "doing": "Took a call from Jos Lacey at the Plough telling him to come tonight.", "seenBy": ["Ruddle"]},
+    {"from": "21:15", "to": "22:00", "where": "dining room", "doing": "Sat over the port; heard his uncle speak of the Ridgeway timber money and watched Mabey go out at 21:50 and come back grey.", "seenBy": ["Cyril Mabey", "Colonel Rudd", "Sir Aubrey Callender"]},
+    {"from": "22:00", "to": "22:20", "where": "drawing room", "doing": "Sat with the party, then said good night pleading his cold.", "seenBy": ["Cyril Mabey", "Beatrice Orme", "Lady Callender", "Colonel Rudd", "Mrs Rudd"]},
+    {"from": "22:20", "to": "22:27", "where": "back passage and garden door", "doing": "Took the garden-door key from the board and let himself out, locking the door behind him.", "seenBy": []},
+    {"from": "22:27", "to": "23:50", "where": "the lane and the Plough Inn back parlour", "doing": "Walked to the Plough, sat with Ruby and her father from about 22:55 to 23:20, and walked back.", "seenBy": ["Ruby Lacey", "Jos Lacey"]},
+    {"from": "23:50", "to": "01:20", "where": "garden door, back stairs, his bedroom", "doing": "Let himself in, hung the key back, went up and left his wet shoes outside his door.", "seenBy": []}
+   ],
+   "knows": [
+    "The 21:12 call was from Jos Lacey at the Plough, saying Ruby was poorly and if Hugo did not come tonight he would come up to the house himself (he took the call).",
+    "At the port at about 21:40 his uncle said he must telephone Prothero about 'the Ridgeway timber money', and Mabey went very quiet (he heard and saw it).",
+    "Mabey left the dining room at about 21:50 for the cloakroom and came back at 22:00 grey in the face, gulping his port (he saw it).",
+    "At about 22:26, taking the key in the back passage, he saw lamplight under the study door and heard his uncle cough inside (he saw and heard it).",
+    "He walked to the Plough and back through the sleet rather than crank the motor, which would have woken the house (he did it).",
+    "He was in the Plough's back parlour from about 22:55 to 23:20 with Ruby and her father (he was there).",
+    "Coming in at 23:50 he heard billiard balls clicking and saw the study lamp still lit under the door (he heard and saw it).",
+    "He left his soaked evening shoes outside his door for the boot boy (he did it).",
+    "Aunt Beatrice told him at Christmas 1921 that his uncle had dropped the idea of a codicil cutting his allowance (he was told)."
+   ],
+   "doesNotKnow": [
+    "Who killed his uncle, or how.",
+    "That Mabey went into the study at 22:40.",
+    "Anything that happened in the house between 22:27 and 23:50.",
+    "That Ruddle noticed the garden-door key was missing."
+   ],
+   "secret": "He married Ruby Lacey, the Plough landlord's daughter, at Marylebone register office in August, and she is expecting. His uncle would have cut him off, and he fears the family still will.",
+   "lies": [
+    {"claim": "I went up at twenty past ten with this beastly cold and slept like a log until Ruddle hammered on the door.", "truth": "He was out of the house from 22:27 to 23:50, walking to the Plough and back.", "when": "Asked where he was after leaving the drawing room.", "crack": "His soaked, chalk-caked evening shoes, the key register showing the garden-door key missing from 22:47, or the exchange log's call from the Plough."},
+    {"claim": "The call at dinner? Some chap from my club about a horse.", "truth": "It was Jos Lacey calling from the Plough about Ruby.", "when": "Asked about the telephone call during dinner.", "crack": "The exchange log showing the call came from Coombe Abbas 7, the Plough Inn."}
+   ],
+   "honestMistake": null,
+   "tells": ["Lights a fresh cigarette from the stub of the last.", "Says 'Look here' before anything untrue."],
+   "pressure": {"baseline": 25, "breakPoint": 60, "lawyerPoint": 85, "style": "anger"},
+   "opening": "I suppose you want to know where I was. In bed, Inspector, like any sane man on a night like that."
+  },
+  {
+   "name": "Beatrice Orme",
+   "part": "mistaken",
+   "personality": "Imperious, exact and certain, a rector's daughter who has run other people's households for forty years and despises fuss. She speaks in short complete sentences and corrects grammar; if she feels doubted or patronised she goes cold and silent.",
+   "voiceSample": "I am not in the habit of imagining things, Inspector; I heard my brother cry out at five and twenty to twelve.",
+   "relationship": "She loved Aubrey without illusions and quarrelled with him daily; he was the last of her family, and she is badly shaken beneath the starch.",
+   "movements": [
+    {"from": "19:30", "to": "21:20", "where": "her bedroom, drawing room, dining room", "doing": "Dressed and dined.", "seenBy": ["Cyril Mabey", "Hugo Callender", "Ivy Dunn"]},
+    {"from": "21:20", "to": "22:15", "where": "drawing room", "doing": "Sat with Lady Callender and Mrs Rudd; the men came in at 22:00 and Aubrey looked in before going to the study.", "seenBy": ["Lady Callender", "Mrs Rudd", "Cyril Mabey", "Hugo Callender"]},
+    {"from": "22:15", "to": "22:47", "where": "her bedroom above the study", "doing": "Went to bed and dozed.", "seenBy": []},
+    {"from": "22:47", "to": "01:05", "where": "her bedroom", "doing": "Woke to the garden door rattling, heard voices and a thump below, later the garden door and steps; lay awake.", "seenBy": []},
+    {"from": "01:05", "to": "01:12", "where": "back stairs and study", "doing": "Went down and found Aubrey dead.", "seenBy": []},
+    {"from": "01:12", "to": "02:00", "where": "hall", "doing": "Sat with the household until the constable came.", "seenBy": ["Cyril Mabey", "Hugo Callender", "Ivy Dunn"]}
+   ],
+   "knows": [
+    "At about 21:12 Ruddle fetched Hugo from the table to the telephone and he came back white (she saw it).",
+    "At 22:00 the men came in; Aubrey looked in 'black as thunder', said he had accounts to see to and went to the study; Mabey sat silent fiddling with his signet ring (she saw it).",
+    "She went up at 22:15, dozed, and was woken by the garden door below her window being tried, which she took for Ruddle's lock-up round (she heard it).",
+    "A few minutes later she heard men's voices below, Aubrey's raised and the word 'Monday' twice, the other a man's voice, lower and pleading, that she could not place; then a heavy thump and a chair going over (she heard it).",
+    "A long while afterwards she heard the garden door open and shut and someone go softly up the back stairs (she heard it).",
+    "At about 01:05 she saw the study lamplight still lying on the sleet below her window, went down by the back stairs and found Aubrey face down on the hearthrug, the fire low and a smell of burnt paper (she saw it).",
+    "This week Aubrey grumbled at breakfast that 'the timber figures don't add up' (she heard it).",
+    "The 1921 draft codicil against Hugo was dropped that Christmas; Aubrey told her so himself (she was told)."
+   ],
+   "doesNotKnow": [
+    "Who killed Aubrey, or with what.",
+    "That Ruddle locked up early that night, at a quarter to eleven, on Aubrey's order.",
+    "That Mabey went into the study at 22:40.",
+    "Where Hugo went, or who came in by the garden door."
+   ],
+   "secret": null,
+   "lies": [],
+   "honestMistake": {"claim": "The thump came at five and twenty to twelve: Ruddle had just been round trying the garden door, and he does that at half past eleven every night of the year.", "truth": "The rattle was Ruddle's round at 22:47, begun early on Aubrey's order, so the thump came at about 22:55.", "why": "Her travelling clock is at the mender's in Devizes; she woke from a doze to the rattle and set the time by the household's usual routine."},
+   "tells": ["Draws herself up and looks down her nose.", "Taps her lorgnette on her knee when doubted."],
+   "pressure": {"baseline": 15, "breakPoint": 65, "lawyerPoint": 90, "style": "shutdown"},
+   "opening": "Sit down, Inspector, you are blocking the light. Ask what you must; I do not intend to weep in front of you."
+  },
+  {
+   "name": "Ivy Dunn",
+   "part": "honest",
+   "personality": "Shy, quick-eyed and observant, in service since fourteen; she says 'sir' every few words and slips into broad Wiltshire when upset ('I never seen'). Terrified of losing her place, she cries easily but does not lie.",
+   "voiceSample": "I never meant to be on the back stairs, sir, honest, only Albert asked me and it were only ten minutes.",
+   "relationship": "Sir Aubrey was a sharp master but a fair one; he gave her a half-sovereign at Christmas and knew her name, which not all of them do.",
+   "movements": [
+    {"from": "19:30", "to": "19:50", "where": "guest bedrooms", "doing": "Carried hot-water cans to the guest rooms.", "seenBy": ["Cyril Mabey", "Hugo Callender", "Beatrice Orme"]},
+    {"from": "19:50", "to": "22:35", "where": "servants' hall and still-room", "doing": "Servants' supper and washing up; heard Mr Ruddle's early lock-up order at 22:10.", "seenBy": ["Ruddle", "Albert", "Mrs Tull"]},
+    {"from": "22:35", "to": "22:44", "where": "back passage", "doing": "Carried stone hot-water bottles to the back stairs and saw Mr Mabey go into the study.", "seenBy": []},
+    {"from": "22:45", "to": "22:58", "where": "bachelors' corridor", "doing": "Banked the fires and found Mr Mabey's and Mr Hugo's rooms empty, then told Mrs Tull.", "seenBy": ["Mrs Tull"]},
+    {"from": "23:00", "to": "23:10", "where": "linen-room doorway at the head of the back stairs", "doing": "Stood courting with Albert and saw Mr Mabey come up.", "seenBy": ["Albert"]},
+    {"from": "23:12", "to": "01:20", "where": "maids' attic", "doing": "Went to bed and slept until the screaming and the bell woke her.", "seenBy": []},
+    {"from": "01:20", "to": "02:00", "where": "hall", "doing": "Stood with the household.", "seenBy": ["Cyril Mabey", "Hugo Callender", "Beatrice Orme"]}
+   ],
+   "knows": [
+    "At six o'clock, as every evening, she polished the brass finger-plates on the ground-floor doors, the study's included (she did it).",
+    "At 22:10 in the servants' hall Mr Ruddle said Sir Aubrey wanted the house locked up at a quarter to eleven and the staff abed, an hour early (she heard it).",
+    "At about 22:40 in the back passage she saw Mr Mabey knock at the study door and go in, and heard Sir Aubrey say 'Come in and shut that door, Mabey', and the door shut (she saw and heard it).",
+    "Between 22:45 and 22:58 Mr Mabey's room was dark, the lamp unlit and his writing case strapped shut on the table, and Mr Hugo's room was empty with the bed not slept in (she saw it).",
+    "At 22:58 she told Mrs Tull those two rooms were empty, and Mrs Tull wrote it in the staff book (she did it).",
+    "From 23:00 to 23:10 she was with Albert the footman in the linen-room doorway, which is against the rules (she did it).",
+    "At about 23:06 Mr Mabey came up the back stairs fast, with no candle, holding his left shirt cuff in his right hand, and went along to the bachelors' corridor without seeing them (she saw it).",
+    "The servants' hall says Mr Hugo is sweet on somebody at the Plough (she heard the gossip)."
+   ],
+   "doesNotKnow": [
+    "Who killed Sir Aubrey, or how.",
+    "What was said in the study.",
+    "Where Mr Hugo went that night.",
+    "That Mrs Orme heard anything."
+   ],
+   "secret": "Her small embarrassment: she was on the back stairs with Albert, which could cost them both their places.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": ["Twists her apron in both hands.", "Looks at the Inspector's boots, not his face."],
+   "pressure": {"baseline": 30, "breakPoint": 60, "lawyerPoint": 82, "style": "tears"},
+   "opening": "Please, sir, Mrs Tull said I was to come. I've done nothing wrong, sir, I only did the fires."
+  }
+ ]
+}
