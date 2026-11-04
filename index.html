@@ -1154,7 +1154,7 @@ async function askSuspect(name, question, tone, present) {
   let text = '';
   try {
     const res = await sample(actorInput(G, name, s, brief, st), { cache: false, signal: ctl.signal, ...actorOpts(), onText: ({ text: t }) => { text = t; const el = $(`[data-msg="${pending.id}"] .b`); if (el) { el.textContent = t; el.classList.remove('thinking'); } scrollChat(); } });
-    text = (res.text || '').trim();
+    text = stripSpeakerLabel((res.text || '').trim(), name);
   } catch (e) {
     if (gone()) return;
     s.transcript = s.transcript.filter((m) => m.id !== pending.id);
@@ -1190,6 +1190,11 @@ async function askSuspect(name, question, tone, present) {
   busy = null; save(); render();
 }
 
+function stripSpeakerLabel(text, name) {
+  const labels = [name, name.split(' ').slice(-1)[0], 'Suspect', 'Answer', 'Reply'].filter(Boolean);
+  for (const l of labels) { const re = new RegExp('^\\**' + l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\**\\s*:\\s*', 'i'); if (re.test(text)) return text.replace(re, '').trim(); }
+  return text;
+}
 function stopBusy() { if (busy?.ctl) busy.ctl.abort(); }
 
 function waitForCounsel(name) {
