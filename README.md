@@ -35,4 +35,8 @@ Finished cases are kept in the browser and, for a signed-in viewer, synced to th
 
 ## Development
 
-There is no build step. Publish `index.html` with the Artifact tool. A mocked-Claude Playwright harness exists in the development session's scratch space; it drives the full flow at phone and desktop widths with canned truth, briefs, actor, referee and scorer responses.
+There is no build step. Publish `index.html` with the Artifact tool.
+
+- `test/harness.js` drives the full flow at phone and desktop widths with a mocked Claude (`test/mock.js`, canned case in `test/canned.js`): `node test/harness.js`, optionally `--only=mainFlow,cloudFlow`. Screenshots land in `test/shots/`.
+- `test/live/play.js` plays a real case in the real page with a live model through the Claude CLI (`claude -p`): `node test/live/play.js --setting=noir_docks --preset=chief`. It writes a transcript with referee labels, pressure and the score to `test/live/out/`. A case costs well under a dollar at list prices; generation takes two to four minutes depending on cast size.
+- `test/validate-training.js training` runs the page's own normalisers and audit over the training cases; `test/embed-training.py` embeds them into the page.
