@@ -12,7 +12,7 @@ const pieces = [
   block('const FORENSIC_IDS', 'const TONES'),
   block('const $ = ', '/* ───────────────────────── prompts'),
   block('const PARTS = ', 'function repairPrompt('),
-  block('function normalizeBriefs(', '/* ───────────────────────── state'),
+  block('const briefList = ', '/* ───────────────────────── state'),
 ];
 const src = pieces.join('\n') + '\nmodule.exports = { SETTINGS, castPlan, normDials, normalizeTruth, normalizeBriefs, auditTruth, nightOffset, toMin };';
 const m = { exports: {} };

@@ -54,7 +54,7 @@ function start(port = 0) {
       const prompt = flatten(p.input);
       const model = p.model || MODELS[p.modelTier] || MODELS.default;
       const effort = p.effort || null;
-      const kind = /Design the sealed TRUTH FILE/.test(prompt) ? 'truth' : /TRUTH FILE below has problems/.test(prompt) ? 'repair' : /Write a PRIVATE BRIEF/.test(prompt) ? 'briefs' : /You are the REFEREE/.test(prompt) ? 'referee' : /reviewing a detective's accusation/.test(prompt) ? 'score' : 'actor';
+      const kind = /Design the sealed TRUTH FILE/.test(prompt) ? 'truth' : /TRUTH FILE below has problems/.test(prompt) ? 'repair' : /Write a PRIVATE BRIEF/.test(prompt) ? 'briefs' : /You are the REFEREE/.test(prompt) ? 'referee' : /reviewing a detective's accusation/.test(prompt) ? 'score' : /asked you for a nudge/.test(prompt) ? 'hint' : 'actor';
       queue = queue.then(async () => {
         process.stdout.write(`  [${kind}] ${model}${effort ? '/' + effort : ''} ${(prompt.length / 1024).toFixed(1)}KB … `);
         const r = await runClaude(prompt, { model, effort });

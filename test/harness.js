@@ -406,7 +406,7 @@ async function mainFlow(vp, tag) {
   ok((await page.$$('details.tr-sus')).length === 4 && !(await page.$('details.tr-sus[open]')), `[${tag}] one closed transcript per suspect`);
   await page.click('details.tr-sus:nth-of-type(2) summary');
   const pru = await page.$eval('details.tr-sus:nth-of-type(2)', (d) => ({ open: d.open, sum: d.querySelector('summary').textContent, marks: d.querySelectorAll('mark.mistaken').length, lie: d.querySelectorAll('mark.lie').length, flags: [...d.querySelectorAll('.flag')].map((f) => f.textContent), firstSus: d.querySelector('.msg.sus .b').innerHTML, sys: d.querySelectorAll('.msg.sys').length }));
-  ok(pru.open && /Albert Pruett · honest but mistaken · \d+ questions · \d+ lies/.test(pru.sum), `[${tag}] replay opens for Pruett (${pru.sum})`);
+  ok(pru.open && /Albert Pruett · honest but mistaken · \d+ questions · \d+ (lie|lies)( · \d+ mistaken)?/.test(pru.sum), `[${tag}] replay opens for Pruett (${pru.sum})`);
   ok(pru.marks >= 4, `[${tag}] replay marks verbatim claims as mark.mistaken (${pru.marks})`);
   ok(pru.flags.length === 1 && /^Lie: “Claims he stayed put all night” · He went to the study/.test(pru.flags[0]), `[${tag}] non-verbatim claim gets one .flag line; repeated claim adds none (${pru.flags.join(' / ')})`);
   ok(!/<mark/.test(pru.firstSus), `[${tag}] opening line replays without marks`);
@@ -730,7 +730,7 @@ async function scoringFlow(vp, tag) {
   ok(r.total === 82 && r.killer === '40/40', `[${tag}] killer + accomplice right: 40 (${r.killer}, ${r.total})`);
   ok(r.text === 'You named Major Gerald Lusk. Correct. Mrs Edith Lusk was the accomplice, as you said.', `[${tag}] verdict: accomplice right (${r.text})`);
   const sp = (await mlog(page, 'score')).pop().prompt;
-  ok(/Accomplice: Mrs Edith Lusk\./.test(sp) && /with Mrs Edith Lusk as accomplice/.test(sp) && /The names are CORRECT/.test(sp), `[${tag}] scorer prompt with accomplice`);
+  ok(/Accomplice: Mrs Edith Lusk\./.test(sp) && /with Mrs Edith Lusk as accomplice/.test(sp) && /The killer's name is CORRECT; the accomplice is CORRECT/.test(sp), `[${tag}] scorer prompt with accomplice`);
   await screen(page, tag, 'verdict-accomplice');
   await act(page, 'reveal'); await page.waitForSelector('.lies');
   ok((await page.$$eval('.card .row .chip.lie .t', (els) => els.map((e) => e.textContent))).join('|') === 'Major Gerald Lusk · the killer|Mrs Edith Lusk · the accomplice', `[${tag}] accomplice chip on reveal`);
