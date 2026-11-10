@@ -137,7 +137,7 @@ async function accuse(page, killer, accomplice) {
   await page.waitForSelector('.score .big', { timeout: 10000 });
   return {
     total: +(await page.$eval('.score .big', (e) => e.textContent)),
-    killer: await page.$eval('.parts span', (e) => e.querySelector('b').textContent),
+    killer: await page.$$eval('.parts span', (els) => { const t = els.map((e) => ({ v: +e.querySelector('b').textContent.split('/')[0], l: e.textContent.replace(/^[\d/]+/, '').trim() })); const k = t.find((x) => x.l === 'killer'), a = t.find((x) => x.l === 'accomplice'); return a ? `${k.v + a.v}/40` : `${k.v}/40`; }),
     text: await page.$eval('.score ~ .rule + p', (e) => e.textContent),
   };
 }
