@@ -550,6 +550,8 @@ TIMELINE: 14-18 entries covering the whole night at minute precision: the murder
 
 PUBLIC FACTS: 5-7 things everyone there knows by morning (who died, where and when the body was found and by whom, that the authorities were called, the weather, who was present).
 
+NO DRAFTING: every field is final prose; never include second thoughts, corrections or notes to yourself (no "? No:", "Actually,", "Correction:", "wait").
+
 LENGTH: be concrete but economical. Keep the whole reply under about ${n <= 4 ? '9,000' : n === 5 ? '10,500' : '12,000'} characters: one sentence per timeline event, two for each forensic result, no filler.
 
 Reply with ONLY a JSON object, no commentary, exactly this shape:
@@ -699,7 +701,7 @@ PROPOSED ANSWER: ${answer}
 
 CHECKS:
 1. LEAK: the answer states or clearly hints at something this suspect cannot know (anything in doesNotKnow; events they were not present at and did not witness; the killer's identity, the accomplice's part or the method if they are not one of the guilty). Repeating a public fact is never a leak, whatever doesNotKnow says. PUBLIC FACTS: ${arr(t.publicFacts).join(' ')}
-2. CONSISTENCY: the answer contradicts one of their prior statements or a listed lie without an in-character reason (a lie's crack condition met by what the detective presented, or pressure past the break point).
+2. CONSISTENCY: the answer contradicts one of their prior statements or a listed lie without an in-character reason. Consistency is judged only between the suspect's own assertions: a time or a range the detective put in a question is not the suspect's claim. Dropping a lie is always in character once its crack evidence has been presented, at any pressure, and also when pressure is past the break point.
 3. CONFESSION: ${guilty ? 'this suspect is guilty and' : 'a guilty party'} may make a NEW admission of their part only if pressure >= breakPoint AND the detective has presented, this turn or earlier, evidence meeting one of the lies' crack conditions. When both hold, a confession stands: do not rewrite it. Anything already admitted (a lie whose index is in "Lies already admitted", or a fact in the prior statements above) is on the record: repeating or elaborating it is allowed at any pressure and must never be rewritten; this gate applies only to new admissions. A non-guilty suspect must never claim to be the killer or to have helped.
 4. FORM: in character, no AI or game references, does not speak for the detective, under 120 words.
 If any check fails, set "ok": false and write "answer": a corrected reply in the same voice that fixes only the problem and keeps the rest (escape any double quotes inside it). Otherwise "ok": true and "answer": null.
@@ -859,6 +861,9 @@ function auditTruth(t, dials) {
   if (liars < wantLiars) probs.push(`The case requires ${wantLiars} non-killer liar(s); only ${liars} suspect(s) have part "liar".`);
   for (const f of Object.keys(t.forensics)) if (t.forensics[f] === 'The report is inconclusive.') probs.push(`Forensic report "${f}" is missing a true, specific result.`);
   if (!t.solutionPath.length) probs.push('Provide a solutionPath of 5-7 steps.');
+  const drafting = /\?\s*No[:,.]|\b(Actually|Correction|Wait|Scratch that)\b[:,]|\(no[,:]|\bI mean\b/;
+  const prose = [['method', t.method], ['motive', t.motive], ['alibiGap.actually', t.alibiGap.actually], ['alibiGap.killerClaims', t.alibiGap.killerClaims], ...t.timeline.map((e, i) => [`timeline[${i}].event`, e.event]), ...t.evidence.map((e) => [`evidence ${e.id}`, `${e.detail} ${e.proves}`]), ...Object.entries(t.forensics).map(([k, v]) => [`forensics.${k}`, v])];
+  for (const [where, text] of prose) if (drafting.test(String(text || ''))) probs.push(`${where} contains a drafting note or self-correction; rewrite it as final prose with a single version of events.`);
   return probs;
 }
 function repairPrompt(t, probs) {
@@ -1140,7 +1145,7 @@ async function generateCase(settingId, dials, seedCase) {
         } catch (e) { if (e?.code === 'cancelled') throw e; console.warn('repair failed; using original truth', e); }
       }
     }
-    ui.genStep = 'briefs'; paintGen();
+    ui.genStep = 'briefs'; ui.draftTruth = truth; paintGen();
     if (!briefs) {
       const names = truth.suspects.map((s) => s.name);
       const halves = names.length >= 4 ? [names.slice(0, Math.ceil(names.length / 2)), names.slice(Math.ceil(names.length / 2))] : [names];
@@ -1149,7 +1154,7 @@ async function generateCase(settingId, dials, seedCase) {
       const merged = { briefs: results.flatMap((r) => briefList(r)) };
       briefs = normalizeBriefs(merged, truth);
     }
-    ui.genStep = 'done'; paintGen(); stopGenTicker();
+    ui.genStep = 'done'; paintGen(); stopGenTicker(); ui.resumeTruth = null;
     G = newGame(settingId, truth, briefs, dials, { training: !!seedCase?.training, sharedFrom: seedCase?.sharedFrom });
     ui.tab = 'case'; ui.linkFrom = null; ui.present = null;
     save(); busy = null; render();
@@ -1158,6 +1163,7 @@ async function generateCase(settingId, dials, seedCase) {
     if (busy && busy.ctl !== ctl) return;
     busy = null; stopGenTicker();
     if (e?.code === 'cancelled' && !ui.genStep) { ui.genError = null; render(); return; }
+    ui.resumeTruth = (e?.code !== 'cancelled' && ui.genStep === 'briefs' && ui.draftTruth) ? { settingId, dials, truth: ui.draftTruth } : null;
     ui.genError = e && e.code ? errCopy(e) : 'The case file came back malformed. Try again.';
     console.error(e);
     render();
@@ -1437,7 +1443,7 @@ function viewGenerating() {
     <p class="lede" style="margin-top:6px">The night is written first, minute by minute, and sealed. The suspects are briefed from it. You only ever see what they choose to tell you.</p>
     <p class="cast" style="margin-top:8px">${esc((SETTINGS[ui.genSetting] || SETTINGS.country_house).name)} · ${esc(describeCast(castPlan(ui.genDials || currentDials())))}.</p>
     <div class="steps">${row('truth', 'Timeline, killer, motive, method, evidence, forensics', 'one to two minutes')}${(step === 'repair' || ui.genBytes.repair) ? row('repair', 'Tightening the night where the audit found gaps', 'a few seconds') : ''}${row('briefs', `${(ui.genDials || currentDials()).suspects} private briefs: what each saw, knows and will lie about`, 'about a minute')}</div>
-    ${ui.genError ? `<div class="err" style="margin-top:14px">${esc(ui.genError)}</div><div class="row" style="margin-top:10px"><button class="btn primary" data-act="new">Try again</button><button class="btn ghost" data-act="home">Back</button></div>` : `<p class="note" style="margin-top:12px" data-genmsg>${esc(genMessage())}</p><div class="row" style="margin-top:10px"><button class="btn ghost" data-act="stop-gen">Stop</button><span class="note" data-elapsed>${genElapsed()}</span></div>`}
+    ${ui.genError ? `<div class="err" style="margin-top:14px">${esc(ui.genError)}</div><div class="row" style="margin-top:10px"><button class="btn primary" data-act="${ui.resumeTruth ? 'rebrief' : 'new'}">${ui.resumeTruth ? 'Try again (keeps the night)' : 'Try again'}</button><button class="btn ghost" data-act="home">Back</button></div>` : `<p class="note" style="margin-top:12px" data-genmsg>${esc(genMessage())}</p><div class="row" style="margin-top:10px"><button class="btn ghost" data-act="stop-gen">Stop</button><span class="note" data-elapsed>${genElapsed()}</span></div>`}
     <p class="tip" data-tip>${esc(pick(TIPS))}</p>
   </div></div>`;
 }
@@ -1817,6 +1823,7 @@ function handleAct(btn) {
     case 'home': closeModal(); if (G && (G.phase === 'reveal' || G.phase === 'verdict')) { if (!G.readOnly) safeDel(KEY_GAME); } G = null; ui.genStep = null; ui.genError = null; return render();
     case 'new': { const saved = safeGet(KEY_GAME, null); if (!G && inProgress(saved) && !ui.genError) return confirmSheet('Start a new case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'new-do', 'Start new case'); closeModal(); ui.tab = 'case'; return generateCase(S.setting, currentDials()); }
     case 'new-do': closeModal(); safeDel(KEY_GAME); ui.tab = 'case'; return generateCase(S.setting, currentDials());
+    case 'rebrief': { const r = ui.resumeTruth; if (!r) return generateCase(S.setting, currentDials()); closeModal(); ui.tab = 'case'; return generateCase(r.settingId, r.dials, { truth: r.truth }); }
     case 'stop-gen': stopBusy(); stopGenTicker(); ui.genStep = null; ui.genError = null; G = null; return render();
     case 'resume': { const saved = safeGet(KEY_GAME, null); if (saved?.truth) { G = tidy(saved); ui.tab = 'case'; render(); } return; }
     case 'abandon': return confirmSheet('Abandon the saved case?', 'The case in progress is deleted. Finished cases in the casebook are kept.', 'abandon-do', 'Abandon');
