@@ -94,8 +94,9 @@ button { cursor: pointer; -webkit-appearance: none; appearance: none; }
 .foot { max-width: 1480px; margin: 0 auto; padding-block: 2px 26px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); color: var(--soft); font-size: 12.5px; display: flex; flex-wrap: wrap; gap: 2px 14px; }
 @media (min-width: 1280px) {
   .desk { grid-template-columns: 372px minmax(0, 1fr); }
-  .stage { order: 0; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+  .stage { order: 0; }
 }
+@media (min-width: 1280px) and (min-height: 760px) { .stage { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); } }
 
 /* ---------- buttons ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 0 13px; border: 2px solid var(--edge); border-radius: 11px; background: var(--btn); color: var(--ink); font-weight: 700; font-size: 14px; line-height: 1.1; white-space: nowrap; box-shadow: 0 2px 0 var(--drop); transition: transform .08s, box-shadow .08s; touch-action: manipulation; }
@@ -107,6 +108,7 @@ button { cursor: pointer; -webkit-appearance: none; appearance: none; }
 .btn.sm { min-height: 34px; padding: 0 10px; font-size: 13px; border-radius: 9px; }
 .btn.quiet { border-color: transparent; background: transparent; box-shadow: none; text-decoration: underline; text-underline-offset: 3px; padding: 0 6px; }
 .btn.quiet:hover { transform: none; box-shadow: none; background: var(--well); }
+.btn.sq.quiet { padding: 0; text-decoration: none; }
 .btn small { max-width: 17ch; overflow: hidden; text-overflow: ellipsis; font-size: 12px; font-weight: 500; color: var(--soft); }
 @media (pointer: coarse) { .btn { min-height: 44px; } .btn.sq { min-width: 44px; } .btn.sm { min-height: 40px; } }
 
@@ -132,7 +134,7 @@ button { cursor: pointer; -webkit-appearance: none; appearance: none; }
 .tag[aria-pressed="true"] { border: 2px solid var(--edge); background: var(--act-wash); box-shadow: 0 3px 0 var(--drop); }
 .tag .who { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; font-weight: 800; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
 .tag[aria-pressed="true"] .who { color: var(--ink); }
-.tag .st { display: grid; grid-template-columns: 2.5em minmax(0, 1fr); align-items: center; gap: 0 5px; font-size: 12.5px; line-height: 1; font-weight: 600; font-stretch: 88%; color: var(--soft); white-space: nowrap; }
+.tag .st { display: grid; grid-template-columns: minmax(2.4em, auto) minmax(0, 1fr); align-items: center; gap: 0 5px; font-size: 12.5px; line-height: 1; font-weight: 600; font-stretch: 88%; color: var(--soft); white-space: nowrap; }
 .tag .st b { font: 900 25px/1.05 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
 .railtag { display: flex; align-items: center; gap: 7px; min-width: 0; padding: 0 2px; font-weight: 800; font-size: 12px; font-stretch: 90%; color: var(--soft); white-space: nowrap; }
 .swatch { flex: none; width: 18px; height: 14px; border: 2px solid var(--edge); border-radius: 4px; background: repeating-linear-gradient(135deg, var(--hi) 0 5px, var(--edge) 5px 8px); }
@@ -169,6 +171,8 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
 .gap-b .plus { display: grid; place-items: center; width: 26px; height: 26px; margin-bottom: 3px; border: 2px solid currentColor; border-radius: 50%; }
 .gap-b .plus .ico { width: 14px; height: 14px; }
 .gap-b .g1 { font-weight: 900; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
+.gap-b .g1 .hov { display: none; }
+@media (hover: hover) { .seg:not(.is-target) > button.gap-b:hover .g1 .rest { display: none; } .seg:not(.is-target) > button.gap-b:hover .g1 .hov { display: inline; } }
 .gap-b .g2 { font: 900 20px/1 var(--display); color: var(--ink); }
 .gap-b .g3 { font-size: 11.5px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .is-target .gap-b { border-style: solid; border-color: var(--edge); background: var(--act-wash); color: var(--ink); }
@@ -181,9 +185,10 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
 .chipx { display: inline-flex; align-items: center; gap: 3px; max-width: 100%; padding: 2px 7px 2px 4px; border: 2px solid var(--edge); border-radius: 999px; background: var(--act); color: var(--act-ink); font-weight: 900; font-size: 10.5px; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 /* previews and rejected attempts float above the lineup */
 .ghost, .clash { position: absolute; }
+.ghost { container-type: size; }
 .gh { padding: 7px 7px 6px; }
-.ghost.ok .gh { border: 2.5px dashed var(--edge); background: color-mix(in srgb, var(--c) 58%, transparent); }
-.ghost.bad .gh { border: 3px dotted var(--bad); background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--bad) 36%, transparent) 0 8px, color-mix(in srgb, var(--bad) 10%, transparent) 8px 16px); }
+.ghost.ok .gh { border: 2.5px dashed var(--edge); background: color-mix(in srgb, var(--c) 70%, var(--panel)); }
+.ghost.bad .gh { border: 3px dotted var(--bad); background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--bad) 30%, var(--bad-wash)) 0 8px, var(--bad-wash) 8px 16px); }
 .ghost.fresh { animation: nope .36s; }
 .lab { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; padding: 2px 7px 2px 5px; border: 2px solid var(--edge); border-radius: 7px; background: var(--panel); color: var(--ink); font-weight: 800; font-size: 12px; line-height: 1.3; white-space: nowrap; overflow: hidden; }
 .lab span { overflow: hidden; text-overflow: ellipsis; }
@@ -193,6 +198,7 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
 .clash i { position: absolute; border: 2.5px solid var(--bad); border-radius: 9px; background: repeating-linear-gradient(45deg, var(--bad) 0 3px, transparent 3px 9px), repeating-linear-gradient(-45deg, var(--bad) 0 3px, transparent 3px 9px); }
 .clash b { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 26px; height: 26px; margin: -16px 0 0 -13px; border: 2px solid var(--edge); border-radius: 50%; background: var(--bad); color: var(--bad-ink); font-size: 13px; }
 .clash.dupe i { background: none; border-style: dotted; }
+.clash.spot i { background: none; border: 3px dashed var(--focus); }
 @keyframes nope { 0%, 100% { transform: none; } 20% { transform: translate(-5px, 0); } 45% { transform: translate(5px, 0); } 70% { transform: translate(-3px, 0); } }
 /* where the next show lands */
 .pin { position: absolute; z-index: 2; pointer-events: none; }
@@ -201,6 +207,7 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
 .pin b .ico { width: 11px; height: 11px; }
 .track:not(.is-active) { opacity: .97; }
 .track.is-active { box-shadow: 0 0 0 2px var(--edge); }
+.ghosts:not(:empty) ~ .pin { display: none; }
 
 /* wide screens: time runs left to right */
 @media (min-width: 760px) {
@@ -284,7 +291,11 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
   .is-locked .blk-b { padding: 9px 10px 8px; }
   .top { display: contents; }
   .blk-b .emblem { position: absolute; right: 6px; top: 6px; width: 24px; height: 24px; }
-  .blk-b .lockplate { position: absolute; right: 8px; bottom: 8px; }
+  .is-locked .blk-b .emblem { right: 9px; top: 9px; }
+  .blk-b .ttl { order: 1; }
+  .blk-b .lockplate { order: 2; margin-top: 3px; }
+  .blk-b .meta { order: 3; }
+  .pin.at-start b { display: none; }
   .ttl { padding-right: 28px; font-size: 13.5px; font-stretch: 84%; }
   .meta { font-size: 11.5px; }
   .meta .len { display: none; }
@@ -308,12 +319,16 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
     .sug .chipx span { display: none; }
     .lab:not(.why) { display: none; }
   }
+  .btn { min-height: 44px; }
+  .btn.sq { min-width: 44px; }
+  .btn.sm { min-height: 42px; padding: 0 12px; }
   .bar-h { flex: 1; font-size: 22px; }
   .btn small { display: none; }
   .bar .grow { display: none; }
   .bar [data-act="fill"] { order: 2; flex: 1 1 100%; }
-  .bar [data-act="dup"] { order: 3; }
+  .bar [data-act="dup"] { order: 3; padding: 0 10px; }
   .bar [data-from="A"] { flex: 1; }
+  .bar [data-from="A"] .ico { display: none; }
   .bar [data-act="reset"] { order: 4; }
   .hint-phone { display: block; }
   .stage { padding: 12px 10px 14px; }
@@ -332,7 +347,7 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
 .c-act { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-left: auto; }
 .insp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .insp .who { display: flex; align-items: center; gap: 8px; min-width: 0; }
-.insp .who b { font-size: 15.5px; }
+.insp .who b { font-size: 15.5px; color: var(--ink); }
 .insp .who span { color: var(--soft); font-size: 13px; }
 .insp .emblem { width: 34px; height: 34px; }
 .plan-adds { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -399,6 +414,7 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
 .c-fit .ico { width: 13px; height: 13px; }
 .c-fit.ok { color: var(--good-text); }
 .c-fit.warn .ico { color: var(--bad-text); }
+.card, .blk-b { -webkit-user-select: none; user-select: none; }
 .card.is-used { border-style: dashed; }
 .card.is-used .thumb { opacity: .55; }
 .card.is-drag { opacity: .45; }
@@ -423,7 +439,11 @@ button.gap-b:hover { border-color: var(--edge); background: var(--panel); color:
   .lib-top .t-desk, .lib-top .count { display: none; }
   .lib-top .t-phone { display: inline; }
   .sheet-x { display: grid; place-items: center; margin-left: auto; width: 44px; height: 44px; border: 2px solid var(--edge); border-radius: 12px; background: var(--btn); font-size: 16px; }
+  .search { min-height: 46px; }
   .search input { font-size: 16px; }
+  .stepper button { width: 46px; min-height: 44px; }
+  .stepper select { min-height: 44px; font-size: 16px; }
+  .chip { min-height: 40px; padding: 0 13px; }
   .note:not(:empty) { display: grid; gap: 8px; padding: 10px 12px; border: 2px solid var(--edge); border-radius: 12px; background: var(--bad-wash); }
   .note .c-tag { justify-self: start; background: var(--bad); color: var(--bad-ink); }
   .note .c-act { margin: 0; }
@@ -685,7 +705,7 @@ const mqCalm = window.matchMedia('(prefers-reduced-motion: reduce)');
 const isPhone = () => mqPhone.matches;
 
 /* ---------- cloud copy (optional): a private per-viewer document, newest stamp wins ---------- */
-const cloud = { ref: null, live: false, busy: false, again: false, timer: 0, retried: false };
+const cloud = { ref: null, live: false, busy: false, again: false, timer: 0, retried: false, waiting: false };
 async function initCloud() {
   if (!window.claude || typeof window.claude.use !== 'function') return;
   try {
@@ -709,14 +729,14 @@ function adopt(theirs) {
   state = theirs; cloud.live = true;
   ui.sel = null; ui.plan = null; ui.reject = null; ui.hover = null;
   saveLocal();
-  if (changed) say('ok', 'Synced', 'Loaded the lineups you last saved on another device.');
+  if (changed) say('ok', 'Restored', 'Loaded the lineups saved to your Claude account.');
   render();
 }
-function cloudQueue(ms) { if (!cloud.ref) return; clearTimeout(cloud.timer); cloud.timer = setTimeout(cloudSave, ms == null ? 700 : ms); }
+function cloudQueue(ms) { if (!cloud.ref) return; cloud.waiting = true; clearTimeout(cloud.timer); cloud.timer = setTimeout(cloudSave, ms == null ? 700 : ms); }
 async function cloudSave() {
   if (!cloud.ref) return;
   if (cloud.busy) { cloud.again = true; return; }
-  cloud.busy = true;
+  cloud.busy = true; cloud.waiting = false;
   const stamp = state.stamp;
   try {
     await cloud.ref.set({ v: 1, stamp, body: JSON.stringify(pack()) });
@@ -862,6 +882,10 @@ const el = {
   console: $('#console'), diffs: $('#diffs'), lib: $('#lib'), aim: $('#aim'), q: $('#q'), qx: $('#q-x'), chips: $('#chips'), cards: $('#cards'), note: $('#note'), scroll: $('#lib-scroll'),
 };
 
+// Write a region only when its markup changed, so focus, hover and animations survive unrelated renders.
+const last = new WeakMap();
+function put(node, html) { if (last.get(node) === html) return false; last.set(node, html); node.innerHTML = html; return true; }
+
 function timeMeta(at, n) { return `<span class="meta"><span class="tm">${clock(at)}<span class="to">–${clock(at + n)}</span></span><span class="len">${n} min</span></span>`; }
 function blockHTML(k, s) {
   const sh = BY[s.show], lock = s.show === LOCKED, sel = k === state.active && ui.sel === s.show;
@@ -880,7 +904,7 @@ function suggestHTML(s) {
 }
 function gapHTML(k, at, n, planned) {
   const L = state.lineups[k], on = k === state.active;
-  const inner = `<span class="plus">${ico('plus')}</span><span class="g1">${planned ? 'Stays open' : 'Open'}</span><span class="g2">${n} min</span><span class="g3 num">${span(at, n)}</span>`;
+  const inner = `<span class="plus">${ico('plus')}</span><span class="g1">${planned ? 'Stays open' : '<span class="rest">Open</span><span class="hov">Aim here</span>'}</span><span class="g2">${n} min</span><span class="g3 num">${span(at, n)}</span>`;
   if (planned) return `<li class="seg gap is-stays" style="--s:${at};--d:${n}"><div class="gap-b" role="img" aria-label="Stays open in this proposal: ${clock(at)} to ${clock(at + n)}, ${n} minutes">${inner}</div></li>`;
   const tgt = on && L.target >= at && L.target < at + n;
   return `<li class="seg gap${tgt ? ' is-target' : ''}" style="--s:${at};--d:${n}"><button type="button" class="gap-b" data-act="aim" data-l="${k}" data-at="${at}" data-k="gap-${k}-${at}" aria-label="Open airtime, ${clock(at)} to ${clock(at + n)}, ${n} minutes. Activate to place a show here.">${inner}</button></li>`;
@@ -897,7 +921,11 @@ function ghostHTML(show, at, cons, isNew) {
 function ghostsHTML(k) {
   const r = ui.reject, L = state.lineups[k];
   if (r && r.k === k) { const h = r.cons.some((c) => c.type === 'locked') ? '' : ghostHTML(r.show, r.at, r.cons, r.fresh); return h; }
-  if (ui.hover && k === state.active && !ui.plan && !r) return ghostHTML(ui.hover, L.target, check(L.slots, ui.hover, L.target, false), false);
+  if (ui.hover && k === state.active && !ui.plan && !r) {
+    const here = L.slots.find((s) => s.show === ui.hover);
+    if (here) return `<div class="clash spot" style="--s:${here.at};--d:${len(here.show)}"><i></i></div>`;
+    return ghostHTML(ui.hover, L.target, check(L.slots, ui.hover, L.target, false), false);
+  }
   return '';
 }
 function trackHTML(k) {
@@ -910,8 +938,9 @@ function trackHTML(k) {
     t = end(s);
   }
   if (t < WIN) segs.push(gapHTML(k, t, WIN - t, !!plan));
-  const pin = on && !plan && gapsOf(L.slots).length ? `<div class="pin${L.target > 96 ? ' flip' : ''}" style="--s:${L.target}" aria-hidden="true"><b>${ico('play')}${clock(L.target)}</b></div>` : '';
-  return `<div class="lines" aria-hidden="true"></div><ol class="segs">${segs.join('')}</ol><div class="ghosts" aria-hidden="true">${ghostsHTML(k)}</div>${pin}`;
+  const gs = gapsOf(L.slots);
+  const pin = on && !plan && gs.length ? `<div class="pin${L.target > 96 ? ' flip' : ''}${gs.some((g) => g.at === L.target) ? ' at-start' : ''}" style="--s:${L.target}" aria-hidden="true"><b>${ico('play')}${clock(L.target)}</b></div>` : '';
+  return `<div class="lines" aria-hidden="true"></div><ol class="segs">${segs.join('')}</ol><div class="ghosts" aria-hidden="true"></div>${pin}`;
 }
 function tagHTML(k) {
   const b = booked(state.lineups[k].slots), on = k === state.active;
@@ -922,26 +951,27 @@ function tagHTML(k) {
 function renderRuler() {
   let h = '';
   for (let m = 0; m <= WIN; m += 15) h += `<span class="tk${m % 60 === 0 ? ' h' : m % 30 === 0 ? ' m' : ''}" style="--s:${m}">${clock(m)}</span>`;
-  el.ruler.innerHTML = h;
+  put(el.ruler, h);
 }
 function renderReel() {
   const d = diffRanges(state.lineups.A.slots, state.lineups.B.slots);
-  el.tags.innerHTML = tagHTML('A') + `<div class="railtag"><span class="swatch"></span><span>${d.length ? plural(d.length, 'stretch') .replace('stretchs', 'stretches') + (d.length === 1 ? ' differs' : ' differ') : 'A and B match'}</span></div>` + tagHTML('B');
-  for (const k of ['A', 'B']) { el.track[k].innerHTML = trackHTML(k); el.track[k].classList.toggle('is-active', k === state.active); }
-  el.rail.innerHTML = d.map((r) => `<div class="mark" style="--s:${r.at};--d:${r.len}"><i><b>${ico('neq')}</b></i></div>`).join('');
+  put(el.tags, tagHTML('A') + `<div class="railtag"><span class="swatch"></span><span>${d.length ? plural(d.length, 'stretch') .replace('stretchs', 'stretches') + (d.length === 1 ? ' differs' : ' differ') : 'A and B match'}</span></div>` + tagHTML('B'));
+  for (const k of ['A', 'B']) { put(el.track[k], trackHTML(k)); el.track[k].classList.toggle('is-active', k === state.active); }
+  put(el.rail, d.map((r) => `<div class="mark" style="--s:${r.at};--d:${r.len}"><i><b>${ico('neq')}</b></i></div>`).join(''));
+  renderGhosts();
   if (ui.reject) ui.reject.fresh = false;
 }
-function renderGhosts() { for (const k of ['A', 'B']) { const g = $('.ghosts', el.track[k]); if (g) g.innerHTML = ghostsHTML(k); } }
+function renderGhosts() { for (const k of ['A', 'B']) { const g = $('.ghosts', el.track[k]), h = ghostsHTML(k); if (g && (h || g.firstChild)) g.innerHTML = h; } }
 function renderBar() {
   const k = state.active, L = cur(), u = L.past[L.past.length - 1], r = L.future[L.future.length - 1];
-  el.bar.innerHTML = `<h2 class="bar-h">${badge(k)}<span>Lineup ${k}</span></h2>
+  put(el.bar, `<h2 class="bar-h">${badge(k)}<span>Lineup ${k}</span></h2>
     <button type="button" class="btn primary" data-act="fill" data-k="fill">${ico('spark')}Fill open airtime</button>
     <button type="button" class="btn" data-act="undo" data-k="undo" aria-disabled="${!u}" title="${u ? 'Undo: ' + esc(u.label) : 'Nothing to undo in Lineup ' + k}">${ico('undo')}Undo${u ? `<small>${esc(u.label)}</small>` : ''}</button>
     <button type="button" class="btn sq" data-act="redo" data-k="redo" aria-disabled="${!r}" aria-label="${r ? 'Redo: ' + esc(r.label) : 'Nothing to redo in Lineup ' + k}" title="${r ? 'Redo: ' + esc(r.label) : 'Nothing to redo'}">${ico('redo')}</button>
     <span class="grow"></span>
     <button type="button" class="btn" data-act="dup" data-from="A" data-to="B" data-k="dup-ab">${ico('copy')}Duplicate A into B</button>
     <button type="button" class="btn" data-act="dup" data-from="B" data-to="A" data-k="dup-ba" aria-label="Duplicate B into A">B into A</button>
-    <button type="button" class="btn quiet" data-act="reset" data-k="reset">Reset ${k}</button>`;
+    <button type="button" class="btn quiet" data-act="reset" data-k="reset">Reset ${k}</button>`);
 }
 function timeOptions(sel) { let h = ''; for (let m = 0; m <= WIN - STEP; m += STEP) h += `<option value="${m}"${m === sel ? ' selected' : ''}>${clock(m)}</option>`; return h; }
 function stepper(act, change, at, idp) {
@@ -970,7 +1000,7 @@ function consoleModel() {
       <span class="aim-l">Starts ${stepper('nudge', 'move-set', s.at, 'mv')}</span></div>`,
       act: `<button type="button" class="btn" data-act="remove" data-k="remove">${ico('x')}Remove</button><button type="button" class="btn" data-act="done" data-k="done">Done</button>` };
   }
-  if (ui.flash) return { tone: ui.flash.tone, tag: ui.flash.tag, html: `<p>${ui.flash.html}</p>`, act: ui.flash.undo && L.past.length ? `<button type="button" class="btn" data-act="undo" data-k="flash-undo">${ico('undo')}Undo</button>` : '' };
+  if (ui.flash) return { tone: ui.flash.tone, tag: ui.flash.tag, html: `<p>${ui.flash.html}</p>`, act: (ui.flash.undo && L.past.length ? `<button type="button" class="btn" data-act="undo" data-k="flash-undo">${ico('undo')}Undo</button>` : '') + `<button type="button" class="btn sq quiet" data-act="hush" data-k="hush" aria-label="Dismiss this message">${ico('x')}</button>` };
   const full = !gapsOf(L.slots).length;
   return { tone: 'tip', tag: 'Tip', idle: true, html: full
     ? `<p>Lineup ${k} is full: all ${WIN} minutes are booked. Click a show to move or remove it.</p>`
@@ -985,9 +1015,9 @@ function renderConsole() {
   const m = consoleModel();
   el.console.dataset.tone = m.tone;
   el.console.classList.toggle('is-idle', !!m.idle);
-  el.console.innerHTML = `<span class="c-tag">${m.tag}</span><div class="c-body">${m.html}</div>${m.act ? `<div class="c-act">${m.act}</div>` : ''}`;
-  if (ui.reject) { const r = rejectModel(); el.note.innerHTML = `<span class="c-tag">${r.tag}</span><p>${r.html.replace(/^<p>|<\/p>$/g, '')}</p><div class="c-act">${r.act.replace(/data-k="/g, 'data-k="n-')}</div>`; }
-  else el.note.innerHTML = '';
+  put(el.console, `<span class="c-tag">${m.tag}</span><div class="c-body">${m.html}</div>${m.act ? `<div class="c-act">${m.act}</div>` : ''}`);
+  if (ui.reject) { const r = rejectModel(); put(el.note, `<span class="c-tag">${r.tag}</span><p>${r.html.replace(/^<p>|<\/p>$/g, '')}</p><div class="c-act">${r.act.replace(/data-k="/g, 'data-k="n-')}</div>`); }
+  else put(el.note, '');
   dock();
 }
 function dock() { el.app.style.setProperty('--dock', (isPhone() && !el.console.classList.contains('is-idle') && !ui.sheet ? el.console.offsetHeight : 0) + 'px'); }
@@ -1003,9 +1033,9 @@ function sideText(slots, r) {
 }
 function renderDiffs() {
   const A = state.lineups.A.slots, B = state.lineups.B.slots, d = diffRanges(A, B), mins = d.reduce((n, r) => n + r.len, 0);
-  el.diffs.innerHTML = `<div class="diffs-h"><span class="swatch"></span><h3>Where A and B differ</h3><span class="sum">${d.length ? `${mins} min play differently · ${WIN - mins} min match` : ''}</span></div>` + (d.length
+  put(el.diffs, `<div class="diffs-h"><span class="swatch"></span><h3>Where A and B differ</h3><span class="sum">${d.length ? `${mins} min play differently · ${WIN - mins} min match` : ''}</span></div>` + (d.length
     ? `<ol class="dlist">${d.map((r) => `<li><span class="when num">${span(r.at, r.len)}</span><span class="side">${badge('A', 1)}<span>${sideText(A, r)}</span></span><span class="side">${badge('B', 1)}<span>${sideText(B, r)}</span></span></li>`).join('')}</ol>`
-    : `<p class="same">A and B are the same morning right now. Change either one and the striped markers between the timelines show where they split.</p>`);
+    : `<p class="same">A and B are the same morning right now. Change either one and the striped markers between the timelines show where they split.</p>`));
 }
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 function matches(sh) {
@@ -1027,12 +1057,12 @@ function renderLib() {
   const k = state.active, L = cur(), T = L.target;
   $('#sheet-l').textContent = k;
   const g = gapsOf(L.slots).find((x) => T >= x.at && T < x.at + x.len), under = L.slots.find((s) => T >= s.at && T < end(s));
-  el.aim.innerHTML = `<span class="aim-l">Placing in ${badge(k, 1)} at</span>${stepper('aim-step', 'aim-set', T, 'aim')}
-    <span class="aim-r">${g ? `${g.at + g.len - T} min open from here, until ${clock(g.at + g.len)}.` : under ? `${esc(BY[under.show].short)} airs here until ${clock(end(under))}.` : ''}</span>`;
+  put(el.aim, `<span class="aim-l">Placing in ${badge(k, 1)} at</span>${stepper('aim-step', 'aim-set', T, 'aim')}
+    <span class="aim-r">${g ? `${g.at + g.len - T} min open from here, until ${clock(g.at + g.len)}.` : under ? `${esc(BY[under.show].short)} airs here until ${clock(end(under))}.` : ''}</span>`);
   const hits = SHOWS.filter(matches), nFit = hits.filter((s) => (ui.cat === 'all' || s.cat === ui.cat) && fitsNow(s)).length;
-  el.chips.innerHTML = [['all', 'All', hits.length], ...CATS.map((c) => [c, c, hits.filter((s) => s.cat === c).length])]
+  put(el.chips, [['all', 'All', hits.length], ...CATS.map((c) => [c, c, hits.filter((s) => s.cat === c).length])]
     .map(([v, t, n]) => `<button type="button" class="chip" data-act="cat" data-cat="${v}" data-k="cat-${v}" aria-pressed="${ui.cat === v}">${t} <i>${n}</i></button>`).join('')
-    + `<button type="button" class="chip fits" data-act="fits" data-k="fits" aria-pressed="${ui.fits}">Fits at ${clock(T)} <i>${nFit}</i></button>`;
+    + `<button type="button" class="chip fits" data-act="fits" data-k="fits" aria-pressed="${ui.fits}">Fits at ${clock(T)} <i>${nFit}</i></button>`);
   el.qx.hidden = !ui.q;
   const vis = visibleShows();
   if (!vis.length) {
@@ -1041,17 +1071,17 @@ function renderLib() {
     if (ui.cat !== 'all') bits.push(`<button type="button" class="btn sm" data-act="cat" data-cat="all" data-k="e-cat">Show all categories</button>`);
     if (ui.fits) bits.push(`<button type="button" class="btn sm" data-act="fits" data-k="e-fits">Show shows that don't fit</button>`);
     const what = ui.q ? `No ${ui.cat !== 'all' ? esc(ui.cat) + ' ' : ''}shows match “${esc(ui.q)}”${ui.fits ? ` and fit at ${clock(T)}` : ''}.` : ui.fits ? `No ${ui.cat !== 'all' ? esc(ui.cat) + ' ' : ''}show fits at ${clock(T)} in Lineup ${k}.` : `No ${esc(ui.cat)} shows here.`;
-    el.cards.innerHTML = `<li class="empty"><b>${what}</b><span>${ui.q ? 'Try part of a title or a category, like “brain” or “comedy”.' : 'Aim at a longer opening, or clear the filter.'} Fill open airtime still checks the whole library.</span><span class="row">${bits.join('')}</span></li>`;
+    put(el.cards, `<li class="empty"><b>${what}</b><span>${ui.q ? 'Try part of a title or a category, like “brain” or “comedy”.' : 'Aim at a longer opening, or clear the filter.'} Fill open airtime still checks the whole library.</span><span class="row">${bits.join('')}</span></li>`);
     return;
   }
-  el.cards.innerHTML = vis.map((sh) => {
+  put(el.cards, vis.map((sh) => {
     const f = fitNote(sh);
     return `<li class="card s-${sh.id}${f.cls === 'used' ? ' is-used' : ''}" data-show="${sh.id}">
       <span class="thumb"><span class="art"></span>${emblem(sh.id)}</span>
       <span class="c-main"><span class="c-ttl">${esc(sh.title)}</span><span class="c-meta">${sh.min} min · ${sh.cat}</span></span>
       <span class="c-fit ${f.cls}">${ico(f.icon)}<span>${esc(f.text)}</span></span>
       <button type="button" class="btn sm${f.cls === 'ok' ? ' primary' : ''}" data-act="place" data-show="${sh.id}" data-k="place-${sh.id}" aria-label="Place ${esc(sh.title)} at ${clock(T)} in Lineup ${k}. ${esc(f.text)}.">Place at ${clock(T)}</button></li>`;
-  }).join('');
+  }).join(''));
 }
 
 let booted = false;
@@ -1112,6 +1142,7 @@ const ACT = {
   remove() { if (ui.sel) removeShow(state.active, ui.sel); },
   done() { ui.sel = null; render(); },
   dismiss() { ui.reject = null; render(); },
+  hush() { clearTimeout(say.t); ui.flash = null; render(); },
   undo() {
     const k = state.active, L = cur(), e = L.past.pop(); if (!e) return;
     L.future.push({ slots: L.slots, label: e.label }); L.slots = e.slots; retarget(L); touch();
@@ -1212,15 +1243,21 @@ document.addEventListener('pointerdown', (e) => {
   else if (c && !e.target.closest('button, input, select')) drag = { kind: 'place', show: c.dataset.show, x: e.clientX, y: e.clientY };
 });
 document.addEventListener('pointermove', (e) => {
-  if (!drag) return;
+  if (!drag || drag.dead) return;
   if (!drag.on) {
     if (Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 6) return;
-    if (drag.locked) { const d = drag; drag = null; swallow = true; setTimeout(() => { swallow = false; }, 0); setActive(d.k); refuse(d.k, d.show, LOCK_AT, [{ type: 'locked', slot: state.lineups[d.k].slots.find((s) => s.show === d.show) }], true); return; }
+    if (drag.locked) { drag.dead = true; setActive(drag.k); refuse(drag.k, drag.show, LOCK_AT, [{ type: 'locked', slot: state.lineups[drag.k].slots.find((s) => s.show === drag.show) }], true); return; }
     startDrag(e);
   }
   moveDrag(e);
 });
-document.addEventListener('pointerup', (e) => { if (drag && drag.on) dropDrag(e); drag = null; });
+// A press that turned into a drag must not also count as a click on whatever is under the pointer.
+document.addEventListener('pointerup', () => {
+  const d = drag; drag = null;
+  if (!d) return;
+  if (d.on) dropDrag(d);
+  if (d.on || d.dead) { swallow = true; setTimeout(() => { swallow = false; }, 0); }
+});
 document.addEventListener('pointercancel', () => { if (drag && drag.on) cancelDrag(); drag = null; });
 function startDrag(e) {
   drag.on = true;
@@ -1253,25 +1290,25 @@ function moveDrag(e) {
   drag.at = at; drag.tk = k;
   $('.ghosts', track).innerHTML = ghostHTML(drag.show, at, check(state.lineups[k].slots, drag.show, at, drag.kind === 'move'), false);
 }
-function endDrag() {
+function tidyDrag(d) {
   document.documentElement.classList.remove('dragging');
-  if (drag.chip) drag.chip.remove();
-  swallow = true; setTimeout(() => { swallow = false; }, 0);
+  if (d.chip) d.chip.remove();
+  document.querySelectorAll('.is-lift, .is-drag').forEach((n) => n.classList.remove('is-lift', 'is-drag'));
 }
-function dropDrag() {
-  const d = drag; endDrag();
+function dropDrag(d) {
+  tidyDrag(d);
   if (d.tk == null || (d.kind === 'move' && d.at === d.from)) { render(); return; }
   setActive(d.tk);
-  if (d.kind === 'move') tryMove(d.tk, d.show, d.at); else tryPlace(d.tk, d.show, d.at);
+  if (!(d.kind === 'move' ? tryMove(d.tk, d.show, d.at) : tryPlace(d.tk, d.show, d.at))) render();
 }
-function cancelDrag() { endDrag(); drag = null; render(); }
+function cancelDrag() { tidyDrag(drag); drag = { dead: true }; render(); }
 
 /* ---------- start ---------- */
 $('#sheet-x').innerHTML = ico('x'); $('#q-ico').innerHTML = ico('search'); el.qx.innerHTML = ico('x');
 renderRuler(); syncSheet(); render(); saveNote();
 mqPhone.addEventListener('change', () => { if (ui.sheet) { ui.sheet = false; el.app.classList.remove('sheet-open'); document.documentElement.classList.remove('sheet-lock'); } syncSheet(); render(); });
 if (window.ResizeObserver) new ResizeObserver(dock).observe(el.console);
-document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && cloud.ref && cloud.timer) { clearTimeout(cloud.timer); cloudSave(); } });
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && cloud.ref && cloud.waiting) { clearTimeout(cloud.timer); cloudSave(); } });
 initCloud();
 
 // Test hook: the pure scheduling rules, for the verification script.
