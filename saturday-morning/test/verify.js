@@ -420,6 +420,31 @@ async function main() {
   ok((await stats(page, 'A')).booked === 80 && errs.length === 0 && (await page.locator('#savenote').textContent()).includes('reset on refresh'), 'with storage blocked the desk still works and says the lineups will not survive a refresh', await page.locator('#savenote').textContent());
   await ctx.close();
 
+  step('Two tabs: an edit in one shows up in the other');
+  ({ ctx, page, errs } = await open());
+  const tab2 = await ctx.newPage(); await tab2.goto(base); await tab2.waitForSelector('.blk-b');
+  await click(page, 'place-pb'); await tab2.waitForTimeout(300);
+  ok((await stats(tab2, 'A')).booked === 80 && eq(await slots(tab2, 'A'), [['tf', 0], ['ani', 25], ['pb', 40], ['bat', 60]]), 'the second tab picks up the placement without a refresh', await slots(tab2, 'A'));
+  await click(tab2, 'undo'); await page.waitForTimeout(300);
+  ok((await stats(page, 'A')).booked === 70 && errs.length === 0, 'and an undo in the second tab reaches the first');
+  await ctx.close();
+
+  /* ================= the source file opened straight from disk, no wrapper ================= */
+  step('Standalone: index.html opened directly from disk');
+  for (const [w, h, touch] of [[1440, 900, false], [390, 844, true]]) {
+    const c2 = await browser.newContext({ viewport: { width: w, height: h }, hasTouch: touch, isMobile: touch });
+    if (!FONTS) await c2.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+    const p2 = await c2.newPage(); const e2 = []; p2.on('pageerror', (e) => e2.push(e.message));
+    await p2.goto('file://' + SRC); await p2.waitForSelector('.blk-b');
+    const side = await p2.evaluate(() => { const A = document.querySelector('#track-A').getBoundingClientRect(), B = document.querySelector('#track-B').getBoundingClientRect(); return { stacked: A.bottom <= B.top, beside: A.right <= B.left, ov: document.documentElement.scrollWidth - innerWidth, x: getComputedStyle(document.querySelector('#q-x')).display }; });
+    ok((touch ? side.beside : side.stacked) && side.ov <= 0 && side.x === 'none', `${w}px: the ${touch ? 'phone' : 'desktop'} layout renders with no sideways scroll`, side);
+    await p2.locator('[data-k="gap-A-40"]').click(); await p2.waitForTimeout(350);
+    await p2.locator('[data-k="place-pb"]').click(); await p2.waitForTimeout(350);
+    await p2.reload(); await p2.waitForSelector('.blk-b');
+    ok((await stats(p2, 'A')).booked === 80 && e2.length === 0, `${w}px: a placement survives a refresh, no script errors`, e2);
+    await c2.close();
+  }
+
   await browser.close(); srv.close();
   console.log(`\n${pass} passed, ${fail} failed`);
   if (fail) { console.log('\nFailed:\n  ' + failures.join('\n  ')); process.exit(1); }
