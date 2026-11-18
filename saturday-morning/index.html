@@ -1,0 +1,1280 @@
+<title>Saturday Morning</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Londrina+Solid:wght@400;900&display=swap">
+<style>
+/* Layout: a broadcast-purple masthead over a quiet lavender desk. The library sits beside one
+   shared clock that carries both lineups: A over B on wide screens, A beside B on a phone. */
+:root {
+  --page: #ece7f8;  --panel: #ffffff;  --well: #f2eefb;  --btn: #ffffff;
+  --ink: #1a1233;   --soft: #5b5079;   --line: #cdc3e8;
+  --brand: #5a2ee0; --brand-ink: #ffffff;
+  --act: #1fd6c7;   --act-ink: #072f2b; --act-wash: #d6f7f3;
+  --hi: #ffe04a;    --hi-ink: #1a1233;
+  --bad: #e3223f;   --bad-ink: #ffffff; --bad-wash: #ffe6ea; --bad-text: #b8122c;
+  --good-text: #0a6e66;
+  --edge: #1a1233;  --drop: #1a1233;    --on-edge: #ffffff;
+  --focus: #5a2ee0; --scrim: rgba(26, 18, 51, .55);
+  --deco-1: #ff5aa5; --deco-2: #a6e22e;
+  /* show identities: base, pattern tone, text, sticker, sticker ink (the same in both themes) */
+  --tf: #d7263d;  --tf-2: #b9192f;  --tf-ink: #ffffff;  --tf-pop: #ffffff;  --tf-pop-ink: #b9192f;
+  --gw: #2643c4;  --gw-2: #1b33a3;  --gw-ink: #ffffff;  --gw-pop: #c9f1ff;  --gw-pop-ink: #1b33a3;
+  --bat: #161a30; --bat-2: #2d3566; --bat-ink: #ffffff; --bat-pop: #ffd84a; --bat-pop-ink: #161a30;
+  --xm: #ffc60a;  --xm-2: #f7a400;  --xm-ink: #1a1233;  --xm-pop: #2643c4;  --xm-pop-ink: #ffd84a;
+  --gar: #6d3fb0; --gar-2: #5a3196; --gar-ink: #ffffff; --gar-pop: #e7dcff; --gar-pop-ink: #4b2880;
+  --dt: #ff8a1c;  --dt-2: #ffae58;  --dt-ink: #1a1233;  --dt-pop: #0f8f88;  --dt-pop-ink: #fff0b8;
+  --ani: #ff5aa5; --ani-2: #ff89bf; --ani-ink: #1a1233; --ani-pop: #ffffff; --ani-pop-ink: #1a1233;
+  --pb: #a6e22e;  --pb-2: #8dcc1a;  --pb-ink: #1a1233;  --pb-pop: #ff5aa5;  --pb-pop-ink: #1a1233;
+  --display: "Londrina Solid", "Arial Narrow", Impact, system-ui, sans-serif;
+  --ui: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #120c24;  --panel: #201839;  --well: #17102e;  --btn: #2c2250;
+    --ink: #f3eeff;   --soft: #b4a9d4;   --line: #3c3064;
+    --brand: #3f1fb0; --brand-ink: #ffffff;
+    --act: #27e0d1;   --act-ink: #05211e; --act-wash: #143a3d;
+    --hi: #ffe04a;    --hi-ink: #1a1233;
+    --bad: #ff4d68;   --bad-ink: #2a0410; --bad-wash: #3d1422; --bad-text: #ff8fa1;
+    --good-text: #5eeadc;
+    --edge: #06030d;  --drop: #06030d;    --on-edge: #f3eeff;
+    --focus: #b9a4ff; --scrim: rgba(4, 2, 10, .72);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #120c24;  --panel: #201839;  --well: #17102e;  --btn: #2c2250;
+  --ink: #f3eeff;   --soft: #b4a9d4;   --line: #3c3064;
+  --brand: #3f1fb0; --brand-ink: #ffffff;
+  --act: #27e0d1;   --act-ink: #05211e; --act-wash: #143a3d;
+  --hi: #ffe04a;    --hi-ink: #1a1233;
+  --bad: #ff4d68;   --bad-ink: #2a0410; --bad-wash: #3d1422; --bad-text: #ff8fa1;
+  --good-text: #5eeadc;
+  --edge: #06030d;  --drop: #06030d;    --on-edge: #f3eeff;
+  --focus: #b9a4ff; --scrim: rgba(4, 2, 10, .72);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--page); color: var(--ink); font: 400 15px/1.4 var(--ui); -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 50; background: var(--brand); }
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; -webkit-appearance: none; appearance: none; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ico { width: 1.05em; height: 1.05em; flex: none; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- masthead ---------- */
+.mast { position: relative; overflow: hidden; background: var(--brand); color: var(--brand-ink); border-bottom: 3px solid var(--edge); }
+.mast-in { position: relative; max-width: 1480px; margin: 0 auto; padding-block: 12px 13px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; align-items: center; gap: 6px 18px; flex-wrap: wrap; }
+.word { display: flex; flex-wrap: wrap; gap: 0 .3em; font: 900 clamp(27px, 3.6vw, 40px)/.94 var(--display); letter-spacing: .015em; text-transform: uppercase; text-shadow: .07em .07em 0 var(--edge); }
+.word span { display: inline-flex; }
+.word i { display: inline-block; font-style: normal; }
+.word i:nth-child(odd) { transform: rotate(-5deg) translateY(.03em); }
+.word i:nth-child(even) { transform: rotate(4deg) translateY(-.03em); }
+.mast-tag { font-weight: 700; font-size: 12.5px; letter-spacing: .09em; text-transform: uppercase; }
+.slotline { margin-left: auto; display: inline-flex; align-items: center; gap: 9px; padding: 4px 13px 4px 5px; border-radius: 999px; background: var(--edge); color: var(--on-edge); font-weight: 700; font-size: 13.5px; }
+.bug { display: grid; place-items: center; min-width: 30px; height: 26px; padding: 0 8px; border-radius: 999px; background: var(--hi); color: var(--hi-ink); font: 900 15px/1 var(--display); letter-spacing: .03em; }
+.conf { position: absolute; inset: 0; pointer-events: none; }
+.conf i { position: absolute; display: block; }
+.conf .c1 { left: 45%; top: 14px; width: 30px; height: 30px; border: 7px solid var(--act); border-radius: 50%; }
+.conf .c2 { left: 52%; top: 12px; border: 13px solid transparent; border-top: 0; border-bottom: 23px solid var(--hi); transform: rotate(18deg); }
+.conf .c3 { left: 58%; top: 26px; width: 80px; height: 14px; background: var(--deco-1); transform: rotate(-6deg);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='14'%3E%3Cpath d='M0 11 5 3l5 8 5-8 5 8' fill='none' stroke='%23000' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0 / 20px 14px repeat-x;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='14'%3E%3Cpath d='M0 11 5 3l5 8 5-8 5 8' fill='none' stroke='%23000' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0 / 20px 14px repeat-x; }
+.conf .c4 { left: 38%; top: 34px; width: 11px; height: 11px; border-radius: 50%; background: var(--deco-2); box-shadow: 20px -9px 0 var(--deco-1), 40px 3px 0 var(--hi); }
+@media (max-width: 1099.98px) { .conf { display: none; } }
+
+/* ---------- desk ---------- */
+.desk { max-width: 1480px; margin: 0 auto; padding-block: 18px 12px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.panel { background: var(--panel); border: 2px solid var(--edge); border-radius: 16px; box-shadow: 0 4px 0 var(--drop); }
+.stage { order: -1; min-width: 0; padding: 14px 16px 16px; display: grid; gap: 12px; }
+.foot { max-width: 1480px; margin: 0 auto; padding-block: 2px 26px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); color: var(--soft); font-size: 12.5px; display: flex; flex-wrap: wrap; gap: 2px 14px; }
+@media (min-width: 1280px) {
+  .desk { grid-template-columns: 372px minmax(0, 1fr); }
+  .stage { order: 0; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+}
+
+/* ---------- buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 0 13px; border: 2px solid var(--edge); border-radius: 11px; background: var(--btn); color: var(--ink); font-weight: 700; font-size: 14px; line-height: 1.1; white-space: nowrap; box-shadow: 0 2px 0 var(--drop); transition: transform .08s, box-shadow .08s; touch-action: manipulation; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 3px 0 var(--drop); }
+.btn:active { transform: translateY(2px); box-shadow: 0 0 0 var(--drop); }
+.btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn.primary { background: var(--act); color: var(--act-ink); }
+.btn.sq { padding: 0; min-width: 40px; }
+.btn.sm { min-height: 34px; padding: 0 10px; font-size: 13px; border-radius: 9px; }
+.btn.quiet { border-color: transparent; background: transparent; box-shadow: none; text-decoration: underline; text-underline-offset: 3px; padding: 0 6px; }
+.btn.quiet:hover { transform: none; box-shadow: none; background: var(--well); }
+.btn small { max-width: 17ch; overflow: hidden; text-overflow: ellipsis; font-size: 12px; font-weight: 500; color: var(--soft); }
+@media (pointer: coarse) { .btn { min-height: 44px; } .btn.sq { min-width: 44px; } .btn.sm { min-height: 40px; } }
+
+.badge { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--panel); font: 900 19px/1 var(--display); }
+.badge.b { border-radius: 8px; }
+.badge.sm { width: 21px; height: 21px; font-size: 14px; }
+.badge.sm.b { border-radius: 6px; }
+
+/* ---------- toolbar ---------- */
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.bar-h { display: flex; align-items: center; gap: 8px; margin-right: 6px; font: 900 25px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.bar .grow { flex: 1; }
+.hint-phone { display: none; color: var(--soft); font-size: 13px; }
+
+/* ---------- the reel: one clock, two lineups ---------- */
+.reel { display: grid; position: relative; }
+.ruler { position: relative; }
+.ruler .tk { position: absolute; font-size: 12px; line-height: 1; font-weight: 600; color: var(--soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ruler .tk.m { font-weight: 800; color: var(--ink); }
+.ruler .tk.h { font: 900 18px/1 var(--display); color: var(--ink); }
+.tag { display: grid; align-content: center; gap: 2px; min-width: 0; padding: 8px 10px; border: 2px dashed var(--line); border-radius: 12px; background: transparent; color: var(--ink); text-align: left; touch-action: manipulation; }
+.tag:hover { border-color: var(--edge); }
+.tag[aria-pressed="true"] { border: 2px solid var(--edge); background: var(--act-wash); box-shadow: 0 3px 0 var(--drop); }
+.tag .who { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; font-weight: 800; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+.tag[aria-pressed="true"] .who { color: var(--ink); }
+.tag .st { display: grid; grid-template-columns: 2.5em minmax(0, 1fr); align-items: center; gap: 0 5px; font-size: 12.5px; line-height: 1; font-weight: 600; font-stretch: 88%; color: var(--soft); white-space: nowrap; }
+.tag .st b { font: 900 25px/1.05 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+.railtag { display: flex; align-items: center; gap: 7px; min-width: 0; padding: 0 2px; font-weight: 800; font-size: 12px; font-stretch: 90%; color: var(--soft); white-space: nowrap; }
+.swatch { flex: none; width: 18px; height: 14px; border: 2px solid var(--edge); border-radius: 4px; background: repeating-linear-gradient(135deg, var(--hi) 0 5px, var(--edge) 5px 8px); }
+.track { position: relative; border-radius: 12px; background: var(--well); }
+.track .lines { position: absolute; inset: 0; pointer-events: none; }
+.segs, .ghosts { position: absolute; inset: 0; }
+.ghosts { z-index: 3; pointer-events: none; }
+.seg { position: absolute; container-type: size; }
+.rail { position: relative; }
+.mark { position: absolute; }
+.mark i { position: absolute; display: grid; place-items: center; border: 2px solid var(--edge); border-radius: 7px; background: repeating-linear-gradient(135deg, var(--hi) 0 7px, var(--edge) 7px 11px); }
+.mark b { display: grid; place-items: center; width: 20px; height: 16px; border-radius: 5px; border: 2px solid var(--edge); background: var(--hi); color: var(--hi-ink); font-size: 11px; }
+
+/* a placed show */
+.blk-b, .sug, .gh { position: absolute; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; overflow: hidden; text-align: left; isolation: isolate; border-radius: 11px; }
+.blk-b { padding: 8px 9px 7px; border: 2px solid var(--edge); background: var(--c); color: var(--ci); box-shadow: 0 3px 0 var(--drop); cursor: grab; transition: transform .12s, box-shadow .12s; touch-action: manipulation; }
+.blk-b:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--drop); }
+.art { position: absolute; inset: 0; z-index: -1; background: var(--c2); -webkit-mask: var(--mask); mask: var(--mask); }
+.top { display: flex; align-items: flex-start; justify-content: space-between; gap: 4px; width: 100%; }
+.emblem { display: grid; place-items: center; flex: none; width: 30px; height: 30px; border: 2px solid var(--edge); border-radius: 50%; background: var(--cp); color: var(--cpi); transform: rotate(-7deg); }
+.emblem svg { width: 66%; height: 66%; }
+.ttl { max-width: 100%; font-weight: 800; font-size: 15px; line-height: 1.08; font-stretch: 90%; text-wrap: balance; }
+.meta { display: flex; flex-wrap: wrap; gap: 0 6px; margin-top: auto; font-size: 12px; line-height: 1.25; font-weight: 700; font-stretch: 88%; font-variant-numeric: tabular-nums; }
+.meta .len { opacity: .85; }
+/* a locked slot: doubled frame, lock plate, no grab */
+.is-locked .blk-b { cursor: default; box-shadow: inset 0 0 0 3px var(--c), inset 0 0 0 5px var(--cp), 0 3px 0 var(--drop); padding: 11px 12px 10px; }
+.is-locked .blk-b:hover { transform: none; box-shadow: inset 0 0 0 3px var(--c), inset 0 0 0 5px var(--cp), 0 3px 0 var(--drop); }
+.lockplate { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px 2px 5px; border: 2px solid var(--edge); border-radius: 6px; background: var(--cp); color: var(--cpi); font-weight: 900; font-size: 10.5px; line-height: 1.35; letter-spacing: .09em; text-transform: uppercase; }
+.is-sel .blk-b, .is-sel .blk-b:hover { transform: translateY(-3px); box-shadow: 0 6px 0 var(--drop); outline: 3px solid var(--focus); outline-offset: 2px; }
+.is-lift .blk-b { opacity: .4; border-style: dashed; box-shadow: none; }
+/* open airtime */
+.gap-b { position: absolute; display: grid; place-content: center; justify-items: center; gap: 1px; overflow: hidden; padding: 4px; border: 2px dashed var(--soft); border-radius: 11px; background: transparent; color: var(--soft); text-align: center; transition: background .12s, color .12s, border-color .12s; touch-action: manipulation; }
+button.gap-b:hover { border-color: var(--edge); background: var(--panel); color: var(--ink); }
+.gap-b .plus { display: grid; place-items: center; width: 26px; height: 26px; margin-bottom: 3px; border: 2px solid currentColor; border-radius: 50%; }
+.gap-b .plus .ico { width: 14px; height: 14px; }
+.gap-b .g1 { font-weight: 900; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
+.gap-b .g2 { font: 900 20px/1 var(--display); color: var(--ink); }
+.gap-b .g3 { font-size: 11.5px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.is-target .gap-b { border-style: solid; border-color: var(--edge); background: var(--act-wash); color: var(--ink); }
+.is-target .gap-b .plus { border-color: var(--edge); background: var(--act); color: var(--act-ink); }
+.is-stays .gap-b { border-style: dotted; cursor: default; }
+.is-stays .gap-b .plus { display: none; }
+/* a suggested placement: dashed, washed out, tagged */
+.sug { padding: 7px 8px 6px; border: 2.5px dashed var(--edge); background: color-mix(in srgb, var(--c) 24%, var(--panel)); color: var(--ink); }
+.sug .art { background: var(--c); opacity: .3; }
+.chipx { display: inline-flex; align-items: center; gap: 3px; max-width: 100%; padding: 2px 7px 2px 4px; border: 2px solid var(--edge); border-radius: 999px; background: var(--act); color: var(--act-ink); font-weight: 900; font-size: 10.5px; line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+/* previews and rejected attempts float above the lineup */
+.ghost, .clash { position: absolute; }
+.gh { padding: 7px 7px 6px; }
+.ghost.ok .gh { border: 2.5px dashed var(--edge); background: color-mix(in srgb, var(--c) 58%, transparent); }
+.ghost.bad .gh { border: 3px dotted var(--bad); background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--bad) 36%, transparent) 0 8px, color-mix(in srgb, var(--bad) 10%, transparent) 8px 16px); }
+.ghost.fresh { animation: nope .36s; }
+.lab { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; padding: 2px 7px 2px 5px; border: 2px solid var(--edge); border-radius: 7px; background: var(--panel); color: var(--ink); font-weight: 800; font-size: 12px; line-height: 1.3; white-space: nowrap; overflow: hidden; }
+.lab span { overflow: hidden; text-overflow: ellipsis; }
+.ghost.ok .lab.why { background: var(--act); color: var(--act-ink); }
+.ghost.bad .lab.why { background: var(--bad); color: var(--bad-ink); }
+.clash { z-index: 1; }
+.clash i { position: absolute; border: 2.5px solid var(--bad); border-radius: 9px; background: repeating-linear-gradient(45deg, var(--bad) 0 3px, transparent 3px 9px), repeating-linear-gradient(-45deg, var(--bad) 0 3px, transparent 3px 9px); }
+.clash b { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 26px; height: 26px; margin: -16px 0 0 -13px; border: 2px solid var(--edge); border-radius: 50%; background: var(--bad); color: var(--bad-ink); font-size: 13px; }
+.clash.dupe i { background: none; border-style: dotted; }
+@keyframes nope { 0%, 100% { transform: none; } 20% { transform: translate(-5px, 0); } 45% { transform: translate(5px, 0); } 70% { transform: translate(-3px, 0); } }
+/* where the next show lands */
+.pin { position: absolute; z-index: 2; pointer-events: none; }
+.pin::before { content: ""; position: absolute; border: 1.5px solid var(--edge); border-radius: 3px; background: var(--act); }
+.pin b { position: absolute; display: inline-flex; align-items: center; gap: 1px; padding: 1px 6px 1px 2px; border: 2px solid var(--edge); border-radius: 6px; background: var(--act); color: var(--act-ink); font-weight: 900; font-size: 11.5px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pin b .ico { width: 11px; height: 11px; }
+.track:not(.is-active) { opacity: .97; }
+.track.is-active { box-shadow: 0 0 0 2px var(--edge); }
+
+/* wide screens: time runs left to right */
+@media (min-width: 760px) {
+  .reel { grid-template-columns: var(--tagw, 126px) minmax(0, 1fr); gap: 9px 10px; }
+  .tags { display: contents; }
+  .ruler { grid-column: 2; grid-row: 1; height: 26px; }
+  .ruler::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; border-right: 1px solid var(--soft); background: repeating-linear-gradient(90deg, var(--soft) 0 1px, transparent 1px calc(100% / 24)); }
+  .ruler .tk { left: calc(var(--s) / 120 * 100%); bottom: 8px; transform: translateX(-50%); }
+  .ruler .tk:first-child { transform: none; }
+  .ruler .tk:last-child { transform: translateX(-100%); }
+  .tag-a { grid-column: 1; grid-row: 2; } .track-a { grid-column: 2; grid-row: 2; }
+  .railtag { grid-column: 1; grid-row: 3; } .rail { grid-column: 2; grid-row: 3; height: 24px; }
+  .tag-b { grid-column: 1; grid-row: 4; } .track-b { grid-column: 2; grid-row: 4; }
+  .rail::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dotted var(--line); }
+  .track { height: 136px; }
+  .track .lines { background: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 12.5%); }
+  .seg, .ghost, .clash, .mark { top: 0; bottom: 0; left: calc(var(--s) / 120 * 100%); width: calc(var(--d) / 120 * 100%); }
+  .blk-b, .gap-b, .sug, .gh, .clash i { inset: 0 1.5px 5px; }
+  .mark i { inset: 0 1.5px; }
+  .pin { left: calc(var(--s) / 120 * 100%); top: -5px; bottom: 1px; width: 0; }
+  .pin::before { left: -2.5px; top: 0; bottom: 0; width: 5px; }
+  .pin b { left: 5px; top: -3px; }
+  .pin.flip b { left: auto; right: 5px; }
+  @container (max-width: 150px) {
+    .blk-b { padding: 7px 7px 6px; }
+    .ttl { font-size: 14px; font-stretch: 82%; }
+    .meta .len { display: none; }
+    .emblem { width: 26px; height: 26px; }
+    .lockplate span, .chipx span { display: none; }
+    .chipx { padding: 2px 4px; }
+  }
+  @container (max-width: 100px) {
+    .ttl { font-size: 12.5px; font-stretch: 72%; line-height: 1.05; }
+    .meta { font-size: 11.5px; }
+    .meta .to { display: none; }
+    .meta .len { display: inline; }
+    .emblem { width: 22px; height: 22px; border-width: 1.5px; }
+    .gap-b .g1, .gap-b .g3 { display: none; }
+    .gap-b .g2 { font-size: 17px; }
+    .lab:not(.why) { display: none; }
+  }
+  @container (max-width: 60px) {
+    .blk-b, .sug { padding: 6px 4px 5px; }
+    .ttl { font-size: 12px; font-stretch: 64%; }
+    .meta { font-stretch: 75%; }
+    .gap-b .plus { width: 22px; height: 22px; }
+    .gap-b .g2 { font-size: 15px; }
+    .lab.why span { display: none; }
+  }
+}
+@media (min-width: 760px) and (max-width: 979.98px) { .reel { --tagw: 104px; } .tag { padding: 8px 7px; } .tag .who .labl { display: none; } }
+
+/* phones: time runs top to bottom, A beside B */
+@media (max-width: 759.98px) {
+  .reel { --ppm: 4.8px; grid-template-columns: 38px minmax(0, 1fr) 16px minmax(0, 1fr); gap: 8px 6px; }
+  .tags { grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: 38px minmax(0, 1fr) 16px minmax(0, 1fr); column-gap: 6px; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; padding-block: 6px; margin-block: -6px; background: var(--panel); }
+  .tag-a { grid-column: 2; } .railtag { grid-column: 3; } .tag-b { grid-column: 4; }
+  .tag { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 8px; row-gap: 0; padding: 5px 8px; }
+  .tag .who { grid-row: 1 / span 2; margin: 0; }
+  .tag .who .labl { display: none; }
+  .tag .st { grid-template-columns: auto minmax(0, 1fr); gap: 0 4px; font-size: 12.5px; }
+  .tag .st b { font-size: 20px; }
+  .tag .u { display: none; }
+  .railtag { justify-content: center; padding: 0; }
+  .railtag span:not(.swatch) { display: none; }
+  .railtag .swatch { width: 14px; }
+  .ruler { grid-column: 1; grid-row: 2; }
+  .track-a { grid-column: 2; grid-row: 2; } .rail { grid-column: 3; grid-row: 2; } .track-b { grid-column: 4; grid-row: 2; }
+  .ruler, .track, .rail { height: calc(120 * var(--ppm)); }
+  .rail::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; border-left: 2px dotted var(--line); }
+  .ruler .tk { right: 3px; top: calc(var(--s) * var(--ppm)); transform: translateY(-50%); font-size: 11px; }
+  .ruler .tk.h { font-size: 15px; }
+  .ruler .tk:first-child { transform: none; }
+  .ruler .tk:last-child { transform: translateY(-100%); }
+  .track .lines { background: repeating-linear-gradient(180deg, var(--line) 0 1px, transparent 1px calc(15 * var(--ppm))); }
+  .seg, .ghost, .clash, .mark { left: 0; right: 0; top: calc(var(--s) * var(--ppm)); height: calc(var(--d) * var(--ppm)); }
+  .blk-b, .gap-b, .sug, .gh, .clash i { inset: 0 0 4px; }
+  .mark i { inset: 1px 0; }
+  .mark b { width: 14px; height: 18px; border-width: 1.5px; font-size: 9px; }
+  .blk-b { padding: 6px 8px 5px; gap: 1px; }
+  .is-locked .blk-b { padding: 9px 10px 8px; }
+  .top { display: contents; }
+  .blk-b .emblem { position: absolute; right: 6px; top: 6px; width: 24px; height: 24px; }
+  .blk-b .lockplate { position: absolute; right: 8px; bottom: 8px; }
+  .ttl { padding-right: 28px; font-size: 13.5px; font-stretch: 84%; }
+  .meta { font-size: 11.5px; }
+  .meta .len { display: none; }
+  .lockplate { font-size: 9.5px; padding: 1px 5px 1px 4px; }
+  .gap-b .g2 { font-size: 18px; }
+  .pin { left: 0; right: 0; top: calc(var(--s) * var(--ppm)); height: 0; }
+  .pin::before { left: 0; right: 0; top: -2.5px; height: 5px; }
+  .pin b { right: 4px; top: 4px; }
+  @container (max-height: 100px) {
+    .gap-b { grid-auto-flow: column; align-items: center; gap: 6px; }
+    .gap-b .plus { margin: 0; width: 22px; height: 22px; }
+    .gap-b .g3 { display: none; }
+    .gap-b .g2 { font-size: 16px; }
+  }
+  @container (max-height: 60px) {
+    .blk-b .emblem { display: none; }
+    .ttl { padding-right: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .meta { margin-top: 0; }
+    .gap-b .g1 { display: none; }
+    .sug .chipx { position: absolute; right: 4px; top: 4px; padding: 2px 4px; }
+    .sug .chipx span { display: none; }
+    .lab:not(.why) { display: none; }
+  }
+  .bar-h { flex: 1; font-size: 22px; }
+  .btn small { display: none; }
+  .bar .grow { display: none; }
+  .bar [data-act="fill"] { order: 2; flex: 1 1 100%; }
+  .bar [data-act="dup"] { order: 3; }
+  .bar [data-from="A"] { flex: 1; }
+  .bar [data-act="reset"] { order: 4; }
+  .hint-phone { display: block; }
+  .stage { padding: 12px 10px 14px; }
+}
+
+/* ---------- console: what just happened, what's selected, what's proposed ---------- */
+.console { display: flex; align-items: flex-start; gap: 6px 12px; flex-wrap: wrap; min-height: 60px; padding: 10px 12px; border: 2px solid var(--edge); border-radius: 12px; background: var(--well); }
+.c-tag { flex: none; margin-top: 1px; padding: 6px 9px 5px; border: 2px solid var(--edge); border-radius: 7px; background: var(--panel); font: 900 15px/1 var(--display); letter-spacing: .05em; text-transform: uppercase; transform: rotate(-2deg); }
+.console[data-tone="ok"] .c-tag { background: var(--act); color: var(--act-ink); }
+.console[data-tone="bad"] .c-tag { background: var(--bad); color: var(--bad-ink); }
+.console[data-tone="plan"] .c-tag { background: var(--brand); color: var(--brand-ink); }
+.console[data-tone="lock"] .c-tag { background: var(--hi); color: var(--hi-ink); }
+.console[data-tone="bad"] { background: var(--bad-wash); }
+.c-body { flex: 1 1 260px; min-width: 0; display: grid; gap: 6px; align-content: center; min-height: 34px; }
+.c-body p { max-width: 78ch; }
+.c-act { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-left: auto; }
+.insp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.insp .who { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.insp .who b { font-size: 15.5px; }
+.insp .who span { color: var(--soft); font-size: 13px; }
+.insp .emblem { width: 34px; height: 34px; }
+.plan-adds { display: flex; flex-wrap: wrap; gap: 6px; }
+.plan-adds li { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 4px; border: 2px dashed var(--edge); border-radius: 999px; background: color-mix(in srgb, var(--c) 24%, var(--panel)); font-weight: 700; font-size: 13.5px; }
+.plan-adds .emblem { width: 22px; height: 22px; border-width: 1.5px; transform: none; }
+.plan-why { padding-left: 10px; border-left: 4px solid var(--edge); }
+.plan-note { color: var(--soft); font-size: 13px; }
+
+/* ---------- where the two mornings differ ---------- */
+.diffs { display: grid; gap: 8px; }
+.diffs-h { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 9px; }
+.diffs h3 { font: 900 19px/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.diffs .sum { color: var(--soft); font-size: 13px; font-weight: 600; }
+.dlist { display: grid; gap: 5px; }
+.dlist li { display: grid; grid-template-columns: 96px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 12px; align-items: center; padding: 6px 10px; border-radius: 10px; background: var(--well); font-size: 13.5px; }
+.dlist .when { font-weight: 800; }
+.dlist .side { display: flex; align-items: flex-start; gap: 7px; min-width: 0; }
+.same { color: var(--soft); font-size: 13.5px; }
+@media (max-width: 759.98px) { .dlist li { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- library ---------- */
+.lib { min-width: 0; }
+.lib-head { display: grid; gap: 10px; padding: 14px 14px 0; }
+.lib-scroll { display: grid; gap: 10px; padding: 10px 14px 14px; align-content: start; }
+.lib-top { display: flex; align-items: baseline; gap: 10px; }
+.lib-top h2 { font: 900 25px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.lib-top .t-phone, .sheet-x { display: none; }
+.lib-top .count { color: var(--soft); font-size: 12.5px; font-weight: 600; }
+.aim { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 9px; padding: 8px 10px; border: 2px solid var(--edge); border-radius: 12px; background: var(--act-wash); }
+.aim-l { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; font-size: 13.5px; }
+.aim-r { flex: 1 1 100%; color: var(--soft); font-size: 12.5px; font-weight: 600; }
+.aim.pulse { animation: pulse .5s; }
+@keyframes pulse { 40% { transform: scale(1.025); } }
+.stepper { display: inline-flex; align-items: stretch; overflow: hidden; border: 2px solid var(--edge); border-radius: 10px; background: var(--btn); }
+.stepper button { display: grid; place-items: center; width: 36px; min-height: 34px; border: 0; background: transparent; font-size: 15px; touch-action: manipulation; }
+.stepper button:hover { background: var(--well); }
+.stepper button[aria-disabled="true"] { opacity: .35; cursor: not-allowed; }
+.stepper select { min-height: 34px; padding: 0 24px 0 10px; border: 0; border-inline: 2px solid var(--edge); border-radius: 0; background: linear-gradient(45deg, transparent 50%, var(--ink) 50%) right 13px center / 5px 5px no-repeat, linear-gradient(-45deg, transparent 50%, var(--ink) 50%) right 8px center / 5px 5px no-repeat; -webkit-appearance: none; appearance: none; font-weight: 800; font-variant-numeric: tabular-nums; cursor: pointer; }
+.stepper :focus-visible { outline-offset: -3px; }
+@media (pointer: coarse) { .stepper button { width: 44px; min-height: 42px; } .stepper select { min-height: 42px; } }
+.search { display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 6px 0 11px; border: 2px solid var(--edge); border-radius: 11px; background: var(--btn); }
+.search:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.search input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; background: transparent; font-size: 15px; }
+.search input::placeholder { color: var(--soft); opacity: 1; }
+.search input::-webkit-search-cancel-button { display: none; }
+.search .x { display: grid; place-items: center; width: 30px; height: 30px; border: 0; border-radius: 8px; background: transparent; }
+.search .x:hover { background: var(--well); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 5px; min-height: 32px; padding: 0 11px; border: 2px solid var(--edge); border-radius: 999px; background: var(--btn); font-weight: 700; font-size: 13px; touch-action: manipulation; }
+.chip i { font-style: normal; font-weight: 600; opacity: .7; font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--act); color: var(--act-ink); }
+.chip.fits { border-style: dashed; }
+.chip.fits[aria-pressed="true"] { border-style: solid; }
+@media (pointer: coarse) { .chip { min-height: 38px; } }
+.cards { display: grid; gap: 8px; }
+.card { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; grid-template-areas: "thumb main go" "thumb fit fit"; gap: 1px 10px; align-items: center; padding: 7px 8px; border: 2px solid var(--edge); border-radius: 13px; background: var(--panel); cursor: grab; }
+.thumb { grid-area: thumb; align-self: start; position: relative; display: grid; place-items: center; width: 46px; height: 46px; overflow: hidden; isolation: isolate; border: 2px solid var(--edge); border-radius: 10px; background: var(--c); }
+.thumb .emblem { width: 29px; height: 29px; }
+.c-main { grid-area: main; display: grid; gap: 1px; min-width: 0; }
+.card > .btn { grid-area: go; }
+.c-ttl { font-weight: 800; font-size: 15px; line-height: 1.15; font-stretch: 94%; }
+.c-meta { color: var(--soft); font-size: 12.5px; font-weight: 600; }
+.c-fit { grid-area: fit; display: flex; align-items: center; gap: 4px; min-width: 0; font-size: 12.5px; font-weight: 700; font-stretch: 92%; color: var(--soft); }
+.c-fit .ico { width: 13px; height: 13px; }
+.c-fit.ok { color: var(--good-text); }
+.c-fit.warn .ico { color: var(--bad-text); }
+.card.is-used { border-style: dashed; }
+.card.is-used .thumb { opacity: .55; }
+.card.is-drag { opacity: .45; }
+.empty { display: grid; gap: 8px; justify-items: start; padding: 16px 14px; border: 2px dashed var(--soft); border-radius: 13px; }
+.empty b { font-size: 15.5px; }
+.empty span { color: var(--soft); font-size: 13.5px; }
+.empty .row { display: flex; flex-wrap: wrap; gap: 8px; }
+.lib-foot { color: var(--soft); font-size: 12.5px; }
+.note { display: none; }
+@media (min-width: 760px) and (max-width: 1279.98px) { .cards { grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); } }
+
+/* phones: the library is a sheet, the console is a dock */
+.scrim { display: none; }
+@media (max-width: 759.98px) {
+  .scrim { display: block; position: fixed; inset: 0; z-index: 39; border: 0; padding: 0; background: var(--scrim); opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .sheet-open .scrim { opacity: 1; pointer-events: auto; }
+  .lib { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; flex-direction: column; max-height: 88%; border-width: 3px 0 0; border-radius: 18px 18px 0 0; box-shadow: none; transform: translateY(104%); visibility: hidden; transition: transform .26s cubic-bezier(.2, .8, .2, 1), visibility 0s .26s; }
+  .sheet-open .lib { transform: none; visibility: visible; transition: transform .26s cubic-bezier(.2, .8, .2, 1); }
+  .lib-head { flex: none; padding: 12px max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px)); }
+  .lib-scroll { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+  .lib-top { align-items: center; }
+  .lib-top .t-desk, .lib-top .count { display: none; }
+  .lib-top .t-phone { display: inline; }
+  .sheet-x { display: grid; place-items: center; margin-left: auto; width: 44px; height: 44px; border: 2px solid var(--edge); border-radius: 12px; background: var(--btn); font-size: 16px; }
+  .search input { font-size: 16px; }
+  .note:not(:empty) { display: grid; gap: 8px; padding: 10px 12px; border: 2px solid var(--edge); border-radius: 12px; background: var(--bad-wash); }
+  .note .c-tag { justify-self: start; background: var(--bad); color: var(--bad-ink); }
+  .note .c-act { margin: 0; }
+  .console { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; max-height: 64%; overflow: auto; border-width: 3px 0 0; border-radius: 16px 16px 0 0; padding: 12px max(16px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+  .console.is-idle, .sheet-open .console { display: none; }
+  .c-act { margin-left: 0; width: 100%; }
+  .app { padding-bottom: var(--dock, 0px); }
+}
+.dragchip { position: fixed; left: 0; top: 0; z-index: 60; display: flex; align-items: center; gap: 8px; padding: 5px 11px 5px 6px; border: 2px solid var(--edge); border-radius: 11px; background: var(--c); color: var(--ci); font-weight: 800; font-size: 14px; white-space: nowrap; pointer-events: none; box-shadow: 0 4px 0 var(--drop); transform: translate(var(--x, 0), var(--y, 0)) rotate(-3deg); }
+.dragchip .emblem { width: 24px; height: 24px; }
+html.dragging, html.dragging * { cursor: grabbing !important; -webkit-user-select: none !important; user-select: none !important; }
+html.sheet-lock { overflow: hidden; }
+
+/* show identities */
+.s-tf  { --c: var(--tf);  --c2: var(--tf-2);  --ci: var(--tf-ink);  --cp: var(--tf-pop);  --cpi: var(--tf-pop-ink);
+  --mask: repeating-linear-gradient(135deg, #000 0 7px, transparent 7px 17px); }
+.s-gw  { --c: var(--gw);  --c2: var(--gw-2);  --ci: var(--gw-ink);  --cp: var(--gw-pop);  --cpi: var(--gw-pop-ink);
+  --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M10 3l1.7 4.3L16 9l-4.3 1.7L10 15l-1.7-4.3L4 9l4.3-1.7zM30 22l1.2 3 3 1.2-3 1.2-1.2 3-1.2-3-3-1.2 3-1.2z'/%3E%3C/svg%3E"); }
+.s-bat { --c: var(--bat); --c2: var(--bat-2); --ci: var(--bat-ink); --cp: var(--bat-pop); --cpi: var(--bat-pop-ink);
+  --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='44'%3E%3Cpath d='M0 44V26h9V14h11v12h5V6h13v20h6V17h9v9h7V10h12v34z'/%3E%3C/svg%3E") left bottom / 72px 44px repeat-x; }
+.s-xm  { --c: var(--xm);  --c2: var(--xm-2);  --ci: var(--xm-ink);  --cp: var(--xm-pop);  --cpi: var(--xm-pop-ink);
+  --mask: radial-gradient(circle, #000 2.3px, transparent 2.9px) 0 0 / 12px 12px, radial-gradient(circle, #000 2.3px, transparent 2.9px) 6px 6px / 12px 12px; }
+.s-gar { --c: var(--gar); --c2: var(--gar-2); --ci: var(--gar-ink); --cp: var(--gar-pop); --cpi: var(--gar-pop-ink);
+  --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='20'%3E%3Cpath d='M0 0h32v2H0zM0 10h32v2H0zM7 2h2v8H7zM23 12h2v8h-2z'/%3E%3C/svg%3E"); }
+.s-dt  { --c: var(--dt);  --c2: var(--dt-2);  --ci: var(--dt-ink);  --cp: var(--dt-pop);  --cpi: var(--dt-pop-ink);
+  --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='7.5' fill='none' stroke='%23000' stroke-width='2.6'/%3E%3C/svg%3E") 0 0 / 28px 28px, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='14' cy='14' r='2.2'/%3E%3C/svg%3E") 14px 14px / 28px 28px; }
+.s-ani { --c: var(--ani); --c2: var(--ani-2); --ci: var(--ani-ink); --cp: var(--ani-pop); --cpi: var(--ani-pop-ink);
+  --mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='22'%3E%3Cpath d='M0 14c4-10 8-10 12 0s8 10 12 0 8-10 12 0 8 10 12 0' fill='none' stroke='%23000' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.s-pb  { --c: var(--pb);  --c2: var(--pb-2);  --ci: var(--pb-ink);  --cp: var(--pb-pop);  --cpi: var(--pb-pop-ink);
+  --mask: linear-gradient(#000 1.5px, transparent 1.5px) 0 0 / 14px 14px, linear-gradient(90deg, #000 1.5px, transparent 1.5px) 0 0 / 14px 14px; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="app" id="app">
+  <header class="mast">
+    <div class="conf" aria-hidden="true"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></div>
+    <div class="mast-in">
+      <h1 class="word" aria-label="Saturday Morning"><span aria-hidden="true"><i>S</i><i>a</i><i>t</i><i>u</i><i>r</i><i>d</i><i>a</i><i>y</i></span><span aria-hidden="true"><i>M</i><i>o</i><i>r</i><i>n</i><i>i</i><i>n</i><i>g</i></span></h1>
+      <span class="mast-tag">Programming desk</span>
+      <span class="slotline"><span class="bug">CH 26</span><span>Sat 8:00–10:00 a.m. · 120 min of airtime</span></span>
+    </div>
+  </header>
+
+  <main class="desk">
+    <section class="lib panel" id="lib" aria-labelledby="lib-h">
+      <div class="lib-head">
+        <div class="lib-top">
+          <h2 id="lib-h"><span class="t-desk">Library</span><span class="t-phone">Add to Lineup <span id="sheet-l">A</span></span></h2>
+          <span class="count">8 shows</span>
+          <button class="sheet-x" type="button" id="sheet-x" data-act="sheet-close" aria-label="Close the library"></button>
+        </div>
+        <div class="aim" id="aim"></div>
+      </div>
+      <div class="lib-scroll" id="lib-scroll">
+        <div class="note" id="note"></div>
+        <label class="search"><span id="q-ico"></span><span class="vh">Search the library</span>
+          <input id="q" type="search" placeholder="Search by title or category" autocomplete="off" spellcheck="false" enterkeyhint="search">
+          <button class="x" type="button" id="q-x" data-act="q-clear" aria-label="Clear search" hidden></button>
+        </label>
+        <div class="chips" id="chips" role="group" aria-label="Filter the library"></div>
+        <ul class="cards" id="cards"></ul>
+        <p class="lib-foot">Runtimes are broadcast lengths, commercial breaks included.</p>
+      </div>
+    </section>
+
+    <section class="stage panel" aria-label="The morning: both lineups on one clock">
+      <div class="bar" id="bar"></div>
+      <p class="hint-phone">Tap open airtime to add a show. Tap a show to move or remove it.</p>
+      <div class="reel" id="reel">
+        <div class="tags" id="tags"></div>
+        <div class="ruler" id="ruler" aria-hidden="true"></div>
+        <div class="track track-a" id="track-A" data-l="A" role="group" aria-label="Lineup A, 8:00 to 10:00"></div>
+        <div class="rail" id="rail" aria-hidden="true"></div>
+        <div class="track track-b" id="track-B" data-l="B" role="group" aria-label="Lineup B, 8:00 to 10:00"></div>
+      </div>
+      <div class="console" id="console" aria-live="polite"></div>
+      <div class="diffs" id="diffs"></div>
+    </section>
+  </main>
+
+  <footer class="foot"><span>Times snap to 5 minutes.</span><span id="savenote"></span></footer>
+  <button class="scrim" type="button" id="scrim" data-act="sheet-close" tabindex="-1" aria-label="Close the library"></button>
+  <div class="vh" id="sr" role="alert"></div>
+</div>
+
+<script>
+(() => {
+'use strict';
+
+/* ---------- the morning ---------- */
+const WIN = 120, STEP = 5, T0 = 8 * 60, KEY = 'saturday-morning.v1';
+const SHOWS = [
+  { id: 'tf',  title: 'Transformers G1',             short: 'Transformers',        min: 25, cat: 'Action' },
+  { id: 'gw',  title: 'Gundam Wing',                 short: 'Gundam Wing',         min: 25, cat: 'Sci-fi' },
+  { id: 'bat', title: 'Batman: The Animated Series', short: 'Batman',              min: 30, cat: 'Action' },
+  { id: 'xm',  title: 'X-Men',                       short: 'X-Men',               min: 25, cat: 'Action' },
+  { id: 'gar', title: 'Gargoyles',                   short: 'Gargoyles',           min: 30, cat: 'Adventure' },
+  { id: 'dt',  title: 'DuckTales',                   short: 'DuckTales',           min: 25, cat: 'Adventure' },
+  { id: 'ani', title: 'Animaniacs',                  short: 'Animaniacs',          min: 15, cat: 'Comedy' },
+  { id: 'pb',  title: 'Pinky and the Brain',         short: 'Pinky and the Brain', min: 10, cat: 'Comedy' },
+];
+const BY = Object.fromEntries(SHOWS.map((s) => [s.id, s]));
+const CATS = ['Action', 'Adventure', 'Comedy', 'Sci-fi'];
+const LOCKED = 'bat', LOCK_AT = 60;
+const STARTER = { A: [['tf', 0], ['ani', 25], ['bat', 60]], B: [['bat', 60]] };
+const starter = (k) => STARTER[k].map(([show, at]) => ({ show, at }));
+
+/* ---------- small helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const clock = (m) => { const t = T0 + m; return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0'); };
+const span = (at, n) => clock(at) + '–' + clock(at + n);
+const len = (id) => BY[id].min;
+const end = (s) => s.at + len(s.show);
+const byTime = (slots) => [...slots].sort((a, b) => a.at - b.at);
+const booked = (slots) => slots.reduce((n, s) => n + len(s.show), 0);
+const other = (k) => (k === 'A' ? 'B' : 'A');
+const list = (a) => (a.length < 3 ? a.join(' and ') : a.slice(0, -1).join(', ') + ', and ' + a[a.length - 1]);
+const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
+const same = (a, b) => a.length === b.length && byTime(a).every((s, i) => { const t = byTime(b)[i]; return s.show === t.show && s.at === t.at; });
+
+/* ---------- scheduling rules (pure) ---------- */
+function gapsOf(slots) {
+  const out = []; let t = 0;
+  for (const s of byTime(slots)) { if (s.at > t) out.push({ at: t, len: s.at - t }); t = Math.max(t, end(s)); }
+  if (t < WIN) out.push({ at: t, len: WIN - t });
+  return out;
+}
+// Every reason a show cannot start at `at`. An empty list means the placement is legal.
+function check(slots, show, at, moving) {
+  const out = [], d = len(show), mine = slots.find((s) => s.show === show);
+  if (mine && !moving) return [{ type: 'dup', slot: mine }];
+  if (mine && moving && mine.show === LOCKED) return [{ type: 'locked', slot: mine }];
+  if (at < 0) out.push({ type: 'early', by: -at });
+  if (at + d > WIN) out.push({ type: 'late', by: at + d - WIN });
+  for (const s of byTime(slots)) {
+    if (s.show === show) continue;
+    const o = Math.min(at + d, end(s)) - Math.max(at, s.at);
+    if (o > 0) out.push({ type: 'overlap', slot: s, by: o });
+  }
+  return out;
+}
+function nearestStart(slots, show, at, moving) {
+  const here = moving ? slots.find((s) => s.show === show) : null;
+  let best = null;
+  for (let t = 0; t + len(show) <= WIN; t += STEP) {
+    if (here && t === here.at) continue;
+    if (check(slots, show, t, moving).length) continue;
+    if (best === null || Math.abs(t - at) < Math.abs(best - at)) best = t;
+  }
+  return best;
+}
+// The most open minutes any set of unused shows can fill, without moving what is already placed.
+// Exhaustive search: every unused show goes into one gap or stays out. Ties prefer fewer leftover
+// holes, then fewer shows, then library order.
+function proposeFill(slots) {
+  const gaps = gapsOf(slots), used = new Set(slots.map((s) => s.show));
+  const pool = SHOWS.filter((s) => !used.has(s.id));
+  const cap = gaps.map((g) => g.len), open = cap.reduce((a, b) => a + b, 0);
+  const tail = pool.map((_, i) => pool.slice(i).reduce((n, s) => n + s.min, 0)); tail.push(0);
+  const pick = pool.map(() => -1);
+  let best = null, room = open;
+  (function go(i, filled, count) {
+    if (i === pool.length) {
+      const holes = cap.filter((c) => c > 0).length;
+      if (!best || filled > best.filled || (filled === best.filled && (holes < best.holes || (holes === best.holes && count < best.count)))) best = { filled, holes, count, pick: pick.slice() };
+      return;
+    }
+    if (best && filled + Math.min(tail[i], room) < best.filled) return;
+    const m = pool[i].min;
+    for (let g = 0; g < cap.length; g++) {
+      if (cap[g] < m) continue;
+      cap[g] -= m; room -= m; pick[i] = g;
+      go(i + 1, filled + m, count + 1);
+      cap[g] += m; room += m; pick[i] = -1;
+    }
+    go(i + 1, filled, count);
+  })(0, 0, 0);
+  const adds = [], left = [];
+  gaps.forEach((g, gi) => {
+    let t = g.at;
+    pool.filter((_, i) => best.pick[i] === gi).sort((a, b) => b.min - a.min).forEach((s) => { adds.push({ show: s.id, at: t }); t += s.min; });
+    if (t < g.at + g.len) left.push({ at: t, len: g.at + g.len - t });
+  });
+  left.forEach((l) => { l.why = whyOpen(l, slots, adds); });
+  return { adds, left, open, filled: best.filled, booked: booked(slots) + best.filled };
+}
+function whyOpen(l, slots, adds) {
+  const where = new Map();
+  slots.forEach((s) => where.set(s.show, 'it already airs at ' + clock(s.at)));
+  adds.forEach((a) => where.set(a.show, 'this proposal already uses it at ' + clock(a.at)));
+  const unused = SHOWS.filter((s) => !where.has(s.id)), short = SHOWS.filter((s) => s.min <= l.len);
+  const out = [];
+  if (!short.length) {
+    const m = SHOWS.reduce((a, b) => (b.min < a.min ? b : a));
+    out.push(`No show in the library runs ${l.len} minutes or less. The shortest, ${m.title}, runs ${m.min}.`);
+  } else if (short.length === 1) {
+    out.push(`The only show short enough for ${l.len} minutes is ${short[0].title}, and ${where.get(short[0].id) || 'it is still unused'}.`);
+  } else {
+    out.push(`The only shows short enough for ${l.len} minutes are ${list(short.map((s) => `${s.title} (${(where.get(s.id) || 'still unused').replace(/^it already airs/, 'already airs').replace(/^this proposal already uses it/, 'used')})`))}.`);
+  }
+  if (unused.length) { const m = unused.reduce((a, b) => (b.min < a.min ? b : a)); out.push(`Every unused show runs ${m.min} minutes or longer.`); }
+  else out.push('Every show in the library is already in this lineup, and a show airs once per lineup.');
+  return out.join(' ');
+}
+// Stretches of the morning where A and B do not carry the same show in the same slot.
+function diffRanges(a, b) {
+  const keys = (slots) => { const k = new Array(WIN / STEP).fill(''); for (const s of slots) for (let m = s.at; m < end(s); m += STEP) k[m / STEP] = s.show + '@' + s.at; return k; };
+  const ka = keys(a), kb = keys(b), out = []; let cur = null;
+  for (let i = 0; i < ka.length; i++) {
+    if (ka[i] === kb[i]) { cur = null; continue; }
+    if (!cur) { cur = { at: i * STEP, len: 0 }; out.push(cur); }
+    cur.len += STEP;
+  }
+  return out;
+}
+
+/* ---------- state ---------- */
+const fresh = () => ({ stamp: 0, active: 'A', lineups: { A: { slots: starter('A'), target: 40, past: [], future: [] }, B: { slots: starter('B'), target: 0, past: [], future: [] } } });
+function cleanSlots(raw) {
+  if (!Array.isArray(raw)) return null;
+  const out = [], seen = new Set();
+  for (const r of raw) {
+    if (!r || !BY[r.show] || !Number.isInteger(r.at) || r.at % STEP || r.at < 0 || r.at + BY[r.show].min > WIN || seen.has(r.show)) return null;
+    seen.add(r.show); out.push({ show: r.show, at: r.at });
+  }
+  out.sort((a, b) => a.at - b.at);
+  for (let i = 1; i < out.length; i++) if (out[i].at < end(out[i - 1])) return null;
+  const lock = out.find((s) => s.show === LOCKED);
+  return lock && lock.at === LOCK_AT ? out : null;
+}
+function revive(raw) {
+  try {
+    if (!raw || raw.v !== 1 || !raw.lineups) return null;
+    const st = fresh();
+    st.stamp = Number.isFinite(raw.stamp) ? raw.stamp : 0;
+    st.active = raw.active === 'B' ? 'B' : 'A';
+    const hist = (a) => (Array.isArray(a) ? a : []).map((e) => ({ slots: cleanSlots(e && e.slots), label: String((e && e.label) || 'an edit').slice(0, 90) })).filter((e) => e.slots).slice(-60);
+    for (const k of ['A', 'B']) {
+      const r = raw.lineups[k], slots = cleanSlots(r && r.slots);
+      if (!slots) return null;
+      const t = r.target;
+      st.lineups[k] = { slots, target: Number.isInteger(t) && t >= 0 && t <= WIN - STEP && t % STEP === 0 ? t : 0, past: hist(r.past), future: hist(r.future) };
+    }
+    return st;
+  } catch { return null; }
+}
+const pack = () => ({ v: 1, stamp: state.stamp, active: state.active, lineups: state.lineups });
+let canStore = true;
+function loadLocal() { try { const t = localStorage.getItem(KEY); return t ? revive(JSON.parse(t)) : null; } catch { canStore = false; return null; } }
+function saveLocal() { try { localStorage.setItem(KEY, JSON.stringify(pack())); canStore = true; } catch { canStore = false; } saveNote(); }
+
+let state = loadLocal() || fresh();
+const ui = { q: '', cat: 'all', fits: false, sel: null, plan: null, reject: null, flash: null, hover: null, sheet: false };
+const cur = () => state.lineups[state.active];
+const mqPhone = window.matchMedia('(max-width: 759.98px)');
+const mqCalm = window.matchMedia('(prefers-reduced-motion: reduce)');
+const isPhone = () => mqPhone.matches;
+
+/* ---------- cloud copy (optional): a private per-viewer document, newest stamp wins ---------- */
+const cloud = { ref: null, live: false, busy: false, again: false, timer: 0, retried: false };
+async function initCloud() {
+  if (!window.claude || typeof window.claude.use !== 'function') return;
+  try {
+    const [db, user] = await Promise.all([window.claude.use('db').catch(() => null), window.claude.use('user').catch(() => null)]);
+    if (!db || !user) return;
+    const uid = await user.id();
+    if (!uid) return;
+    cloud.ref = db.collection('data/users/' + uid).doc('morning');
+    cloud.ref.onSnapshot((snap) => {
+      if (snap.metadata && snap.metadata.hasPendingWrites) return;
+      let theirs = null;
+      if (snap.exists) { try { theirs = revive(JSON.parse(snap.data().body)); } catch { theirs = null; } }
+      if (theirs && theirs.stamp > state.stamp) adopt(theirs);
+      else if (state.stamp > 0 && (!theirs || theirs.stamp < state.stamp)) cloudQueue(50);
+      else if (theirs) { cloud.live = true; saveNote(); }
+    }, () => { cloud.ref = null; cloud.live = false; saveNote(); });
+  } catch { cloud.ref = null; }
+}
+function adopt(theirs) {
+  const changed = !same(theirs.lineups.A.slots, state.lineups.A.slots) || !same(theirs.lineups.B.slots, state.lineups.B.slots);
+  state = theirs; cloud.live = true;
+  ui.sel = null; ui.plan = null; ui.reject = null; ui.hover = null;
+  saveLocal();
+  if (changed) say('ok', 'Synced', 'Loaded the lineups you last saved on another device.');
+  render();
+}
+function cloudQueue(ms) { if (!cloud.ref) return; clearTimeout(cloud.timer); cloud.timer = setTimeout(cloudSave, ms == null ? 700 : ms); }
+async function cloudSave() {
+  if (!cloud.ref) return;
+  if (cloud.busy) { cloud.again = true; return; }
+  cloud.busy = true;
+  const stamp = state.stamp;
+  try {
+    await cloud.ref.set({ v: 1, stamp, body: JSON.stringify(pack()) });
+    cloud.live = true; cloud.retried = false;
+  } catch (e) {
+    if (e && e.code === 'unavailable' && !cloud.retried) { cloud.retried = true; cloud.again = true; }
+    else { cloud.ref = null; cloud.live = false; }
+  }
+  cloud.busy = false; saveNote();
+  if (cloud.again) { cloud.again = false; cloudQueue(1500); }
+}
+function saveNote() {
+  const n = $('#savenote'); if (!n) return;
+  n.textContent = cloud.live ? 'Both lineups save automatically, here and to your Claude account.'
+    : canStore ? 'Both lineups save automatically in this browser.'
+    : 'This browser is blocking storage, so the lineups will reset on refresh.';
+}
+
+/* ---------- edits ---------- */
+function retarget(L) {
+  const g = gapsOf(L.slots);
+  if (!g.length || g.some((x) => L.target >= x.at && L.target < x.at + x.len)) return;
+  L.target = (g.find((x) => x.at >= L.target) || g[0]).at;
+}
+function touch() { state.stamp = Math.max(Date.now(), state.stamp + 1); saveLocal(); cloudQueue(); }
+function commit(k, slots, label) {
+  const L = state.lineups[k];
+  L.past.push({ slots: L.slots, label }); if (L.past.length > 60) L.past.shift();
+  L.future = []; L.slots = byTime(slots);
+  retarget(L); touch();
+}
+function say(tone, tag, html, undo) {
+  clearTimeout(say.t);
+  ui.flash = { tone, tag, html, undo: !!undo };
+  say.t = setTimeout(function hide() {
+    if (el.console.contains(document.activeElement) || el.console.matches(':hover')) { say.t = setTimeout(hide, 2500); return; }
+    ui.flash = null; renderConsole();
+  }, 9000);
+}
+function setActive(k) {
+  if (state.active === k) return false;
+  state.active = k; ui.sel = null; ui.plan = null; ui.reject = null; ui.hover = null; ui.flash = null;
+  saveLocal(); return true;
+}
+function whyNot(k, show, at, cons, moving) {
+  const s = BY[show], dup = cons.find((c) => c.type === 'dup'), lock = cons.find((c) => c.type === 'locked');
+  if (lock) return `${s.title} is locked at ${clock(lock.slot.at)}. It can't be moved or removed.`;
+  if (dup) return `${s.title} is already in Lineup ${k} at ${clock(dup.slot.at)}${dup.slot.show === LOCKED ? ', in its locked slot' : ''}. A show airs only once per lineup.`;
+  const parts = [], early = cons.find((c) => c.type === 'early'), late = cons.find((c) => c.type === 'late');
+  if (early) parts.push(`start ${early.by} minutes before the broadcast window opens at ${clock(0)}`);
+  if (late) parts.push(`run ${late.by} minutes past the end of the broadcast window at ${clock(WIN)}`);
+  const overs = cons.filter((c) => c.type === 'overlap');
+  if (overs.length) parts.push('overlap ' + list(overs.map((o) => `${BY[o.slot.show].title} (${span(o.slot.at, len(o.slot.show))}) by ${o.by} minutes`)));
+  return `${s.title} can't ${moving ? 'move to' : 'air at'} ${clock(at)}. It runs ${s.min} minutes, ${span(at, s.min)}, and would ${list(parts)}.`;
+}
+function refuse(k, show, at, cons, moving) {
+  const L = state.lineups[k], fixes = [];
+  const dup = cons.find((c) => c.type === 'dup'), lock = cons.find((c) => c.type === 'locked');
+  let extra = '';
+  if (dup && dup.slot.show !== LOCKED) {
+    if (!check(L.slots, show, at, true).length && at !== dup.slot.at) fixes.push({ label: `Move it to ${clock(at)}`, act: 'move-at', show, at });
+  } else if (!dup && !lock) {
+    const near = nearestStart(L.slots, show, at, moving);
+    if (near !== null) fixes.push({ label: `${moving ? 'Move' : 'Place'} at ${clock(near)} instead`, act: moving ? 'move-at' : 'place-at', show, at: near });
+    else if (!moving) {
+      const g = gapsOf(L.slots).sort((a, b) => b.len - a.len)[0];
+      extra = g ? ` No opening in Lineup ${k} is long enough for a ${len(show)}-minute show. The longest is ${g.len} minutes, at ${clock(g.at)}.` : ` Lineup ${k} has no open airtime left.`;
+    }
+  }
+  ui.reject = { k, show, at, cons, fixes, fresh: true, tag: lock ? 'Locked' : moving ? 'Not moved' : 'Not placed', text: whyNot(k, show, at, cons, moving) + extra };
+  ui.plan = null; ui.flash = null; ui.hover = null;
+  $('#sr').textContent = ui.reject.text + ` Lineup ${k} is unchanged.`;
+  render();
+  if (ui.sheet) el.scroll.scrollTop = 0;
+  return false;
+}
+function tryPlace(k, show, at) {
+  const L = state.lineups[k], cons = check(L.slots, show, at, false);
+  if (cons.length) return refuse(k, show, at, cons, false);
+  commit(k, [...L.slots, { show, at }], `placed ${BY[show].short} at ${clock(at)}`);
+  ui.reject = null; ui.plan = null; ui.sel = null;
+  say('ok', 'Placed', `<b>${esc(BY[show].title)}</b> now airs <span class="num">${span(at, len(show))}</span> in Lineup ${k}.`, true);
+  closeSheet(); render();
+  return true;
+}
+function tryMove(k, show, at, quiet) {
+  const L = state.lineups[k], slot = L.slots.find((s) => s.show === show);
+  if (!slot || slot.at === at) return false;
+  const cons = check(L.slots, show, at, true);
+  if (cons.length) return refuse(k, show, at, cons, true);
+  commit(k, L.slots.map((s) => (s.show === show ? { show, at } : s)), `moved ${BY[show].short} to ${clock(at)}`);
+  ui.reject = null; ui.plan = null;
+  if (!quiet) { ui.sel = null; say('ok', 'Moved', `<b>${esc(BY[show].title)}</b> now airs <span class="num">${span(at, len(show))}</span> in Lineup ${k}.`, true); }
+  render();
+  return true;
+}
+function removeShow(k, show) {
+  const L = state.lineups[k], slot = L.slots.find((s) => s.show === show);
+  if (!slot) return false;
+  if (show === LOCKED) return refuse(k, show, slot.at, [{ type: 'locked', slot }], true);
+  commit(k, L.slots.filter((s) => s.show !== show), `removed ${BY[show].short}`);
+  ui.reject = null; ui.plan = null; ui.sel = null;
+  const g = gapsOf(L.slots).find((x) => slot.at >= x.at && slot.at < x.at + x.len);
+  say('ok', 'Removed', `<b>${esc(BY[show].title)}</b> is out of Lineup ${k}. <span class="num">${span(g.at, g.len)}</span> is open.`, true);
+  render();
+  const gapBtn = $(`[data-k="gap-${k}-${g.at}"]`); if (gapBtn && !isPhone()) gapBtn.focus();
+  return true;
+}
+
+/* ---------- drawing ---------- */
+const ICON = {
+  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+  redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H10a6 6 0 0 0 0 12h3"/>',
+  lock: '<rect x="5" y="11" width="14" height="10" rx="2" fill="currentColor" stroke="none"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>', minus: '<path d="M5 12h14"/>',
+  x: '<path d="M6 6l12 12M18 6 6 18"/>', check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  search: '<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>',
+  warn: '<path d="M12 4 2.8 20h18.4z"/><path d="M12 10v4.5M12 17.5v.1"/>',
+  spark: '<path fill="currentColor" stroke="none" d="M12 2.5l2.4 7.1 7.1 2.4-7.1 2.4L12 21.5l-2.4-7.1L2.5 12l7.1-2.4z"/>',
+  copy: '<rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/>',
+  neq: '<path d="M5 9h14M5 15h14M15.5 4.5l-7 15"/>', play: '<path fill="currentColor" stroke="none" d="M8 5.5l10 6.5-10 6.5z"/>',
+};
+const ico = (n) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICON[n]}</svg>`;
+const ring = (n, R, r, spread) => { const p = []; for (let i = 0; i < n; i++) for (const [da, q] of spread(R, r)) { const t = (i * 360 / n + da) * Math.PI / 180; p.push((12 + q * Math.cos(t)).toFixed(1) + ' ' + (12 + q * Math.sin(t)).toFixed(1)); } return 'M' + p.join('L') + 'Z'; };
+const GEAR = ring(8, 10.3, 7.3, (R, r) => [[-13, r], [-7.5, R], [7.5, R], [13, r]]) + 'M12 8.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z';
+const BURST = ring(10, 10.8, 5.8, (R, r) => [[-90, R], [-72, r]]);
+// Original glyphs, one per show: gear, star, crescent, burst, tower, gem, anvil, globe.
+const EMBLEM = {
+  tf: `<path fill-rule="evenodd" d="${GEAR}"/>`,
+  gw: '<path d="M11 2.5l2.2 6 6 2.2-6 2.2-2.2 6-2.2-6-6-2.2 6-2.2z"/><path d="M18.5 14.5l1 2.6 2.6 1-2.6 1-1 2.6-1-2.6-2.6-1 2.6-1z"/>',
+  bat: '<path d="M20.5 13.2A8.6 8.6 0 1 1 10.8 3.5a6.8 6.8 0 0 0 9.7 9.7z"/>',
+  xm: `<path d="${BURST}"/>`,
+  gar: '<path d="M5 21V10H4V4h3v2.5h2.5V4h5v2.5H17V4h3v6h-1v11h-4.5v-4.5a2.5 2.5 0 0 0-5 0V21z"/>',
+  dt: '<path fill-rule="evenodd" d="M7 3h10l4.5 6L12 21.5 2.5 9zM7.2 9.6h9.6L12 17z"/>',
+  ani: '<path d="M2 7.5 7 6h14v3.5L16 11l-1.5 3 3 3 1 3h-13l1-3 3-3-1-3-3.5-.8z"/>',
+  pb: '<g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3.2 12h17.6M5 7.3h14M5 16.7h14"/></g>',
+};
+const emblem = (id) => `<span class="emblem"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">${EMBLEM[id]}</svg></span>`;
+const badge = (k, sm) => `<span class="badge ${k.toLowerCase()}${sm ? ' sm' : ''}">${k}</span>`;
+
+const el = {
+  app: $('#app'), bar: $('#bar'), tags: $('#tags'), ruler: $('#ruler'), track: { A: $('#track-A'), B: $('#track-B') }, rail: $('#rail'),
+  console: $('#console'), diffs: $('#diffs'), lib: $('#lib'), aim: $('#aim'), q: $('#q'), qx: $('#q-x'), chips: $('#chips'), cards: $('#cards'), note: $('#note'), scroll: $('#lib-scroll'),
+};
+
+function timeMeta(at, n) { return `<span class="meta"><span class="tm">${clock(at)}<span class="to">–${clock(at + n)}</span></span><span class="len">${n} min</span></span>`; }
+function blockHTML(k, s) {
+  const sh = BY[s.show], lock = s.show === LOCKED, sel = k === state.active && ui.sel === s.show;
+  const say = `${sh.title}, ${clock(s.at)} to ${clock(s.at + sh.min)}, ${sh.min} minutes, ${lock ? 'locked. It cannot be moved or removed.' : 'placed. Activate for move and remove controls.'}`;
+  return `<li class="seg blk s-${sh.id}${lock ? ' is-locked' : ''}${sel ? ' is-sel' : ''}" style="--s:${s.at};--d:${sh.min}" data-flip="${k}-${sh.id}">
+    <button type="button" class="blk-b" data-act="select" data-l="${k}" data-show="${sh.id}" data-k="blk-${k}-${sh.id}" aria-pressed="${sel}" aria-label="${esc(say)}"${lock ? ' data-locked="1"' : ''}>
+      <span class="art"></span>
+      <span class="top">${emblem(sh.id)}${lock ? `<span class="lockplate">${ico('lock')}<span>Locked</span></span>` : ''}</span>
+      <span class="ttl">${esc(sh.title)}</span>${timeMeta(s.at, sh.min)}
+    </button></li>`;
+}
+function suggestHTML(s) {
+  const sh = BY[s.show];
+  return `<li class="seg is-suggest s-${sh.id}" style="--s:${s.at};--d:${sh.min}"><div class="sug" role="img" aria-label="Suggested: ${esc(sh.title)}, ${clock(s.at)} to ${clock(s.at + sh.min)}">
+    <span class="art"></span><span class="chipx">${ico('plus')}<span>Suggested</span></span><span class="ttl">${esc(sh.title)}</span>${timeMeta(s.at, sh.min)}</div></li>`;
+}
+function gapHTML(k, at, n, planned) {
+  const L = state.lineups[k], on = k === state.active;
+  const inner = `<span class="plus">${ico('plus')}</span><span class="g1">${planned ? 'Stays open' : 'Open'}</span><span class="g2">${n} min</span><span class="g3 num">${span(at, n)}</span>`;
+  if (planned) return `<li class="seg gap is-stays" style="--s:${at};--d:${n}"><div class="gap-b" role="img" aria-label="Stays open in this proposal: ${clock(at)} to ${clock(at + n)}, ${n} minutes">${inner}</div></li>`;
+  const tgt = on && L.target >= at && L.target < at + n;
+  return `<li class="seg gap${tgt ? ' is-target' : ''}" style="--s:${at};--d:${n}"><button type="button" class="gap-b" data-act="aim" data-l="${k}" data-at="${at}" data-k="gap-${k}-${at}" aria-label="Open airtime, ${clock(at)} to ${clock(at + n)}, ${n} minutes. Activate to place a show here.">${inner}</button></li>`;
+}
+function ghostHTML(show, at, cons, isNew) {
+  const sh = BY[show], bad = cons.length > 0, a = Math.max(0, at), b = Math.min(WIN, at + sh.min);
+  let h = `<div class="ghost ${bad ? 'bad' : 'ok'}${isNew ? ' fresh' : ''} s-${sh.id}" style="--s:${a};--d:${Math.max(STEP, b - a)}"><div class="gh"><span class="lab why">${ico(bad ? 'x' : 'check')}<span>${bad ? "Can't air here" : 'Fits here'}</span></span><span class="lab"><span>${esc(sh.short)} ${span(at, sh.min)}</span></span></div></div>`;
+  for (const c of cons) {
+    if (c.type === 'overlap') h += `<div class="clash" style="--s:${Math.max(at, c.slot.at)};--d:${c.by}"><i></i><b>${ico('x')}</b></div>`;
+    if (c.type === 'dup') h += `<div class="clash dupe" style="--s:${c.slot.at};--d:${len(c.slot.show)}"><i></i></div>`;
+  }
+  return h;
+}
+function ghostsHTML(k) {
+  const r = ui.reject, L = state.lineups[k];
+  if (r && r.k === k) { const h = r.cons.some((c) => c.type === 'locked') ? '' : ghostHTML(r.show, r.at, r.cons, r.fresh); return h; }
+  if (ui.hover && k === state.active && !ui.plan && !r) return ghostHTML(ui.hover, L.target, check(L.slots, ui.hover, L.target, false), false);
+  return '';
+}
+function trackHTML(k) {
+  const L = state.lineups[k], on = k === state.active, plan = on ? ui.plan : null;
+  const all = plan ? byTime([...L.slots, ...plan.adds.map((a) => ({ ...a, sug: true }))]) : L.slots;
+  const segs = []; let t = 0;
+  for (const s of all) {
+    if (s.at > t) segs.push(gapHTML(k, t, s.at - t, !!plan));
+    segs.push(s.sug ? suggestHTML(s) : blockHTML(k, s));
+    t = end(s);
+  }
+  if (t < WIN) segs.push(gapHTML(k, t, WIN - t, !!plan));
+  const pin = on && !plan && gapsOf(L.slots).length ? `<div class="pin${L.target > 96 ? ' flip' : ''}" style="--s:${L.target}" aria-hidden="true"><b>${ico('play')}${clock(L.target)}</b></div>` : '';
+  return `<div class="lines" aria-hidden="true"></div><ol class="segs">${segs.join('')}</ol><div class="ghosts" aria-hidden="true">${ghostsHTML(k)}</div>${pin}`;
+}
+function tagHTML(k) {
+  const b = booked(state.lineups[k].slots), on = k === state.active;
+  return `<button type="button" class="tag tag-${k.toLowerCase()}" data-act="activate" data-l="${k}" data-k="tag-${k}" aria-pressed="${on}" aria-label="Lineup ${k}: ${b} minutes booked, ${WIN - b} minutes open. ${on ? 'You are editing this lineup.' : 'Activate to edit this lineup.'}">
+    <span class="who">${badge(k)}<span class="labl">${on ? 'Editing' : 'Edit'}</span></span>
+    <span class="st"><b>${b}</b><span><span class="u">min </span>booked</span></span><span class="st"><b>${WIN - b}</b><span><span class="u">min </span>open</span></span></button>`;
+}
+function renderRuler() {
+  let h = '';
+  for (let m = 0; m <= WIN; m += 15) h += `<span class="tk${m % 60 === 0 ? ' h' : m % 30 === 0 ? ' m' : ''}" style="--s:${m}">${clock(m)}</span>`;
+  el.ruler.innerHTML = h;
+}
+function renderReel() {
+  const d = diffRanges(state.lineups.A.slots, state.lineups.B.slots);
+  el.tags.innerHTML = tagHTML('A') + `<div class="railtag"><span class="swatch"></span><span>${d.length ? plural(d.length, 'stretch') .replace('stretchs', 'stretches') + (d.length === 1 ? ' differs' : ' differ') : 'A and B match'}</span></div>` + tagHTML('B');
+  for (const k of ['A', 'B']) { el.track[k].innerHTML = trackHTML(k); el.track[k].classList.toggle('is-active', k === state.active); }
+  el.rail.innerHTML = d.map((r) => `<div class="mark" style="--s:${r.at};--d:${r.len}"><i><b>${ico('neq')}</b></i></div>`).join('');
+  if (ui.reject) ui.reject.fresh = false;
+}
+function renderGhosts() { for (const k of ['A', 'B']) { const g = $('.ghosts', el.track[k]); if (g) g.innerHTML = ghostsHTML(k); } }
+function renderBar() {
+  const k = state.active, L = cur(), u = L.past[L.past.length - 1], r = L.future[L.future.length - 1];
+  el.bar.innerHTML = `<h2 class="bar-h">${badge(k)}<span>Lineup ${k}</span></h2>
+    <button type="button" class="btn primary" data-act="fill" data-k="fill">${ico('spark')}Fill open airtime</button>
+    <button type="button" class="btn" data-act="undo" data-k="undo" aria-disabled="${!u}" title="${u ? 'Undo: ' + esc(u.label) : 'Nothing to undo in Lineup ' + k}">${ico('undo')}Undo${u ? `<small>${esc(u.label)}</small>` : ''}</button>
+    <button type="button" class="btn sq" data-act="redo" data-k="redo" aria-disabled="${!r}" aria-label="${r ? 'Redo: ' + esc(r.label) : 'Nothing to redo in Lineup ' + k}" title="${r ? 'Redo: ' + esc(r.label) : 'Nothing to redo'}">${ico('redo')}</button>
+    <span class="grow"></span>
+    <button type="button" class="btn" data-act="dup" data-from="A" data-to="B" data-k="dup-ab">${ico('copy')}Duplicate A into B</button>
+    <button type="button" class="btn" data-act="dup" data-from="B" data-to="A" data-k="dup-ba" aria-label="Duplicate B into A">B into A</button>
+    <button type="button" class="btn quiet" data-act="reset" data-k="reset">Reset ${k}</button>`;
+}
+function timeOptions(sel) { let h = ''; for (let m = 0; m <= WIN - STEP; m += STEP) h += `<option value="${m}"${m === sel ? ' selected' : ''}>${clock(m)}</option>`; return h; }
+function stepper(act, change, at, idp) {
+  return `<span class="stepper"><button type="button" data-act="${act}" data-by="-5" data-k="${idp}-dec" aria-label="Five minutes earlier" aria-disabled="${at <= 0}">${ico('minus')}</button>
+    <select id="${idp}-time" data-change="${change}" data-k="${idp}-sel" aria-label="Start time">${timeOptions(at)}</select>
+    <button type="button" data-act="${act}" data-by="5" data-k="${idp}-inc" aria-label="Five minutes later" aria-disabled="${at >= WIN - STEP}">${ico('plus')}</button></span>`;
+}
+function consoleModel() {
+  const k = state.active, L = cur();
+  if (ui.plan) {
+    const p = ui.plan, hidden = SHOWS.length - visibleShows().length;
+    const head = p.adds.length
+      ? `<p><b>Fills ${p.filled} of ${p.open} open minutes</b> in Lineup ${k}: <b>${p.booked} booked</b>, ${WIN - p.booked} open. Nothing already placed moves.</p>`
+      : `<p><b>Nothing unused fits</b> the ${plural(p.open, 'open minute')} in Lineup ${k}.</p>`;
+    const adds = p.adds.length ? `<ul class="plan-adds">${p.adds.map((a) => `<li class="s-${a.show}">${emblem(a.show)}<span>${esc(BY[a.show].title)} <span class="num">${span(a.at, len(a.show))}</span></span></li>`).join('')}</ul>` : '';
+    const why = p.left.map((l) => `<p class="plan-why"><b class="num">${span(l.at, l.len)} stays open (${l.len} min).</b> ${esc(l.why)}</p>`).join('');
+    const note = `<p class="plan-note">${p.left.length ? 'No other combination fills more. ' : ''}Checked all ${SHOWS.length} shows in the library${hidden ? `, including the ${hidden} your filter is hiding` : ''}.</p>`;
+    return { tone: 'plan', tag: 'Fill proposal', html: head + adds + why + note,
+      act: (p.adds.length ? `<button type="button" class="btn primary" data-act="plan-apply" data-k="plan-apply">${ico('check')}Apply ${plural(p.adds.length, 'show')}</button>` : '') + `<button type="button" class="btn" data-act="plan-dismiss" data-k="plan-dismiss">Dismiss</button>` };
+  }
+  if (ui.reject) { const m = rejectModel(); return { tone: m.tone, tag: m.tag, html: m.html, act: m.act }; }
+  if (ui.sel) {
+    const s = L.slots.find((x) => x.show === ui.sel), sh = BY[s.show];
+    if (s.show === LOCKED) return { tone: 'lock', tag: 'Locked', html: `<p><b>${esc(sh.title)}</b> airs <span class="num">${span(s.at, sh.min)}</span> in every lineup. The slot is locked, so it can't be moved or removed.</p>`, act: `<button type="button" class="btn" data-act="done" data-k="done">Done</button>` };
+    return { tone: 'sel', tag: 'Selected', html: `<div class="insp s-${sh.id}"><span class="who">${emblem(sh.id)}<span><b>${esc(sh.title)}</b><br><span>${sh.cat} · ${sh.min} min · airs <span class="num">${span(s.at, sh.min)}</span> in ${k}</span></span></span>
+      <span class="aim-l">Starts ${stepper('nudge', 'move-set', s.at, 'mv')}</span></div>`,
+      act: `<button type="button" class="btn" data-act="remove" data-k="remove">${ico('x')}Remove</button><button type="button" class="btn" data-act="done" data-k="done">Done</button>` };
+  }
+  if (ui.flash) return { tone: ui.flash.tone, tag: ui.flash.tag, html: `<p>${ui.flash.html}</p>`, act: ui.flash.undo && L.past.length ? `<button type="button" class="btn" data-act="undo" data-k="flash-undo">${ico('undo')}Undo</button>` : '' };
+  const full = !gapsOf(L.slots).length;
+  return { tone: 'tip', tag: 'Tip', idle: true, html: full
+    ? `<p>Lineup ${k} is full: all ${WIN} minutes are booked. Click a show to move or remove it.</p>`
+    : `<p>The next show lands at <b class="num">${clock(L.target)}</b> in Lineup ${k}. Pick one from the library, drag it onto the timeline, or click open airtime to aim somewhere else.</p>` };
+}
+function rejectModel() {
+  const r = ui.reject;
+  return { tone: 'bad', tag: r.tag, html: `<p>${esc(r.text)} <b>Lineup ${r.k} is unchanged.</b></p>`,
+    act: r.fixes.map((f, i) => `<button type="button" class="btn primary" data-act="${f.act}" data-l="${r.k}" data-show="${f.show}" data-at="${f.at}" data-k="fix-${i}">${esc(f.label)}</button>`).join('') + `<button type="button" class="btn" data-act="dismiss" data-k="dismiss">${r.fixes.length ? 'Leave it' : 'OK'}</button>` };
+}
+function renderConsole() {
+  const m = consoleModel();
+  el.console.dataset.tone = m.tone;
+  el.console.classList.toggle('is-idle', !!m.idle);
+  el.console.innerHTML = `<span class="c-tag">${m.tag}</span><div class="c-body">${m.html}</div>${m.act ? `<div class="c-act">${m.act}</div>` : ''}`;
+  if (ui.reject) { const r = rejectModel(); el.note.innerHTML = `<span class="c-tag">${r.tag}</span><p>${r.html.replace(/^<p>|<\/p>$/g, '')}</p><div class="c-act">${r.act.replace(/data-k="/g, 'data-k="n-')}</div>`; }
+  else el.note.innerHTML = '';
+  dock();
+}
+function dock() { el.app.style.setProperty('--dock', (isPhone() && !el.console.classList.contains('is-idle') && !ui.sheet ? el.console.offsetHeight : 0) + 'px'); }
+function sideText(slots, r) {
+  const parts = [], stop = r.at + r.len; let t = r.at;
+  for (const s of byTime(slots)) {
+    if (end(s) <= r.at || s.at >= stop) continue;
+    if (s.at > t) parts.push({ a: t, b: s.at });
+    parts.push({ s, a: s.at, b: end(s) }); t = end(s);
+  }
+  if (t < stop) parts.push({ a: t, b: stop });
+  return parts.map((p) => { const whole = p.a === r.at && p.b === stop; return (p.s ? esc(BY[p.s.show].title) : 'open airtime') + (whole ? '' : ` <span class="num">${span(p.a, p.b - p.a)}</span>`); }).join(', then ');
+}
+function renderDiffs() {
+  const A = state.lineups.A.slots, B = state.lineups.B.slots, d = diffRanges(A, B), mins = d.reduce((n, r) => n + r.len, 0);
+  el.diffs.innerHTML = `<div class="diffs-h"><span class="swatch"></span><h3>Where A and B differ</h3><span class="sum">${d.length ? `${mins} min play differently · ${WIN - mins} min match` : ''}</span></div>` + (d.length
+    ? `<ol class="dlist">${d.map((r) => `<li><span class="when num">${span(r.at, r.len)}</span><span class="side">${badge('A', 1)}<span>${sideText(A, r)}</span></span><span class="side">${badge('B', 1)}<span>${sideText(B, r)}</span></span></li>`).join('')}</ol>`
+    : `<p class="same">A and B are the same morning right now. Change either one and the striped markers between the timelines show where they split.</p>`);
+}
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+function matches(sh) {
+  const q = norm(ui.q); if (!q) return true;
+  const hay = norm(`${sh.title} ${sh.cat} ${sh.min} min`);
+  return q.split(' ').every((w) => hay.includes(w)) || hay.replace(/ /g, '').includes(q.replace(/ /g, ''));
+}
+const fitsNow = (sh) => !check(cur().slots, sh.id, cur().target, false).length;
+const visibleShows = () => SHOWS.filter((s) => matches(s) && (ui.cat === 'all' || s.cat === ui.cat) && (!ui.fits || fitsNow(s)));
+function fitNote(sh) {
+  const k = state.active, L = cur(), cons = check(L.slots, sh.id, L.target, false), c = cons[0];
+  if (!c) return { cls: 'ok', icon: 'check', text: `Fits, ${span(L.target, sh.min)}` };
+  if (c.type === 'dup') return c.slot.show === LOCKED ? { cls: 'used', icon: 'lock', text: `Locked at ${clock(c.slot.at)}` } : { cls: 'used', icon: 'check', text: `In ${k} at ${clock(c.slot.at)}` };
+  if (c.type === 'late') return { cls: 'warn', icon: 'warn', text: `Runs ${c.by} min past ${clock(WIN)}` };
+  if (c.type === 'early') return { cls: 'warn', icon: 'warn', text: `Starts before ${clock(0)}` };
+  return { cls: 'warn', icon: 'warn', text: `Overlaps ${BY[c.slot.show].short} by ${c.by} min` };
+}
+function renderLib() {
+  const k = state.active, L = cur(), T = L.target;
+  $('#sheet-l').textContent = k;
+  const g = gapsOf(L.slots).find((x) => T >= x.at && T < x.at + x.len), under = L.slots.find((s) => T >= s.at && T < end(s));
+  el.aim.innerHTML = `<span class="aim-l">Placing in ${badge(k, 1)} at</span>${stepper('aim-step', 'aim-set', T, 'aim')}
+    <span class="aim-r">${g ? `${g.at + g.len - T} min open from here, until ${clock(g.at + g.len)}.` : under ? `${esc(BY[under.show].short)} airs here until ${clock(end(under))}.` : ''}</span>`;
+  const hits = SHOWS.filter(matches), nFit = hits.filter((s) => (ui.cat === 'all' || s.cat === ui.cat) && fitsNow(s)).length;
+  el.chips.innerHTML = [['all', 'All', hits.length], ...CATS.map((c) => [c, c, hits.filter((s) => s.cat === c).length])]
+    .map(([v, t, n]) => `<button type="button" class="chip" data-act="cat" data-cat="${v}" data-k="cat-${v}" aria-pressed="${ui.cat === v}">${t} <i>${n}</i></button>`).join('')
+    + `<button type="button" class="chip fits" data-act="fits" data-k="fits" aria-pressed="${ui.fits}">Fits at ${clock(T)} <i>${nFit}</i></button>`;
+  el.qx.hidden = !ui.q;
+  const vis = visibleShows();
+  if (!vis.length) {
+    const bits = [];
+    if (ui.q) bits.push(`<button type="button" class="btn sm" data-act="q-clear" data-k="e-q">Clear search</button>`);
+    if (ui.cat !== 'all') bits.push(`<button type="button" class="btn sm" data-act="cat" data-cat="all" data-k="e-cat">Show all categories</button>`);
+    if (ui.fits) bits.push(`<button type="button" class="btn sm" data-act="fits" data-k="e-fits">Show shows that don't fit</button>`);
+    const what = ui.q ? `No ${ui.cat !== 'all' ? esc(ui.cat) + ' ' : ''}shows match “${esc(ui.q)}”${ui.fits ? ` and fit at ${clock(T)}` : ''}.` : ui.fits ? `No ${ui.cat !== 'all' ? esc(ui.cat) + ' ' : ''}show fits at ${clock(T)} in Lineup ${k}.` : `No ${esc(ui.cat)} shows here.`;
+    el.cards.innerHTML = `<li class="empty"><b>${what}</b><span>${ui.q ? 'Try part of a title or a category, like “brain” or “comedy”.' : 'Aim at a longer opening, or clear the filter.'} Fill open airtime still checks the whole library.</span><span class="row">${bits.join('')}</span></li>`;
+    return;
+  }
+  el.cards.innerHTML = vis.map((sh) => {
+    const f = fitNote(sh);
+    return `<li class="card s-${sh.id}${f.cls === 'used' ? ' is-used' : ''}" data-show="${sh.id}">
+      <span class="thumb"><span class="art"></span>${emblem(sh.id)}</span>
+      <span class="c-main"><span class="c-ttl">${esc(sh.title)}</span><span class="c-meta">${sh.min} min · ${sh.cat}</span></span>
+      <span class="c-fit ${f.cls}">${ico(f.icon)}<span>${esc(f.text)}</span></span>
+      <button type="button" class="btn sm${f.cls === 'ok' ? ' primary' : ''}" data-act="place" data-show="${sh.id}" data-k="place-${sh.id}" aria-label="Place ${esc(sh.title)} at ${clock(T)} in Lineup ${k}. ${esc(f.text)}.">Place at ${clock(T)}</button></li>`;
+  }).join('');
+}
+
+let booted = false;
+function render() {
+  const a = document.activeElement, fk = a && a.dataset ? a.dataset.k : null, prev = new Map();
+  document.querySelectorAll('[data-flip]').forEach((n) => prev.set(n.dataset.flip, n.getBoundingClientRect()));
+  renderBar(); renderReel(); renderConsole(); renderDiffs(); renderLib();
+  if (fk && document.activeElement !== a) { const n = $(`[data-k="${fk}"]`); if (n) n.focus({ preventScroll: true }); }
+  if (booted && !mqCalm.matches) document.querySelectorAll('[data-flip]').forEach((n) => {
+    const p = prev.get(n.dataset.flip), b = n.getBoundingClientRect();
+    if (!p) { n.animate([{ transform: 'scale(.84)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 210, easing: 'cubic-bezier(.2,.9,.3,1.25)' }); return; }
+    const dx = p.left - b.left, dy = p.top - b.top;
+    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) n.animate([{ transform: `translate(${dx}px,${dy}px)` }, { transform: 'none' }], { duration: 240, easing: 'cubic-bezier(.2,.8,.2,1)' });
+  });
+  booted = true;
+}
+
+/* ---------- the library sheet (phones) ---------- */
+let sheetFrom = null;
+function openSheet() {
+  if (!isPhone() || ui.sheet) return;
+  ui.sheet = true; sheetFrom = document.activeElement;
+  el.app.classList.add('sheet-open'); document.documentElement.classList.add('sheet-lock');
+  el.lib.inert = false; el.lib.setAttribute('role', 'dialog'); el.lib.setAttribute('aria-modal', 'true');
+  el.scroll.scrollTop = 0; dock();
+  setTimeout(() => $('#sheet-x').focus({ preventScroll: true }), 40);
+}
+function closeSheet() {
+  if (!ui.sheet) return;
+  ui.sheet = false;
+  el.app.classList.remove('sheet-open'); document.documentElement.classList.remove('sheet-lock');
+  syncSheet(); dock();
+  const back = sheetFrom && sheetFrom.dataset && sheetFrom.dataset.k ? $(`[data-k="${sheetFrom.dataset.k}"]`) : null;
+  if (back) back.focus({ preventScroll: true });
+}
+function syncSheet() {
+  el.lib.inert = isPhone() && !ui.sheet;
+  if (!isPhone() || !ui.sheet) { el.lib.removeAttribute('role'); el.lib.removeAttribute('aria-modal'); }
+}
+
+/* ---------- actions: every control is a data-act ---------- */
+const ACT = {
+  activate(d) { if (setActive(d.l)) render(); },
+  aim(d) {
+    setActive(d.l); cur().target = +d.at; ui.reject = null; ui.sel = null; saveLocal(); render();
+    if (isPhone()) openSheet();
+    else { el.aim.classList.remove('pulse'); void el.aim.offsetWidth; el.aim.classList.add('pulse'); }
+  },
+  'aim-step'(d) { const L = cur(), t = L.target + +d.by; if (t < 0 || t > WIN - STEP) return; L.target = t; ui.reject = null; saveLocal(); render(); },
+  place(d) { tryPlace(state.active, d.show, cur().target); },
+  'place-at'(d) { setActive(d.l); tryPlace(d.l, d.show, +d.at); },
+  'move-at'(d) { setActive(d.l); if (tryMove(d.l, d.show, +d.at)) closeSheet(); },
+  select(d) {
+    const again = state.active === d.l && ui.sel === d.show;
+    setActive(d.l); ui.sel = again ? null : d.show; ui.plan = null; ui.reject = null; ui.flash = null; render();
+  },
+  nudge(d) { const s = cur().slots.find((x) => x.show === ui.sel); if (s) tryMove(state.active, s.show, s.at + +d.by, true); },
+  remove() { if (ui.sel) removeShow(state.active, ui.sel); },
+  done() { ui.sel = null; render(); },
+  dismiss() { ui.reject = null; render(); },
+  undo() {
+    const k = state.active, L = cur(), e = L.past.pop(); if (!e) return;
+    L.future.push({ slots: L.slots, label: e.label }); L.slots = e.slots; retarget(L); touch();
+    ui.sel = null; ui.plan = null; ui.reject = null;
+    say('ok', 'Undone', `Took back in Lineup ${k}: ${esc(e.label)}.`); render();
+  },
+  redo() {
+    const k = state.active, L = cur(), e = L.future.pop(); if (!e) return;
+    L.past.push({ slots: L.slots, label: e.label }); L.slots = e.slots; retarget(L); touch();
+    ui.sel = null; ui.plan = null; ui.reject = null;
+    say('ok', 'Redone', `Back in Lineup ${k}: ${esc(e.label)}.`); render();
+  },
+  fill() {
+    const k = state.active, L = cur();
+    ui.sel = null; ui.reject = null; ui.hover = null;
+    if (!gapsOf(L.slots).length) { ui.plan = null; say('tip', 'Full', `Lineup ${k} has no open airtime: all ${WIN} minutes are booked.`); render(); return; }
+    ui.plan = proposeFill(L.slots); ui.flash = null; render();
+  },
+  'plan-apply'() {
+    const k = state.active, L = cur(), p = ui.plan; if (!p || !p.adds.length) return;
+    commit(k, [...L.slots, ...p.adds], `filled open airtime (${plural(p.adds.length, 'show')})`);
+    ui.plan = null;
+    say('ok', 'Filled', `Added ${plural(p.adds.length, 'show')} to Lineup ${k}: <b>${booked(L.slots)} booked</b>, ${WIN - booked(L.slots)} open.`, true); render();
+  },
+  'plan-dismiss'() { ui.plan = null; say('tip', 'Dismissed', `Proposal dismissed. Lineup ${state.active} is unchanged.`); render(); },
+  dup(d) {
+    const from = state.lineups[d.from], to = state.lineups[d.to];
+    if (same(from.slots, to.slots)) { ui.plan = null; say('tip', 'No change', `Lineup ${d.to} already matches ${d.from}.`); render(); return; }
+    commit(d.to, from.slots.map((s) => ({ ...s })), `duplicated ${d.from} into ${d.to}`);
+    to.target = from.target; retarget(to);
+    state.active = d.to; ui.sel = null; ui.plan = null; ui.reject = null; saveLocal();
+    say('ok', 'Duplicated', `Lineup ${d.to} is now a copy of ${d.from}. You're editing ${d.to}; ${d.from} stays as it is.`, true); render();
+  },
+  reset() {
+    const k = state.active, L = cur();
+    if (same(L.slots, starter(k))) { say('tip', 'No change', `Lineup ${k} is already how it started.`); render(); return; }
+    commit(k, starter(k), 'reset to the starter');
+    ui.sel = null; ui.plan = null; ui.reject = null;
+    say('ok', 'Reset', `Lineup ${k} is back to how it started.`, true); render();
+  },
+  cat(d) { ui.cat = d.cat; renderLib(); },
+  fits() { ui.fits = !ui.fits; renderLib(); },
+  'q-clear'() { ui.q = ''; el.q.value = ''; renderLib(); el.q.focus(); },
+  'sheet-close'() { ui.reject = null; closeSheet(); render(); },
+};
+let swallow = false;
+document.addEventListener('click', (e) => {
+  if (swallow) { swallow = false; e.preventDefault(); e.stopPropagation(); return; }
+  const t = e.target.closest('[data-act]');
+  if (!t || t.getAttribute('aria-disabled') === 'true') return;
+  const f = ACT[t.dataset.act];
+  if (f) f(t.dataset);
+}, true);
+document.addEventListener('change', (e) => {
+  const c = e.target.dataset && e.target.dataset.change;
+  if (c === 'aim-set') { cur().target = +e.target.value; ui.reject = null; saveLocal(); render(); }
+  if (c === 'move-set' && ui.sel) tryMove(state.active, ui.sel, +e.target.value, true);
+});
+el.q.addEventListener('input', () => { ui.q = el.q.value; renderLib(); });
+
+/* hover or focus a Place button: preview that show at the aimed time */
+function preview(show) { if (show === ui.hover || drag) return; ui.hover = show; renderGhosts(); }
+document.addEventListener('pointerover', (e) => { if (e.pointerType === 'touch') return; const b = e.target.closest && e.target.closest('[data-act="place"]'); preview(b ? b.dataset.show : null); });
+document.addEventListener('focusin', (e) => { const b = e.target.closest && e.target.closest('[data-act="place"]'); preview(b ? b.dataset.show : null); });
+
+/* ---------- keyboard ---------- */
+document.addEventListener('keydown', (e) => {
+  const mod = e.metaKey || e.ctrlKey, typing = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
+  if (mod && !e.altKey && !typing && e.key.toLowerCase() === 'z') { e.preventDefault(); (e.shiftKey ? ACT.redo : ACT.undo)(); return; }
+  if (mod && !typing && e.key.toLowerCase() === 'y') { e.preventDefault(); ACT.redo(); return; }
+  if (e.key === 'Escape') {
+    if (drag) { cancelDrag(); return; }
+    if (e.target === el.q && ui.q) { ACT['q-clear'](); return; }
+    if (ui.sheet) { ACT['sheet-close'](); return; }
+    if (ui.plan) { ACT['plan-dismiss'](); return; }
+    if (ui.reject) { ACT.dismiss(); return; }
+    if (ui.sel) ACT.done();
+    return;
+  }
+  const b = e.target.closest && e.target.closest('.blk-b');
+  if (!b || mod || e.altKey) return;
+  const step = (isPhone() ? { ArrowUp: -STEP, ArrowDown: STEP } : { ArrowLeft: -STEP, ArrowRight: STEP })[e.key];
+  if (step) {
+    e.preventDefault();
+    setActive(b.dataset.l); ui.sel = b.dataset.show;
+    const s = cur().slots.find((x) => x.show === b.dataset.show);
+    if (!tryMove(b.dataset.l, s.show, s.at + step, true)) render();
+  } else if (e.key === 'Delete' || e.key === 'Backspace') { e.preventDefault(); setActive(b.dataset.l); removeShow(b.dataset.l, b.dataset.show); }
+});
+
+/* ---------- dragging (mouse and pen; touch uses the tap controls) ---------- */
+let drag = null;
+const minuteAt = (track, e) => { const r = track.getBoundingClientRect(); return (isPhone() ? (e.clientY - r.top) / r.height : (e.clientX - r.left) / r.width) * WIN; };
+document.addEventListener('pointerdown', (e) => {
+  if (e.button !== 0 || e.pointerType === 'touch' || !e.isPrimary) return;
+  const b = e.target.closest('.blk-b'), c = !b && e.target.closest('.card');
+  if (b) drag = { kind: 'move', k: b.dataset.l, show: b.dataset.show, x: e.clientX, y: e.clientY, locked: !!b.dataset.locked };
+  else if (c && !e.target.closest('button, input, select')) drag = { kind: 'place', show: c.dataset.show, x: e.clientX, y: e.clientY };
+});
+document.addEventListener('pointermove', (e) => {
+  if (!drag) return;
+  if (!drag.on) {
+    if (Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 6) return;
+    if (drag.locked) { const d = drag; drag = null; swallow = true; setTimeout(() => { swallow = false; }, 0); setActive(d.k); refuse(d.k, d.show, LOCK_AT, [{ type: 'locked', slot: state.lineups[d.k].slots.find((s) => s.show === d.show) }], true); return; }
+    startDrag(e);
+  }
+  moveDrag(e);
+});
+document.addEventListener('pointerup', (e) => { if (drag && drag.on) dropDrag(e); drag = null; });
+document.addEventListener('pointercancel', () => { if (drag && drag.on) cancelDrag(); drag = null; });
+function startDrag(e) {
+  drag.on = true;
+  if (ui.plan || ui.reject || ui.hover || ui.flash) { ui.plan = null; ui.reject = null; ui.hover = null; ui.flash = null; render(); }
+  document.documentElement.classList.add('dragging');
+  if (drag.kind === 'move') {
+    const s = state.lineups[drag.k].slots.find((x) => x.show === drag.show);
+    drag.from = s.at; drag.grab = minuteAt(el.track[drag.k], e) - s.at;
+    const li = $(`[data-flip="${drag.k}-${drag.show}"]`); if (li) li.classList.add('is-lift');
+  } else {
+    drag.grab = len(drag.show) / 2;
+    const card = $(`.card[data-show="${drag.show}"]`); if (card) card.classList.add('is-drag');
+    drag.chip = document.createElement('div'); drag.chip.className = 'dragchip s-' + drag.show;
+    drag.chip.innerHTML = emblem(drag.show) + `<span>${esc(BY[drag.show].short)} · ${len(drag.show)} min</span>`;
+    document.body.appendChild(drag.chip);
+  }
+}
+function moveDrag(e) {
+  let track = null;
+  if (drag.kind === 'move') track = el.track[drag.k];
+  else {
+    drag.chip.style.setProperty('--x', e.clientX + 14 + 'px'); drag.chip.style.setProperty('--y', e.clientY + 12 + 'px');
+    const under = document.elementFromPoint(e.clientX, e.clientY); track = under && under.closest('.track');
+  }
+  for (const k of ['A', 'B']) if (!track || track.dataset.l !== k) { const g = $('.ghosts', el.track[k]); if (g) g.innerHTML = ''; }
+  if (!track) { drag.at = null; drag.tk = null; return; }
+  const k = track.dataset.l, d = len(drag.show);
+  const at = Math.max(-d + STEP, Math.min(WIN - STEP, Math.round((minuteAt(track, e) - drag.grab) / STEP) * STEP));
+  if (drag.at === at && drag.tk === k) return;
+  drag.at = at; drag.tk = k;
+  $('.ghosts', track).innerHTML = ghostHTML(drag.show, at, check(state.lineups[k].slots, drag.show, at, drag.kind === 'move'), false);
+}
+function endDrag() {
+  document.documentElement.classList.remove('dragging');
+  if (drag.chip) drag.chip.remove();
+  swallow = true; setTimeout(() => { swallow = false; }, 0);
+}
+function dropDrag() {
+  const d = drag; endDrag();
+  if (d.tk == null || (d.kind === 'move' && d.at === d.from)) { render(); return; }
+  setActive(d.tk);
+  if (d.kind === 'move') tryMove(d.tk, d.show, d.at); else tryPlace(d.tk, d.show, d.at);
+}
+function cancelDrag() { endDrag(); drag = null; render(); }
+
+/* ---------- start ---------- */
+$('#sheet-x').innerHTML = ico('x'); $('#q-ico').innerHTML = ico('search'); el.qx.innerHTML = ico('x');
+renderRuler(); syncSheet(); render(); saveNote();
+mqPhone.addEventListener('change', () => { if (ui.sheet) { ui.sheet = false; el.app.classList.remove('sheet-open'); document.documentElement.classList.remove('sheet-lock'); } syncSheet(); render(); });
+if (window.ResizeObserver) new ResizeObserver(dock).observe(el.console);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && cloud.ref && cloud.timer) { clearTimeout(cloud.timer); cloudSave(); } });
+initCloud();
+
+// Test hook: the pure scheduling rules, for the verification script.
+window.__morning = { SHOWS, check, gapsOf, proposeFill, diffRanges, booked, get state() { return state; } };
+})();
+</script>
