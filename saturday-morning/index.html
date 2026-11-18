@@ -123,7 +123,8 @@ button { cursor: pointer; -webkit-appearance: none; appearance: none; }
 /* ---------- toolbar ---------- */
 .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .bar-h { display: flex; align-items: center; gap: 8px; margin-right: 6px; font: 900 25px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
-.bar .grow { flex: 1; }
+.bar-end { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+@media (min-width: 1280px) and (max-width: 1439.98px), (min-width: 760px) and (max-width: 999.98px) { .btn small { display: none; } }
 .hint-phone { display: none; color: var(--soft); font-size: 13px; }
 
 /* ---------- the reel: one clock, two lineups ---------- */
@@ -163,8 +164,9 @@ button { cursor: pointer; -webkit-appearance: none; appearance: none; }
 .meta { display: flex; flex-wrap: wrap; gap: 0 6px; margin-top: auto; font-size: 12px; line-height: 1.25; font-weight: 700; font-stretch: 88%; font-variant-numeric: tabular-nums; }
 .meta .len { opacity: .85; }
 /* a locked slot: doubled frame, lock plate, no grab */
-.is-locked .blk-b { cursor: default; box-shadow: inset 0 0 0 3px var(--c), inset 0 0 0 5px var(--cp), 0 3px 0 var(--drop); padding: 11px 12px 10px; }
-.is-locked .blk-b:hover { transform: none; box-shadow: inset 0 0 0 3px var(--c), inset 0 0 0 5px var(--cp), 0 3px 0 var(--drop); }
+.is-locked .blk-b { cursor: default; padding: 11px 12px 10px; }
+.is-locked .blk-b::after { content: ""; position: absolute; inset: 3px; border: 2px solid var(--cp); border-radius: 7px; pointer-events: none; }
+.is-locked .blk-b:hover { transform: none; box-shadow: 0 3px 0 var(--drop); }
 .lockplate { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px 2px 5px; border: 2px solid var(--edge); border-radius: 6px; background: var(--cp); color: var(--cpi); font-weight: 900; font-size: 10.5px; line-height: 1.35; letter-spacing: .09em; text-transform: uppercase; }
 .is-sel .blk-b, .is-sel .blk-b:hover { transform: translateY(-3px); box-shadow: 0 6px 0 var(--drop); outline: 3px solid var(--focus); outline-offset: 2px; }
 .is-lift .blk-b { opacity: .4; border-style: dashed; box-shadow: none; }
@@ -260,7 +262,7 @@ button { cursor: pointer; -webkit-appearance: none; appearance: none; }
     .gap-b .g2 { font-size: 15px; }
   }
 }
-@media (min-width: 760px) and (max-width: 979.98px) { .reel { --tagw: 104px; } .tag { padding: 8px 7px; } .tag .who .labl { display: none; } }
+@media (min-width: 760px) and (max-width: 979.98px) { .reel { --tagw: 104px; } .tag { padding: 8px 7px; } .tag .who .labl, .tag .u { display: none; } }
 
 /* phones: time runs top to bottom, A beside B */
 @media (max-width: 759.98px) {
@@ -326,12 +328,11 @@ button { cursor: pointer; -webkit-appearance: none; appearance: none; }
   .btn.sm { min-height: 42px; padding: 0 12px; }
   .bar-h { flex: 1; font-size: 22px; }
   .btn small { display: none; }
-  .bar .grow { display: none; }
   .bar [data-act="fill"] { order: 2; flex: 1 1 100%; }
-  .bar [data-act="dup"] { order: 3; padding: 0 10px; }
+  .bar-end { order: 3; flex: 1 1 100%; margin-left: 0; }
+  .bar [data-act="dup"] { padding: 0 10px; }
   .bar [data-from="A"] { flex: 1; }
   .bar [data-from="A"] .ico { display: none; }
-  .bar [data-act="reset"] { order: 4; }
   .hint-phone { display: block; }
   .stage { padding: 12px 10px 14px; }
 }
@@ -973,10 +974,9 @@ function renderBar() {
     <button type="button" class="btn primary" data-act="fill" data-k="fill">${ico('spark')}Fill open airtime</button>
     <button type="button" class="btn" data-act="undo" data-k="undo" aria-disabled="${!u}" title="${u ? 'Undo: ' + esc(u.label) : 'Nothing to undo in Lineup ' + k}">${ico('undo')}Undo${u ? `<small>${esc(u.label)}</small>` : ''}</button>
     <button type="button" class="btn sq" data-act="redo" data-k="redo" aria-disabled="${!r}" aria-label="${r ? 'Redo: ' + esc(r.label) : 'Nothing to redo in Lineup ' + k}" title="${r ? 'Redo: ' + esc(r.label) : 'Nothing to redo'}">${ico('redo')}</button>
-    <span class="grow"></span>
-    <button type="button" class="btn" data-act="dup" data-from="A" data-to="B" data-k="dup-ab">${ico('copy')}Duplicate A into B</button>
+    <span class="bar-end"><button type="button" class="btn" data-act="dup" data-from="A" data-to="B" data-k="dup-ab">${ico('copy')}Duplicate A into B</button>
     <button type="button" class="btn" data-act="dup" data-from="B" data-to="A" data-k="dup-ba" aria-label="Duplicate B into A">B into A</button>
-    <button type="button" class="btn quiet" data-act="reset" data-k="reset">Reset ${k}</button>`);
+    <button type="button" class="btn quiet" data-act="reset" data-k="reset">Reset ${k}</button></span>`);
 }
 function timeOptions(sel) { let h = ''; for (let m = 0; m <= WIN - STEP; m += STEP) h += `<option value="${m}"${m === sel ? ' selected' : ''}>${clock(m)}</option>`; return h; }
 function stepper(act, change, at, idp) {
