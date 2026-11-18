@@ -1,0 +1,239 @@
+{
+ "settingId": "noir_docks",
+ "truth": {
+  "title": "Small Hours at Gate Nine",
+  "house": "Berth 171 on the East Channel of San Pedro harbor, behind Gate 9 at the foot of Front Street: the Coast Marine Forwarding office, a clapboard shack with a Mosler safe sixty yards from the transit shed where the night gang is loading the freighter Marysville Victory; Teo's, a bar four hundred yards up Front Street that never closes; and the Harbor Belt Line spur through a padlocked gate at the north end of the shed.",
+  "victim": {"name": "Eddie Marchetti", "age": 28, "role": "night clerk for Coast Marine Forwarding at the Berth 171 office", "sketch": "An ex-Navy signalman, handsome and quick, who wore a camel polo coat to a pier job and spent his pay on the Hollywood Legion fights and on women. He roomed over a Pacific Avenue barbershop and had told half the pier he was quitting for San Francisco."},
+  "night": {"start": "21:00", "end": "04:00", "discovered": "03:08", "discoveredBy": "Benny Ochoa", "where": "the Coast Marine Forwarding office at Berth 171"},
+  "weather": "Friday 7 February 1947: wet sea fog in off the breakwater from nine, thickening after midnight until the floodlights on Berth 171 were haloes and the Point Fermin horn sounded every thirty seconds; 49 degrees, dead calm.",
+  "publicFacts": [
+   "Eddie Marchetti, night clerk for Coast Marine Forwarding, was found shot dead on the floor of the Berth 171 office at 03:08 by Benny Ochoa, the night gang's jitney driver; the safe stood open and the cash box was gone.",
+   "Pop Kowalski, the Gate 9 gateman, telephoned Harbor Division at 03:12; patrolmen were on the pier by 03:20, the coroner's wagon by 04:10.",
+   "The night gang loading the Marysville Victory heard one bang at about twenty past one and took it for Benny's jitney backfiring, as it had been doing all evening.",
+   "Roy Haskell, the port agent, left the office at ten to eleven for his Friday poker game in the back room at Teo's on Front Street, and the police called him down from Palos Verdes Estates at half past three.",
+   "Fog came in off the breakwater at nine and lay thick on the East Channel all night; nobody on the pier saw more than forty yards.",
+   "On the pier that night: Augie Sarkis's twelve-man night gang, Pop Kowalski at the gate, and Dutch Vander Meer asleep in his Valley Produce reefer, waiting for the five o'clock gate.",
+   "The word on the waterfront is a stick-up for the Friday cash, and Chick Navarro, the bookie's runner, was seen hanging at the gate fence half the night."
+  ],
+  "suspects": [
+   {"name": "Roy Haskell", "age": 46, "role": "port agent for Coast Marine Forwarding, Eddie's employer", "sketch": "Lean and barbered in a camel-hair overcoat over last night's suit, bay rum and Chesterfields, with the stillness of a man used to being the calmest one in the room. There is a green-brown smear on the coat hem he has not noticed.", "part": "killer"},
+   {"name": "Vivian Haskell", "age": 33, "role": "Roy's wife, fourteen years younger, a former Long Beach club hostess", "sketch": "Slim and dark-blonde in a good gray suit and gloves, coral lipstick put on fresh at six in the morning over eyes that have been crying. She holds an unlit cigarette throughout and keeps her left hand out of sight.", "part": "liar"},
+   {"name": "Chick Navarro", "age": 24, "role": "a bookie's runner who works the Front Street bars and the pier gates", "sketch": "A small quick kid in a sharp drape jacket and two-tone shoes, pencil moustache, a wad of betting slips in his breast pocket he keeps touching. He laughs when nothing is funny.", "part": "mistaken"},
+   {"name": "Benny Ochoa", "age": 38, "role": "jitney driver on the night gang, San Pedro born, ex-Army", "sketch": "Broad and quiet in oil-black dungarees and a field jacket, a wrench still in his hip pocket and grease to the elbows. He answers slowly and looks the detective in the eye when he does.", "part": "honest"}
+  ],
+  "killer": "Roy Haskell",
+  "accomplice": null,
+  "motive": "Vivian Haskell had been meeting Eddie Marchetti in the Berth 171 office on Friday nights while Roy played poker, and the two meant to take the Lark to San Francisco on the 14th. Roy had suspected for a month; when Chick Navarro mentioned her car parked at the office, he walked to the pier, and Eddie told him to his face that she was leaving.",
+  "method": "At 01:22, in the office with the door shut, Roy shot Eddie once in the chest at about four feet with his own licensed Colt .38 Detective Special, carried in his overcoat pocket on poker nights. The night gang sixty yards off, under the winches, took the single bang for Benny Ochoa's jitney, which had backfired all evening. Roy opened the safe with the combination and took the cash box to make it a stick-up, left by the spur gate with his own key, dropped the box in the ice plant and the Colt into the channel, telephoned home from Teo's coin phone, and was back at the table at 01:42.",
+  "alibiGap": {"from": "00:55", "to": "01:42", "killerClaims": "That he stepped out of the poker game at Teo's for ten minutes around one o'clock to telephone his wife from the coin phone and get some air, and never set foot on the pier after he drove out at ten to eleven.", "actually": "He walked to the spur gate, let himself in with his key, watched Vivian's car leave, confronted and shot Eddie at 01:22, staged the safe, dropped the cash box and the gun, telephoned home at 01:38 and sat back down at 01:42."},
+  "timeline": [
+   {"time": "21:00", "place": "Coast Marine office and Berth 171", "present": ["Roy Haskell", "Eddie Marchetti", "Benny Ochoa"], "event": "Roy Haskell and Eddie Marchetti close out Friday's manifests in the office while Augie Sarkis's night gang starts loading the Marysville Victory under the floodlights and Benny Ochoa's jitney backfires on its first run.", "witnesses": ["Benny Ochoa", "Pop Kowalski", "Augie Sarkis"]},
+   {"time": "21:10", "place": "Front Street bars and the Haskell house, Palos Verdes Estates", "present": ["Chick Navarro", "Vivian Haskell"], "event": "Chick Navarro works the Hollywood Legion fight collections through the Front Street bars, while Vivian Haskell sits alone in the Palos Verdes house waiting for Roy's poker night to settle in.", "witnesses": []},
+   {"time": "22:50", "place": "Gate 9 and Teo's back room", "present": ["Roy Haskell", "Eddie Marchetti"], "event": "Roy tells Eddie to lock the day's $612 in the safe at two, drives his Packard out through Gate 9, where Pop logs it, and sits down at 23:00 in Teo's back room with Sol Hirsch, Ned Garza and Cap Mulhern, Teo Almeida dealing.", "witnesses": ["Pop Kowalski", "Benny Ochoa", "Teo Almeida", "Sol Hirsch"]},
+   {"time": "23:30", "place": "Teo's back room and Gate 9", "present": ["Chick Navarro", "Roy Haskell"], "event": "Chick comes in to settle the fight money with the players and hangs about the table, and at 23:40 Dutch Vander Meer's Valley Produce reefer checks in at Gate 9 and parks thirty yards from the office, the driver climbing into his sleeper.", "witnesses": ["Teo Almeida", "Sol Hirsch", "Pop Kowalski"]},
+   {"time": "00:09", "place": "Gate 9 and the office", "present": ["Vivian Haskell", "Eddie Marchetti"], "event": "Vivian's cream Mercury comes in through Gate 9, Pop waving the agent's wife through and logging it, and parks beside the office, where Eddie pours two rye highballs; Benny sees the car's lights from the jitney.", "witnesses": ["Pop Kowalski", "Benny Ochoa"]},
+   {"time": "00:25", "place": "Gate 9 fence", "present": ["Chick Navarro"], "event": "Chick walks down to see whether Eddie is working, sees the Mercury parked under the office light and is turned away by Pop for want of a pass.", "witnesses": ["Pop Kowalski"]},
+   {"time": "00:38", "place": "Teo's back room", "present": ["Chick Navarro", "Roy Haskell"], "event": "Back at the table Chick says 'Your missus is working late, Mr. Haskell, the Merc's parked at the office, and I got to see your night man after one about forty bucks,' and Roy folds the next hand without looking at it.", "witnesses": ["Teo Almeida", "Sol Hirsch", "Ned Garza", "Cap Mulhern"]},
+   {"time": "00:48", "place": "Teo's", "present": ["Chick Navarro", "Roy Haskell"], "event": "Chick leaves for the gate to wait for Eddie's one o'clock, and at 00:55 Roy puts on his camel-hair overcoat, the Colt in its right pocket as on every poker night, says he must telephone his wife, and walks along the fence toward the spur.", "witnesses": ["Teo Almeida", "Sol Hirsch", "Ned Garza", "Cap Mulhern"]},
+   {"time": "00:58", "place": "Gate 9 coin phone", "present": ["Chick Navarro"], "event": "Chick telephones Lefty's wire room in Hollywood with the night's figures, is refused at the gate a second time, and settles against the fence to smoke and watch the office.", "witnesses": ["Pop Kowalski"]},
+   {"time": "01:01", "place": "Harbor Belt Line spur gate", "present": ["Roy Haskell"], "event": "Roy opens the spur padlock with the key on his ring, walks the dark channel side of the transit shed and stops in its shadow as the Mercury's lights come on outside the office.", "witnesses": []},
+   {"time": "01:03", "place": "Office door and Gate 9", "present": ["Vivian Haskell", "Eddie Marchetti", "Chick Navarro"], "event": "Vivian kisses Eddie at the door, leaves her lighter and her glass on the desk, and drives out through Gate 9 past Pop and Chick at the fence, home at 01:20; Roy watches her tail-lights from the shed's shadow.", "witnesses": ["Pop Kowalski", "Chick Navarro", "Roy Haskell"]},
+   {"time": "01:06", "place": "pier apron", "present": ["Roy Haskell", "Benny Ochoa"], "event": "Roy crosses the edge of the lit apron to the office, and Benny, who shut the jitney down at 01:05 at the shed's north door to change a plug, sees a tall man in a long light overcoat and hat go in and shut the door.", "witnesses": ["Benny Ochoa"]},
+   {"time": "01:22", "place": "Coast Marine office", "present": ["Roy Haskell", "Eddie Marchetti"], "event": "After fourteen minutes in which Eddie, in shirtsleeves with his polo coat on the rack, tells him Vivian is leaving on the Lark on the 14th, Roy shoots him once in the chest; the gang yells 'Benny's jitney', the ship's second mate reports a shot or backfire to the patrol launch, Vander Meer wakes and sleeps again, and Chick at the fence and Benny at the shed door both hear it.", "witnesses": ["Benny Ochoa", "Chick Navarro", "Augie Sarkis", "Dutch Vander Meer"]},
+   {"time": "01:23", "place": "Coast Marine office", "present": ["Roy Haskell"], "event": "Roy opens the safe with the combination, takes the cash box, pulls the desk drawers, gets Eddie's blood on his right hand from the desk edge, and at 01:31 crosses the apron fast with the box under his arm, seen by Benny and, from the fence, by Chick, who takes the camel coat for Eddie's.", "witnesses": ["Benny Ochoa", "Chick Navarro"]},
+   {"time": "01:33", "place": "spur gate, Front Street and Teo's", "present": ["Roy Haskell"], "event": "Roy drops the cash box into the ice plant inside the spur fence and the Colt through the deck gap into the channel, leaves the padlock hanging, telephones home from Teo's coin phone at 01:38 and hears Vivian answer, and sits back down at 01:42 to Sol Hirsch's 'Long call, Roy.'", "witnesses": ["Vivian Haskell", "Teo Almeida", "Sol Hirsch", "Ned Garza", "Cap Mulhern"]},
+   {"time": "01:45", "place": "Gate 9 to Teo's, and Berth 171", "present": ["Chick Navarro", "Roy Haskell", "Benny Ochoa"], "event": "Chick gives up on Eddie, walks back to Teo's, finds Roy dealing at 01:50 and Sol razzing him about the longest phone call in history, collects from Cap Mulhern and goes home to Grand Avenue at 02:15, while Benny restarts the jitney at 01:35 and the gang works on.", "witnesses": ["Teo Almeida", "Sol Hirsch", "Augie Sarkis"]},
+   {"time": "02:30", "place": "Teo's, the Haskell house and Berth 171", "present": ["Roy Haskell", "Vivian Haskell"], "event": "Roy cashes out, drives home and comes in at 02:52 to sit in the kitchen in his overcoat while Vivian lies awake pretending to sleep; at Berth 171 the tally sheets Eddie should have brought to the hatch never come and Augie Sarkis says to leave it.", "witnesses": ["Vivian Haskell", "Augie Sarkis", "Benny Ochoa"]},
+   {"time": "03:08", "place": "Coast Marine office", "present": ["Benny Ochoa"], "event": "Hatches covered at 03:00, Benny goes for the tally sheets and finds Eddie dead behind the desk, the safe open; Pop calls Harbor Division at 03:12, patrolmen find the spur padlock open at 03:20 and the cash box at 03:35, the police ring the Haskell house at 03:25 and Roy reaches the pier at 03:50, leaving Vivian sitting up at home while Chick sleeps on Grand Avenue.", "witnesses": ["Pop Kowalski", "Benny Ochoa", "Roy Haskell"]}
+  ],
+  "evidence": [
+   {"id": "ev1", "name": "Eddie's camel polo coat", "where": "on the coat rack by the office door", "detail": "A camel-hair polo coat hanging with a gray fedora, untouched by any robber; in the inside pocket two Pullman tickets on the Lark to San Francisco for Friday the 14th and a snapshot of a woman in dark glasses on Cabrillo Beach.", "proves": "Eddie was in shirtsleeves when shot, so a camel coat seen crossing the apron at half past one was somebody else's; and he meant to leave town next Friday with a woman.", "atScene": true},
+   {"id": "ev2", "name": "Gold lighter and two glasses", "where": "on the office desk, pushed behind the manifest tray", "detail": "A gold Ronson engraved V.H. and two highball glasses with the dregs of rye and ginger ale, one rimmed with coral lipstick.", "proves": "A woman with those initials drank with Eddie in the office that night.", "atScene": true},
+   {"id": "ev3", "name": "The open safe and Eddie's wallet", "where": "the office safe, desk and body", "detail": "The Mosler's door stands wide with no tool mark on the dial, the cash-box shelf empty while the petty-cash tin with $18 sits beside it; the desk's top right drawer is out and empty; Eddie's wallet with $31 is still in his hip pocket.", "proves": "Whoever opened the safe knew the combination, and was not after money.", "atScene": true},
+   {"id": "ev4", "name": "The cash box", "where": "in the ice plant inside the spur fence, forty feet from the gate", "detail": "Coast Marine's green steel cash box, still locked, $612 in bills and freight-collect receipts inside, a brown smear across the lid.", "proves": "The robbery was staged by someone who left by the spur gate and never wanted the money; prints in the smear will say who carried it.", "atScene": false},
+   {"id": "ev5", "name": "Roy Haskell's camel-hair overcoat", "where": "on his back when he reached the pier at 03:50", "detail": "The right pocket lining stretched and dark with gun oil in the shape of a short revolver, a loose .38 Special cartridge caught in the seam, and green ice-plant juice and creosote on the hem.", "proves": "He has lately carried a snub-nosed revolver in that pocket and walked through the ice plant by the spur in that coat.", "atScene": false}
+  ],
+  "forensics": {
+   "tod": "A single .38 bullet entered the left chest from about four feet, light powder stippling on the shirt, and lodged against the spine; death inside two minutes. Body heat and rigor at 04:10 put death between 00:40 and 01:50.",
+   "prints": "The cash box from the ice plant carries Eddie Marchetti's prints all over and, on the lid, a right thumb and forefinger of Roy Haskell laid down in Marchetti's blood. The gold Ronson bears Vivian Haskell's prints and nobody else's, the lipstick glass hers and Marchetti's; Chick Navarro's prints are nowhere in the office.",
+   "comms": "Two coin-phone toll tickets touch the case: Gate 9 to a Hollywood cigar store that Vice knows as Lefty Bruno's wire room, 00:58 to 01:00; and the phone outside Teo's to the Haskell residence in Palos Verdes Estates, 01:38 to 01:40, answered. No call was placed from either phone between 01:00 and 01:38.",
+   "tox": "Blood alcohol 0.06 per cent, two rye highballs, no drug. The slug is a .38 Special lead round-nose fired from a Colt revolver, and it matches land for land the slug Harbor Division dug from the office door frame in March 1946, after Roy Haskell reported firing his licensed Colt Detective Special at a prowler.",
+   "logs": "Gate 9 log in Pop Kowalski's hand: Haskell's Packard out 22:50; Valley Produce reefer in 23:40; cream Mercury coupe registered to Mrs. V. Haskell in 00:09, out 01:03; nothing else in or out until the patrol car at 03:20, Navarro refused at the gate at 00:27 and 01:00. Harbor patrol launch log: 01:24, the Marysville Victory's second mate reports 'a shot or a backfire ashore at 171', nothing found; no vessel moved in the East Channel all night. The spur padlock, found hanging open at 03:20, was opened with a key, not cut; the railroad holds one key and Coast Marine's agent the other."
+  },
+  "redHerring": "Chick Navarro, a bookie's runner with a $40 marker on Eddie, hung at the Gate 9 fence through the murder window while the safe stood open and the cash box was gone, so the pier reads it as a collection turned stick-up. Pop's log has him refused at the gate twice and nobody on foot through it, his wire-room call is ticketed at 00:58, the cash box turned up in the ice plant with $612 inside, Eddie's wallet was in his pocket, and Chick's prints are nowhere in the office.",
+  "solutionPath": [
+   "Coroner: one .38 round at four feet, death between 00:40 and 01:50; Benny Ochoa's jitney was in pieces from 01:05 to 01:35 and the patrol launch logged the report at 01:24, so the bang the gang took for a backfire at 01:22 was the shot.",
+   "The gate log has Vivian Haskell's Mercury in at 00:09 and out at 01:03, Chick saw her drive out, and her lighter, the lipstick glass and the Lark tickets in Eddie's coat give the affair and the elopement; she lied about being home, but she was through the gate nineteen minutes before the shot and answered the 01:38 call at home, so she is cleared and her husband has a motive.",
+   "Chick's 'Eddie walked off toward the spur at half past one' is corrected by Eddie's polo coat hanging on the rack: the camel coat crossing the apron at 01:32 was someone else's; Benny saw the same light overcoat go in at 01:06, and Roy Haskell's camel-hair overcoat has ice plant on the hem.",
+   "The cash box in the ice plant with $612 inside, the untouched petty cash and wallet, and the unmarked safe dial show the robbery was staged by someone with the combination who left by a spur gate only the railroad and Coast Marine's agent have keys to.",
+   "Fingerprints: Roy Haskell's thumb and forefinger in Eddie's blood on the cash-box lid prove he handled it after the shot, breaking 'I drove out at ten to eleven and never came back.'",
+   "The toll ticket puts his 'call to the wife around one' at 01:38 from Teo's coin phone, Chick heard Sol razz him about the longest phone call in history, and Chick's Mercury remark at 00:38 is what sent him out at 00:55; ballistics ties the slug to his Colt, and the loose cartridge and gun-oiled pocket in his coat break 'the gun was in the office drawer.'",
+   "Name Roy Haskell: jealousy, his wife leaving him for Eddie on the Lark next Friday; one shot from his own Colt at 01:22 that the gang took for a backfire, and a stick-up dressed over it."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Roy Haskell",
+   "part": "killer",
+   "personality": "Dry, courteous and economical, a company man who has settled strikes and paid off walking bosses without raising his voice; he says 'frankly' and 'as a practical matter' and answers the question he wishes he had been asked. Pressed, he goes colder and more precise and reaches for the company's attorney rather than lose his temper.",
+   "voiceSample": "Frankly, Detective, a stick-up on this waterfront isn't a mystery, it's a Friday.",
+   "relationship": "He hired Eddie for his Navy manner and came to despise the swagger; by the end he hated him with a jealousy that surprised him, and shot him before he had quite decided to.",
+   "movements": [
+    {"from": "21:00", "to": "23:00", "where": "Coast Marine office, then his Packard to Front Street", "doing": "Closed out the Friday manifests with Eddie, told him to lock the cash in the safe at two, and drove out through Gate 9 at 22:50 to Teo's.", "seenBy": ["Eddie Marchetti", "Benny Ochoa", "Pop Kowalski"]},
+    {"from": "23:00", "to": "00:55", "where": "Teo's back room", "doing": "Played poker with Sol Hirsch, Ned Garza and Cap Mulhern; heard Chick's remark about the Mercury at 00:38.", "seenBy": ["Teo Almeida", "Sol Hirsch", "Ned Garza", "Cap Mulhern", "Chick Navarro"]},
+    {"from": "00:55", "to": "01:08", "where": "the fence, the spur gate and the shadow of the transit shed", "doing": "Walked to the spur, let himself in with his key, watched Vivian's car leave and crossed to the office.", "seenBy": ["Benny Ochoa"]},
+    {"from": "01:08", "to": "01:31", "where": "Coast Marine office", "doing": "Argued with Eddie, shot him at 01:22, opened the safe, took the cash box and pulled the drawers.", "seenBy": ["Eddie Marchetti"]},
+    {"from": "01:31", "to": "01:38", "where": "the apron, the spur and Front Street", "doing": "Crossed the apron with the box, dropped it in the ice plant and the Colt in the channel, and walked back to Teo's.", "seenBy": ["Benny Ochoa", "Chick Navarro"]},
+    {"from": "01:38", "to": "02:30", "where": "Teo's coin phone, then the back room", "doing": "Telephoned Vivian, washed his hands in the men's room and played poker until he cashed out.", "seenBy": ["Teo Almeida", "Sol Hirsch", "Ned Garza", "Cap Mulhern", "Chick Navarro"]},
+    {"from": "02:30", "to": "03:50", "where": "his Packard, the Palos Verdes house, then the pier", "doing": "Drove home, sat in the kitchen in his overcoat, took the police call at 03:25 and drove down to the pier.", "seenBy": ["Vivian Haskell", "Pop Kowalski"]}
+   ],
+   "knows": [
+    "Vivian has been meeting Eddie in the office on Fridays; he suspected for a month from the Mercury's mileage and Eddie's Chesterfields in her ashtray, and Chick's crack at 00:38 settled it (he heard it).",
+    "Chick said at the table he had to see 'the night man' after one about forty dollars, and left the back room at about a quarter to one, before Roy did (he heard and saw it).",
+    "He left the table at 00:55 with the Colt in his overcoat pocket, as on every poker night, and opened the spur padlock with the key on his ring at 01:01 (he did it).",
+    "He watched Vivian's Mercury pull away from the office at about 01:02 from the shadow of the transit shed (he saw it).",
+    "In the office Eddie, in shirtsleeves, told him Vivian was leaving on the Lark on the 14th and 'you can keep the house, Roy', and he shot him once at 01:22 (he did it).",
+    "He opened the safe with the combination, took the cash box, pulled the drawers, and got blood on his right hand from the desk edge (he did it).",
+    "He dropped the cash box in the ice plant inside the spur fence, dropped the Colt through the deck gap into the channel, and left the padlock hanging (he did it).",
+    "He telephoned home from Teo's coin phone at 01:38 to be sure Vivian was there and to be seen on the phone, and sat down again at 01:42 (he did it).",
+    "The jitney had been backfiring all evening and the gang would take one shot for it (he knows the pier)."
+   ],
+   "doesNotKnow": [
+    "That Benny Ochoa saw the light overcoat go into the office at 01:06 and come out with the box at 01:31.",
+    "That Chick Navarro was at the gate fence and saw the camel coat cross the apron.",
+    "That Vivian left her lighter and a lipstick glass on Eddie's desk.",
+    "That the police lab still holds the slug from his 1946 prowler shot."
+   ],
+   "secret": "His wife was leaving him for his own night clerk; he shot the man and dressed it as a stick-up.",
+   "lies": [
+    {"claim": "I stepped out for ten minutes around one, Detective, to telephone my wife from the coin phone and get some air. Sol Hirsch will tell you.", "truth": "He was gone from 00:55 to 01:42 and spent it at the pier; the call was at 01:38.", "when": "Asked about the poker game or his movements after midnight.", "crack": "The toll ticket timing the call at 01:38, Chick's account of Sol's 'longest phone call in history', or Benny's sighting of the light overcoat."},
+    {"claim": "I drove out of Gate 9 at ten to eleven and never set foot on that pier again until your patrolmen called me at half past three.", "truth": "He entered by the spur gate at 01:01 and was in the office from 01:08 to 01:31.", "when": "Asked whether he went back to the terminal, or about the spur gate and its key.", "crack": "His prints in Eddie's blood on the cash-box lid, or the ice plant on his coat hem with the spur padlock opened by a key only he and the railroad hold."},
+    {"claim": "My Colt lived in the top right desk drawer at the office, as it has since the prowler business; whoever cleaned out the safe took it.", "truth": "It was in his overcoat pocket all evening and is now in the East Channel.", "when": "Asked about the gun, the empty drawer, or the ballistics.", "crack": "The loose .38 cartridge and gun-oiled pocket in his overcoat, or Vivian saying he carries the Colt to poker every Friday."},
+    {"claim": "Marchetti was a good night man. My wife met him once at the company picnic, I believe; I doubt she would know him in the street.", "truth": "He knew they were lovers, and Eddie had just told him Vivian was leaving.", "when": "Asked about Eddie, his wife, or what Chick said at the table.", "crack": "The Lark tickets in Eddie's coat with Vivian's lighter on the desk, or Chick's account of the Mercury remark and Roy folding his hand."}
+   ],
+   "honestMistake": null,
+   "tells": ["Squares his tie clip between thumb and finger.", "Says 'frankly' before anything that isn't."],
+   "pressure": {"baseline": 15, "breakPoint": 75, "lawyerPoint": 86, "style": "lawyer"},
+   "opening": "Sit down, Detective. I have been up since half past three and told your patrolmen everything I know, but let's go through it once more for the record."
+  },
+  {
+   "name": "Vivian Haskell",
+   "part": "liar",
+   "personality": "Brittle, clever and bored, a club hostess's polish over a Long Beach cannery childhood; she calls the detective 'Sergeant' whatever his rank, makes cracks to keep him at arm's length and holds a cigarette like a prop. Cornered, she turns contemptuous, then flares, and she will not cry in front of a cop.",
+   "voiceSample": "I read, I smoked, I went to bed. It's what the agent's wife does on Fridays, Sergeant; ask anyone in Palos Verdes.",
+   "relationship": "She loved Eddie as much as she has loved anyone, mostly for being the opposite of Roy; now she is grieving and frightened in equal parts and can show neither.",
+   "movements": [
+    {"from": "21:00", "to": "00:09", "where": "the Haskell house, then her Mercury to Gate 9", "doing": "Read and did her nails until Roy's game had settled in, then drove down to the pier at 23:55.", "seenBy": ["Pop Kowalski"]},
+    {"from": "00:09", "to": "01:00", "where": "Coast Marine office", "doing": "Drank two rye highballs with Eddie and talked about San Francisco.", "seenBy": ["Eddie Marchetti"]},
+    {"from": "01:00", "to": "01:20", "where": "office door, Gate 9 and the road home", "doing": "Kissed Eddie goodnight, drove out past Pop and the kid at the fence, and drove home.", "seenBy": ["Eddie Marchetti", "Pop Kowalski", "Chick Navarro"]},
+    {"from": "01:20", "to": "02:52", "where": "the Haskell house", "doing": "Undressed, took Roy's call at 01:38 and lay awake.", "seenBy": []},
+    {"from": "02:52", "to": "03:30", "where": "the Haskell house", "doing": "Pretended to sleep while Roy sat in the kitchen, and heard him take the police call at 03:25.", "seenBy": ["Roy Haskell"]},
+    {"from": "03:30", "to": "04:00", "where": "the Haskell house, alone", "doing": "Sat up in the kitchen after Roy drove off.", "seenBy": []}
+   ],
+   "knows": [
+    "She has been Eddie's lover since October and met him in the office most Fridays after midnight while Roy played poker (she did it).",
+    "They were to take the Lark to San Francisco on Friday the 14th; Eddie had the Pullman tickets in his polo coat and a job with a forwarder on the Embarcadero (he showed her the tickets).",
+    "She drove in through Gate 9 at about ten past twelve, Pop waving her through as always, and left Eddie alive and laughing in his shirtsleeves at the office door at one (she saw it).",
+    "She left her gold Ronson on his desk and missed it only when she got home at twenty past one (she did it).",
+    "Roy telephoned at 01:38, hoarse, and said 'You're home' before anything else, then that he would be late (she heard it).",
+    "Roy carries his Colt in his overcoat pocket on poker nights 'for the walk to the car'; other nights it lives in the hall table drawer (she has watched him pocket it).",
+    "Roy came in at ten to three, did not come to bed, and sat in the kitchen in his overcoat until the police rang at 03:25 (she heard it).",
+    "Roy asked twice in the last month about the Mercury's mileage (she heard it).",
+    "A kid in a drape jacket hangs at the gate fence on Fridays; Eddie called him Chick and said he ran bets (she saw him; Eddie told her)."
+   ],
+   "doesNotKnow": [
+    "Who killed Eddie, or how.",
+    "That Roy left the poker table, or for how long.",
+    "That Chick told Roy her car was at the office.",
+    "What happened in the office after 01:03."
+   ],
+   "secret": "The affair and the elopement: if Roy proves adultery she leaves the marriage with nothing, and the police look at the mistress and the husband first.",
+   "lies": [
+    {"claim": "I was home all night, Sergeant. I read until eleven and went to bed, and Roy came in somewhere around half past two.", "truth": "She was with Eddie in the office from 00:09 to 01:00 and home by 01:20; Roy came in at 02:52.", "when": "Asked where she was, whether she left the house, or about her car.", "crack": "The gate log showing her Mercury in at 00:09 and out at 01:03, or her prints on the lighter on Eddie's desk."},
+    {"claim": "Eddie Marchetti was Roy's night man. I met him once, at the company picnic last summer.", "truth": "They had been lovers since October and were leaving for San Francisco together on the 14th.", "when": "Asked about Eddie, their relationship, or San Francisco.", "crack": "The two Lark tickets in Eddie's coat with the lipstick glass and her engraved lighter, or Benny's account of her car at the office on Fridays."}
+   ],
+   "honestMistake": null,
+   "tells": ["Twists her wedding ring as if unscrewing it.", "Taps the unlit cigarette on its case, end over end."],
+   "pressure": {"baseline": 25, "breakPoint": 60, "lawyerPoint": 88, "style": "anger"},
+   "opening": "You'll forgive me if I don't offer coffee, Sergeant; the maid doesn't come Saturdays. Roy's night man is dead and you've driven up the hill to see the agent's wife. Go on, then."
+  },
+  {
+   "name": "Chick Navarro",
+   "part": "mistaken",
+   "personality": "Fast and jittery, a Front Street kid who talks hep ('pal', 'no kidding', 'I dig') and laughs at the end of sentences that aren't funny; he has been taught never to say Lefty's name to a cop. Underneath he is scared of being tagged for the stick-up and of his mother finding out, and if he is leaned on he cries and then talks too much.",
+   "voiceSample": "I'm a runner, pal, I run. Paper goes out, cash comes back, and I don't ask who's kissing who.",
+   "relationship": "Eddie was a good-time guy who bet too much and paid late, and treated Chick like a kid brother; Chick liked him and is shaken.",
+   "movements": [
+    {"from": "21:00", "to": "23:30", "where": "the Front Street bars", "doing": "Collected on the Hollywood Legion fights, bar to bar.", "seenBy": ["Teo Almeida"]},
+    {"from": "23:30", "to": "00:20", "where": "Teo's back room", "doing": "Settled the fight money with the poker players and hung about the table.", "seenBy": ["Roy Haskell", "Teo Almeida", "Sol Hirsch", "Ned Garza", "Cap Mulhern"]},
+    {"from": "00:20", "to": "00:35", "where": "Gate 9 fence", "doing": "Walked down to see if Eddie was working, saw the Mercury by the office, and was turned away by Pop.", "seenBy": ["Pop Kowalski"]},
+    {"from": "00:38", "to": "00:48", "where": "Teo's back room", "doing": "Told Haskell his wife's car was at the office and watched him fold a hand blind.", "seenBy": ["Roy Haskell", "Teo Almeida", "Sol Hirsch", "Ned Garza", "Cap Mulhern"]},
+    {"from": "00:48", "to": "01:45", "where": "Gate 9 coin phone and fence", "doing": "Called Lefty at 00:58, was refused at the gate again, and watched the office door for Eddie.", "seenBy": ["Pop Kowalski", "Vivian Haskell"]},
+    {"from": "01:45", "to": "02:15", "where": "Teo's back room", "doing": "Found Haskell dealing at 01:50, collected from Cap Mulhern and left.", "seenBy": ["Roy Haskell", "Teo Almeida", "Sol Hirsch", "Cap Mulhern"]},
+    {"from": "02:15", "to": "04:00", "where": "his mother's rooms on Grand Avenue", "doing": "Went home and slept.", "seenBy": []}
+   ],
+   "knows": [
+    "Eddie owed Lefty $40 on last Friday's Hollywood Legion card and told him Thursday to come by the office 'after one Friday, I'll have it' (he heard it).",
+    "At about 00:25 from the gate he saw the cream Mercury parked beside the office, the car he knows for Mrs. Haskell's from other Fridays; Pop would not let him in without a pass (he saw it).",
+    "At 00:38 in the back room he said 'Your missus is working late, Mr. Haskell, the Merc's parked at the office,' and Haskell went quiet and folded the next hand without looking at it (he said and saw it).",
+    "He left Teo's at about a quarter to one and called Lefty's wire room from the Gate 9 coin phone at about 00:58 (he did it).",
+    "At 01:03 the Mercury came out through the gate with Mrs. Haskell at the wheel and turned up the hill (he saw it).",
+    "He heard one bang from the pier around twenty past one and took it for the jitney, which had been popping all night (he heard it).",
+    "At about 01:32 a man in a camel coat and hat crossed the lit apron from the office toward the spur tracks with something square under his arm; he believes it was Eddie (he saw it).",
+    "When he got back to Teo's at about 01:50 Haskell was dealing, and Sol Hirsch was razzing him about the longest phone call in history (he saw and heard it).",
+    "He has a 1945 juvenile sheet for running numbers; his mother thinks he works nights at the cannery (he knows it)."
+   ],
+   "doesNotKnow": [
+    "Who killed Eddie, or how.",
+    "What went on inside the office that night.",
+    "When Haskell left Teo's or how long he was gone.",
+    "That Eddie's polo coat was hanging on the rack when he died.",
+    "Anything about the Haskells' marriage beyond the Friday car."
+   ],
+   "secret": "He runs bets for Lefty Bruno and has a juvenile sheet; he is terrified of being tagged for the stick-up.",
+   "lies": [],
+   "honestMistake": {"claim": "Eddie came out of the office about half past one in that camel coat of his and walked off toward the spur tracks with a box under his arm. He was alive then, pal, so whoever got him got him after.", "truth": "It was Roy Haskell in his camel-hair overcoat carrying the cash box; Eddie had been dead since 01:22, in shirtsleeves, with his polo coat on the rack.", "why": "Forty yards of fog and floodlight haloes, two coats the same color, and Chick was watching that door for Eddie and nobody else; the last he knew, Haskell was at a poker table up the street."},
+   "tells": ["Laughs when nothing is funny.", "Touches the betting slips in his breast pocket."],
+   "pressure": {"baseline": 30, "breakPoint": 55, "lawyerPoint": 82, "style": "tears"},
+   "opening": "Look, I carry paper for a guy, that's all I do. I don't carry a gun and I never been inside that gate in my life, pal; Pop'll tell you."
+  },
+  {
+   "name": "Benny Ochoa",
+   "part": "honest",
+   "personality": "Steady, plain and slow to answer, a San Pedro Mexican-American who came back from Italy a sergeant and drives a jitney because the gang is his family; he says 'mister', 'I tell you straight' and the odd 'pues', and will not guess at what he did not see. Bullied, he goes quiet and short until the detective finds his manners.",
+   "voiceSample": "That wasn't my machine. My machine was in pieces on the deck, mister, and I know what my machine sounds like.",
+   "relationship": "He liked Eddie well enough, a kidder who was decent to the gang, but a show-off with women he should have left alone.",
+   "movements": [
+    {"from": "21:00", "to": "01:05", "where": "the apron between the shed and the hatch", "doing": "Ran the jitney between the shed and the ship, backfiring on a fouled plug all evening.", "seenBy": ["Augie Sarkis", "Roy Haskell", "Pop Kowalski"]},
+    {"from": "01:05", "to": "01:35", "where": "the shed's north door", "doing": "Shut the engine down and changed the plug with the hood up, forty yards from the office.", "seenBy": ["Augie Sarkis"]},
+    {"from": "01:35", "to": "03:00", "where": "the apron", "doing": "Ran the jitney until the hatches were covered.", "seenBy": ["Augie Sarkis"]},
+    {"from": "03:00", "to": "03:08", "where": "the apron to the office", "doing": "Walked over for the tally sheets Eddie had not brought.", "seenBy": ["Augie Sarkis"]},
+    {"from": "03:08", "to": "03:12", "where": "the office, then the gate house", "doing": "Found Eddie dead and ran to Pop.", "seenBy": ["Pop Kowalski"]},
+    {"from": "03:12", "to": "04:00", "where": "the office door", "doing": "Waited with Pop and the patrolmen and answered their questions.", "seenBy": ["Pop Kowalski", "Roy Haskell"]}
+   ],
+   "knows": [
+    "The jitney backfired all evening on a fouled plug, and he shut it down at 01:05 at the shed's north door and had the plug out until 01:35 (he did it).",
+    "At 01:22 by the shed clock he heard one flat bang from the direction of the office, louder than his machine ever made, and the gang yelled 'Benny's jitney'; his engine was in pieces (he heard it).",
+    "At about 01:06 a tall man in a long light overcoat and hat came along the dark side of the shed from the spur and went into the office; he did not see the face (he saw it).",
+    "At about 01:31 the same coat came out and crossed the apron fast toward the spur with something square under his arm (he saw it).",
+    "Mr. Haskell wears a camel-hair overcoat; the only other camel coat on the pier is Eddie's polo coat (he has seen both).",
+    "The cream Mercury came in at about ten past twelve and parked by the office; he knows it as the agent's wife's car, there on Fridays since before Christmas (he saw it).",
+    "Mr. Haskell's Packard went out the gate at ten to eleven (he saw it).",
+    "Eddie told him Thursday he was quitting for a forwarder's job in Frisco next week, 'and I'm not going alone' (he heard it).",
+    "At 03:08 he found Eddie behind the desk in his shirtsleeves, the polo coat on the rack, the safe wide open and the drawers out, and ran for Pop (he saw it)."
+   ],
+   "doesNotKnow": [
+    "Who shot Eddie, or why.",
+    "Anything that happened at Teo's or at the gate.",
+    "That Chick Navarro was at the fence.",
+    "Who Eddie meant to take to Frisco."
+   ],
+   "secret": "His small embarrassment: he knew at once the bang was no backfire and kept quiet rather than fight Augie Sarkis about leaving the hatch; he thinks he might have looked in.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": ["Wipes his hands on the rag though they are already clean.", "Looks at the ceiling before a hard answer."],
+   "pressure": {"baseline": 15, "breakPoint": 70, "lawyerPoint": 90, "style": "shutdown"},
+   "opening": "I found him. I told Pop, Pop called you. Ask me what you want, mister, I got nothing to hide."
+  }
+ ]
+}

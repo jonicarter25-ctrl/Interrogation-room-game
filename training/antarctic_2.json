@@ -1,0 +1,244 @@
+{
+"settingId":"antarctic",
+"truth":{
+"title":"The Skerrow Core",
+"house":"Skerrow, a British Antarctic Survey wintering station on the Cressy Ice Shelf: one long surface hut with the cold porch and boot room at the west end, then the radio room, four bunk rooms, lounge, galley, surgery and glaciology lab, and the generator annex built on at the east end; handlines run out to the core store (an ice cellar 80 metres east), the met screen and the skidoo garage.",
+"victim":{"name":"Clive Marchant","age":41,"role":"senior glaciologist leading the Skerrow deep-core programme, on his first winter south","sketch":"A tall, stooping, exact Yorkshireman who read everything twice and signed nothing he had not checked. He came south to lead a programme the base had run without him for a year, and did not make friends by saying so."},
+"night":{"start":"17:00","end":"01:00","discovered":"00:40","discoveredBy":"Jim Threlfall","where":"the drift tail on the north side of the hut by the generator annex"},
+"weather":"Thursday 14 July 1983: full dark, minus 34, a 50-knot south-easterly with heavy drift and visibility of about three metres on the handlines.",
+"publicFacts":[
+"Dr Clive Marchant was found dead at twenty to one by Jim Threlfall, face down in the drift tail on the north side of the hut by the generator annex, after Phil Garrity noticed at 00:08 that he had never signed in from a trip to the core store at 21:55.",
+"The wintering crew of nine: Graham Teague (Base Commander), Dr Owen Kerslake (medical officer), Terry Ludlow (radio operator), Barry Quinnell (diesel mechanic), Ray Cosgrove (builder, this week's cook and nightwatchman), Phil Garrity (met observer), Jim Threlfall (general assistant), and the glaciologists Dr Clive Marchant and Alec Fenwick.",
+"A 50-knot south-easterly blew drift all evening at minus 34. Porch standing orders: sign the outside log, leave the porch light on while anyone is out, and drop the storm bar only on the Base Commander's word and never with a man signed out.",
+"Skerrow has one door in winter: the cold porch at the west end. The emergency hatch in the generator annex roof at the east end has been drifted over since May.",
+"At dinner Marchant said somebody had been moving tubes in his core store and he and Threlfall had words, ending with Threlfall telling him to carry his own core; later Marchant told Teague he was fetching the store book and wanted a report to Cambridge countersigned at half past ten.",
+"The film ran in the lounge from 20:15 to 22:25 with a reel change at about 21:20, then darts; Teague went to wait for Marchant in his cabin at 22:12 and fell asleep, and Garrity raised the alarm at 00:10 after the midnight obs.",
+"Dr Kerslake pronounced Marchant dead of exposure at 00:52 and Ludlow raised Rothera at 00:58; Cambridge has deputised the Base Commander's deputy to question the base before the 09:00 schedule, there being no aircraft until October."
+],
+"suspects":[
+{"name":"Alec Fenwick","age":29,"role":"glaciologist, second winter; the Cambridge research student who drilled and logged the Skerrow core; shares bunk room 2 with Threlfall","sketch":"A fair, bony, fast-talking man with a bitten thumbnail and a second-year winterer's beard, who answers before the question is finished; the base's rising star since Cambridge telexed its congratulations in May.","part":"killer"},
+{"name":"Terry Ludlow","age":36,"role":"radio operator, ex-Royal Signals, third winter south; shares bunk room 1 with Garrity","sketch":"A compact, careful Welshman with a cigarette behind one ear and headphone marks in his hair, who speaks in procedure and gives nothing away for free. He looks as if he has not been to bed.","part":"liar"},
+{"name":"Phil Garrity","age":44,"role":"Met Office observer seconded to the Survey, second winter; shares bunk room 1 with Ludlow","sketch":"A big, slow, kindly Lancastrian in a paraffin-stained jersey with a logbook under his arm, who dates everything by his observations and, having thought, speaks for too long.","part":"mistaken"},
+{"name":"Jim Threlfall","age":26,"role":"general assistant: climber, keeper of the handlines, skidoos and gash pit, first winter; shares bunk room 2 with Fenwick","sketch":"A wiry, wind-burnt Cumbrian with rope-scarred hands and a stammer that comes and goes, who looks at the floor when angry and at you when not. He found the body and has not stopped shaking.","part":"honest"}
+],
+"killer":"Alec Fenwick",
+"accomplice":null,
+"motive":"Fenwick's Nature note, accepted in May, rests on an acid spike at 120.4 metres that he identified as the 1815 Tambora eruption; the four core sections holding that depth were smashed when a rack collapsed in April and tipped in the gash pit, and he wrote their conductivity readings in from the trend. Marchant found the empty tubes on his afternoon inventory, told Fenwick at 17:05 that Cambridge would be asked to hold the note, and meant to put the store book and the tubes in front of Teague at half past ten.",
+"method":"With Marchant in the core store and bound to come back along line B to the only door, Fenwick dropped the storm bar across the outer door at 22:10 and switched off the porch light so the bar could not be seen through the boot-room window. Marchant reached the door at 22:33, could not open it, tried for the annex along the lee wall in 50 knots at minus 34 and died in the drift tail by about 23:15. At 23:35 Fenwick lifted the bar, put the light on, took in the kitbag Marchant had dropped at the door and hid it in the lab cold room, so the death would pass for a man who lost the line.",
+"alibiGap":{"from":"22:05","to":"23:50","killerClaims":"That he left the film at ten past ten with a headache, lay on his bunk reading until Garrity's shout at ten past midnight, and got up once, to the lavatory, after Threlfall turned in.","actually":"At 22:10 he barred the outer door and switched off the porch light while Marchant was in the core store; at 23:35 he lifted the bar, put the light on, opened the door and hid Marchant's kitbag in the lab cold room after razoring out the store-book page."},
+"sharedStory":null,
+"timeline":[
+{"time":"17:05","place":"glaciology lab","present":["Clive Marchant","Alec Fenwick"],"event":"Marchant, back from his afternoon inventory of the core store, tells Fenwick that tubes 44 to 47 are empty, that his conductivity record for 118 to 123 metres cannot have been measured, and that Cambridge will be asked to hold the Nature note; Quinnell, passing, hears raised voices.","witnesses":["Barry Quinnell"]},
+{"time":"19:00","place":"dining room","present":["Clive Marchant","Alec Fenwick","Terry Ludlow","Phil Garrity","Jim Threlfall","Graham Teague","Owen Kerslake","Barry Quinnell","Ray Cosgrove"],"event":"Marchant says somebody has been moving tubes in his store, Threlfall says he warned about that rack in April and is asked whether he was in there, and their words end with Threlfall telling him to carry his own core; Fenwick eats in silence.","witnesses":["Alec Fenwick","Jim Threlfall"]},
+{"time":"19:35","place":"radio room","present":["Clive Marchant","Terry Ludlow"],"event":"Marchant hands Ludlow a telex form for Cambridge for the morning schedule, saying it is to go whatever anyone says, and Ludlow punches it to tape at 19:45 and locks the form in his traffic drawer.","witnesses":[]},
+{"time":"20:15","place":"lounge","present":["Alec Fenwick","Terry Ludlow","Phil Garrity","Jim Threlfall","Ray Cosgrove"],"event":"Cosgrove runs the film with everyone but Marchant watching; Garrity is out at the screen for the 21:00 obs from 20:55 to 21:06, and Ludlow slips out at 21:40 'to turn in', shuts himself in the radio room and is on the amateur set to Raul at the Argentine base Belgrano II from 21:48 to 23:22.","witnesses":["Phil Garrity","Jim Threlfall"]},
+{"time":"21:50","place":"corridor outside the lounge","present":["Clive Marchant","Alec Fenwick"],"event":"Marchant beckons Fenwick out of the film and says he is fetching the store book and the empty tubes for Teague to countersign the report at half past ten, as agreed in Teague's cabin at 21:45; he refuses Fenwick's company and Fenwick goes back to his seat white.","witnesses":["Jim Threlfall"]},
+{"time":"21:55","place":"cold porch","present":["Clive Marchant"],"event":"Marchant kits up, signs the outside log 'Core store 21:55, back 22:30' and goes out along line B, leaving the porch light burning as standing orders require.","witnesses":[]},
+{"time":"22:03","place":"core store","present":["Clive Marchant"],"event":"Marchant climbs down into the ice cellar, takes the store book off its nail, pencils 'EMPTY CM 14/7' on tubes 44 and 45, packs them in his kitbag and climbs out at 22:26 to follow line B home.","witnesses":[]},
+{"time":"22:08","place":"lounge","present":["Alec Fenwick","Phil Garrity","Jim Threlfall","Graham Teague"],"event":"Fenwick leaves the film pleading a headache, Teague goes at 22:12 to wait for Marchant in his cabin, the film ends at 22:25, Garrity turns in at 22:28 for a kip before the midnight obs, and the rest start the darts.","witnesses":["Phil Garrity","Jim Threlfall"]},
+{"time":"22:10","place":"cold porch and boot room","present":["Alec Fenwick","Jim Threlfall"],"event":"Fenwick, in felt boots, drops the storm bar bare-handed and switches off the porch light so the bar cannot be seen from the boot room, and is on his bunk by 22:13; at 22:18 Threlfall, fetching tobacco from the boot room, hears Ludlow's voice behind the radio-room door and sees the porch dark through the window, and takes it for a dead bulb.","witnesses":["Terry Ludlow","Jim Threlfall"]},
+{"time":"22:33","place":"outside the outer porch door","present":["Clive Marchant"],"event":"Marchant finds the door immovable, beats on it with fist and axe shaft, kicks it, pulls off his right mitt to work the latch and drops his torch; Ludlow takes the thumps for the drying-room door and Garrity, in bunk 1, for Marchant stamping in; at 22:40 Marchant drops the kitbag at the door and works east along the lee wall for the annex.","witnesses":["Terry Ludlow","Phil Garrity"]},
+{"time":"23:00","place":"generator annex","present":["Barry Quinnell"],"event":"Quinnell makes his hourly check and logs 'bang on annex wall? checked exhaust, nothing'; outside, ten metres from the wall in waist-deep drift, Marchant sits down and is dead within the quarter hour.","witnesses":["Barry Quinnell"]},
+{"time":"23:25","place":"bunk room 2","present":["Jim Threlfall","Alec Fenwick"],"event":"Threlfall turns in from the darts and finds Fenwick lying dressed on his bunk; at 23:33 Fenwick gets up saying he needs the bog.","witnesses":["Jim Threlfall"]},
+{"time":"23:35","place":"cold porch","present":["Alec Fenwick"],"event":"Fenwick lifts the bar bare-handed, switches on the porch light, opens the outer door onto a fall of drift that covers his felt boots, finds Marchant's kitbag and no Marchant, and carries the bag in.","witnesses":[]},
+{"time":"23:43","place":"corridor by the galley","present":["Alec Fenwick","Terry Ludlow"],"event":"Ludlow, coming from the galley with a brew after shutting down the set at 23:31, passes Fenwick heading for the lab in felt boots with Marchant's kitbag, drift still on it, and says nothing.","witnesses":["Terry Ludlow"]},
+{"time":"23:44","place":"lab cold room","present":["Alec Fenwick"],"event":"Fenwick razors the page for tubes 41 to 50 out of the store book, burns it in the fume cupboard, pushes the kitbag behind the ECM bench and is on his bunk by 23:48 with drift melting on his felt boots and trouser cuffs, which Threlfall notices.","witnesses":["Jim Threlfall"]},
+{"time":"23:55","place":"met screen","present":["Phil Garrity"],"event":"Garrity goes out for the midnight obs past a heap of fresh drift inside the outer door and the bar stowed, and comes in at 00:08 to find Marchant still signed out and his windproof gone from its peg.","witnesses":[]},
+{"time":"00:10","place":"corridor","present":["Phil Garrity","Graham Teague","Alec Fenwick","Jim Threlfall","Terry Ludlow"],"event":"Garrity wakes Teague, who musters the base at 00:15; at 00:20 Teague, Fenwick and Quinnell go out on line B to the empty store while Threlfall and Cosgrove rope up to search the hut walls.","witnesses":["Phil Garrity","Jim Threlfall"]},
+{"time":"00:40","place":"north side of the hut at the east gable","present":["Jim Threlfall","Ray Cosgrove"],"event":"Threlfall finds Marchant face down in the drift tail ten metres from the annex, right hand bare and hood packed with drift; he and Cosgrove carry him to the surgery, Kerslake pronounces him dead at 00:52 and Ludlow raises Rothera at 00:58.","witnesses":["Jim Threlfall","Ray Cosgrove"]}
+],
+"evidence":[
+{"id":"ev1","name":"Outer porch door","where":"the outer door of the cold porch, west end","detail":"A plywood-faced door opening outward: a two-inch gouge from an ice-axe pick at shoulder height, paint scuffed through round the latch, boot marks along the foot, latch and hinges working freely; the bar brackets inside show fresh bright scrapes.","proves":"Marchant reached the door and beat on it; it does not stick, so the storm bar held it from inside, against standing orders, while he was signed out.","atScene":true},
+{"id":"ev2","name":"Marchant's torch and right mitt","where":"dug from the drift against the foot of the outer door at 07:20","detail":"A Survey-issue rubber torch, switch on and battery flat, and a Dachstein mitt, both iced hard, a foot down in the drift against the door.","proves":"He stood at the door long enough to bare a hand for the latch and drop his torch; he had not lost the line, he had come home to a door that would not open.","atScene":true},
+{"id":"ev3","name":"The storm bar","where":"stowed upright in its clips beside the outer door","detail":"A four-by-two baulk painted red in March, made to drop into brackets across the outer door: frost on it, glove smears, and on the lifting edge a set of bare finger and palm prints frozen into the paint.","proves":"Someone dropped and lifted it bare-handed in the cold that night and did not expect it to be looked at.","atScene":true},
+{"id":"ev4","name":"Marchant's blue kitbag","where":"behind the ECM bench in the cold room off the glaciology lab","detail":"A Survey kitbag, drift still in its folds, holding two empty core tubes pencilled '44 EMPTY CM 14/7' and '45 EMPTY CM 14/7' and the store book with the page for tubes 41 to 50 razored out at the spine; paper ash in the fume-cupboard sink.","proves":"Marchant brought the bag from the store to the door; someone carried it in after he died, cut out the page listing the missing tubes and hid it where only the glaciologists go.","atScene":false},
+{"id":"ev5","name":"Marchant's telex form","where":"Ludlow's locked traffic drawer in the radio room, punched to tape for the morning","detail":"A telex form in Marchant's hand timed 19:30: 'BAS CAMBRIDGE FOR DIRECTOR. REQUEST HOLD NATURE NOTE FENWICK ET AL. STORE INVENTORY TODAY SHOWS TUBES 44-47 (118.6-122.9 M) EMPTY. ECM RECORD THOSE DEPTHS CANNOT BE GENUINE. FULL REPORT FOLLOWS. MARCHANT.'","proves":"By half past seven Marchant meant to tell Cambridge that Fenwick's record was invented, and Fenwick had known since five past five.","atScene":false},
+{"id":"ev6","name":"Fenwick's ECM record book","where":"the glaciology lab bench","detail":"The conductivity record in Fenwick's hand: tubes 44 to 47 entered in one run dated 3 to 5 May in a different pen from the March entries either side, the acid spike at 120.4 metres ringed 'Tambora 1815'.","proves":"The readings the Nature note rests on were written up in May for core tipped in the gash pit in April, by the man who kept the book.","atScene":false}
+],
+"forensics":{
+"tod":"Dr Kerslake: core temperature at 00:55 and rigor in jaw and fingers put death from exposure between 22:45 and 23:30; no injury but barked right knuckles and a split nail. Right hand bare, hood packed with drift, inner gloves frozen stiff: nothing on him had thawed, so he had not been indoors since he signed out at 21:55.",
+"prints":"Nothing readable outdoors, and the porch clipboard and pencil carry everyone's prints. The storm bar, painted in March and not dropped since 18 May, shows glove smears and one set of bare prints frozen into the frost on its lifting edge: Alec Fenwick's right palm and four fingers, laid down in the cold that night; Ludlow, Garrity and Threlfall are not on it.",
+"comms":"Radio log: the 16:00 schedule cleared at 16:41, nothing further until Ludlow raised Rothera at 00:58. In Ludlow's locked drawer: Marchant's telex form, timed 19:30 and punched to tape, asking Cambridge to hold Fenwick's Nature note because tubes 44 to 47 are empty and the conductivity record for those depths cannot be genuine; beside it a scratch pad in Ludlow's hand, 'LU1ZB Belgrano 2148-2322, Raul, Qc5, mum better', and the amateur set's hour-meter 1.6 hours up on the sign-off reading.",
+"tox":"Blood alcohol about 30 mg per 100 ml, two cans' worth; no sedative, no carbon monoxide, nothing from the surgery cabinet, and the stomach lining shows the small haemorrhages of death from cold. Air samples from porch, bunk rooms and annex are normal and the drug count is complete.",
+"logs":"Outside log: Marchant 'Core store 15:30, in 16:12'; Threlfall 'Garage 17:10, in 17:48'; Garrity 'Met 17:55, in 18:06' and 'Met 20:55, in 21:06'; Marchant 'Core store 21:55, back 22:30' with no return; Garrity 'Met 23:55, in 00:08'; the search party at 00:20. Quinnell's generator log has the Lister steady all night and at 23:00 the note 'bang on annex wall? checked exhaust, nothing'."
+},
+"redHerring":"Threlfall, keeper of the lines, told Marchant at dinner to carry his own core and was roped on the wall when the body was found, so the first base theory is that he let Marchant go alone or that his line failed. Dispelled by: he was in the lounge in full view from 20:15 to 23:25 except four minutes at 22:18, the torch and mitt at the door show Marchant never lost the line, his prints are not on the bar, and his account of the core he helped tip in April makes him the key witness against Fenwick.",
+"solutionPath":[
+"Doctor's report: death from exposure between 22:45 and 23:30 and nothing on him thawed, so Garrity's 'Clive came in at twenty-five to eleven' is wrong; the thumps he heard were Marchant at the barred door.",
+"The gouged outer door, the torch and mitt dug from the drift at its foot, and the generator log's 'bang on annex wall' at 23:00: Marchant reached a door that works freely and could not open it, so the bar was down while he was signed out, and he was alive at the east end at eleven.",
+"Fingerprints: Fenwick's bare prints frozen on the storm bar, which nobody had dropped since May, breaking his 'on my bunk from ten past ten'.",
+"Threlfall: the porch was dark at 22:18 while Marchant was out, Fenwick left the bunk room from 23:33 to 23:48 and came back with drift on his boots, and in April Fenwick had him tip four bags of smashed core and asked him to keep quiet.",
+"Motive: Marchant's telex in Ludlow's drawer asking Cambridge to hold the Nature note, the kitbag in the lab cold room with the razored store book and the tubes pencilled EMPTY, and the ECM book with readings dated May for core tipped in April.",
+"Ludlow is cleared: Garrity heard his voice through the wall until gone eleven and the scratch pad and hour-meter put him on the amateur set to Belgrano II from 21:48 to 23:22; cracked, he gives the thumps at 22:33 and Fenwick carrying Marchant's kitbag towards the lab at 23:43.",
+"Name Alec Fenwick: to stop the telex exposing his invented conductivity record, he barred the only door at 22:10 while Marchant was at the core store and left him to the cold, then lifted the bar at 23:35 and hid the kitbag."
+]
+},
+"briefs":[
+{
+"name":"Alec Fenwick",
+"part":"killer",
+"personality":"Quick, clever and plausible, a Cambridge research student who talks in depths and numbers ('a hundred and twenty metres, give or take') and finishes the detective's sentences for him. Used to being the cleverest man in the hut, he turns sharp when doubted; pushed to the edge he stops talking and stares at the ECM trace on the wall.",
+"voiceSample":"Clive read everything twice, which is a virtue in an auditor and a disease in a scientist.",
+"relationship":"He admired Marchant's rigour and resented being supervised by a man who arrived a year after the core came up; since five past five he has thought of him only as the man who would end his career.",
+"movements":[
+{"from":"17:05","to":"18:00","where":"glaciology lab","doing":"Took Marchant's accusation about tubes 44 to 47, then sat alone with the ECM book.","seenBy":[]},
+{"from":"18:00","to":"20:15","where":"lounge bar, dining room, then the lab","doing":"Drank three cans fast, ate in silence while Marchant and Threlfall had words, then sat in the lab with the ECM book.","seenBy":["Terry Ludlow","Phil Garrity","Jim Threlfall"]},
+{"from":"20:15","to":"22:08","where":"lounge","doing":"Watched the film; called out by Marchant at 21:50, back by 21:53; left at 22:08 pleading a headache.","seenBy":["Phil Garrity","Jim Threlfall","Terry Ludlow"]},
+{"from":"22:08","to":"22:13","where":"cold porch","doing":"Dropped the storm bar bare-handed and switched off the porch light.","seenBy":[]},
+{"from":"22:13","to":"23:33","where":"bunk room 2","doing":"Lay dressed on his bunk, awake, until he told Threlfall he needed the bog.","seenBy":["Jim Threlfall"]},
+{"from":"23:33","to":"23:48","where":"cold porch, corridor and lab cold room","doing":"Lifted the bar, put the light on, opened the door, carried Marchant's kitbag to the cold room, razored out the store-book page and hid the bag.","seenBy":["Terry Ludlow"]},
+{"from":"23:48","to":"01:00","where":"bunk room 2, corridor, line B and the lounge","doing":"Lay down until the shout, then went out with Teague and Quinnell to the empty store and waited in the lounge.","seenBy":["Jim Threlfall","Phil Garrity","Terry Ludlow"]}
+],
+"knows":[
+"His ECM readings for tubes 44 to 47 (118.6 to 122.9 m), with the acid spike at 120.4 he called Tambora, were never measured: the core shattered when the rack collapsed on 20 April and he wrote them in on 3 May from the trend either side (he did it).",
+"He and Threlfall tipped the four bags of smashed core in the gash pit on 21 April and he asked Threlfall to keep it between them; the empty tubes went back on the rack, where 46 and 47 still stand (he did it).",
+"Marchant told him at 17:05 that he had found tubes 44 to 47 empty and would telex Cambridge to hold the Nature note (he heard it).",
+"At 21:50 Marchant told him he was fetching the store book and the empty tubes for Teague to countersign a report at 22:30, and would not have him along (he heard it).",
+"At 22:10, in felt boots, he dropped the storm bar bare-handed and switched off the porch light; at 23:35 he lifted it, put the light on and opened the outer door (he did it).",
+"At 23:36 he found Marchant's kitbag against the door, drift falling in over his boots, and no Marchant; he carried it to the lab cold room, razored out the store-book page for tubes 41 to 50, burned it and pushed the bag behind the ECM bench (he did it).",
+"Threlfall was in the bunk room when he got up at 23:33 and came back at 23:48, and Ludlow passed him by the galley at 23:43 with a mug (he saw them)."
+],
+"doesNotKnow":[
+"That Marchant handed the telex to Ludlow at 19:35 and it is punched to tape in the traffic drawer.",
+"That Threlfall saw the porch dark at 22:18 and knows the standing order about the light.",
+"That Ludlow and Garrity heard the thumps, or that Quinnell logged a bang on the annex wall at 23:00.",
+"That his bare prints froze onto the storm bar.",
+"That Threlfall noticed the drift on his boots, or that Ludlow took note of the kitbag."
+],
+"secret":"He invented the conductivity record for four metres of core smashed in April, and barred the door on Marchant to stop the telex that would have exposed it.",
+"lies":[
+{"claim":"I left the film about ten past ten with a head and lay on my bunk reading till Jim came in; I got up once for the bog after that and never otherwise stirred till Phil shouted.","truth":"He was in the porch from 22:10 to 22:13 barring the door, and from 23:33 to 23:48 lifting the bar, opening the door and carrying the kitbag to the lab.","when":"Asked where he was after leaving the film.","crack":"His bare prints on the storm bar, Threlfall's account of the drift on his boots at 23:48, or Ludlow's sighting of him with the kitbag."},
+{"claim":"Clive and I had a difference over the write-up, who went first on the author line, nothing more; the note is sound and Cambridge has it.","truth":"His conductivity readings for 118.6 to 122.9 metres are invented and Marchant was telexing Cambridge to hold the note.","when":"Asked about the row in the lab, the Nature note, or why Marchant went to the store.","crack":"Marchant's telex form with the tubes pencilled EMPTY, or the ECM record book dated May set against Threlfall's account of core tipped in April."},
+{"claim":"The store book and the tubes? Clive must have left them in the cellar; the search party found nothing but an iced ladder.","truth":"He carried them in from the outer door at 23:36 and hid the kitbag behind the ECM bench after razoring out the page.","when":"Asked about the store book, the kitbag or the empty tubes.","crack":"The kitbag found in the lab cold room with drift in its folds, or Ludlow's sighting of him carrying it towards the lab."},
+{"claim":"The core that went in April was a few bits of top section, nothing from depth, and Clive knew at the time.","truth":"It was tubes 44 to 47 from 118 to 123 metres; he told nobody and asked Threlfall to keep quiet.","when":"Asked about the rack collapse or the gash pit.","crack":"Threlfall's account of the four bags and the request to keep it between them, or the empty tubes 46 and 47 still on the rack."}
+],
+"honestMistake":null,
+"tells":[
+"Bites the side of his thumbnail.",
+"Gives a depth or a figure before the real answer when the question is hard."
+],
+"pressure":{"baseline":20,"breakPoint":75,"lawyerPoint":90,"style":"shutdown"},
+"opening":"You'll want it from the top, I suppose. Clive went out on line B at five to ten in fifty knots and the line let him down; there isn't a great deal more to it."
+},
+{
+"name":"Terry Ludlow",
+"part":"liar",
+"personality":"A careful, dry Welshman from Pembroke Dock, ex-Royal Signals, who talks in procedure ('say again', 'confirm that') and answers only the question asked. He holds to his trade's rule that traffic is nobody's business; cornered, he flares in short bursts of temper and goes back to 'that's all I've got for you'.",
+"voiceSample":"I log what goes out and what comes in, boy; what people say to each other in the corridor isn't traffic.",
+"relationship":"He respected Marchant as the only man on base who filled in a telex form properly and thought him a cold fish; he feels sick that he heard the thumps and did nothing.",
+"movements":[
+{"from":"17:00","to":"18:00","where":"radio room","doing":"Cleared the schedule traffic and wrote up the day's log.","seenBy":[]},
+{"from":"18:00","to":"19:35","where":"lounge bar, then dining room","doing":"Played crib with Threlfall, then ate and heard Marchant and Threlfall have words.","seenBy":["Alec Fenwick","Phil Garrity","Jim Threlfall"]},
+{"from":"19:35","to":"20:10","where":"radio room","doing":"Took Marchant's telex form at 19:35, read it to punch it to tape, and locked it in the drawer.","seenBy":[]},
+{"from":"20:15","to":"21:40","where":"lounge","doing":"Watched the film and left at 21:40 saying he was turning in.","seenBy":["Alec Fenwick","Phil Garrity","Jim Threlfall"]},
+{"from":"21:40","to":"23:31","where":"radio room","doing":"On the amateur set to Raul at Belgrano II from 21:48 to 23:22, then shut down and tidied the pad away.","seenBy":[]},
+{"from":"23:31","to":"00:10","where":"galley, corridor and bunk room 1","doing":"Made a brew, passed Fenwick in the corridor at 23:43, and slept from 23:46 until Garrity woke him.","seenBy":["Alec Fenwick","Phil Garrity"]},
+{"from":"00:10","to":"01:00","where":"corridor, lounge and radio room","doing":"Mustered, waited, and raised Rothera at 00:58.","seenBy":["Phil Garrity","Jim Threlfall","Alec Fenwick"]}
+],
+"knows":[
+"Marchant handed him a telex form at 19:35 for the morning schedule, 'to go whatever anyone says'; it asks Cambridge to hold Fenwick's Nature note because tubes 44 to 47 are empty, and it is punched to tape in his locked drawer (he read it to type it).",
+"Nothing went out or came in after the 16:41 sign-off until he raised Rothera at 00:58 (he keeps the log).",
+"From 21:48 to 23:22 he was on the amateur set to Raul at Belgrano II, forbidden since the war and enough to finish him with the Survey (he did it).",
+"At about 22:10 he heard the inner porch door open and shut, and at about 22:33 three or four heavy thumps that shook the porch-side wall, which he took for the drying-room door banging; he pulled his headphones back on (he heard it).",
+"At 23:43, coming from the galley with a brew, he passed Fenwick in felt boots heading for the lab with Marchant's blue kitbag, drift still on it, and thought it odd but not his business (he saw it).",
+"Garrity was asleep in the top bunk when he turned in at 23:46, and the alarm went at 23:50 (he saw it).",
+"At dinner Marchant said somebody had been moving tubes in the store and Threlfall told him to carry his own core; Fenwick had drunk three cans fast at the bar and said nothing all evening (he saw and heard it)."
+],
+"doesNotKnow":[
+"That the storm bar was down, or who dropped it.",
+"What Fenwick did with the kitbag or why he had it.",
+"That the porch light was off at 22:18.",
+"What Marchant and Fenwick said to each other at 17:05 or 21:50."
+],
+"secret":"Monthly contacts on the amateur bands with an Argentine radio operator at Belgrano II, kept up since before the Falklands war: a sacking offence under the Survey's post-war order and, he fears, worse.",
+"lies":[
+{"claim":"I turned in at twenty to ten with a paperback and I never left my pit till Phil came hammering at ten past twelve.","truth":"He was in the radio room from 21:40 to 23:31 on the amateur set, then in the galley until 23:45.","when":"Asked where he was after leaving the film.","crack":"Garrity's statement that his bunk was empty till a quarter to midnight and his voice came through the wall, or the comms report with the scratch pad and hour-meter."},
+{"claim":"Heard nothing and saw nothing all night; the wind takes everything and I was asleep.","truth":"He heard the inner door at 22:10 and the thumps at 22:33, and saw Fenwick with the kitbag at 23:43.","when":"Asked what he heard or saw during the evening.","crack":"Once his first lie is cracked, or when shown the gouged outer door or the torch and mitt from the drift; he then gives the thumps and the kitbag."}
+],
+"honestMistake":null,
+"tells":[
+"Takes the cigarette from behind his ear and puts it back.",
+"Says 'say again' to buy time."
+],
+"pressure":{"baseline":25,"breakPoint":60,"lawyerPoint":85,"style":"anger"},
+"opening":"Before you start: I've logged the Rothera call and Cambridge has the bare facts. Ask what you want and I'll give you what I've got."
+},
+{
+"name":"Phil Garrity",
+"part":"mistaken",
+"personality":"Slow, warm and thorough, a Bolton man with twenty years of three-hourly observations behind him, who trusts his senses as he trusts his thermometer. He answers in long, careful paragraphs with the times in, apologises for the length, and takes being doubted as a personal unkindness; pressed too hard he goes quiet and wet-eyed.",
+"voiceSample":"Fifty-two knots and minus thirty-four at nine, and I'll put money on every figure.",
+"relationship":"He liked Marchant more than most did, because Marchant read the met returns and asked sensible questions; he keeps thinking he should have looked at the log properly at five to midnight.",
+"movements":[
+{"from":"17:00","to":"18:06","where":"met office and met screen","doing":"Worked up the afternoon returns and did the 18:00 obs outside from 17:55 to 18:06.","seenBy":[]},
+{"from":"18:08","to":"20:15","where":"lounge bar, dining room, then the met office","doing":"Had a can, reported the wind, ate, then plotted the evening synoptic.","seenBy":["Alec Fenwick","Terry Ludlow","Jim Threlfall"]},
+{"from":"20:15","to":"22:25","where":"lounge","doing":"Watched the film, out to the screen for the 21:00 obs from 20:55 to 21:06.","seenBy":["Alec Fenwick","Terry Ludlow","Jim Threlfall"]},
+{"from":"22:28","to":"23:50","where":"bunk room 1","doing":"Turned in for a kip before the midnight obs; heard thumps at about 22:33 and Ludlow's voice through the wall until about 23:20; Ludlow came to bed about 23:46.","seenBy":["Terry Ludlow"]},
+{"from":"23:55","to":"00:15","where":"met screen, cold porch and Teague's cabin","doing":"Did the midnight obs, found Marchant still signed out and his peg empty at 00:08, and woke Teague.","seenBy":["Graham Teague"]},
+{"from":"00:15","to":"01:00","where":"lounge and corridor","doing":"Mustered, waited, and helped carry Marchant to the surgery.","seenBy":["Alec Fenwick","Terry Ludlow","Jim Threlfall"]}
+],
+"knows":[
+"The 21:00 obs: 52 knots south-easterly, minus 34, visibility three metres in drift; at 21:06 the porch light was on and Marchant not yet signed out (he did the obs and saw the log).",
+"At dinner Marchant and Threlfall had words about the store; Fenwick left the film at about 22:08 with a headache, Teague went to his cabin at 22:12, Threlfall nipped out for four minutes at about 22:18, and the film ended at 22:25 (he saw and heard it).",
+"Through the bunk 1 wall he heard Ludlow's voice in the radio room on and off from 22:28, when he turned in, until about twenty past eleven, and Ludlow's bunk was empty until about a quarter to midnight (he heard and saw it).",
+"At about 22:33 he heard four or five heavy thumps from the porch end of the hut (he heard it).",
+"At 23:55 the storm bar was stowed, the porch light on, a heap of fresh drift lay inside the outer door, and the door opened freely (he saw it).",
+"At 00:08 the log still showed Marchant 'Core store 21:55, back 22:30' with no return, and his windproof and mitts were not on his peg (he saw it).",
+"The porch standing orders: light on while anyone is out, bar only on the BC's word (he knows them)."
+],
+"doesNotKnow":[
+"That the thumps were Marchant beating on a barred outer door from outside.",
+"That the door was barred, or by whom.",
+"What Ludlow was saying in the radio room, or to whom.",
+"What was in Marchant's telex or what he and Fenwick quarrelled about."
+],
+"secret":null,
+"lies":[],
+"honestMistake":{"claim":"Clive came in at twenty-five to eleven, near enough: I heard him stamping the snow off and banging about in the porch, and at five to twelve there was fresh drift inside the door and the bar up, so he'd been in and gone out again later without signing, which he would.","truth":"The thumps were Marchant beating on the barred outer door from outside; the drift inside the door fell in when Fenwick opened it at 23:36. Marchant never came in.","why":"Bunk 1 backs onto the boot room, he was half asleep before the midnight obs, the porch is the only door, and thumping in the porch has always meant somebody coming in."},
+"tells":[
+"Takes off his glasses and polishes them on his jersey.",
+"Says 'I'll be honest with you' before anything he is unsure of."
+],
+"pressure":{"baseline":15,"breakPoint":65,"lawyerPoint":90,"style":"tears"},
+"opening":"I should have looked at that log properly at five to twelve. I'll give you everything I've got, times and all, and you can sort out what matters."
+},
+{
+"name":"Jim Threlfall",
+"part":"honest",
+"personality":"Terse, practical and quick to take offence, a Keswick climber on his first winter, who speaks in short Cumbrian sentences and stammers when angry. He distrusts clever talk and scientists' squabbles, says 'I'll not say what I don't know', and when he feels blamed asks for the Base Commander to be in the room.",
+"voiceSample":"I rigged them lines in March and they'd hold a skidoo; it weren't the line that killed him.",
+"relationship":"He thought Marchant a dry stick who never said thank you and is ashamed of what he said at dinner before Marchant was cold; he had nothing against him worth the name.",
+"movements":[
+{"from":"17:10","to":"17:48","where":"skidoo garage and gash pit","doing":"Signed out, dug out the gash-pit hatch and checked the skidoo covers.","seenBy":[]},
+{"from":"18:00","to":"20:15","where":"lounge bar, dining room, then bunk room 2","doing":"Played crib with Ludlow, had words with Marchant at dinner, then wrote his diary.","seenBy":["Alec Fenwick","Terry Ludlow","Phil Garrity"]},
+{"from":"20:15","to":"23:25","where":"lounge","doing":"Watched the film and played darts, out to the boot room for tobacco from 22:18 to 22:22.","seenBy":["Alec Fenwick","Phil Garrity","Terry Ludlow","Ray Cosgrove"]},
+{"from":"23:25","to":"00:10","where":"bunk room 2","doing":"Turned in; Fenwick went out at 23:33 and came back at 23:48.","seenBy":["Alec Fenwick"]},
+{"from":"00:10","to":"01:00","where":"corridor, round the hut walls, then the surgery","doing":"Mustered, roped to Cosgrove, found Marchant at 00:40 on the north side and helped carry him in.","seenBy":["Phil Garrity","Terry Ludlow","Alec Fenwick","Ray Cosgrove","Owen Kerslake"]}
+],
+"knows":[
+"On 20 April the middle rack in the ice cellar came off its brackets; next day Fenwick had him help carry four bags of smashed core to the gash pit, saying 'Clive'll have my guts, keep it between us', and put four empty tubes, numbers in the forties, back on the rack (he did and saw it).",
+"He rigged line B in March on ten canes and it was taut and clipped when he walked it on 12 July; he painted the storm bar in March and it was last dropped on 18 May on Teague's word (he did it).",
+"At dinner he told Marchant to carry his own core after Marchant as good as accused him of being in the store (he said it).",
+"At 21:50 Marchant beckoned Fenwick out of the film and Fenwick came back three minutes later white and sat down without a word; Fenwick left for good at 22:08 saying he had a head (he saw it).",
+"At 22:18, fetching tobacco from his windproof in the boot room, he heard Ludlow's voice behind the radio-room door, 'roger, go ahead', and saw through the porch window that the porch was dark, against the standing order that the light stays on while anyone is out; he took it for a dead bulb (he saw and heard it).",
+"At 23:25 Fenwick was lying dressed on his bunk; at 23:33 he went out saying he needed the bog and was back at 23:48 with drift melting on his felt boots and trouser cuffs and his hands red, and lay down without a word (he saw it).",
+"At 00:40 he found Marchant face down in the drift tail on the north side, ten metres from the annex wall, right hand bare, hood packed with drift, axe beside him; the bar was stowed and the outer door opened freely when they carried him in (he saw it)."
+],
+"doesNotKnow":[
+"That the door was barred, or by whom.",
+"What Fenwick wrote in his record book, or that Marchant's telex concerns him.",
+"What Fenwick was doing between 23:33 and 23:48.",
+"That anyone heard thumps at the porch."
+],
+"secret":"His small embarrassment: he helped Fenwick tip the smashed core and kept quiet, and said what he said at dinner; he fears Teague will blame him for both and for the line.",
+"lies":[],
+"honestMistake":null,
+"tells":[
+"Stammers on the first word when angry.",
+"Looks at the floor and rubs the rope scars on his palm."
+],
+"pressure":{"baseline":30,"breakPoint":58,"lawyerPoint":80,"style":"lawyer"},
+"opening":"If this is about what I said at dinner, I'll want Graham in here. I found him. I'll tell you what I saw and nowt else."
+}
+]
+}

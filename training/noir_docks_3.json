@@ -1,0 +1,239 @@
+{
+ "settingId": "noir_docks",
+ "truth": {
+  "title": "I Know You, Mister",
+  "house": "Benton Terminal Company, Berth 93 on the Outer Harbor at San Pedro: a transit shed with a two-room wooden shipping office at its shore end, Gate 5 and Pop Mireles's shack off 22nd Street, and three blocks up the hill the Night Owl Cafe, which never closes and lets rooms above.",
+  "victim": {"name": "Frank Oberle", "age": 51, "role": "night checker at Benton Terminal, three weeks on the job, lodger above the Night Owl", "sketch": "A lean, grey, close-mouthed man who kept a 1934 longshore button in his pocket, not on his cap, drank rye steadily and said little. His younger brother Eddie died under a strikebreaker's truck on the San Francisco Embarcadero in July 1934, and Frank had been looking for the driver ever since."},
+  "night": {"start": "21:00", "end": "04:00", "discovered": "02:12", "discoveredBy": "Carl Sievert", "where": "the back room of the Benton shipping office, Berth 93"},
+  "weather": "Tuesday 11 February 1947: light rain from dusk until about eleven, then a thick wet fog settling on the Outer Harbor; 48 degrees, no wind, every window on the pier shut.",
+  "publicFacts": [
+   "Frank Oberle, night checker at Benton Terminal, Berth 93, was found dead at his desk in the back room of the shipping office at about a quarter past two by Carl Sievert, the night superintendent, with the room full of fumes from the gas heater.",
+   "Sievert telephoned Harbor Division from the office at 02:18; a radio car came through Gate 5 at 02:27 and the coroner's wagon at 03:40.",
+   "A Local 13 night gang was working cased goods out of the SS Cape Alava at Berth 93 under floodlights from seven in the evening, and the police held them on the pier.",
+   "Light rain fell until about eleven, then wet fog; the Night Owl Cafe on 22nd Street, three blocks up from Gate 5, serves all night, and Frank rented a room above it.",
+   "Pop Mireles keeps the Gate 5 shack and writes every car and every stranger in the gate book, as the company requires.",
+   "Frank Oberle had been at Benton three weeks, hired off the hall board; he came down from San Francisco and kept to himself.",
+   "The word on the pier by morning is that the company's old heater finally killed somebody."
+  ],
+  "suspects": [
+   {"name": "Carl Sievert", "age": 46, "role": "night superintendent at Benton Terminal, the company's man on the pier after dark, twelve years with Benton", "sketch": "A square, greying man in a tan gabardine topcoat and a grey fedora, with a flat Northwestern voice and no wasted movement. There is soot on his right cuff, and he rubs at it.", "part": "killer"},
+   {"name": "Benny Szabo", "age": 27, "role": "runner for Hal Weems the bookmaker, who takes the night gang's horse bets and drinks at the Night Owl", "sketch": "Thin and quick in a sharp, shiny suit and two-tone shoes, nicotine fingers and a comedian's grin that comes and goes. He cannot sit still.", "part": "liar"},
+   {"name": "Lew Hatcher", "age": 38, "role": "winch driver on the Local 13 night gang working the Cape Alava", "sketch": "Big, slow and sunburnt even in February, in a hickory shirt and a white cap stiff with grease, a wad of tobacco in his cheek. He looks at a city policeman the way he looks at a company man.", "part": "mistaken"},
+   {"name": "Nora Pastore", "age": 49, "role": "widow, owner of the Night Owl Cafe and the rooms above it, where Oberle lodged", "sketch": "Handsome and heavy-lidded, hennaed hair and a cardigan over a good black dress, a cigarette burning in an ashtray she never touches. She has been up all night and shows it only in her hands.", "part": "honest"}
+  ],
+  "killer": "Carl Sievert",
+  "accomplice": null,
+  "motive": "In July 1934 Carl Sievert was Arthur Keel, an Oakland strikebreaker who drove a company truck through the picket line at Pier 38 in San Francisco; Frank Oberle's brother Eddie went under the wheels and died, and Keel left the state under a new name. Three weeks ago Frank hired on at Benton, recognised him, sent to San Francisco for the strike committee's photograph, and on Tuesday night told him he would name him at the Local 13 meeting on Monday, which on this waterfront would end Sievert's job, his marriage and very likely his life.",
+  "method": "At 01:02 Sievert climbed the rear loading platform and stuffed a wet dunnage sack into the flue cap of the back-room gas heater, with Frank half drunk and alone inside a shut room on a cold night; the starved burner spilled carbon monoxide into the room for an hour and Frank died slumped over his manifests at about 01:40. At 02:03 Sievert cleared the flue, hid the sack under a pallet, pulled the stovepipe from its wall thimble so the death would read as a slipped joint, and 'found' the body.",
+  "alibiGap": {"from": "00:40", "to": "02:12", "killerClaims": "That he drove up to the Night Owl at about a quarter to one, ate chili and drank coffee at Nora's bar until a little after two, then drove back and found Frank dead in the fumes.", "actually": "He left the Night Owl at 00:40, was logged back through Gate 5 at 00:47, drank with Frank in the back room from 00:50 to 01:00, stuffed the heater flue from the rear platform at 01:02, sat in his dark Hudson until 02:03, cleared the flue, pulled the stovepipe loose to stage an accident and telephoned the police at 02:18."},
+  "timeline": [
+   {"time": "21:00", "place": "Night Owl Cafe, 22nd Street", "present": ["Frank Oberle", "Nora Pastore", "Benny Szabo"], "event": "Frank eats chili and drinks two ryes at Nora's bar while Benny works the room with his slips; at 21:20 Frank tells Nora 'Monday I settle a thirteen-year debt at the hall' and walks down to the pier, and Benny leaves at 21:45 for the Sixth Street pool hall.", "witnesses": ["Nora Pastore", "Benny Szabo"]},
+   {"time": "21:25", "place": "Gate 5 and the shipping office", "present": ["Frank Oberle", "Carl Sievert", "Pop Mireles"], "event": "Pop logs Frank in on foot, Sievert hands him the Cape Alava manifests in the back room, and Frank lights the gas heater and shuts the window against the rain.", "witnesses": ["Pop Mireles", "Carl Sievert"]},
+   {"time": "21:30", "place": "Berth 93, SS Cape Alava and the apron", "present": ["Lew Hatcher", "Sal Mendoza", "Carl Sievert"], "event": "Lew drives the No. 2 hatch winches for the night gang working cased goods under the floodlights, as since seven, while Sievert walks the apron and the shed on his rounds.", "witnesses": ["Sal Mendoza", "Lew Hatcher"]},
+   {"time": "22:40", "place": "shipping office back room", "present": ["Carl Sievert", "Frank Oberle"], "event": "Sievert comes in off the apron and asks Frank for a quiet word later, man to man; Frank, not looking up from the manifests, says 'I know you, mister. Monday I say it at the hall.'", "witnesses": []},
+   {"time": "23:05", "place": "Cape Alava, No. 2 hatch", "present": ["Lew Hatcher", "Sal Mendoza", "Carl Sievert"], "event": "The starboard winch blows a steam-line gasket; Mendoza stands the gang by and sends for the ship's engineer, Sievert comes over from the shed and waits with him, and Lew sits smoking on the hatch coaming.", "witnesses": ["Sal Mendoza", "Lew Hatcher"]},
+   {"time": "23:10", "place": "shipping office front room", "present": ["Frank Oberle"], "event": "Alone, Frank puts through a seven-minute call to Dan Guerin in San Francisco, SUtter 1-4480, and pencils 'Dan G, SU 1-4480. Photo in Tues mail. Hall Mon.' on the desk pad under the telephone.", "witnesses": []},
+   {"time": "23:30", "place": "lunch wagon by the shed", "present": ["Lew Hatcher", "Sal Mendoza", "Carl Sievert"], "event": "With the engineer still at the winch, Mendoza calls the meal half an hour early and the gang eats at the lunch wagon; Lew, who wears no watch on the winch, takes it for the regular midnight break.", "witnesses": ["Sal Mendoza", "Carl Sievert"]},
+   {"time": "00:02", "place": "Gate 5 and the Night Owl", "present": ["Carl Sievert", "Pop Mireles", "Nora Pastore"], "event": "Sievert drives his green Hudson out through Gate 5, logged by Pop at 12:02, and eats chili at Nora's bar from 00:05 until 00:40, when he pushes the bowl away, says 'something I forgot at the office' and drives off as the last red car to Wilmington rattles past.", "witnesses": ["Pop Mireles", "Nora Pastore"]},
+   {"time": "00:05", "place": "Gate 5 and the lunch wagon", "present": ["Benny Szabo", "Pop Mireles", "Lew Hatcher", "Sal Mendoza"], "event": "Benny walks in through Gate 5, logged at 12:05, and takes the gang's Santa Anita slips at the lunch wagon, Lew giving him two dollars on a horse in the fourth.", "witnesses": ["Pop Mireles", "Lew Hatcher", "Sal Mendoza"]},
+   {"time": "00:25", "place": "Cape Alava and the shipping office front room", "present": ["Lew Hatcher", "Sal Mendoza", "Benny Szabo", "Frank Oberle"], "event": "The engineer finishes and the gang goes back on; climbing to the winch platform Lew sees Benny go in at the office door, where Benny pays Frank sixty dollars at the counter for four cases of Canadian that went off Monday's tally, drinks a cup of his coffee and leaves at 00:38, out through Gate 5 at 00:40.", "witnesses": ["Lew Hatcher", "Pop Mireles"]},
+   {"time": "00:47", "place": "Gate 5 and the apron", "present": ["Carl Sievert", "Pop Mireles"], "event": "Sievert's Hudson comes back through Gate 5, logged at 12:47, and parks with its lights off in the dark at the shore end of the shed behind the office; from the winch platform Lew sees the headlights come along the apron and go out.", "witnesses": ["Pop Mireles", "Lew Hatcher"]},
+   {"time": "00:50", "place": "shipping office back room", "present": ["Carl Sievert", "Frank Oberle"], "event": "Sievert sets a pint of Old Overholt on the desk, pours two and asks for a week; Frank drinks his and says 'Monday, Keel,' and Sievert leaves at 01:00 saying good night, his own glass still on the desk.", "witnesses": []},
+   {"time": "01:02", "place": "rear loading platform behind the office", "present": ["Carl Sievert"], "event": "By flashlight Sievert climbs the rear platform, stuffs a wet Benton dunnage sack into the flue cap of the back-room heater and goes to sit smoking in the dark Hudson; Lew, on the winch platform, sees a flashlight move behind the office roofline for a minute or two.", "witnesses": ["Lew Hatcher"]},
+   {"time": "01:05", "place": "payphone booth outside the Night Owl", "present": ["Benny Szabo", "Nora Pastore"], "event": "Benny, who came in at 00:45 for a beer, phones the night's slips from the booth to Hal Weems's office in Wilmington until 01:24, feeding nickels while Nora watches him through the window, then goes back to his stool for the rest of the night.", "witnesses": ["Nora Pastore"]},
+   {"time": "01:40", "place": "shipping office back room", "present": ["Frank Oberle"], "event": "Frank, heavy with rye in the hot shut room, slumps over the manifests and dies of the heater's fumes between about 01:15 and 02:00, nobody near enough to hear the chair creak.", "witnesses": []},
+   {"time": "02:03", "place": "rear platform and the shipping office", "present": ["Carl Sievert"], "event": "Sievert pulls the sack from the flue, a corner tearing off inside the pipe, shoves it under a dunnage pallet by the shed's rear doors, props both office doors, pulls the stovepipe from its wall thimble with bare hands, 'finds' Frank at 02:12 and at 02:18 telephones Harbor Division from the front room.", "witnesses": []},
+   {"time": "02:27", "place": "Gate 5, the apron and the Night Owl", "present": ["Carl Sievert", "Lew Hatcher", "Sal Mendoza", "Pop Mireles", "Benny Szabo", "Nora Pastore"], "event": "A radio car is logged through Gate 5 at 2:27, Mendoza stops the gang and Lew climbs down, Sievert tells the officers he found Frank on coming back from the Night Owl, and at 03:20 a patrolman climbs the hill to look at Frank's room, finding Nora behind the bar and Benny on his stool.", "witnesses": ["Lew Hatcher", "Sal Mendoza", "Pop Mireles", "Nora Pastore", "Benny Szabo"]}
+  ],
+  "evidence": [
+   {"id": "ev1", "name": "Stovepipe and wall thimble", "where": "back room of the shipping office, behind the gas heater", "detail": "The heater's four-inch stovepipe pulled out of its wall thimble and hanging from the heater collar, a bright scrape through the rust on the thimble, and on the wall an unbroken ring of fresh soot where the pipe sat while the heater burned; inside the elbow, charred brown threads of wet sacking.", "proves": "The pipe was seated all night while the heater ran and was pulled loose afterwards, and the flue had been stuffed with sacking and then cleared: an accident somebody arranged.", "atScene": true},
+   {"id": "ev2", "name": "Two glasses and a pint of Old Overholt", "where": "Frank's desk in the back room, beside the manifests", "detail": "A pint of rye three-quarters gone and two tumblers, one dry with Frank's lip marks and one on the far side of the desk with a swallow still in it.", "proves": "Frank had a drinking companion in the back room after he began the shift; the lab can say who.", "atScene": true},
+   {"id": "ev3", "name": "Desk pad note", "where": "under the telephone on the front-room counter", "detail": "Frank's pencilled note on the company desk pad: 'Dan G, SU 1-4480. Photo in Tues mail. Hall Mon.'", "proves": "Frank telephoned San Francisco that night about a photograph and meant to take something to the union hall on Monday.", "atScene": true},
+   {"id": "ev4", "name": "Sooty dunnage sack", "where": "under a dunnage pallet by the shed's rear doors, twenty feet from the office's rear platform", "detail": "A wet burlap sack stencilled BENTON TERMINAL, black with soot inside, one corner torn away, smelling of scorched jute.", "proves": "This is what stopped the flue; the torn corner matches the threads in the pipe, and whoever hid it knew the shed.", "atScene": false},
+   {"id": "ev5", "name": "Clipping and telegram in Frank's room", "where": "dresser drawer in Frank's room above the Night Owl", "detail": "A San Francisco News clipping of 6 July 1934, PICKET DIES UNDER TRUCK AT PIER 38, naming Edward Oberle, 24, and the driver, Arthur Keel, 33, of Oakland, released without charge; and a Western Union telegram delivered Monday: PHOTO IN TUESDAYS MAIL STOP IF IT IS KEEL GO TO THE LOCAL NOT ALONE STOP DAN.", "proves": "Frank believed he had found Arthur Keel, the man who killed his brother in 1934, living under another name on this waterfront, and meant to expose him.", "atScene": false},
+   {"id": "ev6", "name": "Sievert's topcoat", "where": "on Sievert's back, then on the hook in the office when he takes it off", "detail": "A tan gabardine topcoat, right cuff and forearm smeared with soot and flecked with brown jute fibre, a wet patch dried stiff.", "proves": "He handled a wet, sooty sack that night, which a man who only found a body and pulled a pipe would never need to do.", "atScene": false}
+  ],
+  "forensics": {
+   "tod": "Carbon monoxide poisoning: cherry-pink lividity and a blood saturation of 68 per cent, no injury but a bruise on the forehead where it met the desk. Body heat and the onset of rigor at 03:50 put death between 01:15 and 02:00, after at least half an hour unconscious in the fumes.",
+   "prints": "The second glass on the desk carries Carl Sievert's right thumb and forefinger laid over Frank Oberle's, and both men's prints are on the Old Overholt pint. The stovepipe elbow bears only Sievert's prints, pressed into fresh soot; Benny Szabo's prints are on the front counter and the coffee can and nowhere in the back room.",
+   "comms": "Benton's office line, TErminal 2-6190: a seven-minute call at 23:10 to SUtter 1-4480, San Francisco, listed to D. Guerin, and the call to Harbor Division at 02:18, nothing else after 21:00. The payphone outside the Night Owl: one toll call to TErminal 4-2210, Wilmington, from 01:05 to 01:24.",
+   "tox": "Blood alcohol 0.12 per cent, chili and bread in the stomach, no chloral, barbiturate or other drug, and no bullet or blade wound anywhere. The charred fibre inside the flue elbow is wet jute sacking, and the soot and fibre on the right cuff of Sievert's topcoat match it.",
+   "logs": "Pop Mireles's Gate 5 book, collected by the harbour master's night man: Sievert's Hudson out 12:02 and in 12:47; B. Szabo, runner, in on foot 12:05 and out 12:40; nothing else through the gate until the radio car at 2:27, and no vessel moved on the Outer Harbor all night. Sal Mendoza's time sheet for the Cape Alava gang shows the No. 2 winch down from 23:05, the meal taken early from 23:30 to 00:25, and the gang working from 00:25 until the police stopped them."
+  },
+  "redHerring": "Lew Hatcher shoved Frank Oberle in the shed on Tuesday afternoon over a short tally that docked the gang an hour, and the gang says so; but Mendoza's time sheet and the whole gang put Lew on the winch platform under the floodlights from 00:25 until the police came, and the method needed a man free to come and go at the office by car, not a winch driver in plain sight.",
+  "solutionPath": [
+   "Coroner: carbon monoxide, death between 01:15 and 02:00; the stovepipe shows a fresh scrape, an unbroken soot ring on the wall and charred jute inside the elbow, so the flue was stuffed and then cleared, not jarred loose.",
+   "Lew's 'Szabo went into the office at one' is corrected by Mendoza's time sheet (meal 23:30 to 00:25) and the gate book (Szabo out 12:40); the telephone company has Benny on the Night Owl payphone 01:05 to 01:24, which Nora saw. Benny's lie hides the four cases of Canadian, not a murder.",
+   "The gate book has Sievert's Hudson out at 12:02 and back at 12:47, and Nora says he left his chili at 00:40 as the last red car passed and never came back; that breaks 'I was at the Owl until after two'.",
+   "Fingerprints: Sievert's over Frank's on the second glass and the pint, and his alone in the soot on the stovepipe; that breaks 'I was never in the back room before I found him'.",
+   "The sooty Benton sack under the dunnage pallet, its torn corner matching the threads in the pipe, and the soot and jute on Sievert's right cuff put the sack in his hand.",
+   "Motive: the clipping names Arthur Keel, 33, as the driver who killed Eddie Oberle in 1934; Dan Guerin's telegram and the 23:10 call to SUtter 1-4480 show Frank expected a photograph; Nora heard 'there's a man on that pier I buried thirteen years ago' and 'I know you, mister'. Sievert was 33 in 1934 and came to San Pedro from up north in 1935.",
+   "Name Carl Sievert, born Arthur Keel: afraid of being named at the union hall as the scab driver of '34, he stuffed the heater flue and gassed Frank Oberle in the shut back room between 01:02 and 02:03."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Carl Sievert",
+   "part": "killer",
+   "personality": "A quiet, square-built company man who talks in short flat sentences, calls every man by his last name and the detective 'Lieutenant', and has spent twelve years agreeing first and saying nothing second. Pressed, he goes colder and shorter until he stops talking altogether; he never raises his voice.",
+   "voiceSample": "Oberle was a checker, Lieutenant. I've got forty men on that pier; I don't make friends with the checkers.",
+   "relationship": "He saw Frank Oberle as the past come walking through his gate; three weeks of lying awake turned fear into something he could do with his hands.",
+   "movements": [
+    {"from": "21:00", "to": "21:30", "where": "shipping office and apron", "doing": "Handed Frank the Cape Alava manifests at 21:25 and started his rounds.", "seenBy": ["Frank Oberle", "Pop Mireles"]},
+    {"from": "21:30", "to": "22:40", "where": "apron, shed and Cape Alava", "doing": "Walked his rounds, checked the shed doors and watched the gang work No. 2 hatch.", "seenBy": ["Lew Hatcher", "Sal Mendoza"]},
+    {"from": "22:40", "to": "22:50", "where": "shipping office back room", "doing": "Asked Frank for a word later, man to man, and was told 'I know you, mister. Monday I say it at the hall.'", "seenBy": []},
+    {"from": "22:50", "to": "00:02", "where": "apron and No. 2 hatch", "doing": "Stood with Mendoza after the gasket blew at 23:05, waited for the engineer and agreed the early meal.", "seenBy": ["Lew Hatcher", "Sal Mendoza"]},
+    {"from": "00:02", "to": "00:40", "where": "Hudson to the Night Owl, bar stool", "doing": "Ate chili and drank coffee at Nora's bar, then left the bowl half eaten and drove back.", "seenBy": ["Pop Mireles", "Nora Pastore"]},
+    {"from": "00:47", "to": "01:00", "where": "Gate 5, then the office back room", "doing": "Logged in, parked dark behind the shed, poured two ryes with Frank and asked for a week; was refused.", "seenBy": ["Pop Mireles", "Frank Oberle"]},
+    {"from": "01:02", "to": "02:03", "where": "rear platform, then the dark Hudson", "doing": "Stuffed the flue cap with a wet dunnage sack by flashlight, then sat smoking in the car with the lights off.", "seenBy": []},
+    {"from": "02:03", "to": "02:27", "where": "rear platform and the shipping office", "doing": "Pulled and hid the sack, propped the doors, pulled the stovepipe from the thimble, 'found' Frank at 02:12 and telephoned Harbor Division at 02:18.", "seenBy": ["Pop Mireles"]}
+   ],
+   "knows": [
+    "He is Arthur Keel: in July 1934 he drove a company truck through the picket line at Pier 38 in San Francisco, a striker named Eddie Oberle went under the wheels and died, and he was released and left for Oregon under his mother's name (he did it).",
+    "Frank Oberle recognised him the first week, said 'I know you, mister' to his face in the shed on Thursday, and on Tuesday at 22:40 said he would name him at the Local 13 meeting on Monday (he heard it).",
+    "Pop Mireles logs every car through Gate 5; he had hoped the old man dozes after midnight (he knows the gate).",
+    "He was at the Night Owl from about 00:05 to 00:40, left his chili half eaten and told Nora 'something I forgot at the office' (he did it).",
+    "He poured two glasses of Old Overholt in the back room at 00:50 and left his own glass on the desk with a swallow in it (he did it).",
+    "At 01:02 he stuffed the heater's flue cap from the rear platform with a wet Benton dunnage sack; at 02:03 he pulled it out, a corner tearing off inside, and shoved the sack under a dunnage pallet by the shed's rear doors (he did it).",
+    "At about 02:08 he pulled the stovepipe out of the wall thimble with bare, sooty hands so the death would read as a bad pipe joint (he did it).",
+    "The gang took the meal early, at 23:30, because of the blown gasket, and Benny Szabo was on the pier at the break taking slips (he saw it).",
+    "His topcoat's right cuff is sooty and wet and he has had no chance to brush it (he knows it)."
+   ],
+   "doesNotKnow": [
+    "That Frank telephoned Dan Guerin in San Francisco at 23:10 from the office line, or wrote the number on the desk pad.",
+    "That Frank kept the 1934 clipping and Guerin's telegram in his room over the Night Owl.",
+    "That Lew Hatcher, from the winch platform, saw his headlights on the apron at 00:47 and a flashlight behind the office at 01:02.",
+    "That Nora Pastore fixed the time he left the Night Owl by the last red car.",
+    "That Benny Szabo and Frank were dealing in short-counted cases."
+   ],
+   "secret": "He is Arthur Keel, the scab driver of 1934 who killed Eddie Oberle, and he gassed Frank Oberle to keep the waterfront from learning it.",
+   "lies": [
+    {"claim": "I drove up to the Owl about a quarter to one, had chili and coffee at Nora's bar, and drove back a little after two. That's when I found him.", "truth": "He was at the Owl from 00:05 to 00:40 and was logged back through Gate 5 at 00:47.", "when": "Asked where he was after midnight or how he came to find the body.", "crack": "The Gate 5 book showing his Hudson out at 12:02 and in at 12:47, or Nora's statement that he left at 00:40 as the last red car passed and never came back."},
+    {"claim": "I hadn't been in that back room since I gave him the manifests at half past nine. Those two glasses? Frank had company earlier. Ask the runner, Szabo.", "truth": "He drank with Frank from 00:50 to 01:00 and left his own glass on the desk.", "when": "Asked when he last saw Frank alive, or about the glasses and the pint.", "crack": "The fingerprint report: his prints over Frank's on the second glass and on the pint."},
+    {"claim": "The stovepipe was hanging off the wall when I opened the door. That joint's been working loose for a year; I've told the office twice.", "truth": "He pulled it out himself at about 02:08 after clearing a flue he had stuffed.", "when": "Asked about the heater, the pipe or how the fumes got into the room.", "crack": "The bright scrape and unbroken soot ring on the wall with the charred jute in the elbow, or the sooty sack under the pallet and the soot on his cuff."},
+    {"claim": "Oberle? Hired him off the hall board three weeks ago. Quiet old guy, decent checker. We never exchanged ten words.", "truth": "Frank had recognised him as Arthur Keel and promised to name him at the hall on Monday.", "when": "Asked how he knew Frank, about San Francisco, 1934, or the name Keel.", "crack": "The clipping and telegram from Frank's room together with Nora's account of 'I know you, mister', or the 23:10 call to SUtter 1-4480 on the desk pad."}
+   ],
+   "honestMistake": null,
+   "tells": ["Rubs his right cuff with his left thumb.", "Says 'Lieutenant' and pauses before anything untrue."],
+   "pressure": {"baseline": 20, "breakPoint": 75, "lawyerPoint": 92, "style": "shutdown"},
+   "opening": "Lieutenant. I've got a ship working and a dead man in my office, so tell me what you need and I'll get it for you."
+  },
+  {
+   "name": "Benny Szabo",
+   "part": "liar",
+   "personality": "Fast-talking, nervy and funny, a Wilmington baker's kid who has run slips since he was fifteen and thinks every cop is working an angle. He jokes when he is scared, starts every sentence with 'look' or 'listen', and when cornered asks for Hal Weems's lawyer.",
+   "voiceSample": "Listen, I take two-dollar bets off longshoremen, I don't go in offices. Offices got clerks, clerks got pencils, pencils write down names.",
+   "relationship": "He liked Frank well enough as a customer and a partner in a small sideline: a dour old bird who paid on time and asked no questions.",
+   "movements": [
+    {"from": "21:00", "to": "21:45", "where": "Night Owl Cafe", "doing": "Worked the bar with his slips and saw Frank eat and leave at 21:20.", "seenBy": ["Nora Pastore", "Frank Oberle"]},
+    {"from": "21:45", "to": "23:50", "where": "Sixth Street pool hall", "doing": "Collected the day's losers and shot eight-ball.", "seenBy": ["pool-hall regulars"]},
+    {"from": "23:50", "to": "00:05", "where": "22nd Street down to Gate 5", "doing": "Walked down the hill and was logged in by Pop at 00:05.", "seenBy": ["Pop Mireles"]},
+    {"from": "00:05", "to": "00:25", "where": "lunch wagon by the shed", "doing": "Took the gang's Santa Anita slips, including Lew's two dollars.", "seenBy": ["Lew Hatcher", "Sal Mendoza"]},
+    {"from": "00:25", "to": "00:38", "where": "shipping office front room", "doing": "Paid Frank sixty dollars at the counter for four cases of Canadian off Monday's tally and drank a cup of his coffee.", "seenBy": ["Frank Oberle", "Lew Hatcher"]},
+    {"from": "00:38", "to": "00:45", "where": "Gate 5 and up the hill", "doing": "Logged out at 00:40 and walked up to the Night Owl.", "seenBy": ["Pop Mireles"]},
+    {"from": "00:45", "to": "01:24", "where": "Night Owl bar and the payphone booth outside", "doing": "Had a beer, then phoned the slips to Weems's office in Wilmington from 01:05 to 01:24.", "seenBy": ["Nora Pastore"]},
+    {"from": "01:24", "to": "04:00", "where": "Night Owl bar", "doing": "Drank beer and fed the jukebox; was on his stool when the patrolman came at 03:20.", "seenBy": ["Nora Pastore"]}
+   ],
+   "knows": [
+    "Frank short-counted cases for him: four cases of Canadian off Monday's Cape Alava tally went to a trucker friend, and he paid Frank sixty dollars for them at the counter at about half past twelve (he did it).",
+    "Frank told him at the counter he had 'a thing to settle Monday at the hall' and asked him where Local 13 holds its meeting (he heard it).",
+    "The gang was eating at the lunch wagon when he came in at five past midnight, earlier than their usual break; Mendoza was griping about a blown winch gasket (he saw and heard it).",
+    "Sievert's Hudson was not in its place beside the office when he came through at 00:05 nor when he left at 00:40 (he noticed).",
+    "Frank was alone, alive and steady enough at 00:38, with the heater roaring and the back-room window shut (he saw it).",
+    "Pop Mireles wrote him in and out of the gate book as always (he saw Pop write).",
+    "He phoned the sheet to Weems's Wilmington number from the Night Owl booth from about five past one until nearly half past (he did it).",
+    "Sievert was not in the Night Owl when he got there at 00:45 and did not come in the rest of the night (he saw it).",
+    "Frank drank rye but kept no bottle in the office, so far as he ever saw in three weeks of visits (he saw it)."
+   ],
+   "doesNotKnow": [
+    "Who killed Frank, or how the fumes got into the room.",
+    "Anything that happened on the pier after 00:40.",
+    "Why Frank wanted the hall meeting, or anything about San Francisco, 1934 or a man named Keel.",
+    "That Lew Hatcher saw him go into the office."
+   ],
+   "secret": "He and Frank were skimming cased liquor off the Benton tallies for a trucker; it would cost him his job with Weems and a pilferage charge.",
+   "lies": [
+    {"claim": "Look, I never set foot on Berth 93 last night. Company don't want runners on the pier; I take the gang's action at the Owl.", "truth": "He was logged through Gate 5 at 00:05 and out at 00:40, took slips at the lunch wagon and was in the office with Frank from 00:25 to 00:38.", "when": "Asked where he was around midnight or whether he saw Frank that night.", "crack": "The Gate 5 book, Lew Hatcher's sighting of him going into the office, or his prints on the counter and the coffee can."},
+    {"claim": "Frank Oberle? Knew him to nod at. He didn't bet.", "truth": "Frank was his partner in short-counting cases and he paid him sixty dollars that night.", "when": "Asked how he knew Frank or what business he had with him.", "crack": "Being placed in the office by the gate book or his prints, together with the four-case shortage on Monday's Cape Alava tally."}
+   ],
+   "honestMistake": null,
+   "tells": ["Laughs before he answers.", "Jiggles his knee and glances at the door."],
+   "pressure": {"baseline": 30, "breakPoint": 58, "lawyerPoint": 84, "style": "lawyer"},
+   "opening": "Listen, I was drinking beer at the Owl, Nora'll tell you, so whatever this is, it ain't me. Can I smoke?"
+  },
+  {
+   "name": "Lew Hatcher",
+   "part": "mistaken",
+   "personality": "Big-shouldered, slow-spoken Oklahoma man who came west in '36 and found the union; he is sure of what he saw, says it twice, and treats a city cop like a company man until shown otherwise. He gets loud and jabs the table when his word is doubted.",
+   "voiceSample": "I seen what I seen, mister. That runner went in that office at one o'clock, right when we went back on, and you can write that down.",
+   "relationship": "He thought Oberle was a company stiff who cost the gang an hour's pay with a short tally on Tuesday afternoon, and shoved him for it; he is sorry the old man is dead and would not say so to a cop.",
+   "movements": [
+    {"from": "21:00", "to": "23:05", "where": "No. 2 hatch winch platform, Cape Alava", "doing": "Drove the winches for the gang working cased goods.", "seenBy": ["Sal Mendoza", "Carl Sievert"]},
+    {"from": "23:05", "to": "23:30", "where": "hatch coaming", "doing": "Sat smoking while the ship's engineer worked on the blown steam line.", "seenBy": ["Sal Mendoza", "Carl Sievert"]},
+    {"from": "23:30", "to": "00:25", "where": "lunch wagon by the shed", "doing": "Ate with the gang at what he took for the midnight meal and gave Benny two dollars on a horse.", "seenBy": ["Sal Mendoza", "Benny Szabo", "Carl Sievert"]},
+    {"from": "00:25", "to": "02:27", "where": "winch platform", "doing": "Drove the winches; saw Benny go into the office as he climbed up, headlights on the apron a while later, a flashlight behind the office later still.", "seenBy": ["Sal Mendoza"]},
+    {"from": "02:27", "to": "04:00", "where": "apron", "doing": "Stopped work when the radio car came and stood with the gang.", "seenBy": ["Sal Mendoza", "Carl Sievert"]}
+   ],
+   "knows": [
+    "He drove the No. 2 hatch winches from seven until the starboard steam line blew a gasket, and Mendoza stood the gang by for the ship's engineer (he did it).",
+    "The gang ate at the lunch wagon and went back on when the engineer finished; he wears no watch on the winch and took it for the regular midnight meal (he believes it).",
+    "As he climbed back to the winch platform he saw Benny Szabo walk in at the shipping office front door; he had given Benny two dollars on a horse in the fourth at the lunch wagon (he saw and did it).",
+    "Twenty minutes or so after going back on, headlights came along the apron from the gate and went dark behind the shed by the office, where nobody parks (he saw it).",
+    "Fifteen minutes or so after that, a flashlight moved behind the office roofline, where the rear platform is, for a minute or two (he saw it).",
+    "Sievert walked the apron and watched the hatch all evening and stood with Mendoza when the gasket blew; he did not see Sievert on the apron between the meal and the police (he saw and did not see).",
+    "He shoved Frank Oberle in the shed on Tuesday afternoon over a short tally that docked the gang an hour, and the gang saw it (he did it).",
+    "Pop Mireles logs every car and every stranger, which the gang grumbles about (he knows the pier).",
+    "The office back-room window was lit and shut all night from where he sat (he saw it)."
+   ],
+   "doesNotKnow": [
+    "Who killed Frank, or how.",
+    "That the meal was called at 23:30, not midnight, or the true clock time of anything after the gasket blew.",
+    "Who was in the car or behind the office.",
+    "That Benny was out through the gate at 00:40, or what he and Frank did in the office."
+   ],
+   "secret": null,
+   "lies": [],
+   "honestMistake": {"claim": "Szabo went into that office at one in the morning, right when we went back on after the midnight meal; the car came along twenty past, and the flashlight was half past one, quarter to two.", "truth": "The meal was called early, 23:30 to 00:25, so Benny went in at 00:25 and was off the pier by 00:40; the headlights were Sievert's Hudson at 00:47 and the flashlight was at about 01:02.", "why": "He keeps no watch on the winch, took the forced early break for the usual midnight meal, and counted everything from it."},
+   "tells": ["Jabs the table with two fingers.", "Says 'mister' colder each time."],
+   "pressure": {"baseline": 25, "breakPoint": 65, "lawyerPoint": 88, "style": "anger"},
+   "opening": "You're the city cop. I'll say it once: the gang was working, I was on the winch, and I don't know nothing about company heaters."
+  },
+  {
+   "name": "Nora Pastore",
+   "part": "honest",
+   "personality": "Tired, dry and kind under the lacquer, a tuna fisherman's widow who has run the Night Owl eighteen years and heard every lie on the waterfront; she calls men 'hon' and the law 'officer', keeps her hours by the red cars and the radio, and tears up only when nobody is looking.",
+   "voiceSample": "Hon, I pour for drunks and cops and company men, and I remember what time every one of them leaves. That's the job.",
+   "relationship": "She was fond of Frank; he was quiet, paid his rent on Friday, fixed her icebox, and in three weeks told her more about himself than most lodgers do in a year.",
+   "movements": [
+    {"from": "21:00", "to": "00:05", "where": "behind the bar", "doing": "Served Frank chili and two ryes until 21:20, Benny worked the room until 21:45, the usual trade after.", "seenBy": ["Frank Oberle", "Benny Szabo"]},
+    {"from": "00:05", "to": "00:40", "where": "behind the bar", "doing": "Served Sievert chili and coffee; he left half of it at 00:40 as the last red car went by.", "seenBy": ["Carl Sievert"]},
+    {"from": "00:40", "to": "01:24", "where": "behind the bar", "doing": "Benny came in at 00:45 and had a beer, then used the booth outside from about 01:05 to 01:24.", "seenBy": ["Benny Szabo"]},
+    {"from": "01:24", "to": "03:20", "where": "behind the bar", "doing": "Slow trade; Benny on his stool and nobody else she knew.", "seenBy": ["Benny Szabo"]},
+    {"from": "03:20", "to": "04:00", "where": "bar and Frank's room upstairs", "doing": "Let a patrolman into Frank's room, then sat down in the kitchen and cried.", "seenBy": ["Benny Szabo"]}
+   ],
+   "knows": [
+    "Frank told her on Thursday night, over a rye, 'There's a man on that pier I buried thirteen years ago in Frisco,' and that he had said to the man's face, 'I know you, mister' (she heard it).",
+    "On Tuesday at 21:20 Frank said 'Monday I settle a thirteen-year debt at the hall' and went down to work (she heard it).",
+    "Frank mailed a letter to San Francisco from her counter on Friday and got a Western Union telegram on Monday that he read twice and put in his wallet; there was an old newspaper cutting on his dresser when she changed the sheets (she saw it).",
+    "Carl Sievert came in about five past midnight, as most nights, had chili and coffee, pushed the bowl away at 00:40, said 'something I forgot at the office' and drove off as the last red car to Wilmington rattled past, which it does at 00:42 every night (she saw it).",
+    "Sievert did not come back to the Night Owl that night; she was behind the bar until the patrolman came (she saw it).",
+    "Benny Szabo came in at about a quarter to one, had a beer, and spent twenty minutes in the booth outside from about five past one, feeding nickels (she watched him through the window).",
+    "Benny was in the Night Owl from nine until a quarter to ten and from a quarter to one on, but she cannot say where he was between (she saw it).",
+    "Frank drank only at her bar and never kept a bottle in his room (she knew him).",
+    "Frank once said of the night super, 'came down from Oregon in '35, he says,' with a look she did not understand at the time (she heard it)."
+   ],
+   "doesNotKnow": [
+    "Who killed Frank, or how.",
+    "What happened on the pier after Frank went down at 21:20.",
+    "What was in Frank's letter or telegram, or the name Keel.",
+    "Where Benny was between 21:45 and 00:45."
+   ],
+   "secret": "Her small embarrassment: she lets Benny run slips from her bar and takes five dollars a week for it.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": ["Wipes the same spot on the bar.", "Looks at the clock over the register before she answers about times."],
+   "pressure": {"baseline": 15, "breakPoint": 70, "lawyerPoint": 90, "style": "tears"},
+   "opening": "Sit down, officer, I'll pour you a coffee. He was a nice man, Frank. Ask what you want to ask and let me get back to it."
+  }
+ ]
+}

@@ -1,0 +1,231 @@
+{
+ "settingId": "antarctic",
+ "truth": {
+  "title": "The Absent Observer",
+  "house": "Tern, a British Antarctic Survey wintering base on the Lydon Ice Shelf: one long hut of bunk rooms, lounge, galley, surgery, radio room, met office and lab behind a cold porch, with the generator shed forty metres east and the balloon shed sixty metres west along handlines.",
+  "victim": {"name": "Trevor Hallam", "age": 44, "role": "atmospheric physicist running the Dobson ozone programme, senior scientist on base", "sketch": "A lean, exact man in half-moon spectacles and a Shetland jersey, who kept the Dobson readings in a hand like print and said 'it's the record' the way other men say amen. Three winters south, respected by everyone and liked by nobody much, he had never missed a reading."},
+  "night": {"start": "17:00", "end": "01:00", "discovered": "23:52", "discoveredBy": "Gethin Probert", "where": "the lab"},
+  "weather": "Thursday 14 July 1983: full dark, minus 31, a 40-knot south-easterly with heavy drift and visibility of ten metres on the handlines.",
+  "publicFacts": [
+   "Dr Trevor Hallam was found dead on the lab floor at 23:52 by Gethin Probert, face down between his bench and the Dobson hatch ladder with a retort stand beside him.",
+   "The wintering crew of nine: Howard Keble (Base Commander), Dr Martin Suttle (medical officer), Trevor Hallam (atmospheric physicist), Ray Coyle (diesel mechanic), Gethin Probert (radio operator), Simon Yeardley (met observer), Nick Stobart (general assistant), Les Dakin (cook) and Phil Crane (electrician).",
+   "Dr Suttle pronounced Hallam dead at 00:05 and told Keble the two head wounds were not a fall; Keble raised Rothera and Cambridge at 00:22 and the Director deputised Keble's deputy to investigate before the 08:00 sked. There is no aircraft until October.",
+   "A 40-knot south-easterly blew drift all evening at minus 31; nobody goes outside except along the handlines and everyone signs the porch log.",
+   "Dinner was at 18:30 and uckers in the lounge from 21:30; Hallam went to the lab after dinner as most nights, and Yeardley's 23:00 radiosonde ascent went up on time.",
+   "Everyone on base knew Hallam had had words with Yeardley in the met office that afternoon about his night observations.",
+   "Keble has sealed the lab; the crew were mustered in the lounge at 00:35 and nobody goes outside until morning."
+  ],
+  "suspects": [
+   {"name": "Ray Coyle", "age": 52, "role": "diesel mechanic, his fourth winter south, who keeps the base's two Listers running and has taken the met observer under his wing", "sketch": "A thickset Wallsend man with cropped grey hair, fitter's hands black to the wrist and a roll-up behind one ear. He answers slowly, looks you in the eye, and calls everyone under forty 'son'.", "part": "killer"},
+   {"name": "Gethin Probert", "age": 29, "role": "radio operator from Aberystwyth, who keeps the daily sked with Cambridge and punches every telex that leaves the base", "sketch": "Slight and pale with a chess player's stillness, a Welsh lilt and a pencil always in his hand. He gives exact times and frequencies and goes quiet rather than argue.", "part": "liar"},
+   {"name": "Nick Stobart", "age": 27, "role": "general assistant, a Keswick climber who runs the field equipment and is the base's photographer", "sketch": "Broad, still windburnt from the midwinter trip, with a chipped incisor and fixer stains on his fingers. He is cheerful, certain of what he saw, and gets prickly if you doubt him.", "part": "mistaken"},
+   {"name": "Simon Yeardley", "age": 24, "role": "met observer, a Met Office assistant on loan to the Survey for his first winter, from South Shields", "sketch": "Thin, hollow-eyed and polite, with bitten nails and a Met Office jersey a size too big. He apologises before he answers and his hands shake on the tea mug.", "part": "honest"}
+  ],
+  "killer": "Ray Coyle",
+  "accomplice": null,
+  "motive": "Hallam found that Yeardley had entered the 03:00 and 06:00 observations for three nights without going out, and dictated a telex for the morning sked asking that the lad be relieved of duty and the Met Office told, which would have finished him. Coyle, who lost a son of Yeardley's age in 1979 and had found the lad sitting in the cold porch in his socks at four in the morning a week before, went to the lab to beg Hallam to hold it, and when Hallam would not, killed him to stop the sked.",
+  "method": "At 22:46 in the lab, after six minutes of pleading, Coyle took the retort stand from the bench by its rod and struck Hallam twice on the back of the head with its two-kilo iron base as he turned back to his readings. He wiped the rod, laid the stand by the Dobson hatch ladder and tipped the stool over to pass it off as a fall, pocketed Hallam's handwritten draft of the telex, and went back out unsigned to the generator shed to finish the oil change that was his alibi.",
+  "alibiGap": {"from": "22:30", "to": "23:15", "killerClaims": "That he signed out at 22:30 to change the oil on the standby Lister and was in the generator shed until he signed in at 23:15, as the porch log and the generator log both show.", "actually": "He drained the sump at 22:33, walked back in unsigned at 22:38, pleaded with Hallam in the lab from 22:40, struck him at 22:46, staged a fall and left at 22:58, went out again unsigned at 23:02, refilled the sump and signed in at 23:15."},
+  "timeline": [
+   {"time": "17:10", "place": "met office", "present": ["Trevor Hallam", "Simon Yeardley"], "event": "Hallam lays the porch log beside the met register and tells Yeardley that three nights' 03:00 and 06:00 observations were entered without anyone going out and that it goes to Cambridge on the morning sked; Coyle is at his evening check in the generator shed (signed out 17:00 to 17:50), Probert in the radio room, and Stobart, passing the door, hears the last sentence.", "witnesses": ["Simon Yeardley", "Nick Stobart"]},
+   {"time": "18:30", "place": "dining room", "present": ["Trevor Hallam", "Ray Coyle", "Gethin Probert", "Nick Stobart", "Simon Yeardley", "Howard Keble", "Martin Suttle", "Les Dakin", "Phil Crane"], "event": "Dinner for all nine: Hallam talks ozone with Suttle and never looks at Yeardley, who eats nothing beside Coyle; afterwards Hallam goes to the lab as most nights and Keble to his office.", "witnesses": ["Ray Coyle", "Gethin Probert", "Nick Stobart", "Simon Yeardley"]},
+   {"time": "19:20", "place": "radio room", "present": ["Trevor Hallam", "Gethin Probert"], "event": "Hallam dictates a telex to the Director for the 08:00 sked and Probert punches the tape and reads it back: Yeardley's night observations fabricated, relieve him of observing duties, inform the Met Office.", "witnesses": ["Gethin Probert"]},
+   {"time": "20:40", "place": "galley", "present": ["Gethin Probert", "Ray Coyle"], "event": "Making a brew, Probert tells Coyle what is on the tape ('Trevor's sending the lad up the river in the morning, Ray, duties and all'), and Coyle puts his mug down untouched and goes back to the lounge; Yeardley is out at the 21:00 observation from 20:52.", "witnesses": ["Gethin Probert"]},
+   {"time": "21:12", "place": "Yeardley's bunk room", "present": ["Ray Coyle", "Simon Yeardley"], "event": "Coyle follows Yeardley in from the observation (signed out 20:52, in 21:10) and asks him straight; Yeardley admits he filled in the night obs without going out because he could not face the dark, says he would sooner walk out onto the shelf than go home a fraud, and Coyle tells him to leave it with him.", "witnesses": ["Simon Yeardley"]},
+   {"time": "21:30", "place": "lounge", "present": ["Nick Stobart", "Ray Coyle", "Gethin Probert", "Martin Suttle", "Les Dakin", "Phil Crane"], "event": "Uckers, Suttle and Dakin against Crane and Stobart until 22:15, with Coyle watching over his tea and saying nothing and Probert reading until he goes off at 22:12 saying he is turning in; Yeardley is in the met office from 21:40 preparing the sonde, and at 22:15 Stobart goes along to the darkroom, the plywood box partitioned off the end of the lab, and at 22:24 by its timer puts the week's aurora film into the developer.", "witnesses": ["Nick Stobart", "Ray Coyle", "Gethin Probert"]},
+   {"time": "22:28", "place": "cold porch", "present": ["Simon Yeardley", "Ray Coyle"], "event": "Yeardley signs out at 22:28 for the balloon shed and the 23:00 ascent, noticing light under the radio-room door and the red lamp under the darkroom's, and Coyle, kitting up beside him, says he is off to drop the oil on the standby and signs out at 22:30.", "witnesses": ["Simon Yeardley", "Ray Coyle"]},
+   {"time": "22:31", "place": "radio room", "present": ["Gethin Probert"], "event": "Probert, who slipped into the radio room at 22:26, keys the Argentine Base Lasala on 7.080 MHz and works the sked until 22:54; at 22:39, through the door's glass panel, he sees Coyle come in from the porch in boots and boilersuit without stopping at the log and go down the science corridor.", "witnesses": ["Gethin Probert"]},
+   {"time": "22:40", "place": "lab", "present": ["Ray Coyle", "Trevor Hallam"], "event": "Coyle, who pulled the sump plug on the standby at 22:33 and walked back in unsigned at 22:38, asks Hallam to hold the telex and let him sort the lad out himself; Hallam says the record is the record and the boy falsified it, and for six minutes Coyle pleads in a low voice ('give him till October, man') that Stobart hears through the darkroom wall and takes for Yeardley's.", "witnesses": ["Nick Stobart"]},
+   {"time": "22:46", "place": "lab", "present": ["Ray Coyle", "Trevor Hallam"], "event": "As Hallam turns back to the bench, Coyle takes the retort stand by its rod and strikes him twice on the back of the head with the iron base, the thump and the clatter of the stool reaching Stobart, who has film in the fixer and does not come out; Coyle turns Hallam over, leaving sump oil from his hands on the jersey collar and the bench edge, wipes the rod with a lab tissue, lays the stand by the hatch ladder, tips the stool, pockets the tissue and Hallam's handwritten draft, and leaves at 22:58, Stobart hearing the door and boots going up the corridor.", "witnesses": ["Nick Stobart"]},
+   {"time": "22:59", "place": "balloon shed", "present": ["Simon Yeardley"], "event": "Yeardley, who has been filling and holding the balloon since 22:35, launches the ascent into the drift, the sonde signal starting the met-office receiver chart at 22:59, and signs in at 23:06, finding Coyle still out in the log and his windproof off its peg.", "witnesses": []},
+   {"time": "23:02", "place": "generator shed", "present": ["Ray Coyle"], "event": "Coyle, out again unsigned at 23:02, refills the standby's sump, drops the draft telex and the tissue into the waste-oil tray, writes the oil change up as 22:30 to 23:10 and signs in at 23:15; Probert, off the key since 22:54, has been in his bunk room since 22:56.", "witnesses": ["Martin Suttle", "Les Dakin", "Phil Crane"]},
+   {"time": "23:10", "place": "science corridor", "present": ["Nick Stobart"], "event": "Stobart comes out of the darkroom, sees wet boot-prints on the lino from the porch end to the lab door and Yeardley's back at the sonde receiver with his headphones on, and goes to the galley for a brew, where Coyle comes in from the porch at 23:16 to wash, then to the lounge.", "witnesses": ["Ray Coyle"]},
+   {"time": "23:50", "place": "lab", "present": ["Gethin Probert", "Trevor Hallam"], "event": "Sent by Keble with the tape for Hallam to read over before the sked, Probert finds Hallam at 23:52 face down between the bench and the hatch ladder with the retort stand beside him and shouts for Suttle, who pronounces him dead at 00:05 and tells Keble the two wounds are not a fall, Coyle and Stobart waiting in the lounge and Yeardley in the met office.", "witnesses": ["Gethin Probert"]},
+   {"time": "00:35", "place": "lounge", "present": ["Ray Coyle", "Gethin Probert", "Nick Stobart", "Simon Yeardley", "Howard Keble", "Martin Suttle", "Les Dakin", "Phil Crane"], "event": "Keble, who raised Rothera and Cambridge at 00:22 with Probert on the key and was told the Director deputises his deputy to investigate, musters the eight in the lounge, Yeardley coming from the met office with the ascent still running, seals the lab and orders nobody outside until morning.", "witnesses": ["Ray Coyle", "Gethin Probert", "Nick Stobart", "Simon Yeardley"]}
+  ],
+  "evidence": [
+   {"id": "ev1", "name": "Retort stand", "where": "lab floor beside the Dobson hatch ladder", "detail": "A retort stand with a two-kilo cast-iron base, the rod wiped bright and the base's edge carrying blood and two grey hairs; it normally stands at the end of Hallam's bench holding the calibration lamp.", "proves": "The weapon came from the room and was wiped and placed by someone composed enough to tidy, which a fall does not do.", "atScene": true},
+   {"id": "ev2", "name": "Hatch ladder and stool", "where": "the lab, under the Dobson roof hatch", "detail": "The ladder to the roof hatch with both hatch clips still dogged shut from inside and frosted over, and the lab stool on its side a yard from the body.", "proves": "Nobody opened the hatch or went up the ladder that night; the fall was arranged by someone who did not look up.", "atScene": true},
+   {"id": "ev3", "name": "Oil smears", "where": "collar of Hallam's jersey and the painted edge of the lab bench", "detail": "A black thumb-sized smear of oil on the Shetland jersey collar, and a matching smear with ridge marks on the bench edge above the body.", "proves": "Whoever turned Hallam over had fresh oil on his hands; the lab keeps no engine oil, and the assay can say what kind it is.", "atScene": true},
+   {"id": "ev4", "name": "Telex tape", "where": "the outgoing tray in the radio room", "detail": "A punched tape and its typed copy, timed 19:25 for the 08:00 sked, Hallam to the Director: Yeardley's night observations on three dates fabricated, relieve him of observing duties, inform the Met Office.", "proves": "Hallam was about to end the met observer's career in the morning, and the radio operator knew the text from 19:25.", "atScene": false},
+   {"id": "ev5", "name": "Draft telex in the waste-oil tray", "where": "the drain tray under the standby Lister in the generator shed", "detail": "A sheet of Hallam's quarto folded small, soaked in black sump oil but legible, in his hand: the draft of the telex; with it a wad of lab tissue, oily and brown-stained.", "proves": "Whoever took the draft from Hallam's bench put it in the tray during the night's oil change, and only the mechanic worked at that tray.", "atScene": false},
+   {"id": "ev6", "name": "Hallam's pocket diary", "where": "the shelf above Hallam's bunk", "detail": "A Letts diary with Thursday's entry: '2230 - P. on 7 meg again? Tell HK Sat.'", "proves": "Hallam had noticed someone on 7 MHz at 22:30 on other nights and meant to raise it with Keble on Saturday: a second man with reason to fear him.", "atScene": false}
+  ],
+  "forensics": {
+   "tod": "Two blows to the back of the skull from a straight heavy edge about an inch wide, the second struck after he was down; no bruising to the hands, hips or shins such as a fall from the hatch ladder would give. With the lab at 16 degrees, body warmth and rigor beginning in the jaw at 00:45 put death between 22:20 and 23:10.",
+   "prints": "The retort stand's rod has been wiped and carries only smears. On the painted edge of the bench beside the body are a right thumb and two fingers of Ray Coyle laid down in fresh engine oil, and a second oily partial of his is on the lab door's push plate. Simon Yeardley's prints are on the met-office door, the sonde receiver and the balloon-shed winch and nowhere in the lab; Gethin Probert's are on the radio-room key and door and Hallam's watch strap only.",
+   "comms": "Radio log: 19:25, tape punched for the 08:00 sked, Hallam to the Director: 'MET OBSERVER YEARDLEY. SYNOPTIC OBS 0300 AND 0600 ON 12, 13 AND 14 JULY ENTERED BUT PORCH LOG SHOWS NO EXIT. VALUES FABRICATED. REQUEST HE BE RELIEVED OF OBSERVING DUTIES AND MET OFFICE INFORMED. HALLAM.' Nothing further until Keble's call to Rothera at 00:22. The transmitter was found on 7.080 MHz, outside any Survey frequency, with a chess position in Probert's hand on the blotter; at 07:10 Keble raised the Argentine station Lasala on it and their operator, Cabo Oscar Riquelme, confirmed a morse sked with 'Gethin' from 22:31 to 22:54 last night.",
+   "tox": "No drug or poison in Hallam's blood or in the lab's spirit bottle; alcohol equal to one measure of whisky. The black smear on his jersey collar and the one on the bench edge are used diesel-engine sump oil carrying combustion soot, matching the drain tray under the standby Lister and not the clean oil in the shed's drums.",
+   "logs": "Generator log, in Coyle's hand: 'No. 2 standby, 250-hr oil change, 2230-2310, 11 l out, 11 l in.' Porch log after 17:50: Yeardley out 20:52 in 21:10 (obs), out 22:28 in 23:06 (balloon shed); Coyle out 22:30 in 23:15 (gen shed); nobody else. The hut thermograph by the porch door dips at each opening of the outer door: after the pair for the 21:00 obs, a double dip at about 22:29, a single at 22:38, a double at about 23:04 and a single at 23:15: two openings more than the log records. The generator's load trace shows the ragged kilowatt of the HF transmitter keying from 22:31 to 22:54."
+  },
+  "redHerring": "Hallam's diary note '2230 - P. on 7 meg again? Tell HK Sat.' and the transmitter found on 7.080 MHz make Probert look like a second man Hallam was about to report, lying about his bunk twenty yards from the lab. But the load trace shows the transmitter keying from 22:31 to 22:54, Lasala confirms the sked, his prints are nowhere in the lab, and the note was for a word with Keble on Saturday, not a telex.",
+  "solutionPath": [
+   "Station doctor: two blows with a straight edge and no fall injuries, death between 22:20 and 23:10; the hatch clips dogged shut and frosted from inside show the fall was staged.",
+   "Stobart's darkroom account fixes the pleading at 22:40, the blows at about 22:46 and the voice as Tyneside; the porch log and the sonde receiver chart starting at 22:59 put Yeardley at the balloon shed from 22:28 to 23:06, so the voice was the other Tynesider, Coyle.",
+   "Logs report: the thermograph dips at 22:38 and about 23:02 are two door openings the porch log does not show, inside Coyle's claimed 22:30 to 23:15 in the generator shed; Stobart's wet boot-prints to the lab door and, once his sked is out, Probert's sighting of Coyle in the corridor at 22:39 put him inside.",
+   "Fingerprints put Coyle's oily hand on the bench edge beside the body and the lab assay matches the oil on Hallam's collar to the standby's drain tray, breaking 'I've not set foot in that lab since May'.",
+   "Motive: the telex tape, Probert's account of telling Coyle at 20:40, Yeardley's account of 'leave it with me, son' at 21:12 and Hallam's draft in the waste-oil tray show Coyle knew what the morning sked would do to the lad.",
+   "Probert is cleared: the load trace shows the transmitter keying 22:31 to 22:54, Lasala confirms the sked, his prints are nowhere in the lab, and Hallam's diary note was for a word with Keble, not a telex.",
+   "Name Ray Coyle: to stop the telex that would have finished Simon Yeardley, he struck Hallam twice with the lab's retort stand at about 22:46 and dressed it as a fall from the hatch ladder."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Ray Coyle",
+   "part": "killer",
+   "personality": "Gruff, slow-spoken and dry, a Wallsend fitter who did twenty years in Merchant Navy engine rooms and treats a question like a cold engine: he lets it turn over before he answers. Geordie to the bone ('why aye', 'man', 'nowt', 'canny'), he calls the deputy 'son', deflects by talking about the Listers, and when cornered gets loud and angry rather than clever.",
+   "voiceSample": "Why aye, I was in the shed, son. Eleven litres out and eleven in; a Lister's the only thing down here that does what it's told.",
+   "relationship": "He thought Hallam a cold, righteous man who would ruin a lad for a column of figures, and he begged him in all but on his knees; he does not regret it the way he should.",
+   "movements": [
+    {"from": "17:00", "to": "20:40", "where": "generator shed, dining room, lounge", "doing": "Evening check (signed out 17:00 to 17:50), dinner beside Yeardley, then the lounge; at 20:40 in the galley Probert told him what was on the tape.", "seenBy": ["Gethin Probert", "Nick Stobart", "Simon Yeardley"]},
+    {"from": "21:10", "to": "21:25", "where": "Yeardley's bunk room", "doing": "Asked the lad straight, heard it all, and told him to leave it with him.", "seenBy": ["Simon Yeardley"]},
+    {"from": "21:30", "to": "22:28", "where": "lounge", "doing": "Watched the uckers over his tea and said nothing.", "seenBy": ["Nick Stobart", "Gethin Probert", "Martin Suttle"]},
+    {"from": "22:28", "to": "22:38", "where": "cold porch and generator shed", "doing": "Signed out at 22:30 beside Yeardley, pulled the sump plug on the standby at 22:33 and walked back in unsigned at 22:38.", "seenBy": ["Simon Yeardley"]},
+    {"from": "22:38", "to": "23:02", "where": "science corridor and lab", "doing": "Pleaded with Hallam, struck him at 22:46, staged the fall, took the draft, left at 22:58 and kitted up in the porch.", "seenBy": ["Gethin Probert"]},
+    {"from": "23:02", "to": "23:15", "where": "generator shed", "doing": "Refilled the sump, dropped the draft and the tissue in the tray, wrote up the log and signed in at 23:15.", "seenBy": []},
+    {"from": "23:16", "to": "01:00", "where": "galley, then lounge", "doing": "Scrubbed his hands, sat with the uckers players until the shout at 23:52, then the muster.", "seenBy": ["Nick Stobart", "Martin Suttle", "Les Dakin", "Phil Crane"]}
+   ],
+   "knows": [
+    "Probert told him in the galley at 20:40 that Hallam's tape for the morning sked asked for the lad to be relieved and the Met Office told (he heard it).",
+    "Yeardley admitted to him at about 21:12 that he had filled in the night obs without going out, and said he would sooner walk out onto the shelf than go home a fraud (he heard it).",
+    "A week ago at four in the morning he found Yeardley sitting in the cold porch in his socks, and walked him back to his bunk without telling anyone (he did it).",
+    "He signed out at 22:30 next to Yeardley, drained the standby's sump at 22:33, and came back in at 22:38 without signing because he meant to be two minutes (he did it).",
+    "He pleaded with Hallam from 22:40 ('give him till October, man') and at 22:46 took the retort stand by its rod and hit him twice with the base; Hallam never turned round (he did it).",
+    "He turned Hallam over with oily hands, wiped the rod with a lab tissue, laid the stand by the ladder, tipped the stool, and took the handwritten draft because it had the lad's name on it (he did it).",
+    "He went out again unsigned at 23:02, put the draft and the tissue in the drain tray under the standby, wrote the oil change up as 22:30 to 23:10 and signed in at 23:15 (he did it).",
+    "There was light under the radio-room door at 22:30 and morse through its wall as he passed at 22:38, with no sked due (he saw and heard it)."
+   ],
+   "doesNotKnow": [
+    "That Stobart was in the darkroom through the plywood wall and heard the pleading and the blows.",
+    "That Probert saw him come in at 22:39 through the radio-room door's glass.",
+    "That the hut thermograph by the porch door records every opening of the outer door.",
+    "That he left oily prints on the bench edge and oil on Hallam's collar.",
+    "That the hatch clips were dogged shut from inside and give the fall away."
+   ],
+   "secret": "He killed Hallam to stop the telex that would have finished Simon Yeardley, the lad he has been keeping alive through the dark; nobody, least of all Simon, is to know.",
+   "lies": [
+    {"claim": "I signed out at half ten to drop the oil on the standby and I was in the shed till quarter past eleven, son. It's in the porch log and the gen log.", "truth": "He was back inside unsigned from 22:38 to 23:02 and in the lab from 22:40 to 22:58.", "when": "Asked where he was between half past ten and quarter past eleven.", "crack": "The thermograph dips at 22:38 and about 23:02 that the porch log does not show, Stobart's wet boot-prints to the lab door, or Probert's sighting of him in the corridor at 22:39."},
+    {"claim": "I've not set foot in that lab since I fixed the fume-cupboard fan in May.", "truth": "He was in the lab from 22:40 to 22:58 and turned the body over.", "when": "Asked about the lab, or whether he saw Hallam after dinner.", "crack": "The fingerprint report putting his oily prints on the bench edge, or the lab assay matching the oil on Hallam's collar to the standby's drain tray."},
+    {"claim": "Telex? First I knew of any telex was when Gethin came running. I'm the mechanic, man; nobody tells me what goes on the sked.", "truth": "Probert told him at 20:40 and Yeardley confirmed it at 21:12.", "when": "Asked about the telex, Hallam's complaint, or Yeardley's observations.", "crack": "Probert's or Yeardley's account of telling him, or the draft telex found in the drain tray he was working at."},
+    {"claim": "Trevor was up that daft ladder to the hatch every night; he's come off it and cracked his head on the stand. There's your murder.", "truth": "He struck Hallam twice from behind and arranged the stand, stool and ladder afterwards.", "when": "Asked how he thinks Hallam died, or about the scene.", "crack": "The doctor's report of two blows and no fall injuries, or the hatch clips dogged shut and frosted from inside."}
+   ],
+   "honestMistake": null,
+   "tells": ["Rolls a cigarette he does not light.", "Starts talking about the Listers when the question is about the lab."],
+   "pressure": {"baseline": 15, "breakPoint": 72, "lawyerPoint": 90, "style": "anger"},
+   "opening": "Ask away, son, but ask quick; I've a sump in bits and a sked at eight. Bad do, this. Trevor was a cold fish but he didn't deserve the floor."
+  },
+  {
+   "name": "Gethin Probert",
+   "part": "liar",
+   "personality": "Quiet, exact and watchful, a chess player from Aberystwyth who speaks in times and frequencies ('twenty-two fifty-four, on the nose') and answers a question with a question when he does not like it. Welsh-soft, says 'see' and 'fair play', never raises his voice; when trapped he simply stops talking and looks at the table.",
+   "voiceSample": "I log what goes out on the sked, see. What a man does with a paperback in his bunk is nobody's concern, is it?",
+   "relationship": "He respected Hallam's exactness as one careful man respects another, and had dreaded him since finding him in the radio-room doorway one night last week; he is sorry he is dead and ashamed of being relieved.",
+   "movements": [
+    {"from": "17:00", "to": "19:40", "where": "radio room and dining room", "doing": "Coded the afternoon obs, dined, then at 19:20 took Hallam's dictation and punched the tape for the morning sked.", "seenBy": ["Ray Coyle", "Nick Stobart", "Simon Yeardley"]},
+    {"from": "20:35", "to": "22:12", "where": "galley, then lounge", "doing": "Made a brew and told Coyle what was on the tape, then read his paperback through the uckers and said he was turning in.", "seenBy": ["Ray Coyle", "Nick Stobart", "Martin Suttle"]},
+    {"from": "22:12", "to": "22:26", "where": "his bunk room", "doing": "Fetched his chess notebook and waited for the corridor to clear.", "seenBy": []},
+    {"from": "22:26", "to": "22:56", "where": "radio room", "doing": "Keyed Base Lasala on 7.080 from 22:31 to 22:54 and saw Coyle pass at 22:39.", "seenBy": []},
+    {"from": "22:56", "to": "23:48", "where": "his bunk room", "doing": "Lay on his bunk with the notebook until Keble knocked.", "seenBy": []},
+    {"from": "23:50", "to": "01:00", "where": "lab, radio room, lounge", "doing": "Found Hallam, worked the emergency call with Keble, then the muster.", "seenBy": ["Howard Keble", "Martin Suttle", "Ray Coyle"]}
+   ],
+   "knows": [
+    "Hallam dictated the telex at 19:20 and he punched it himself: Yeardley's 03:00 and 06:00 obs on the 12th to 14th fabricated, relieve him of duties, inform the Met Office (he did it).",
+    "He told Coyle what was on the tape in the galley at 20:40, and Coyle put his mug down and went out without a word (he did it).",
+    "From 22:31 to 22:54 he was on the key to Cabo Oscar Riquelme at the Argentine station Lasala on 7.080 MHz, a chess game adjourned at move 31 (he did it).",
+    "At 22:39, through the glass panel of the radio-room door, he saw Coyle come in from the porch in boots and boilersuit, not stop at the log, and go down the science corridor towards the lab (he saw it); he will admit this only once his own sked is out.",
+    "Hallam stood in the radio-room doorway at half past ten the Thursday before, said 'Seven megs, Gethin? Interesting', and walked off (he heard it).",
+    "At 23:52 Hallam was face down between the bench and the ladder, the stand beside him and the stool over; he touched only the wrist (he saw it).",
+    "Nothing went out between the 08:05 sked and the emergency call, and no sked is due at 22:30 (he keeps the schedule)."
+   ],
+   "doesNotKnow": [
+    "Who killed Hallam or how; he saw only a man on the floor.",
+    "What Coyle did in the lab, or what was said there.",
+    "That Stobart was in the darkroom, or what he heard.",
+    "That Hallam wrote a note about '7 meg' in his diary."
+   ],
+   "secret": "Since May he has kept an unlogged nightly morse sked with Cabo Oscar Riquelme, an Argentine conscript at Base Lasala whose brother died on the Belgrano: chess, family news, a little Welsh for a little Spanish. A year after the war, standing orders forbid contact with Argentine stations without the Base Commander's authority, and Keble, late of the Royal Marines, would have his licence and his job.",
+   "lies": [
+    {"claim": "I turned in at ten past ten with a paperback, see, and I didn't stir till Howard knocked at ten to twelve.", "truth": "He was in the radio room from 22:26 to 22:56 on an unauthorised sked, and saw Coyle pass at 22:39.", "when": "Asked where he was after leaving the lounge, or about the murder hour.", "crack": "The transmitter found on 7.080 with the chess position on the blotter, the load trace keying 22:31 to 22:54, Lasala's confirmation, or two witnesses to the radio-room light at half past ten."},
+    {"claim": "The radio-room light? I'll have left it burning after the evening tape. Seven megs is where I find the Beeb for the cricket.", "truth": "He was transmitting to an Argentine station on 7.080 MHz.", "when": "Asked about the light, the dial setting, or 7 MHz.", "crack": "Keble's call to Lasala confirming the sked, or the chess notation on the blotter in his hand."},
+    {"claim": "I saw nobody in the corridor that night; I was asleep, wasn't I?", "truth": "He saw Coyle come in at 22:39 and go towards the lab.", "when": "Asked whether he saw anyone moving about after ten.", "crack": "His first lie cracking, or being shown the thermograph dip at 22:38 and told that Coyle says the radio room was lit."}
+   ],
+   "honestMistake": null,
+   "tells": ["Turns his pencil end over end.", "Answers a question with a question before he goes quiet."],
+   "pressure": {"baseline": 30, "breakPoint": 58, "lawyerPoint": 84, "style": "shutdown"},
+   "opening": "I found him, so I expect you want it from the top. Twenty-three fifty-two by the lab clock, and I touched nothing but his wrist."
+  },
+  {
+   "name": "Nick Stobart",
+   "part": "mistaken",
+   "personality": "Brisk, cheerful and certain, a Keswick climber who has spent ten years trusting his own eyes on wet rock and says so ('I'd not bet my life on it, and I bet my life on things'). He talks fast in Lakeland vowels, laughs at the wrong moments, and if he feels doubted he gets stroppy and wants Howard in the room.",
+   "voiceSample": "It were a Geordie voice, young, saying 'please, man', and there's only one lad on this base talks like that; well, two, but one of them's fifty-odd.",
+   "relationship": "He found Hallam a cold stick but a straight one, who sat up all night with him on the midwinter trip when his tent went; he liked him more than he let on and is angry someone killed him.",
+   "movements": [
+    {"from": "17:00", "to": "22:15", "where": "food store, dining room, lounge", "doing": "Stacked boxes and passed the met office at 17:10, dined, did the washing-up rota, then uckers from 21:30 with Suttle, Dakin and Crane.", "seenBy": ["Simon Yeardley", "Ray Coyle", "Gethin Probert", "Martin Suttle"]},
+    {"from": "22:15", "to": "23:10", "where": "darkroom", "doing": "Developed the aurora film and heard the lab through the plywood.", "seenBy": []},
+    {"from": "23:10", "to": "23:20", "where": "science corridor and galley", "doing": "Saw the boot-prints and Yeardley at the receiver, made a brew, saw Coyle come in and wash.", "seenBy": ["Ray Coyle"]},
+    {"from": "23:20", "to": "01:00", "where": "lounge", "doing": "Sat with the uckers players and Coyle until the shout at 23:52, then the muster.", "seenBy": ["Ray Coyle", "Martin Suttle", "Les Dakin", "Phil Crane"]}
+   ],
+   "knows": [
+    "At 17:10, passing the met office, he heard Hallam tell Yeardley 'it goes to Cambridge on the morning sked' and Yeardley say nothing (he heard it).",
+    "Everyone knew Hallam was on at the lad about his night obs; Coyle has been the lad's shadow all winter and the two of them are the only Tynesiders on base (common knowledge).",
+    "He put the film in the developer at 22:24 by the darkroom timer, and from about 22:40 heard Hallam through the plywood saying 'the record is the record' and 'he falsified it', and a second man, low and Tyneside, saying 'please, man' and 'give him till October' (he heard it).",
+    "At about 22:46 there was a heavy thump and a clatter like the stool going over, then nothing; he had film in the fixer and did not want to walk in on a row (he heard it).",
+    "At 22:58 he heard the lab door and boots, not hut shoes, going away up the corridor (he heard it).",
+    "At 23:10 there were wet boot-prints on the lino from the porch end to the lab door, and Yeardley was at the sonde receiver in the met office with his headphones on and his back to the door (he saw it).",
+    "At about 23:16 Coyle came into the galley from the porch and scrubbed his hands with Swarfega, nothing odd after an oil change (he saw it).",
+    "Filling a sonde balloon takes twenty minutes and cannot be left; he has helped Yeardley do it (he knows the job)."
+   ],
+   "doesNotKnow": [
+    "Who killed Hallam, or that the retort stand was the weapon.",
+    "Where Coyle was between 22:30 and 23:15.",
+    "That Probert was in the radio room.",
+    "What Yeardley told Coyle in the bunk room."
+   ],
+   "secret": null,
+   "lies": [],
+   "honestMistake": {"claim": "The man pleading with Trevor through the wall was Simon Yeardley: a young Geordie voice, 'please, man', and he'd had the rocket from Trevor that afternoon.", "truth": "It was Ray Coyle, the other Tynesider; Yeardley was at the balloon shed from 22:28 to 23:06.", "why": "Plywood, the enlarger fan running, a low pleading voice, and he had heard Hallam threaten Yeardley at 17:10, so he heard what he expected."},
+   "tells": ["Folds his arms and sets his jaw when doubted.", "Says 'I know what I heard' and asks for Howard."],
+   "pressure": {"baseline": 20, "breakPoint": 68, "lawyerPoint": 88, "style": "lawyer"},
+   "opening": "Right, I'll save you time. I was in the darkroom next to the lab and I heard the whole thing through the wall, and I'm not going to enjoy telling you who it was."
+  },
+  {
+   "name": "Simon Yeardley",
+   "part": "honest",
+   "personality": "Quiet, polite and frightened, a South Shields lad in his first winter who apologises before he answers ('sorry, aye') and looks at his hands. He tells the truth even when it damns him, goes vague only about how bad the dark has been, and cries when pushed rather than argue.",
+   "voiceSample": "Sorry, aye, I made them up. I couldn't get out the door, that's all; I sat in the porch and I couldn't.",
+   "relationship": "He was afraid of Hallam and knew he was right; he does not blame him for the telex and cannot understand why anyone would hurt him over it.",
+   "movements": [
+    {"from": "17:00", "to": "20:50", "where": "met office, dining room, lounge", "doing": "Coded the 15:00 obs and had Hallam come in at 17:10 with the porch log, ate nothing at dinner, then sat in the lounge corner with a book he did not read.", "seenBy": ["Nick Stobart", "Ray Coyle", "Gethin Probert"]},
+    {"from": "20:52", "to": "21:10", "where": "screen and mast", "doing": "The 21:00 observation, signed out and in.", "seenBy": ["Ray Coyle"]},
+    {"from": "21:10", "to": "21:25", "where": "his bunk room", "doing": "Coyle asked him straight and he told him everything.", "seenBy": ["Ray Coyle"]},
+    {"from": "21:40", "to": "22:28", "where": "met office", "doing": "Prepared the sonde and the receiver.", "seenBy": []},
+    {"from": "22:28", "to": "23:06", "where": "balloon shed", "doing": "Filled the balloon from 22:35, launched at 22:59, signed in at 23:06.", "seenBy": ["Ray Coyle"]},
+    {"from": "23:06", "to": "00:35", "where": "met office", "doing": "Followed the ascent on the receiver until the muster.", "seenBy": ["Nick Stobart"]}
+   ],
+   "knows": [
+    "He entered the 03:00 and 06:00 obs for the 12th, 13th and 14th from the screen thermograph and the barograph next morning without going out, because he could not make himself open the outer door (he did it).",
+    "Hallam told him at 17:10, with the porch log on the desk, that it goes to Cambridge on the morning sked (he heard it).",
+    "A week ago Coyle found him in the cold porch at four in the morning in his socks and walked him back to his bunk, and has brought him his tea every morning since (he was there).",
+    "At about 21:12 Coyle asked him straight in the bunk room; he told him everything, and Coyle said 'leave it with me, son' (he heard it).",
+    "At 22:28 he signed out beside Coyle, who said he was off to drop the oil on the standby; there was light under the radio-room door though no sked was due, and the red lamp under the darkroom's (he saw it).",
+    "He filled the balloon from 22:35, launched at 22:59, and the receiver chart in the met office starts at 22:59; filling cannot be left (he did it).",
+    "When he signed in at 23:06 Coyle's name was still out in the log and his windproof was off its peg (he saw it).",
+    "The hut thermograph by the porch door, which he keeps for the fuel return, dips every time the outer door opens (he keeps it).",
+    "Dakin the cook told him in May that Coyle's son died on a motorbike at twenty-three, which is why Ray 'fusses' (he was told)."
+   ],
+   "doesNotKnow": [
+    "Who killed Hallam, or how.",
+    "That Coyle came back inside between 22:30 and 23:15.",
+    "What was said in the lab, or that Stobart heard anything.",
+    "That Probert was in the radio room, or who he was talking to."
+   ],
+   "secret": "His shame is the obs: three nights of figures he never went out for, which he admits if asked directly, and the morning Coyle found him in the porch, which he would rather not discuss.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": ["Picks at the skin round his thumbnail.", "Says 'sorry' before every answer when frightened."],
+   "pressure": {"baseline": 35, "breakPoint": 55, "lawyerPoint": 80, "style": "tears"},
+   "opening": "Sorry. You'll want to know about the obs, I expect. I'll tell you; I'm not going to lie about it now."
+  }
+ ]
+}

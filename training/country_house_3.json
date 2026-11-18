@@ -1,0 +1,227 @@
+{
+ "settingId": "country_house",
+ "truth": {
+  "title": "Death on the Cellar Steps",
+  "house": "Brixcombe Court, a cold brick-and-flint Queen Anne house in a fold of the downs, two miles up its own lane from Brixcombe St Peter, Wiltshire; lamps and candles throughout.",
+  "victim": {"name": "Sir Lionel Marwood", "age": 58, "role": "4th baronet, owner of Brixcombe Court and host of the shoot; a magistrate and a famous shot", "sketch": "Big, florid, hearty and sentimental, proudest of his cellar and his pheasants, a man who paid what was proper and never looked back. He told the story of the 1909 accident at his own table as a closed matter, which it was not."},
+  "night": {"start": "19:30", "end": "02:00", "discovered": "23:52", "discoveredBy": "Edwin Pethick", "where": "the foot of the cellar steps"},
+  "weather": "Sleet from four o'clock on Saturday 15 November 1924; the lane to Brixcombe St Peter running chalk.",
+  "publicFacts": [
+   "Sir Lionel Marwood was found dead at the foot of the cellar steps at eight minutes to midnight by Pethick, the butler, face down among broken glass and spilt port, his candle-stick on the steps above him.",
+   "The party for the Saturday shoot: Lady Marwood, Captain Guy Marwood (son and heir), Miss Verity Marwood, Mr and Mrs Stanley Carrow of Coventry, who are buying the Downside farms, and Major and Mrs Rendell; the Vicar, Mr Odgers, dined and bicycled home at a quarter past ten.",
+   "Every night of a party Sir Lionel went down to his cellar at eleven, alone, with his own key and chamber candle, by the fourteen stone steps from the basement cellar passage, where the lamp room opens opposite the cellar door; nobody was to follow him, and at dinner he joked that the worn dark step would have him one day.",
+   "Sleet fell from four o'clock on Saturday 15 November 1924; the lane was running chalk, the motor stood in the coach house, and nobody is known to have left the house after the Vicar.",
+   "Pethick telephoned Dr Lennard at 00:06 and the Warminster police at 00:09 through the Brixcombe exchange; Dr Lennard would not sign it off as a fall, and Scotland Yard was asked for a man at first light."
+  ],
+  "suspects": [
+   {"name": "Delphine Carrow", "age": 25, "role": "wife of Mr Stanley Carrow, the Coventry motor-body manufacturer buying the Downside farms; at Brixcombe for the first time, so far as anyone knows", "sketch": "Tall, still and finished, with dark red hair dressed low and a green frock a shade too good for a Wiltshire November; she speaks slowly and watches the mouth of whoever is speaking.", "part": "killer"},
+   {"name": "Guy Marwood", "age": 31, "role": "Sir Lionel's only son and heir, a captain in the 4th Dragoon Guards at Tidworth", "sketch": "Lean, dark and handsome in a worn way, with a cavalry moustache and a limp from Cambrai; he fills a pipe he does not light and answers a question with a question.", "part": "liar"},
+   {"name": "Edwin Pethick", "age": 61, "role": "butler at Brixcombe since 1911, footman there from 1898", "sketch": "Grey, exact and stooped, in a morning coat older than the Inspector, with a tremor in the left hand that he keeps behind his back. He says 'Sir Lionel is' and corrects himself to 'was'.", "part": "mistaken"},
+   {"name": "Verity Marwood", "age": 17, "role": "Sir Lionel's daughter, home from Malvern for half-term; dined down with the party for the first time last night", "sketch": "A thin, quick girl with bitten nails and her brother's dark eyes, in a jersey over last night's frock; she has been crying and is furious about it. She smells faintly of Gold Flake.", "part": "honest"}
+  ],
+  "killer": "Delphine Carrow",
+  "accomplice": null,
+  "motive": "On 15 November 1909, at the last drive in the Long Plantation, Lionel Marwood fired at a low pheasant and killed Tom Hinde, a fourteen-year-old beater; the inquest cleared the gun and censured the boy's father, the under-keeper Jack Hinde, who was dismissed without a character, drank, and died in Salisbury infirmary in 1913. Tom's sister Dora, ten that day and sent to an aunt in Coventry, remade herself as Delphine, married her employer Stanley Carrow in 1921, steered him into buying the Downside farms so the Marwoods would ask them to the shoot, and when Sir Lionel told the story at his own table as a thing done with, killed him that night, fifteen years to the day.",
+  "method": "At 23:08 on the cellar steps. Having gone down at 22:56 in Captain Marwood's trench coat and cap from the lobby pegs and waited in the dark lime-washed lamp room opposite the cellar door, she followed Sir Lionel down and shoved him between the shoulders on the seventh step; he went headlong onto the flags and broke his neck and skull. By match-light she broke a bottle of the '96 on the fourth step beside his hand so it would read as a slip coming up with the wine, hung the coat back at 23:14 and was in her room by 23:18.",
+  "alibiGap": {"from": "22:50", "to": "23:20", "killerClaims": "That she undressed as soon as the housemaid left her at about ten to eleven, took her aspirin and slept until her husband came up near midnight.", "actually": "She went down at 22:56 in the Captain's coat and cap, waited in the lamp room from 23:00, pushed Sir Lionel down the cellar steps at 23:08, staged the broken bottle, hung the coat up at 23:14 and was back in her room at 23:18."},
+  "timeline": [
+   {"time": "19:30", "place": "bedrooms and dining room", "present": ["Delphine Carrow", "Guy Marwood", "Verity Marwood", "Edwin Pethick"], "event": "The dressing gong; the party dress while Pethick and the footman lay the table, and Lady Marwood tells Verity she may dine down for the first time.", "witnesses": ["Edwin Pethick"]},
+   {"time": "20:00", "place": "dining room", "present": ["Sir Lionel Marwood", "Guy Marwood", "Verity Marwood", "Delphine Carrow", "Edwin Pethick"], "event": "Dinner, Pethick at the sideboard; Sir Lionel says he will go down at eleven 'as usual' for the Cockburn '96 and jokes that the dark step will have him one day.", "witnesses": ["Edwin Pethick"]},
+   {"time": "20:40", "place": "dining room", "present": ["Sir Lionel Marwood", "Guy Marwood", "Verity Marwood", "Delphine Carrow", "Edwin Pethick"], "event": "The Vicar mentions fresh chrysanthemums on 'the Hinde boy's grave' and Sir Lionel tells the 1909 story shortly, as a closed matter ('a low bird, a boy out of his line; I did what was proper by the family'); Mrs Carrow goes white, which Verity sees and Pethick does not.", "witnesses": ["Verity Marwood", "Edwin Pethick"]},
+   {"time": "21:15", "place": "drawing room and dining room", "present": ["Delphine Carrow", "Verity Marwood", "Guy Marwood", "Edwin Pethick"], "event": "The ladies withdraw, Mrs Carrow playing the piano with Verity turning the pages; over the port Guy asks his father for £400 for Pellow, his Salisbury bookmaker, and is refused with 'not another penny while I live', which Pethick, bringing the cigars, hears.", "witnesses": ["Edwin Pethick", "Guy Marwood"]},
+   {"time": "21:50", "place": "drawing room", "present": ["Delphine Carrow", "Verity Marwood", "Guy Marwood"], "event": "The men come through and bridge is made up; Mrs Carrow asks the Vicar what became of the Hinde family, and Verity hears him say the father died in Salisbury infirmary, the mother in 1916, and a little girl went to relations in the Midlands.", "witnesses": ["Verity Marwood", "Guy Marwood"]},
+   {"time": "22:15", "place": "hall, billiard room, study and drawing room", "present": ["Edwin Pethick", "Delphine Carrow", "Guy Marwood", "Verity Marwood"], "event": "Pethick lights the Vicar out; Mr Carrow and Major Rendell go to billiards and Sir Lionel shuts himself in the study with the game book, leaving Lady Marwood, Mrs Carrow, Guy and Verity in the drawing room.", "witnesses": ["Edwin Pethick"]},
+   {"time": "22:35", "place": "drawing room, main stairs and Mrs Carrow's bedroom", "present": ["Delphine Carrow", "Verity Marwood", "Guy Marwood", "Edwin Pethick", "Hetty Voss"], "event": "Mrs Carrow pleads a headache and goes up with Lady Marwood, who sends Verity up too; Guy stays alone in the drawing room with the whisky; at 22:48 Hetty Voss brings Mrs Carrow hot milk and aspirin and finds her still in her green frock and bronze slippers, taking down her hair; Pethick is in his pantry until 22:50, then sends the staff to bed.", "witnesses": ["Guy Marwood", "Verity Marwood", "Hetty Voss"]},
+   {"time": "22:56", "place": "back stairs and gun-room lobby", "present": ["Delphine Carrow"], "event": "Mrs Carrow comes down the back stairs with a candle, takes Captain Marwood's trench coat and tweed cap from the lobby pegs, puts them on, blows out the candle and goes on down to the basement unseen.", "witnesses": []},
+   {"time": "23:00", "place": "basement passage and lamp room", "present": ["Edwin Pethick", "Delphine Carrow"], "event": "Pethick, coming out of the servants' hall, sees fifteen yards off under the passage lamp a figure in the Captain's coat and cap, back turned, go into the cellar passage, and takes it for Captain Guy; Mrs Carrow slips into the lime-washed lamp room opposite the cellar door and waits in the dark.", "witnesses": ["Edwin Pethick"]},
+   {"time": "23:02", "place": "hall, pantry and back landing", "present": ["Guy Marwood", "Sid Mullins", "Verity Marwood"], "event": "Captain Marwood, alone in the hall, books a trunk call to Mayfair 3146; the exchange rings back at 23:04 and he talks to Mrs Lavinia Pryde until 23:13, Sid Mullins the hall boy hearing his voice from the pantry; Verity, hearing the bell, slips out at 23:03 to the back-landing window seat with a novel and a cigarette.", "witnesses": ["Sid Mullins", "Verity Marwood"]},
+   {"time": "23:05", "place": "study, back stairs, cellar passage and billiard room", "present": ["Sir Lionel Marwood", "Delphine Carrow", "Edwin Pethick"], "event": "Sir Lionel leaves the study with his chamber candle, goes down the back stairs and along the cellar passage, unlocks the cellar door with the key on his chain and starts down the fourteen steps; Pethick carries the tray into the billiard room.", "witnesses": ["Stanley Carrow", "Major Rendell"]},
+   {"time": "23:08", "place": "cellar steps and cellar", "present": ["Delphine Carrow", "Sir Lionel Marwood"], "event": "Mrs Carrow comes out of the lamp room, follows him down soft-footed and shoves him between the shoulders on the seventh step; he goes headlong onto the flags and dies within a minute, Sid Mullins in the pantry taking the thump for the garden door in the wind; by match-light she takes a bottle of the '96 from the bin at the stair-foot, breaks it on the fourth step beside his right hand so the port sprays over his back, pockets the spent matches and goes up at 23:12, leaving the cellar door open.", "witnesses": ["Sid Mullins"]},
+   {"time": "23:14", "place": "gun-room lobby, back stairs and first-floor landing", "present": ["Delphine Carrow", "Verity Marwood", "Guy Marwood"], "event": "She hangs the coat and cap back on their peg, goes up the back stairs and at 23:17 crosses the first-floor landing to her room, hair half down, not seeing Verity in the curtained window seat, who smells cold cellar air and wine as she passes; Guy goes up to bed at 23:20 and Verity creeps back to bed at 23:25.", "witnesses": ["Verity Marwood"]},
+   {"time": "23:30", "place": "ground floor and billiard room", "present": ["Edwin Pethick", "Delphine Carrow"], "event": "Pethick makes his lock-up round, sees the Captain's coat and cap on their peg, and sits in his pantry waiting for Sir Lionel's bell; Mr Carrow and Major Rendell finish at billiards at 23:45 and go up, Mr Carrow finding his wife apparently asleep.", "witnesses": ["Stanley Carrow", "Major Rendell"]},
+   {"time": "23:50", "place": "study and cellar", "present": ["Edwin Pethick"], "event": "The bell not having rung, Pethick finds the study empty, goes down to the cellar passage, finds the cellar door open, calls, and at 23:52 goes down with the passage lamp and finds Sir Lionel face down at the foot of the steps among broken glass and port.", "witnesses": []},
+   {"time": "00:00", "place": "hall", "present": ["Edwin Pethick", "Guy Marwood", "Delphine Carrow", "Verity Marwood"], "event": "Pethick wakes Captain Marwood, who says nothing is to be moved, and telephones Dr Lennard at 00:06 and the Warminster police at 00:09; the household gathers in the hall; Dr Lennard arrives at 00:35 and will not call it a fall, and PC Dyer bicycles up at 00:55.", "witnesses": ["Edwin Pethick"]}
+  ],
+  "evidence": [
+   {"id": "ev1", "name": "Broken bottle of the '96 port", "where": "the fourth step from the bottom, beside Sir Lionel's right hand", "detail": "A bottle from the Cockburn '96 bin at the stair-foot, smashed on the step edge, the neck whole and clean; port pooled on the lower steps and sprayed over the back of Sir Lionel's dinner jacket; a clean oblong in the dust of the bin where it was lifted. His candle-stick lies above him on the sixth step.", "proves": "Taken from the bin and broken beside a man already lying there: a man carrying wine up does not get it over his back, and this one, candle in hand, never reached the bins.", "atScene": true},
+   {"id": "ev2", "name": "The lamp room", "where": "the lime-washed closet opposite the cellar door", "detail": "Door ajar; flakes of fresh lime-wash on the floor and a rubbed patch at shoulder height by the door, which Hetty Voss dusted and swept on Friday; over the paraffin, a faint smell of scent.", "proves": "Someone stood waiting in the dark closet opposite the cellar door that night, rubbing lime-wash onto a shoulder; someone who wore scent.", "atScene": true},
+   {"id": "ev3", "name": "Captain Marwood's trench coat and cap", "where": "the gun-room lobby pegs at the foot of the back stairs", "detail": "A Burberry trench coat and tweed cap, hung there since Friday's shoot: lime-wash on the right shoulder and sleeve, port spots on the hem, two spent Bryant & May matches in the right pocket, though the Captain uses a petrol lighter and the footman emptied the pockets on Friday.", "proves": "Worn into the lamp room and the cellar that night by someone who struck matches: the Captain's coat, but not necessarily the Captain.", "atScene": false},
+   {"id": "ev4", "name": "Mrs Carrow's evening slippers", "where": "outside her bedroom door, set aside uncleaned by the hall boy at 06:30", "detail": "Bronze kid slippers with Louis heels, the soles and welts tacky with a dark red deposit in which oak sawdust is caught.", "proves": "Their wearer stood in spilt wine on a sawdusted floor last night; there is no sawdust in the dining room or drawing room.", "atScene": false},
+   {"id": "ev5", "name": "The 1909 game book and a cutting", "where": "the game book on the gun-room shelf; the cutting under the lining of Mrs Carrow's dressing-case", "detail": "The game book for 15 November 1909, in Sir Lionel's young hand: 'Last drive, Long Plantation. Accident to a beater boy (Hinde). My bird', the last two words scored through; the Salisbury Journal's inquest cutting ('under-keeper censured; the deceased leaves a father, mother and a sister, Dora, aged ten') has 'Not forgotten' written across it in violet ink.", "proves": "Sir Lionel killed Tom Hinde fifteen years ago to the day, and Mrs Carrow carried the record of it to Brixcombe.", "atScene": false}
+  ],
+  "forensics": {
+   "tod": "Death between 22:50 and 23:30 from a fractured skull and broken neck, consistent with a headlong fall down the fourteen steps; he lay face down, hands flung forward, so he fell going down, not climbing up with wine. A flat bruise the size of a hand between the shoulder-blades, made in life, is not explained by the fall; blood alcohol consistent with dinner wine and two glasses of port.",
+   "prints": "The candle-stick and cellar key carry Sir Lionel's prints alone and the bottle neck was handled through cloth; the inside of the lamp-room door, dusted by Hetty Voss on Friday, bears a fresh left hand at shoulder height that is Mrs Carrow's. Captain Marwood's prints are on the hall telephone and nowhere in the cellar passage.",
+   "comms": "Brixcombe exchange: at 23:02 a trunk call booked from the Court to Mayfair 3146 (Mrs L. Pryde, Curzon Street), connected 23:04, cleared 23:13, the operator knowing Captain Marwood's voice as the usual Saturday caller to that number. Otherwise only Brixcombe 4 (Dr Lennard) at 00:06 and Warminster 20 (police) at 00:09; nothing between seven and eleven.",
+   "tox": "No poison or drug in Sir Lionel's blood; alcohol consistent with dinner wine and port. The tacky deposit in the welts of Mrs Carrow's bronze kid slippers is port wine with oak sawdust in it, matching the cellar floor; the spots on the hem of the trench coat from the lobby peg are the same wine.",
+   "logs": "Pethick's register: garden and gun-room doors locked at 22:00, fast at 23:30; the pantry's duplicate cellar key never signed out, Sir Lionel's own on his chain. Staff book: Hetty Voss took milk to Mrs Carrow at 22:48 and found her still dressed; Sid Mullins heard Captain Marwood at the hall telephone from about eleven and a heavy thump below at about ten past, and set Mrs Carrow's slippers aside at 06:30, the soles tacky with red stuff and sawdust."
+  },
+  "redHerring": "The dark step. Sir Lionel joked at dinner that the worn eighth step would have him one day, and the body with a smashed bottle beside it made the household, and at first Dr Lennard, take it for the fall he had predicted. The police surgeon dispels it: he fell headlong going down, so he carried no wine; the port is over his back; the bruise between the shoulders is a shove.",
+  "solutionPath": [
+   "Police surgeon: Sir Lionel lay face down, hands flung forward, so he fell descending; the bottle broken on the fourth step and the port over his back mean someone staged a slip 'coming up with the wine', and the bruise between the shoulders is a shove.",
+   "Pethick saw 'the Captain' in trench coat and cap go into the cellar passage at eleven; Guy denies being below stairs or quarrelling over money, yet Pethick heard him refused £400 at the port: the heir looks guilty.",
+   "Telephone exchange log: a trunk call to Mayfair 3146 booked 23:02, connected 23:04, cleared 23:13, the operator knowing Captain Marwood's voice; Sid Mullins heard him; his prints are on the telephone and nowhere in the cellar passage. Guy is cleared, his lie hides an affair, and the coated figure wore his coat.",
+   "The trench coat on the lobby peg carries lime-wash on the right shoulder, port on the hem and two spent matches in the pocket of a man who uses a petrol lighter; the lamp room is lime-washed and smells of scent; fingerprint comparison finds Mrs Carrow's left hand inside its door.",
+   "Verity Marwood saw Mrs Carrow come up the back stairs at 23:17 in her frock with her hair down, smelling of the cellar, and Hetty Voss had left her dressed at 22:48; the analyst finds port and cellar sawdust in her slippers; her 'asleep before eleven' falls.",
+   "Motive: the 1909 game book entry 'Accident to a beater boy (Hinde). My bird'; the Vicar's 'little girl gone to the Midlands' and Mrs Carrow's questions about the family; Pethick's memory of red-haired Dora Hinde; the inquest cutting marked 'Not forgotten' in her dressing-case; her Wiltshire vowels when pressed.",
+   "Name Delphine Carrow, born Dora Hinde: for her brother Tom, shot by Sir Lionel fifteen years to the day, and her father broken by the inquest, she pushed Sir Lionel down his own cellar steps at 23:08 and dressed it as the fall he had joked about."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Delphine Carrow",
+   "part": "killer",
+   "personality": "Cool, deliberate and over-correct, her finishing-school diction learned from elocution lessons rather than a nursery; she favours 'one' and 'I am afraid' and never contracts. Pressed, she grows colder and more precise; cornered, she sends for her husband's solicitor.",
+   "voiceSample": "I had never set eyes on Sir Lionel before Friday, Inspector; one does not forget a man like that, and I should have remembered.",
+   "relationship": "She hated him with a fifteen-year patience, the more for telling her brother's story at his own table as a thing done with.",
+   "movements": [
+    {"from": "19:30", "to": "20:00", "where": "her bedroom, then the drawing room", "doing": "Dressed in the green frock and bronze slippers; sherry.", "seenBy": ["Guy Marwood", "Verity Marwood"]},
+    {"from": "20:00", "to": "21:15", "where": "dining room", "doing": "Dined; heard Sir Lionel announce the cellar at eleven and tell the story of 1909.", "seenBy": ["Guy Marwood", "Verity Marwood", "Edwin Pethick"]},
+    {"from": "21:15", "to": "22:35", "where": "drawing room", "doing": "Played the piano, then asked the Vicar what became of the Hinde family.", "seenBy": ["Verity Marwood", "Guy Marwood"]},
+    {"from": "22:35", "to": "22:56", "where": "her bedroom", "doing": "Went up with a headache; Hetty Voss brought milk and aspirin at 22:48 and found her still dressed.", "seenBy": ["Hetty Voss"]},
+    {"from": "22:56", "to": "23:08", "where": "back stairs, gun-room lobby and lamp room", "doing": "Took the Captain's trench coat and cap from the pegs, went down to the basement and waited in the dark lamp room, shoulder against the lime-washed wall.", "seenBy": ["Edwin Pethick"]},
+    {"from": "23:08", "to": "23:14", "where": "cellar steps and cellar", "doing": "Pushed him on the seventh step, broke a bottle beside his hand by match-light, pocketed the matches, went up.", "seenBy": []},
+    {"from": "23:14", "to": "02:00", "where": "lobby, back stairs, her bedroom, then the hall", "doing": "Hung the coat back, went up at 23:17, undressed and feigned sleep; her husband came up at 23:50 and she went down with him at midnight.", "seenBy": ["Verity Marwood", "Stanley Carrow"]}
+   ],
+   "knows": [
+    "She is Dora Hinde, born 1899 in the under-keeper's cottage here; Mr Lionel shot her brother Tom dead at the last drive on 15 November 1909, and the inquest censured her father, who was dismissed, drank and died in Salisbury infirmary in 1913; the inquest cutting, marked 'Not forgotten', lies under the lining of her dressing-case (she lived it).",
+    "She went to an aunt in Coventry in 1910, became a typist at Carrow's works, took the name Delphine with elocution lessons and married Stanley Carrow in 1921; he believes her a Reading solicitor's daughter (she did it).",
+    "On Friday afternoon she walked alone to Brixcombe churchyard and laid chrysanthemums on Tom's grave (she did it).",
+    "At dinner Sir Lionel said he would go down to the cellar at eleven 'as usual' and had nobody follow him there (she heard it).",
+    "She knows the house's back ways from childhood: the back stairs, the cellar passage the servants called the Dark Walk, the lamp room opposite the cellar door (she remembers it).",
+    "She took the Captain's coat and cap at 22:56, waited in the lamp room from 23:00, pushed Sir Lionel on the seventh step at 23:08, broke a bottle of the '96 beside him so the port sprayed his back, pocketed the two spent matches in the coat, touched the lamp-room door bare-handed and hung the coat back at 23:14 (she did it).",
+    "Hetty Voss saw her still dressed at 22:48; her husband came to bed at about ten to twelve and found her apparently asleep; she met no one on the back stairs either way (she knows it)."
+   ],
+   "doesNotKnow": [
+    "That Pethick saw the coated figure at 23:00 and took it for the Captain.",
+    "That Verity was in the window seat on the back landing at 23:17 and saw her face.",
+    "That Sid Mullins heard the thump, or that the hall boy set her slippers aside.",
+    "That Pethick was footman here in 1909 and remembers the Hinde children; where Captain Marwood was between 22:35 and 23:20."
+   ],
+   "secret": "She is Dora Hinde of the keeper's cottage and killed Sir Lionel for her brother and her father; her husband knows neither.",
+   "lies": [
+    {"claim": "I undressed as soon as the maid had gone, took my aspirin and was asleep before eleven; I knew nothing until my husband came up.", "truth": "She went down the back stairs at 22:56, killed Sir Lionel at 23:08 and was back in her room at 23:18.", "when": "Asked about her movements after she went up.", "crack": "Verity's sighting of her on the back stairs at 23:17 with her hair down, her left hand's prints inside the lamp-room door, or the analyst's port and sawdust on her slippers."},
+    {"claim": "I had never set eyes on Brixcombe or Sir Lionel until Friday. I was brought up at Reading; my father was a solicitor there.", "truth": "She was born Dora Hinde in the keeper's cottage on this estate; Sir Lionel shot her brother in 1909.", "when": "Asked about her background, the Hinde story or her walk to the village.", "crack": "The inquest cutting from her dressing-case, or Pethick's red-haired Dora Hinde set beside the Vicar's 'little girl gone to the Midlands', or her own Wiltshire slip about 'the Dark Walk'."},
+    {"claim": "I did not go near the cellar or the lobby and would not know the Captain's coat from any other; if there is wine on my shoes the footman was clumsy with the port.", "truth": "She wore the coat into the lamp room and the cellar and stood in the spilt '96 at the stair-foot.", "when": "Asked about the coat, the lamp room or her slippers.", "crack": "The analyst's oak sawdust in the wine on her slippers, or Pethick's sighting of the coat while the exchange log puts Captain Marwood at the telephone."}
+   ],
+   "honestMistake": null,
+   "tells": ["Goes very still and watches the Inspector's mouth before answering.", "A Wiltshire vowel slips out when she is angry ('I were', 'that there') and she corrects it a beat late."],
+   "pressure": {"baseline": 15, "breakPoint": 75, "lawyerPoint": 90, "style": "lawyer"},
+   "opening": "Inspector. My husband has asked me to help you in any way I can, and of course I shall; though I am afraid I slept through the whole dreadful thing."
+  },
+  {
+   "name": "Guy Marwood",
+   "part": "liar",
+   "personality": "Clipped cavalry drawl, bored and faintly insolent ('my dear chap', 'rather'), used to being disliked by his seniors and liked by women. He lies with a straight face, loses his temper when the lie is caught, swears at the Inspector and then apologises stiffly.",
+   "voiceSample": "Did I use the telephone? My dear chap, who should I be ringing up at eleven o'clock at night?",
+   "relationship": "He loved his father and was bored by him; the old man paid his debts once, in 1922, and never let him forget it.",
+   "movements": [
+    {"from": "19:30", "to": "20:00", "where": "his bedroom, then the drawing room", "doing": "Dressed; sherry.", "seenBy": ["Delphine Carrow", "Verity Marwood"]},
+    {"from": "20:00", "to": "21:50", "where": "dining room", "doing": "Dined, heard the 1909 story, and over the port asked his father for £400 and was refused.", "seenBy": ["Edwin Pethick", "Delphine Carrow", "Verity Marwood"]},
+    {"from": "21:50", "to": "22:35", "where": "drawing room", "doing": "Smoked and watched the bridge; saw the Vicar off at 22:15 from the door.", "seenBy": ["Delphine Carrow", "Verity Marwood"]},
+    {"from": "22:35", "to": "23:02", "where": "drawing room", "doing": "Sat alone with the whisky waiting for the house to settle.", "seenBy": []},
+    {"from": "23:02", "to": "23:13", "where": "hall telephone", "doing": "Booked a trunk call to Mayfair 3146 and talked to Mrs Pryde with the doors shut.", "seenBy": ["Sid Mullins"]},
+    {"from": "23:13", "to": "23:58", "where": "main stairs and his bedroom", "doing": "Went up at 23:20 and slept until Pethick woke him.", "seenBy": []},
+    {"from": "23:58", "to": "02:00", "where": "cellar passage and hall", "doing": "Saw his father at the stair-foot, ordered nothing moved, sat with the household until the police came.", "seenBy": ["Edwin Pethick", "Delphine Carrow", "Verity Marwood"]}
+   ],
+   "knows": [
+    "At dinner his father said he would go down at eleven as usual and joked about the dark step (he heard it).",
+    "Over the port he asked his father for £400 for Pellow, the Salisbury bookmaker, and was told 'not another penny while I live', with Pethick in the room bringing the cigars (he did it).",
+    "Mrs Carrow went white at dinner when the Hinde story was told; he put it down to the pheasant (he saw it).",
+    "He sat alone in the drawing room from 22:35 to 23:02 and heard nobody on the main stairs or in the hall (he was there).",
+    "He booked the trunk call at 23:02 and spoke to Mrs Lavinia Pryde until 23:13; the hall was empty and the doors shut (he did it).",
+    "His trench coat and cap have hung on the lobby pegs since Friday; he lights his pipe with a wartime petrol lighter and never carries matches, and the footman emptied the pockets on Friday (he knows it).",
+    "At 23:58 he saw his father face down at the stair-foot with port over his back and broken glass on the fourth step, and told Pethick nothing was to be touched (he saw it)."
+   ],
+   "doesNotKnow": [
+    "Who killed his father, or how the fall was arranged.",
+    "That Pethick saw someone in his coat go to the cellar passage at 23:00.",
+    "That Mrs Carrow is Dora Hinde, or that she left her room.",
+    "Anything that happened in the basement between 22:50 and 23:20; that Verity was on the back landing."
+   ],
+   "secret": "He is the lover of Mrs Lavinia Pryde, his colonel's wife, and telephones her from Brixcombe on Saturday nights at eleven when the Colonel is at his club; exposure means resigning his commission and the divorce court.",
+   "lies": [
+    {"claim": "I went up at half past ten, read a bit and slept. I didn't go below stairs and I didn't use the telephone; if the exchange has a call at eleven, Carrow was for ever ringing his works.", "truth": "He sat alone in the drawing room until 23:02, telephoned Mrs Pryde from the hall until 23:13, and went up at 23:20.", "when": "Asked where he was after the party broke up, or about the telephone.", "crack": "The exchange log of the Mayfair call, the operator knowing his voice, Sid Mullins having heard him at the telephone, or his prints on the receiver."},
+    {"claim": "Father and I had no quarrel. We talked shooting over the port and he and Carrow argued farms; there was nothing between him and me.", "truth": "He asked his father for £400 for his bookmaker and was refused with 'not another penny while I live'.", "when": "Asked about the port, money, debts or his father's temper.", "crack": "Pethick's account of what he heard bringing in the cigars, or the bookmaker's name, Pellow, put to him."}
+   ],
+   "honestMistake": null,
+   "tells": ["Fills his pipe and does not light it.", "Answers a question with a question when the answer would be untrue."],
+   "pressure": {"baseline": 25, "breakPoint": 60, "lawyerPoint": 85, "style": "anger"},
+   "opening": "Look, Inspector, I've seen men dead before and I'd rather we got on with it. What do you want to know?"
+  },
+  {
+   "name": "Edwin Pethick",
+   "part": "mistaken",
+   "personality": "Measured, deferential and exact, forty years of 'very good, sir' over flattened Wiltshire; he gives times to the minute and distances in yards. Doubted, he goes quiet and formal and repeats that he has said what he saw.",
+   "voiceSample": "Sir Lionel did not care to be followed into his cellar, sir; it was the one thing in this house he did with his own hands.",
+   "relationship": "Twenty-six years' service and a real, unspoken fondness; a careless man, he thought, and a kind master.",
+   "movements": [
+    {"from": "19:30", "to": "21:50", "where": "dining room", "doing": "Laid the table, served dinner and the port.", "seenBy": ["Delphine Carrow", "Guy Marwood", "Verity Marwood"]},
+    {"from": "21:50", "to": "22:15", "where": "pantry and hall", "doing": "Took coffee through, then lit the Vicar out to his bicycle.", "seenBy": ["Guy Marwood"]},
+    {"from": "22:15", "to": "22:50", "where": "pantry", "doing": "Rang through to Hetty Voss at 22:35 for Mrs Carrow's milk; set the billiard-room tray.", "seenBy": ["Sid Mullins"]},
+    {"from": "22:50", "to": "23:03", "where": "servants' hall, basement passage and kitchen stair", "doing": "Sent the staff to bed and locked the area door; coming out at 23:00 saw a figure in the Captain's coat and cap go into the cellar passage, then went up for the tray.", "seenBy": ["Hetty Voss"]},
+    {"from": "23:03", "to": "23:12", "where": "billiard room", "doing": "Took in the whisky and siphons and marked for Mr Carrow and the Major.", "seenBy": ["Stanley Carrow", "Major Rendell"]},
+    {"from": "23:12", "to": "23:50", "where": "pantry and ground floor", "doing": "Lock-up round at 23:30, the Captain's coat and cap on their peg; then waited for Sir Lionel's bell.", "seenBy": []},
+    {"from": "23:50", "to": "02:00", "where": "study, cellar, hall", "doing": "Found the study empty, found Sir Lionel at 23:52, woke the Captain and telephoned the doctor and the police.", "seenBy": ["Guy Marwood", "Delphine Carrow", "Verity Marwood"]}
+   ],
+   "knows": [
+    "Footman here in 1909, he remembers the last drive of 15 November when Mr Lionel shot the beater boy Tom Hinde, the inquest at the Brixcombe Arms, Jack Hinde turned off without a character, and a red-haired little maid, Dora, at the kitchen door (he lived it).",
+    "Sir Lionel went down to his cellar at eleven every night of a party, alone, with his chamber candle and the key on his chain, and nobody was to follow him; the duplicate key in his pantry was not signed out (he knows it).",
+    "At the port Captain Guy asked Sir Lionel for £400 for his Salisbury bookmaker and was told 'not another penny while I live' (he heard it bringing the cigars).",
+    "At 23:00, coming out of the servants' hall, he saw fifteen yards off under the passage lamp a figure in the Captain's trench coat and tweed cap, back turned, go into the cellar passage (he saw it).",
+    "From 23:03 to 23:12 he was in the billiard room with Mr Carrow and Major Rendell, who were still playing when he left; on his 23:30 round the doors were fast and the Captain's coat and cap hung on their peg (he was there).",
+    "At 23:52 he found Sir Lionel face down at the stair-foot, head toward the cellar, port over his back, the broken bottle on the fourth step from the bottom, the candle-stick on the sixth from the top, the cellar key on his chain (he saw it).",
+    "Mrs Carrow has a look of the Hindes about the eyes, which he had put down to fancy (he noticed it)."
+   ],
+   "doesNotKnow": [
+    "Who pushed Sir Lionel, or that the fall was staged.",
+    "That the figure in the coat was Mrs Carrow.",
+    "That Captain Guy was at the hall telephone from 23:02 to 23:13.",
+    "That Verity was on the back landing after she was sent to bed."
+   ],
+   "secret": null,
+   "lies": [],
+   "honestMistake": {"claim": "It was Captain Guy I saw go along to the cellar passage at eleven, sir, in his trench coat and his cap; I know the Captain's back as well as my own hand.", "truth": "It was Mrs Carrow wearing the Captain's coat and cap from the lobby pegs; the Captain was in the drawing room and then at the hall telephone.", "why": "A back view at fifteen yards under one passage lamp, the Captain's own coat and cap, and Mrs Carrow within two inches of the Captain's height."},
+   "tells": ["Puts his trembling left hand behind his back.", "Says 'Sir Lionel is' and corrects it to 'was'."],
+   "pressure": {"baseline": 20, "breakPoint": 70, "lawyerPoint": 92, "style": "shutdown"},
+   "opening": "Good morning, sir. Six and twenty years I have been in this house, and I never thought to see such a night. Ask what you will, sir."
+  },
+  {
+   "name": "Verity Marwood",
+   "part": "honest",
+   "personality": "Quick, candid and schoolgirl-slangy ('frightfully', 'honestly', 'a swizz'), proud of noticing things and ashamed of crying; she calls her father Daddy and her brother 'Guy, the idiot'. Frightened or scolded she dissolves, then tells the truth.",
+   "voiceSample": "She came up the back stairs at seventeen minutes past, I looked at my watch, and she smelt exactly like the cellar does when Daddy comes up: cold and winey.",
+   "relationship": "She adored her father and fought him about school, Oxford and cigarettes; he called her 'the Terror' and let her dine down last night as a treat.",
+   "movements": [
+    {"from": "19:30", "to": "20:00", "where": "her bedroom", "doing": "Dressed for her first grown-up dinner.", "seenBy": ["Lady Marwood"]},
+    {"from": "20:00", "to": "21:15", "where": "dining room", "doing": "Dined; watched Mrs Carrow go white at the Hinde story.", "seenBy": ["Delphine Carrow", "Guy Marwood", "Edwin Pethick"]},
+    {"from": "21:15", "to": "22:35", "where": "drawing room", "doing": "Turned pages at the piano and sat near Mrs Carrow and the Vicar.", "seenBy": ["Delphine Carrow", "Guy Marwood"]},
+    {"from": "22:35", "to": "23:03", "where": "her bedroom", "doing": "Sent up by Mother; read 'The Green Hat' in bed and listened for the house to settle.", "seenBy": []},
+    {"from": "23:03", "to": "23:25", "where": "back-landing window seat, first floor", "doing": "Sat behind the curtain with her novel and a Gold Flake, candle out; saw Mrs Carrow come up at 23:17.", "seenBy": []},
+    {"from": "23:25", "to": "00:00", "where": "her bedroom", "doing": "Crept back to bed and lay awake until Pethick's voice on the stairs.", "seenBy": []},
+    {"from": "00:00", "to": "02:00", "where": "hall", "doing": "Sat in Mother's wrap with the household.", "seenBy": ["Delphine Carrow", "Guy Marwood", "Edwin Pethick"]}
+   ],
+   "knows": [
+    "At dinner Daddy said he would go down at eleven as usual and made the dark-step joke (she heard it).",
+    "The Vicar mentioned fresh chrysanthemums on the Hinde boy's grave, Daddy told the 1909 story, and Mrs Carrow put down her fork and went as white as the cloth (she saw it).",
+    "In the drawing room Mrs Carrow asked the Vicar what became of the family; he said the father died in Salisbury infirmary, the mother in 1916, and a little girl went to relations in the Midlands (she heard it).",
+    "On Friday afternoon Mrs Carrow walked down the lane to the village alone in the sleet and came back with wet shoes, saying she had looked at the church (she saw it).",
+    "Mother sent her up at 22:35; at about five past eleven by her wrist-watch she heard the hall telephone bell, and at 23:03 she slipped out to the back-landing window seat (she did it).",
+    "At 23:17 Mrs Carrow came up the back stairs from below in her green frock, no coat, hair half down, hurrying to her room, smelling of cold cellar air and wine; she did not see Verity behind the curtain, and nobody else used the back stairs between 23:03 and 23:25 (she saw it).",
+    "Guy lights his pipe with a petrol lighter from the war and never has matches on him; his trench coat and cap have hung on the lobby pegs since Friday (she knows it)."
+   ],
+   "doesNotKnow": [
+    "Who killed her father, or how the fall was arranged.",
+    "That Pethick saw a figure in Guy's coat go to the cellar passage.",
+    "Where Guy was between 22:35 and 23:20, beyond the telephone bell.",
+    "Who Mrs Carrow really is, or what happened in the basement."
+   ],
+   "secret": "Her small shame: she was smoking Gold Flake and reading 'The Green Hat' on the back landing after being sent to bed, which Mother would call a betrayal on such a night.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": ["Bites a thumbnail.", "Says 'honestly' twice when she is embarrassed."],
+   "pressure": {"baseline": 30, "breakPoint": 58, "lawyerPoint": 82, "style": "tears"},
+   "opening": "I suppose you know I'm only seventeen and oughtn't to be smoking. Daddy's dead and everyone's being frightfully kind, which is worse. Ask me things."
+  }
+ ]
+}
