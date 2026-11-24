@@ -150,7 +150,7 @@ label.f{display:block;font-family:var(--font-display);text-transform:uppercase;l
 details summary{cursor:pointer;font-family:var(--font-display);letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:var(--accent)}
 
 .settings-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
-@media (min-width:640px){.settings-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:520px){.settings-grid{grid-template-columns:repeat(2,1fr)}}
 .scard{position:relative;overflow:hidden;text-align:left;background:var(--panel-2);border:1px solid var(--line-2);border-radius:10px;padding:12px 12px 10px;color:var(--fg);display:flex;flex-direction:column;gap:4px;min-height:96px}
 .scard .deco{position:absolute;right:-18px;top:-14px;width:110px;height:110px;opacity:.14;pointer-events:none}
 .scard b{font-family:var(--font-display);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
@@ -195,6 +195,16 @@ mark.mistaken{background:transparent;color:inherit;border-bottom:2px solid var(-
 .career b{display:block;font-family:var(--font-display);font-size:20px;color:var(--accent);font-variant-numeric:tabular-nums}
 .career span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-family:var(--font-display)}
 .stamp.tr{border-color:var(--info);color:var(--info)}
+.intro{max-width:760px;margin:0 auto;padding-block:8px 32px}
+.intro h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.intro ol{margin:0;padding-left:20px;color:var(--fg-2)}
+.intro li{margin:6px 0}
+.intro li b{color:var(--fg)}
+.costs{display:grid;grid-template-columns:1fr auto;gap:0;font-size:15px}
+.costs>div{padding:8px 0;border-top:1px dashed var(--line-2)}
+.costs>div:nth-child(-n+2){border-top:0}
+.costs .c{font-family:var(--font-display);font-variant-numeric:tabular-nums;text-align:right;padding-left:16px;color:var(--accent);white-space:nowrap}
+.costs .k small{display:block;color:var(--muted);font-size:13px}
 /* Generating */
 .gen{max-width:620px;margin:28px auto 0}
 .gen .steps{display:grid;gap:10px;margin-top:16px}
@@ -436,7 +446,24 @@ const SETTINGS = {
     deco: '<svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 78h84M20 78V58h40v20M20 58l20-12h20l0 12M44 78V66h8v12M70 78V20M64 24h12M66 32h8M60 42l10 4"/><path d="M6 90l10-5 10 5 10-5 10 5 10-5 10 5 10-5 10 5 10-5"/><circle cx="18" cy="24" r="5"/><path d="M26 18l6-4M26 30l6 4"/></g></svg>',
   },
 };
-const SETTING_ORDER = ['country_house', 'noir_docks', 'antarctic'];
+SETTINGS.orbital = {
+  id: 'orbital', name: 'Orbital Station', short: 'Orbital', era: 'Kepler Relay, an ore-transfer station in high orbit, 2089',
+  blurb: 'Eleven crew, a ring that never stops turning, and nine days until the next shuttle. A contract surveyor is dead in the cargo spine and every door that opened last shift is in a log somebody could have edited.',
+  designerNotes: 'Station conventions apply: a spinning habitat ring with cabins, galley and medical bay; a zero-gravity cargo spine; a reactor ring; hydroponics; a comms blister with a relay dish; two airlocks with suit lockers. The station computer, called WARDEN, logs door badges, airlock cycles, suit telemetry and power draw, but it does not watch rooms, cabins are private, and anything in maintenance mode goes unlogged until someone restores it. Messages to the company go by relay with a delay and are logged. Plausible methods: a compartment vented or its scrubber sabotaged, a tampered suit seal or air mix, a blow in the cargo spine where mass still hurts, an overdose from the medical dispenser, a cargo clamp released. Tensions: a falsified ore assay, a contract buyout, a safety report somebody buried, smuggling in the cargo manifests, a crew vote, an affair in close quarters. FAIR PLAY FOR THE FUTURE: every piece of technology the solution depends on must be stated in the public facts or the scene evidence; no device may simply reveal the killer; the logs have gaps that matter. The suspects are drawn from the crew; the rest are off-stage and named in the public facts. Times are station time.',
+  detective: 'the station’s security officer, deputised by the orbital authority to investigate before the shuttle docks',
+  speech: 'working crew in 2089: plain, clipped, technical shorthand and company euphemism, dry humour; no invented alien words, no technobabble',
+  forensics: [
+    { id: 'tod', name: 'Medical bay scan: time of death', minutes: 40 },
+    { id: 'prints', name: 'Biometric and trace sweep', minutes: 60 },
+    { id: 'comms', name: 'Comms relay and message log', minutes: 30 },
+    { id: 'tox', name: 'Lab assay: toxicology and air mix', minutes: 90 },
+    { id: 'logs', name: 'WARDEN door, airlock and power logs', minutes: 25 },
+  ],
+  clock: { start: '06:00' }, night: { start: '18:00', end: '02:00' }, questionCost: 5,
+  counsel: { refuse: 'Wants the company advocate', present: 'Advocate on the link', wait: 'Raise the company advocate', minutes: 30, arrive: 'The company advocate comes up on the relay after {t}, on a four-second delay, and listens in.', guarded: 'A company advocate is listening on the relay with a four-second delay. You answer direct factual questions briefly and refuse to speculate; the advocate may cut in with a single line in *asterisks*.', refuseLine: 'will not answer anything more without the company advocate on the link.' },
+  deco: '<svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="50" cy="52" rx="38" ry="14"/><ellipse cx="50" cy="52" rx="26" ry="8"/><path d="M50 14v76M44 20h12M46 84h8M12 52h76M30 43l40 18M70 43L30 61"/><circle cx="50" cy="52" r="5"/><circle cx="84" cy="18" r="4"/><path d="M14 16l2 2M22 26l1 1M78 84l2 2"/></g></svg>',
+};
+const SETTING_ORDER = ['country_house', 'noir_docks', 'antarctic', 'orbital'];
 const PRESETS = {
   inspector: { name: 'Inspector', desc: 'Four suspects, one liar, and an honest witness who is wrong about one thing.', dials: { suspects: 4, liars: 1, accomplice: false, mistaken: true, hours: 6 } },
   chief: { name: 'Chief Inspector', desc: 'Five suspects, two liars, and the killer had help.', dials: { suspects: 5, liars: 2, accomplice: true, mistaken: true, hours: 6 } },
@@ -713,7 +740,7 @@ ANNOTATE the final answer:
 - "hit": true if the question or the evidence presented touched one of this suspect's lies, their secret, or their honest mistake.
 Reply ONLY: {"ok": true, "problems": [], "answer": null, "claims": [{"text": "", "label": "true", "truth": ""}], "pressureDelta": 0, "cracked": [], "hit": false}`;
 }
-const reviewerName = (settingId) => (settingId === 'noir_docks' ? 'a 1947 police captain' : settingId === 'antarctic' ? 'the expedition director, by telex from Cambridge' : 'a 1920s Chief Constable');
+const reviewerName = (settingId) => (settingId === 'noir_docks' ? 'a 1947 police captain' : settingId === 'antarctic' ? 'the expedition director, by telex from Cambridge' : settingId === 'orbital' ? 'the orbital authority\'s duty magistrate, by delayed relay' : 'a 1920s Chief Constable');
 const HINT_MINUTES = 30, HINT_PENALTY = 3;
 function hintPrompt(G) {
   const t = G.truth, st = stOf();
@@ -906,7 +933,7 @@ function normalizeBriefs(raw, truth) {
 }
 
 /* ───────────────────────── state ───────────────────────── */
-const KEY_GAME = 'ir.game.v1', KEY_BOOK = 'ir.casebook.v1', KEY_SET = 'ir.settings.v1';
+const KEY_GAME = 'ir.game.v1', KEY_BOOK = 'ir.casebook.v1', KEY_SET = 'ir.settings.v1', KEY_INTRO = 'ir.intro.v1';
 let G = null;                 // current game
 let S = Object.assign({ tier: 'quick', writer: 'standard', setting: 'country_house', preset: 'inspector', dials: null }, safeGet(KEY_SET, {}));
 let sample = null;            // capability namespace, or null
@@ -1330,6 +1357,7 @@ let lastView = '';
 function render() {
   if (G && G.phase === 'play') { const ta = $('#q'); if (ta) ui.draft.q = ta.value; if ($('#accform')) ui.draft.acc = { killer: $('#acc-killer').value, accomplice: $('#acc-accomplice')?.value || '', motive: $('#acc-motive').value, method: $('#acc-method').value, pinIds: $$('input[name=ev]:checked').map((i) => i.value) }; }
   if (busy?.kind === 'gen' || (!G && ui.genStep && ui.genStep !== 'done')) { app.innerHTML = viewGenerating(); return; }
+  if (!G && ui.intro) { app.innerHTML = viewIntro(); return; }
   if (!G) { app.innerHTML = viewMenu(); return; }
   if (G.phase === 'scoring') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap gen"><div class="eyebrow">Accusation lodged</div><h2 style="margin-top:6px">The Chief Constable is reading your reasoning</h2><div class="steps"><div class="step on"><i class="dot"></i>Comparing the accusation with the sealed truth file<span class="st">about a minute</span></div></div><p class="tip">${esc(pick(TIPS))}</p></div></div>`; return; }
   if (G.phase === 'verdict') { app.innerHTML = header({ title: G.truth.title, tabs: false }) + `<div class="main gutter"><div class="wrap pane">${viewVerdict()}</div></div>`; return; }
@@ -1411,6 +1439,7 @@ function viewMenu() {
             <li>The reveal replays the true night and every lie, in the order it was told.</li>
           </ol>
           <p class="note" style="margin-top:8px">Pressure matters. Confront someone with a contradiction and they sweat. Push too hard too early and they clam up or send for help.</p>
+          <div class="row" style="margin-top:10px"><button class="btn sm ghost" data-act="intro">Rules and the clock</button></div>
         </div>
         <div class="card"><div class="eyebrow">Under the hood</div><p class="note" style="margin-top:6px">Every case starts as a sealed truth file: the whole night, minute by minute. Each suspect is briefed only on what they could know and what they will lie about. A referee checks every answer against the truth so lies stay consistent and nobody reveals what they should not. Not every liar is the killer.</p></div>
       </div>
@@ -1423,6 +1452,50 @@ function pickTraining(settingId) {
   const fresh = list.filter((t) => !played.has(t.id) && !played.has(t.truth?.title));
   const pool = fresh.length ? fresh : list;
   return pool[Math.floor(Math.random() * pool.length)];
+}
+function viewIntro() {
+  const fo = SETTINGS.country_house.forensics, lo = Math.min(...fo.map((f) => f.minutes)), hi = Math.max(...fo.map((f) => f.minutes));
+  const cw = SETTING_ORDER.map((id) => SETTINGS[id].counsel.minutes), q = SETTINGS.country_house.questionCost;
+  const first = !safeGet(KEY_INTRO, false);
+  return `<header class="head"><div class="wrap gutter"><div class="brand">Interrogation<br>Room</div><div class="head-title"></div>${first ? '' : '<button class="btn sm ghost" data-act="intro-done">Back</button>'}</div></header>
+  <div class="main gutter"><div class="wrap intro">
+    <div class="hero"><div class="eyebrow">Before you begin</div><h1>Interrogation <span>Room</span></h1><p class="sub">Someone is dead. The night it happened is sealed in a file you never see. You get the suspects, a clock, and whatever they choose to tell you.</p></div>
+    <div class="stack">
+      <div class="card"><h2>How a case works</h2>
+        <ol>
+          <li><b>Read the case file.</b> The scene, the people, what everyone already knows, and what was found beside the body.</li>
+          <li><b>Question the suspects</b> in your own words. Each one knows only what they saw, heard and did. They remember what they told you, and some of them are lying.</li>
+          <li><b>Not every liar is the killer.</b> One may be hiding an affair or a debt. One is honest and simply wrong about a detail.</li>
+          <li><b>Pin exact quotes</b> to the evidence board, give them a time on the night, and link the statements that cannot both be true.</li>
+          <li><b>Mind the pressure.</b> Choose your tone and put evidence on the table. Confront a lie with the thing that breaks it and the suspect sweats. Push too hard too early and they close up or send for someone to speak for them.</li>
+          <li><b>Order forensic reports</b> when one would settle a question. Reports are always true.</li>
+          <li><b>Accuse</b> when you are ready: the killer, an accomplice if the case has one, the motive, the method, and the evidence you stand on.</li>
+          <li><b>The reveal</b> replays the true night and shows every lie in the order it was told.</li>
+        </ol>
+      </div>
+      <div class="card"><h2>The clock</h2>
+        <p class="lede" style="margin-bottom:10px">Every case has a time budget: 4, 6 or 8 hours depending on the difficulty you pick. The clock is not real time. It only moves when you spend it, so think for as long as you like.</p>
+        <div class="costs">
+          <div class="k">Ask a suspect one question</div><div class="c">${q} min</div>
+          <div class="k">Request a forensic report<small>Each report shows its cost before you order it.</small></div><div class="c">${lo} to ${hi} min</div>
+          <div class="k">Wait for counsel when a suspect refuses to go on<small>Once per suspect. They come back guarded.</small></div><div class="c">${Math.min(...cw)} to ${Math.max(...cw)} min</div>
+          <div class="k">Ask for a nudge when you are stuck<small>Also costs 3 points off the final score.</small></div><div class="c">30 min</div>
+          <div class="k">Reading the file, pinning, the board, the timeline, switching suspects</div><div class="c">free</div>
+        </div>
+        <p class="note" style="margin-top:10px">When the clock runs out the questioning stops and you must accuse with what you have. A question that fails to get an answer is refunded.</p>
+      </div>
+      <div class="card"><h2>How you are scored</h2>
+        <div class="costs">
+          <div class="k">Naming the killer<small>With an accomplice in the case: 30 for the killer, 10 for the accomplice.</small></div><div class="c">40</div>
+          <div class="k">Motive, in substance</div><div class="c">20</div>
+          <div class="k">Method: means, place and time</div><div class="c">20</div>
+          <div class="k">Evidence: do the pins you cite carry the case?</div><div class="c">20</div>
+        </div>
+        <p class="note" style="margin-top:10px">A wrong name caps motive and method at 8 each. Padding the accusation with irrelevant pins costs evidence points.</p>
+      </div>
+      <div class="row"><button class="btn primary" data-act="intro-done">${first ? 'Open the casebook' : 'Back to the casebook'}</button><span class="note">You can read this again from the menu.</span></div>
+    </div>
+  </div></div>`;
 }
 function careerStats(book) {
   const cases = book.length, solved = book.filter((c) => c.killerCorrect).length, best = book.reduce((m, c) => Math.max(m, num(c.total)), 0);
@@ -1482,7 +1555,7 @@ function viewCase() {
       ${scene.length ? scene.map((e) => `<div class="evitem"><div class="d"><b>${esc(e.name)}</b>${esc(e.where)}. ${esc(e.detail)}</div><button data-act="pin-scene" data-id="${esc(e.id)}" ${pinnedScene(e.id) ? 'disabled' : ''}>${pinnedScene(e.id) ? 'Pinned' : 'Pin'}</button></div>`).join('') : '<p>Nothing of note was recorded at the scene.</p>'}
     </div>
     <div class="card">
-      <div class="eyebrow">${G.settingId === 'antarctic' ? 'The crew' : G.settingId === 'noir_docks' ? 'The people on the pier' : 'The household'}</div>
+      <div class="eyebrow">${G.settingId === 'antarctic' || G.settingId === 'orbital' ? 'The crew' : G.settingId === 'noir_docks' ? 'The people on the pier' : 'The household'}</div>
       <div class="bios" style="margin-top:10px">${t.suspects.map((s) => `<div class="bio"><b>${esc(s.name)}</b>${s.age ? `, ${esc(s.age)}` : ''}<div class="r">${esc(s.role)}</div><p>${esc(s.sketch)}</p><button class="btn sm" style="margin-top:8px" data-act="goto-sus" data-name="${esc(s.name)}">Question</button></div>`).join('')}</div>
     </div>
     <div class="card">
@@ -1537,8 +1610,8 @@ function suggestedQuestions(name) {
   const t = G.truth, s = G.suspects[name], asked = s.transcript.filter((m) => m.role === 'det').length;
   const first = t.victim.name.split(' ').slice(-1)[0];
   const out = [];
-  if (!asked) out.push(`Take me through your evening, from dinner until ${t.victim.name} was found.`);
-  out.push('Who did you see after dinner, and at what times?');
+  if (!asked) out.push(`Take me through last night, hour by hour, until ${t.victim.name} was found.`);
+  out.push('Who did you see last night, and at what times?');
   out.push(`How did you get on with ${t.victim.name}?`);
   const scene = t.evidence.filter((e) => e.atScene).slice(0, 2);
   for (const e of scene) out.push(`What do you know about the ${e.name.toLowerCase()}?`);
@@ -1803,6 +1876,8 @@ function handleAct(btn) {
     case 'training': { const saved = safeGet(KEY_GAME, null); if (!G && inProgress(saved)) { return confirmSheet('Open the training case?', `The case in progress, ${saved.truth?.title || 'untitled'}, will be deleted.`, 'training-do', 'Open training case'); } return handleAct({ dataset: { act: 'training-do' } }); }
     case 'training-do': { closeModal(); const tc = pickTraining(S.setting); if (!tc) return; safeDel(KEY_GAME); const st = SETTINGS[tc.settingId]; const dials = normDials(tc.dials || { suspects: arr(tc.truth?.suspects).length || 4, liars: 1, mistaken: true, accomplice: !!tc.truth?.accomplice, hours: 6 }); try { const truth = normalizeTruth(JSON.parse(JSON.stringify(tc.truth)), st, dials); const briefs = normalizeBriefs({ briefs: JSON.parse(JSON.stringify(tc.briefs)) }, truth); G = newGame(tc.settingId, truth, briefs, dials, { training: true, trainingId: tc.id }); ui.tab = 'case'; save(); render(); toast('Training case open. Read the file, then start asking.'); } catch (e) { console.error(e); toast('The training case could not be loaded.'); } return; }
     case 'gallery': return gallerySheet();
+    case 'intro': closeModal(); ui.intro = true; render(); window.scrollTo(0, 0); return;
+    case 'intro-done': safeSet(KEY_INTRO, true); ui.intro = false; render(); window.scrollTo(0, 0); return;
     case 'hint': return requestHint();
     case 'play-shared': return playShared(id);
     case 'play-shared-do': { const sid = ui.sharedPending; ui.sharedPending = null; closeModal(); return playShared(sid, true); }
@@ -1927,6 +2002,7 @@ function tidy(g) {
 function start(snap) {
   if (snap && snap.G && snap.G.truth) { G = tidy(snap.G); Object.assign(ui, snap.ui || {}); }
   else { const saved = safeGet(KEY_GAME, null); if (saved?.truth && saved.phase && saved.phase !== 'reveal') { G = tidy(saved); ui.tab = 'case'; if (G.accusation && !G.score) { ui.draft.acc = { killer: G.accusation.killer || '', accomplice: G.accusation.accomplice || '', motive: G.accusation.motive || '', method: G.accusation.method || '', pinIds: arr(G.accusation.pinIds) }; ui.tab = 'accuse'; } } }
+  if (!G && !safeGet(KEY_INTRO, false)) ui.intro = true;
   render();
   (async () => {
     try { sample = window.claude?.use ? await window.claude.use('sample') : null; } catch { sample = null; }

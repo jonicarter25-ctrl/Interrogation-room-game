@@ -17,7 +17,7 @@ Play it: https://claude.ai/artifact/WYKDxApK6Mm8rEuYFTnVRA (private until shared
 
 ## Settings and difficulty
 
-Three settings: 1920s country house, 1947 noir docks, 1983 Antarctic research station. Each has its own era, speech, forensic reports, night window, clock start and counsel mechanic.
+Four settings: 1920s country house, 1947 noir docks, 1983 Antarctic research station, and a 2089 orbital ore-transfer station. Each has its own era, speech, forensic reports, night window, clock start and counsel mechanic.
 
 Difficulty presets (Inspector, Chief Inspector, Scotland Yard) or custom dials: suspect count 3 to 6, liars besides the killer 0 to 3, accomplice on or off, unreliable witness on or off, time budget 4, 6 or 8 hours.
 

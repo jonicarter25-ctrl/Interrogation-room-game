@@ -20,6 +20,7 @@ const wrap = (body) => `<!doctype html><html><head><meta charset="utf-8"><meta n
   for (const setting of ['country_house', 'noir_docks', 'antarctic']) {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: 'dark' });
     await ctx.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+    await ctx.addInitScript(() => { try { localStorage.setItem('ir.intro.v1', 'true'); } catch {} });
     await ctx.addInitScript(mockInit, { base: BASE, seed: null, over: {} });
     const page = await ctx.newPage();
     const errs = [];

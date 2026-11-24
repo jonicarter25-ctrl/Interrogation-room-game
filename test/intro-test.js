@@ -1,0 +1,52 @@
+// First-visit splash: shows once, explains the clock, leads to the menu with four settings, and can be reopened.
+const { chromium } = require('playwright');
+const fs = require('fs');
+const http = require('http');
+const path = require('path');
+const SRC = path.join(__dirname, '..', 'index.html');
+const OUT = path.join(__dirname, 'shots');
+fs.mkdirSync(OUT, { recursive: true });
+const wrap = (b) => `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light}body{margin:0;font:14px system-ui}img{max-width:100%}</style></head><body>${b}</body></html>`;
+(async () => {
+  const srv = http.createServer((q, r) => { r.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); r.end(wrap(fs.readFileSync(SRC, 'utf8'))); });
+  await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+  const url = `http://127.0.0.1:${srv.address().port}/`;
+  const b = await chromium.launch();
+  let bad = 0;
+  const ok = (c, l) => { if (!c) { bad++; console.log('FAIL', l); } };
+  for (const [tag, vp, scheme] of [['phone', { width: 390, height: 844 }, 'dark'], ['desk', { width: 1280, height: 800 }, 'light'], ['narrow', { width: 320, height: 700 }, 'dark']]) {
+    const ctx = await b.newContext({ viewport: vp, colorScheme: scheme });
+    await ctx.route(/fonts\./, (r) => r.abort());
+    const p = await ctx.newPage();
+    const errs = [];
+    p.on('pageerror', (e) => errs.push(String(e)));
+    await p.goto(url);
+    await p.waitForSelector('[data-act=intro-done]');
+    ok(await p.$('.intro .costs'), tag + ' intro shows cost table');
+    ok(!(await p.$('[data-act=new]')), tag + ' menu hidden on first visit');
+    const sw = await p.evaluate(() => [document.documentElement.scrollWidth, innerWidth]);
+    ok(sw[0] <= sw[1], `${tag} no overflow ${sw}`);
+    await p.screenshot({ path: path.join(OUT, `intro-${tag}.png`), fullPage: true });
+    const costs = await p.$$eval('.costs .c', (els) => els.map((e) => e.textContent.trim()));
+    if (tag === 'phone') console.log('costs:', costs.join(' | '));
+    await p.click('.intro .btn.primary');
+    await p.waitForSelector('[data-act=new]');
+    ok(await p.evaluate(() => localStorage.getItem('ir.intro.v1') === 'true'), tag + ' flag stored');
+    ok((await p.$$('.scard')).length === 4, tag + ' four setting cards');
+    await p.screenshot({ path: path.join(OUT, `menu4-${tag}.png`), fullPage: true });
+    await p.click('[data-act=intro]');
+    await p.waitForSelector('.intro');
+    ok(await p.$('.head [data-act=intro-done]'), tag + ' Back button on revisit');
+    await p.click('.head [data-act=intro-done]');
+    await p.waitForSelector('[data-act=new]');
+    await p.reload();
+    await p.waitForSelector('[data-act=new]');
+    ok(!(await p.$('.intro')), tag + ' intro not shown again');
+    ok(!errs.length, tag + ' no page errors ' + errs);
+    await ctx.close();
+  }
+  await b.close();
+  srv.close();
+  console.log(bad ? `${bad} FAILED` : 'intro test: all passed');
+  process.exit(bad ? 1 : 0);
+})();

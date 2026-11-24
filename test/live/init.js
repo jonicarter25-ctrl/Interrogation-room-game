@@ -30,5 +30,6 @@ function liveInit({ port }) {
   sample.limits = async () => ({ maxPromptBytes: 262144 });
   window.claude = { use: async (name) => (name === 'sample' ? sample : null) };
   window.__live = true;
+  try { localStorage.setItem('ir.intro.v1', 'true'); } catch {}
 }
 module.exports = { liveInit };

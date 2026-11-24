@@ -54,6 +54,7 @@ async function newCtx(vp, { scheme = 'dark', over = {}, seed = null, local = nul
   const ctx = await browser.newContext({ viewport: vp, colorScheme: scheme, deviceScaleFactor: 1, permissions: ['clipboard-read', 'clipboard-write'] });
   await ctx.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
   if (local) await ctx.addInitScript((l) => { if (!localStorage.getItem('__seededLocal')) { for (const [k, v] of Object.entries(l)) localStorage.setItem(k, JSON.stringify(v)); localStorage.setItem('__seededLocal', '1'); } }, local);
+  if (!over.showIntro) await ctx.addInitScript(() => { try { localStorage.setItem('ir.intro.v1', 'true'); } catch {} });
   await ctx.addInitScript(mockInit, { base: BASE, seed, over });
   if (hot !== undefined) await ctx.addInitScript(hotInit, hot);
   return ctx;
@@ -1059,6 +1060,7 @@ async function noClaude(vp, tag) {
   // no window.claude at all
   const c2 = await browser.newContext({ viewport: vp });
   await c2.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
+  await c2.addInitScript(() => { try { localStorage.setItem('ir.intro.v1', 'true'); } catch {} });
   const p2 = await c2.newPage(); const e2 = []; watch(p2, e2);
   await p2.goto(BASEURL); await p2.waitForSelector('.err');
   await p2.click('[data-act=gallery]');
