@@ -1,0 +1,734 @@
+{
+ "settingId": "orbital",
+ "truth": {
+  "title": "Leave the Door Dark",
+  "house": "Kepler Relay, an ore-transfer station in high orbit: a spinning habitat ring of cabins, galley, medical bay and hydroponics, a spoke lift up to the hub with its cargo office and comms blister, and aft of the hub sixty metres of zero-gravity cargo spine ending at the reactor ring and Airlock B.",
+  "victim": {
+   "name": "Joaquim Sorensen",
+   "age": 36,
+   "role": "contract surveyor grading the station's ore lots for the buyer, five weeks into a sixty-day contract",
+   "sketch": "A loose-limbed, easy man with a surveyor's squint and a tin of real coffee he shared around. He graded canisters without fear or favour and charmed everybody he was not grading."
+  },
+  "night": {
+   "start": "18:00",
+   "end": "02:00",
+   "discovered": "00:14",
+   "discoveredBy": "Ginette Tremblay",
+   "where": "bay 6 of the cargo spine"
+  },
+  "weather": "The night of Monday 13 June 2089, station time: the spine unheated at four degrees, relay delay to the company nine minutes, the shuttle nine days out.",
+  "publicFacts": [
+   "Joaquim Sorensen, the buyer's contract surveyor, was found dead at 00:14 in bay 6 of the cargo spine by cargo master Ginette Tremblay, pinned against the bay rail by ore canister 6-C, 1,100 kilos, adrift from its clamp. Dr Khumalo pronounced him dead at 00:27 and doubted a canister made the head wound; Polat sealed the spine and reported on the 01:00 relay window, and the orbital authority deputised the security officer.",
+   "The eleven aboard: Yusuf Polat (station manager), Dr Naledi Khumalo (medic), Callum Reyes (chief engineer), Marek Dvorak (reactor technician), Amara Okoye (hydroponics technician, Dvorak's wife), Ginette Tremblay (cargo master), Wen Zhao and Farid Nazari (riggers), Rohan Mehta (comms operator), Sorensen, and the security officer.",
+   "The spine is zero-gravity, unheated at four degrees and filmed with grey ore dust, and everyone crosses it in the same grey issue spine jacket with a hood. It is the only way aft: the forward hatch at the hub and the aft hatch both take a badge, and aft of that are only the reactor ring and Airlock B. The spoke lift between the habitat ring and the hub is not logged, and nowhere on the ring is less than nine minutes from bay 6.",
+   "WARDEN logs door badges, airlock cycles, suit telemetry and power draw. It has no eyes in any room and cabin doors are manual. Any door or machine set to maintenance mode at its own panel, which takes no badge, logs nothing until restored; WARDEN keeps only when the mode began and ended, though the power it draws still shows on the bus.",
+   "Crew message each other from wall terminals that unlock on a palm read; slates only receive. The comms log keeps sender, terminal, time and text, and every intercom call. The operator's traffic board in the comms blister shows each message's sender and text as it passes, but not the terminal.",
+   "Each ore canister sits in a powered clamp that shows green when latched. A clamp opens only on a powered release, from the cargo office board or from the three-second manual release under a guard on its bay panel; either shows on the cargo office clamp board with its time. Every bay keeps a steel dogging bar in a bracket for stiff latches.",
+   "Sorensen and Tremblay had words at the 16:00 cargo meeting over his grading of her lots; dinner was at 18:30; the work board had Sorensen sampling lot 6 in bay 6 from 23:00; and Dvorak held the night reactor watch from 18:00 and was inspecting coolant pump 2, which is test-run in ten-minute cycles, each started by hand at the pump skid."
+  ],
+  "suspects": [
+   {
+    "name": "Marek Dvorak",
+    "age": 47,
+    "role": "reactor technician on the night watch, six years on Kepler and eight years married to Amara Okoye",
+    "sketch": "A spare man with a shaved head, a clipped grey beard and a pressed coverall, who squares whatever is on the table before he answers. He speaks in times and ticket numbers and never raises his voice.",
+    "part": "killer"
+   },
+   {
+    "name": "Amara Okoye",
+    "age": 39,
+    "role": "hydroponics technician, Dvorak's wife, who feeds the station from her trays",
+    "sketch": "Small, quick and warm, in shirtsleeves with soil under her nails and eyes red from more than a short night. She talks about her plants when she would rather not talk about anything else.",
+    "part": "liar"
+   },
+   {
+    "name": "Rohan Mehta",
+    "age": 27,
+    "role": "comms operator, who runs the relay windows and carries everybody's mail",
+    "sketch": "Lanky and bright-eyed, a headset pushed back in his hair and a film line for most occasions. He is sure of what he saw and rather enjoys being the one who saw it.",
+    "part": "mistaken"
+   },
+   {
+    "name": "Ginette Tremblay",
+    "age": 55,
+    "role": "cargo master, thirty years a rigger, whose lots Sorensen was grading down",
+    "sketch": "A square, grey-cropped Quebecoise with scarred knuckles and a clamp key on a lanyard. She looks straight at you, swears under her breath in French and treats the spine as her own property.",
+    "part": "honest"
+   }
+  ],
+  "killer": "Marek Dvorak",
+  "accomplice": null,
+  "sharedStory": null,
+  "motive": "Dvorak had seen in WARDEN's maintenance summary that the hydroponics door went dark on six of his night watches, and at 19:55 Sorensen's sample tag fell from the spine jacket his wife left on his chair: 'After lot 6, half eleven. Leave the door dark. J.' Eight years married and berthed with her on a station of eleven, he went to have it out with his wife's lover, and when Sorensen told him to ask her and turned his back, he killed him.",
+  "method": "At 23:35 at bay 6 of the zero-gravity cargo spine, Dvorak pulled the bay's steel dogging bar from its bracket and struck Sorensen twice on the back of the head as he bent to canister 6-B. He wiped the bar with the pump rag from his pocket and stowed it, then at 23:39 held the manual release on clamp 6-C and shouldered the 1,100-kilo canister across until it pinned the body to the bay rail, to pass as a clamp failure. He had darkened the aft hatch in maintenance mode so no badge showed him leaving the reactor ring, and he buried the rag, folded round Sorensen's tag, in the rag bin at the pump 2 skid.",
+  "alibiGap": {
+   "from": "23:10",
+   "to": "23:52",
+   "killerClaims": "That from 22:15 he was at the pump 2 skid in the reactor ring, hand-starting a test cycle every ten minutes until the all-hands, and that the aft hatch was dark only because it rides on the pump's isolation ticket.",
+   "actually": "After the 23:10 cycle he ran none until 23:52: he darkened the aft hatch at 23:22, was in the spine from 23:25 to 23:47, struck Sorensen at 23:35, released clamp 6-C at 23:39, buried the bloodied rag and the tag in the pump 2 rag bin and restored the hatch at 23:50."
+  },
+  "timeline": [
+   {
+    "time": "18:00",
+    "place": "reactor control",
+    "present": [
+     "Marek Dvorak",
+     "Callum Reyes"
+    ],
+    "event": "Dvorak, badged aft at 17:52, relieves Reyes of the reactor watch, and Reyes badges out aft at 18:04 and forward at 18:07; Okoye is closing hydroponics, Tremblay the cargo office, and Mehta and Sorensen are in their cabins.",
+    "witnesses": [
+     "Marek Dvorak"
+    ]
+   },
+   {
+    "time": "18:30",
+    "place": "galley",
+    "present": [
+     "Joaquim Sorensen",
+     "Amara Okoye",
+     "Ginette Tremblay",
+     "Rohan Mehta",
+     "Yusuf Polat",
+     "Naledi Khumalo",
+     "Callum Reyes",
+     "Wen Zhao",
+     "Farid Nazari"
+    ],
+    "event": "Dinner for all but the reactor watch: Tremblay tells Sorensen her clamps are green whatever he grades, and he takes seconds of Okoye's basil salad and slips a sample tag into the pocket of the spine jacket on the back of her chair; from 19:10 he writes his report in cabin 9 and Mehta stays in the galley's rec corner.",
+    "witnesses": [
+     "Amara Okoye",
+     "Ginette Tremblay",
+     "Rohan Mehta"
+    ]
+   },
+   {
+    "time": "19:30",
+    "place": "reactor control",
+    "present": [
+     "Amara Okoye",
+     "Marek Dvorak"
+    ],
+    "event": "Okoye, badged through the forward hatch at 19:26 and the aft at 19:29 with his dinner tray, hangs her spine jacket on Dvorak's chair, sees six of his night watches ringed in grease pencil on the paper rota, which he calls counting his night pay, and leaves at 19:48 without the jacket; at 19:55, moving it, Dvorak finds Sorensen's tag in the pocket: 'After lot 6, half eleven. Leave the door dark. J.'",
+    "witnesses": [
+     "Amara Okoye",
+     "Marek Dvorak"
+    ]
+   },
+   {
+    "time": "19:52",
+    "place": "hub",
+    "present": [
+     "Ginette Tremblay",
+     "Amara Okoye"
+    ],
+    "event": "Tremblay, at the manifest in the cargo office since 19:00, watches Okoye badge out of the forward hatch in shirtsleeves rubbing her arms, asks 'left your coat with your husband?' and is told 'he can bring it home'; Okoye keeps to her cabin until 22:40, and Tremblay goes down to the galley at 20:05.",
+    "witnesses": [
+     "Ginette Tremblay",
+     "Amara Okoye"
+    ]
+   },
+   {
+    "time": "21:00",
+    "place": "cargo spine",
+    "present": [
+     "Ginette Tremblay"
+    ],
+    "event": "Tremblay badges in for her evening walk-through and finds every clamp green, 6-C among them, and every bay's dogging bar in its bracket handle-up, then badges out at 21:12 and rides down.",
+    "witnesses": [
+     "Ginette Tremblay"
+    ]
+   },
+   {
+    "time": "21:20",
+    "place": "galley",
+    "present": [
+     "Ginette Tremblay",
+     "Rohan Mehta",
+     "Wen Zhao",
+     "Farid Nazari",
+     "Naledi Khumalo"
+    ],
+    "event": "Tremblay sits down to cards and Nazari's still spirit with Zhao, Nazari and Dr Khumalo and stays in the galley until 00:05; Mehta leaves the rec corner at 21:45 and badges into the comms blister at 21:50.",
+    "witnesses": [
+     "Ginette Tremblay",
+     "Rohan Mehta"
+    ]
+   },
+   {
+    "time": "21:58",
+    "place": "comms blister",
+    "present": [
+     "Rohan Mehta",
+     "Joaquim Sorensen"
+    ],
+    "event": "Sorensen, badged in at 21:56, hands Mehta his grading report for the 22:00 relay window, lots 4 and 5 both 11 per cent under manifest grade, says 'Tremblay will want my head, tell her it's gone', and badges out at 22:06; Mehta stays in the blister alone with a film and the traffic board until the 23:30 window.",
+    "witnesses": [
+     "Rohan Mehta"
+    ]
+   },
+   {
+    "time": "22:15",
+    "place": "galley",
+    "present": [
+     "Joaquim Sorensen",
+     "Ginette Tremblay",
+     "Wen Zhao",
+     "Farid Nazari",
+     "Naledi Khumalo"
+    ],
+    "event": "Sorensen draws a coffee and says 'it went at ten, Ginette, the numbers are the numbers', Tremblay tells him to go and count lot 6, and at 22:25 he goes to cabin 9, docks his slate and collects his sample case; in the reactor ring Dvorak sets coolant pump 2 to maintenance mode at 22:15 and hand-starts a test cycle every ten minutes from 22:20 to 23:10.",
+    "witnesses": [
+     "Ginette Tremblay"
+    ]
+   },
+   {
+    "time": "22:45",
+    "place": "hydroponics",
+    "present": [
+     "Amara Okoye"
+    ],
+    "event": "Okoye sets the hydroponics door to maintenance mode at its own panel, as on six earlier nights, goes in, sends 'Trays are ready when you are.' from the wall terminal to Sorensen's slate at 22:50 and waits among the trays until 00:20.",
+    "witnesses": []
+   },
+   {
+    "time": "22:58",
+    "place": "cargo spine",
+    "present": [
+     "Joaquim Sorensen"
+    ],
+    "event": "Sorensen badges through the forward hatch, wedges it open with his sample case as he always does, clips his work lamp to the bay 6 rail and fills and tags six vials from canisters 6-A and 6-B, the sixth at 23:24.",
+    "witnesses": []
+   },
+   {
+    "time": "23:22",
+    "place": "aft hatch",
+    "present": [
+     "Marek Dvorak"
+    ],
+    "event": "Dvorak, who has let the 23:20 pump cycle go, pockets the tag, pulls on his spine jacket with a pump rag still in its pocket, sets the aft hatch to maintenance mode at its reactor-side panel and goes through at 23:25.",
+    "witnesses": []
+   },
+   {
+    "time": "23:27",
+    "place": "cargo spine",
+    "present": [
+     "Marek Dvorak",
+     "Joaquim Sorensen"
+    ],
+    "event": "At bay 6 Dvorak holds up the tag, Sorensen says 'she's the one who darkens the door, Marek, ask her' and turns back to canister 6-B, and at 23:35 Dvorak pulls the bay's dogging bar from its bracket, strikes him twice on the back of the head, wipes the bar with the pump rag, which greases his fingers blue, and stows it handle-down; Okoye messages from hydroponics at 23:31 and Mehta runs the 23:30 window in the blister until 23:34.",
+    "witnesses": []
+   },
+   {
+    "time": "23:37",
+    "place": "hub",
+    "present": [
+     "Rohan Mehta"
+    ],
+    "event": "Mehta, badged out of the blister at 23:36 with Okoye's 23:31 line to Sorensen fresh off his traffic board, looks down the spine through the wedged forward hatch and sees the work lamp at bay 6, boots adrift behind the rack and a hooded figure in a grey spine jacket with its back to him, pulling itself along the rack towards the bay panel, takes it for Okoye come to fetch her surveyor, and rides the lift down at 23:38 with the figure still there.",
+    "witnesses": [
+     "Rohan Mehta"
+    ]
+   },
+   {
+    "time": "23:39",
+    "place": "cargo spine",
+    "present": [
+     "Marek Dvorak",
+     "Joaquim Sorensen"
+    ],
+    "event": "Dvorak flips the guard on the bay 6 panel with pump-seal grease on his fingers, holds the manual release on clamp 6-C, hauls Sorensen to the rail by the collar and shoulders the canister across until it pins him there, then leaves by the aft hatch at 23:47; Okoye messages from hydroponics again at 23:44.",
+    "witnesses": []
+   },
+   {
+    "time": "23:42",
+    "place": "galley",
+    "present": [
+     "Rohan Mehta",
+     "Ginette Tremblay",
+     "Wen Zhao",
+     "Farid Nazari",
+     "Naledi Khumalo"
+    ],
+    "event": "Mehta comes in from the lift and tells the card table that Okoye is up in the spine with the surveyor; Tremblay, whose 23:33 buzz to reactor control rang out for fifty seconds, takes Dvorak's call at 23:55 saying he was at the skid with his hands full and wants no tray.",
+    "witnesses": [
+     "Rohan Mehta",
+     "Ginette Tremblay"
+    ]
+   },
+   {
+    "time": "23:48",
+    "place": "pump gallery",
+    "present": [
+     "Marek Dvorak"
+    ],
+    "event": "Dvorak folds Sorensen's tag into the bloodied rag and pushes it to the bottom of the rag bin at the pump 2 skid, restores the aft hatch from its panel at 23:50 and hand-starts pump 2 at 23:52 and every ten minutes after until 00:22.",
+    "witnesses": []
+   },
+   {
+    "time": "00:14",
+    "place": "cargo spine",
+    "present": [
+     "Ginette Tremblay",
+     "Joaquim Sorensen"
+    ],
+    "event": "Tremblay, who left the cards at 00:05 for her midnight read of the clamp board and at 00:10 found it showing 6-C released from the bay panel at 23:39, finds Sorensen pinned to the bay 6 rail by the canister, calls Polat and the galley from the bay intercom at 00:16 and waits until Polat and Dr Khumalo reach her at 00:26; Okoye gives up at 00:20 and restores the hydroponics door at 00:22.",
+    "witnesses": [
+     "Ginette Tremblay"
+    ]
+   },
+   {
+    "time": "00:40",
+    "place": "galley",
+    "present": [
+     "Amara Okoye",
+     "Ginette Tremblay",
+     "Rohan Mehta",
+     "Yusuf Polat",
+     "Naledi Khumalo",
+     "Callum Reyes",
+     "Wen Zhao",
+     "Farid Nazari"
+    ],
+    "event": "With Sorensen pronounced dead at 00:27 and Dvorak told by intercom to hold the reactor watch, Polat musters the rest after the 00:30 all-hands, seals the forward hatch at 00:50, files on the 01:00 relay window with Mehta in the blister, and sends everyone to their cabins at 01:40.",
+    "witnesses": [
+     "Amara Okoye",
+     "Ginette Tremblay",
+     "Rohan Mehta"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "id": "ev1",
+    "name": "Canister 6-C and the bay 6 panel",
+    "where": "bay 6 of the cargo spine",
+    "detail": "An 1,100-kilo ore canister adrift against the bay rail with the body under its edge; the clamp jaws stand open and undamaged, and on the bay panel the guard over the manual release is up, with a blue smear on it.",
+    "proves": "The clamp did not fail: someone lifted the guard and held the release, with something blue on their fingers.",
+    "atScene": true
+   },
+   {
+    "id": "ev2",
+    "name": "Bay 6 dogging bar",
+    "where": "its bracket at bay 6",
+    "detail": "A seventy-centimetre steel bar, wiped bright when every other bar in the spine wears a week's grey ore dust, and seated handle-down where riggers stow them handle-up.",
+    "proves": "The weapon belonged to the bay, and was cleaned and put back by someone who does not rig cargo.",
+    "atScene": true
+   },
+   {
+    "id": "ev3",
+    "name": "Sample case and vials",
+    "where": "wedged in the forward hatch, and adrift at bay 6",
+    "detail": "Sorensen's sample case jamming the forward hatch open, his work lamp clipped to the bay 6 rail, six lot 6 vials tagged in his hand, the last at 23:24, and a seventh uncapped and empty.",
+    "proves": "He was alive at 23:24, and from 22:58 anyone could come in at the hub end without a badge.",
+    "atScene": true
+   },
+   {
+    "id": "ev4",
+    "name": "Pump rag and sample tag",
+    "where": "the bottom of the rag bin at the pump 2 skid, reactor ring",
+    "detail": "A grey pump rag pushed under the night's other rags, marked with blood, spine dust and blue seal grease, and folded inside it a sample tag in Sorensen's hand with a blue smear across it: 'After lot 6, half eleven. Leave the door dark. J.'",
+    "proves": "Whoever wiped the bar went back aft into the reactor ring, and was carrying the note Sorensen wrote to Okoye.",
+    "atScene": false
+   },
+   {
+    "id": "ev5",
+    "name": "Reactor watch rota",
+    "where": "the watch board in reactor control",
+    "detail": "The paper rota for May and June with six of Dvorak's night watches ringed in grease pencil: 24 and 28 May, 1, 5, 8 and 12 June.",
+    "proves": "Dvorak had marked six of his own night watches; set against the door log they are the six nights the hydroponics door went dark, so he knew.",
+    "atScene": false
+   },
+   {
+    "id": "ev6",
+    "name": "Okoye's spine jacket",
+    "where": "the back of the watch chair in reactor control",
+    "detail": "A grey issue spine jacket tabbed OKOYE, hung over the watch chair with both pockets empty.",
+    "proves": "She left it in reactor control at 19:48, as Tremblay's sighting of her in shirtsleeves says, and whatever was in its pocket was taken out there.",
+    "atScene": false
+   }
+  ],
+  "forensics": {
+   "tod": "Two blows to the back of the skull from a rounded steel edge about three centimetres across, the second with the head already against the canister face. The broad pressure marks across the shoulders from canister 6-C have no bleeding under them and were made after the heart stopped; core temperature in a four-degree spine puts death between 23:20 and 23:50.",
+   "prints": "The bay 6 dogging bar is wiped of dust and prints, with Sorensen's blood left in the knurling; the release guard and button carry only a smeared blue film with no ridge detail, and neither Amara Okoye's palm nor Ginette Tremblay's is on the bay 6 panel, the bar or canister 6-C. Okoye's palm is on the hydroponics wall terminal, Tremblay's on the cargo office board and the bay 6 intercom. At the bottom of the rag bin at the pump 2 skid in the reactor ring is a pump rag carrying Sorensen's blood, spine dust and blue grease, folded round a sample tag in Sorensen's hand with a blue smear and no ridge detail: 'After lot 6, half eleven. Leave the door dark. J.' A spine jacket tabbed OKOYE hangs on the watch chair in reactor control with its pockets empty, and the paper rota there has six night watches ringed in grease pencil.",
+   "comms": "Relay: Sorensen's grading report, lots 4 and 5 both 11 per cent under manifest, went to the buyer on the 22:00 window; the 23:30 window ran 23:30 to 23:34. Internal: A. Okoye, palm-unlocked at the hydroponics wall terminal, to Sorensen's slate at 22:50 'Trays are ready when you are.', 23:31 'Lot 6 can't take this long.' and 23:44 'Jo. Quarter to.'; the first line also went from that terminal on six earlier nights. Intercom: galley to reactor control 23:33, unanswered for 50 seconds; reactor control to galley 23:55.",
+   "tox": "No drug, poison or alcohol in Sorensen's blood, and the spine's air held 21 per cent oxygen all night. The blue smear on the bay 6 release guard and another on his collar are fluorinated pump-seal grease, stocked only at the coolant pump skids in the reactor ring.",
+   "logs": "Forward hatch: Dvorak in 17:49; Reyes out 18:07; Okoye in 19:26, out 19:52; Tremblay in 21:00, out 21:12; Sorensen in 22:58, then held open and unlogged until sealed at 00:50. Aft hatch: Dvorak in 17:52; Reyes out 18:04; Okoye in 19:29, out 19:49; no badge after that; in maintenance mode from its own panel 23:22 to 23:50. No airlock cycled and no suit was powered. Clamp 6-C: manual release at the bay 6 panel, 23:39. Pump 2, in maintenance from 22:15, drew a test cycle at 22:20, 22:30, 22:40, 22:50, 23:00 and 23:10, then nothing until 23:52, then every ten minutes to 00:22. Hydroponics door: in maintenance 22:45 to 00:22 with no work ticket, as on 24 and 28 May and 1, 5, 8 and 12 June. Comms blister: Mehta in 21:50, out 23:36; Sorensen in 21:56, out 22:06; Mehta and Polat in 00:55."
+  },
+  "redHerring": "Tremblay told Sorensen at 16:00 he could go home in one of her canisters; his grades cost her crew the quarter's bonus, it was her clamp, and she found him. But the comms log shows the report left on the 22:00 window, so his death saved her nothing; she sat at cards with Zhao, Nazari and Dr Khumalo from 21:20 to 00:05, and 6-C was released at the bay panel at 23:39.",
+  "solutionPath": [
+   "Medical bay scan and the scene: two blows from a three-centimetre bar before the canister touched him, the bay 6 dogging bar wiped and stowed handle-down, the release guard up: murder dressed as a clamp failure.",
+   "WARDEN logs: 6-C released by hand at 23:39, the forward hatch unlogged from 22:58, the aft hatch dark 23:22 to 23:50 with Dvorak the only badge left aft of it, and pump 2 idle from 23:10 to 23:52 against his 'every ten minutes'.",
+   "Mehta saw a hooded figure in a grey spine jacket at bay 6 at 23:37, moving aft along the rack, and takes it for Okoye because her 23:31 line had just crossed his board; the comms log puts her palm on the hydroponics terminal at 23:31 and 23:44, nine minutes away, which clears her and breaks her cabin story.",
+   "The tag: Tremblay saw Okoye leave the spine at 19:52 without her jacket, Okoye says it stayed on Dvorak's chair with Sorensen's tag in the pocket, and the trace sweep finds the pocket empty and the tag in the pump 2 rag bin, folded in a rag with Sorensen's blood on it.",
+   "Motive: the six ringed nights on Dvorak's rota match the dark-door nights in the logs; the lab assay puts reactor pump grease on the release guard and the collar; Tremblay's 23:33 buzz to reactor control rang out, and her own grudge died with the 22:00 relay.",
+   "Name Marek Dvorak: jealous of his wife's nights with Sorensen, he came through the darkened aft hatch, struck him twice with the bay 6 dogging bar at about 23:35 and released canister 6-C onto the body as a cargo accident."
+  ]
+ },
+ "briefs": [
+  {
+   "name": "Marek Dvorak",
+   "part": "killer",
+   "personality": "Precise, flat and patient, an Ostrava plant engineer who answers 'correct' or 'not correct' and then gives the time to the minute. He deflects by reciting procedure and ticket numbers as if the question had been about the pump, and when cornered he does not argue: he gives the same fact in fewer words each time, and answers a narrower question than the one asked.",
+   "voiceSample": "Correct. Cycle at twenty-two twenty, then every ten minutes. A pump is simple: you start it, it runs, it does not improvise.",
+   "relationship": "He held Sorensen in cold contempt, a tourist with a clipboard who took what was not his and laughed about it; he feels no remorse, only a tidy man's dread of the mess he has left.",
+   "movements": [
+    {
+     "from": "18:00",
+     "to": "19:30",
+     "where": "reactor control",
+     "doing": "Relieved Reyes at 18:00 and sat the watch.",
+     "seenBy": [
+      "Callum Reyes"
+     ]
+    },
+    {
+     "from": "19:30",
+     "to": "22:15",
+     "where": "reactor control",
+     "doing": "Amara brought his tray and left at 19:48 without her spine jacket; at 19:55 he found Sorensen's tag in its pocket and sat with it and the rota.",
+     "seenBy": [
+      "Amara Okoye"
+     ]
+    },
+    {
+     "from": "22:15",
+     "to": "23:22",
+     "where": "pump gallery, reactor ring",
+     "doing": "Set pump 2 to maintenance mode and hand-started test cycles from 22:20 to 23:10; let the 23:20 cycle go.",
+     "seenBy": []
+    },
+    {
+     "from": "23:22",
+     "to": "23:47",
+     "where": "aft hatch and cargo spine",
+     "doing": "Darkened the aft hatch, went through at 23:25 in his own spine jacket with the tag, struck Sorensen at bay 6 at 23:35, released 6-C at 23:39.",
+     "seenBy": []
+    },
+    {
+     "from": "23:47",
+     "to": "02:00",
+     "where": "pump gallery, aft hatch, reactor control",
+     "doing": "Buried the rag and the tag in the pump 2 rag bin, restored the hatch at 23:50, ran cycles from 23:52 to 00:22, called the galley at 23:55 and held the watch on Polat's order.",
+     "seenBy": []
+    }
+   ],
+   "knows": [
+    "WARDEN's maintenance summary showed the hydroponics door dark with no ticket on six of his night watches, and he ringed them on the paper rota (he did it).",
+    "Amara left her spine jacket on his chair at 19:48; at 19:55, moving it, a sample tag fell from its pocket: 'After lot 6, half eleven. Leave the door dark. J.' (he read it).",
+    "He set pump 2 to maintenance at 22:15, ran cycles by hand from 22:20 to 23:10 and none again until 23:52 (he did it).",
+    "At 23:22 he pocketed the tag, pulled on his own spine jacket with a pump rag still in its pocket, set the aft hatch to maintenance at its panel and went through at 23:25; the far hatch stood wedged open and the hub beyond looked empty (he did it).",
+    "At bay 6 he held up the tag; Sorensen said 'she's the one who darkens the door, Marek, ask her' and turned back to his canister, and at 23:35 he took the bay's dogging bar and hit him twice (he did it).",
+    "He wiped the bar with the pump rag and stowed it, pulled himself aft along the rack to the bay panel at 6-C with his hood up, and at 23:39 held the release and walked the canister onto the body at the rail (he did it).",
+    "He left at 23:47, folded the tag into the bloodied rag, pushed it to the bottom of the rag bin at the pump 2 skid and restored the hatch at 23:50; Amara's jacket still hangs on his chair with its pockets empty (he did it).",
+    "He restarted the pump at 23:52, saw the missed-call lamp and at 23:55 told Tremblay in the galley he had been at the skid with his hands full and wanted no tray (he did it)."
+   ],
+   "doesNotKnow": [
+    "That Mehta looked down the spine from the hub at 23:37 and saw a hooded figure at bay 6.",
+    "Where Amara was during the half hour he was gone, or that she sent messages from the hydroponics terminal.",
+    "That Tremblay saw Amara leave the spine at 19:52 in shirtsleeves.",
+    "That the rag left pump-seal grease on the release guard and on Sorensen's collar.",
+    "That the rag bin has been emptied and the tag found."
+   ],
+   "secret": "He killed Sorensen for sleeping with his wife and dressed it as a clamp failure. He will not have Amara blamed and will not have the marriage discussed: told that a witness puts her at bay 6, he says only 'Not correct. My wife was not in the spine,' and will not say how he knows.",
+   "lies": [
+    {
+     "claim": "From twenty-two fifteen I was at the pump 2 skid. Test cycle every ten minutes, my hand on the lever, until the all-hands. The aft hatch was dark on the same ticket; nobody went through it.",
+     "truth": "He ran no cycle between 23:10 and 23:52; he darkened the aft hatch at 23:22 and was in the spine from 23:25 to 23:47.",
+     "when": "Asked where he was around the death, about the pump, or why the aft hatch was dark.",
+     "crack": "The WARDEN logs report showing pump 2 drew no test cycle between 23:10 and 23:52."
+    },
+    {
+     "claim": "Her jacket is on my chair where she hung it. I do not go through my wife's pockets. A tag? I saw no tag.",
+     "truth": "The tag fell from the pocket at 19:55; he read it, carried it to bay 6, and afterwards buried it in the pump 2 rag bin inside the rag he wiped the bar with.",
+     "when": "Asked about Okoye's jacket, what was in it, or any note from Sorensen.",
+     "crack": "The trace sweep's finding of Sorensen's tag folded in a bloodied rag in the pump 2 rag bin."
+    },
+    {
+     "claim": "A clamp let go. Those latches are older than the contract, and he was head-down under eleven hundred kilos. Eleven hundred kilos keeps its mass up here. Only the weight is missing.",
+     "truth": "He struck Sorensen twice with the dogging bar and released the clamp by hand four minutes later.",
+     "when": "Asked how he thinks Sorensen died, or about the clamp.",
+     "crack": "The medical bay scan: two blows from a three-centimetre rounded bar, and the canister marks made after death."
+    },
+    {
+     "claim": "My wife and Sorensen? Not correct. He ate her salad, like ten other people. Somebody is selling you galley talk.",
+     "truth": "He had ringed the six dark-door nights on his rota and read Sorensen's tag at 19:55.",
+     "when": "Asked about his marriage, Okoye and Sorensen, or the galley talk about them.",
+     "crack": "The reactor watch rota from his own watch board, with six of his night watches ringed in grease pencil."
+    }
+   ],
+   "honestMistake": null,
+   "tells": [
+    "Squares the cup, the slate, anything on the table, to the table's edge.",
+    "Turns his wedding band a quarter-turn with his thumb."
+   ],
+   "pressure": {
+    "baseline": 15,
+    "breakPoint": 74,
+    "lawyerPoint": 92,
+    "style": "shutdown"
+   },
+   "opening": "Reyes has the watch, so you have me for as long as the company is paying. I was at pump 2 all night; WARDEN will tell you the same."
+  },
+  {
+   "name": "Amara Okoye",
+   "part": "liar",
+   "personality": "Warm, quick and tired, Leeds-raised with a market trader's patter: she calls the officer 'love', makes a small joke and then loses the thread of it. When a question comes near her nights she goes vague and starts talking about her trays, the basil, the nitrate dosing, anything green; pushed hard she cries and then tells it all at once.",
+   "voiceSample": "I grow the only thing on this station that isn't grey, love. People stop by. I couldn't tell you who or when.",
+   "relationship": "She was in love with Sorensen, or with being looked at after eight quiet years, and she cannot be seen to grieve; under it is a fear she has not said aloud to anyone.",
+   "movements": [
+    {
+     "from": "18:00",
+     "to": "19:20",
+     "where": "hydroponics, then galley",
+     "doing": "Closed down the trays, ate dinner with the crew, and made up Marek's tray.",
+     "seenBy": [
+      "Ginette Tremblay",
+      "Rohan Mehta"
+     ]
+    },
+    {
+     "from": "19:20",
+     "to": "19:52",
+     "where": "spoke lift, cargo spine, reactor control",
+     "doing": "Badged in at 19:26, sat with Marek from 19:30 to 19:48, left her jacket on his chair and badged out at 19:52.",
+     "seenBy": [
+      "Marek Dvorak",
+      "Ginette Tremblay"
+     ]
+    },
+    {
+     "from": "19:56",
+     "to": "22:40",
+     "where": "her cabin",
+     "doing": "Lay on the bunk with the lights down, alone.",
+     "seenBy": []
+    },
+    {
+     "from": "22:45",
+     "to": "00:20",
+     "where": "hydroponics",
+     "doing": "Darkened the door, messaged from the wall terminal at 22:50, 23:31 and 23:44 and waited for Sorensen, who never came.",
+     "seenBy": []
+    },
+    {
+     "from": "00:20",
+     "to": "02:00",
+     "where": "ring corridor, galley, her cabin",
+     "doing": "Restored the door at 00:22, heard the all-hands at 00:30, the muster, sent to her cabin at 01:40.",
+     "seenBy": [
+      "Ginette Tremblay",
+      "Rohan Mehta",
+      "Yusuf Polat"
+     ]
+    }
+   ],
+   "knows": [
+    "She and Sorensen had six nights in hydroponics, 24 and 28 May and 1, 5, 8 and 12 June, always on Marek's reactor watch; he said 'leave the door dark', so each night at about 22:45 she set the door to maintenance mode and sent 'Trays are ready when you are.' from the wall terminal (she did it).",
+    "At dinner he slipped a sample tag into the pocket of her spine jacket; she read it in the lift at about 19:22, 'After lot 6, half eleven. Leave the door dark. J.', and put it back in the pocket (she did it).",
+    "Reactor control was warm; she hung the jacket on Marek's chair and at 19:48 left without it, the tag still in the pocket; Marek ate nothing and barely spoke, and she did not dare go back for it (she did it).",
+    "Six of Marek's night watches were ringed in grease pencil on the rota on his watch board; he said he was counting his night pay, and only after the muster, counting them over in her bunk, did she see they were her six nights (she saw it).",
+    "At 19:52 Tremblay asked from the cargo office door if she had left her coat with her husband (she heard it).",
+    "Her messages from the hydroponics terminal last night: 22:50 'Trays are ready when you are.', 23:31 'Lot 6 can't take this long.', 23:44 'Jo. Quarter to.' (she sent them).",
+    "Her spine jacket is grey station issue like everyone's, OKOYE on the collar tab; she has not had it back and had no jacket for the rest of the night (it is hers)."
+   ],
+   "doesNotKnow": [
+    "Who killed Sorensen, or how.",
+    "Whether Marek found the tag, or whether he left the reactor ring at all.",
+    "That anyone saw a figure at bay 6 and took it for her, or where the tag is now.",
+    "That the aft hatch was in maintenance mode."
+   ],
+   "secret": "Three weeks of nights with Sorensen behind a darkened door while her husband sat the reactor watch. She hides it because she must berth with Marek nine more days, and because of the tag she left in the jacket on his chair. She says freely that she left the jacket on Marek's chair, but keeps back the tag and what she worked out about the rota until the affair is out.",
+   "lies": [
+    {
+     "claim": "I was in my cabin from eight, love. I walked round at quarter to eleven to put the hydroponics door in maintenance, the actuator sticks, and I was back in my bunk by eleven and asleep.",
+     "truth": "She was inside hydroponics from 22:45 to 00:20, not in her bunk.",
+     "when": "Asked where she was that night, or why the hydroponics door was dark.",
+     "crack": "The comms log showing her palm-unlocked messages from the hydroponics wall terminal at 23:31 and 23:44."
+    },
+    {
+     "claim": "Joaquim? He signed for his greens like everybody else. I don't suppose we had ten minutes' talk in five weeks.",
+     "truth": "They had been lovers for three weeks and she was waiting for him when he died.",
+     "when": "Asked how well she knew Sorensen, or about galley talk linking them.",
+     "crack": "The trace sweep's finding of Sorensen's tag, 'After lot 6, half eleven. Leave the door dark. J.', the note she left in her jacket pocket."
+    }
+   ],
+   "honestMistake": null,
+   "tells": [
+    "Rubs her bare forearms as if she were cold.",
+    "Starts describing a crop nobody asked about."
+   ],
+   "pressure": {
+    "baseline": 32,
+    "breakPoint": 58,
+    "lawyerPoint": 85,
+    "style": "tears"
+   },
+   "opening": "Sorry for the state of me, love; I've not slept since the all-hands. I was in my bunk when it happened, so I don't know what use I'll be."
+  },
+  {
+   "name": "Rohan Mehta",
+   "part": "mistaken",
+   "personality": "Fast, bright and pleased with himself, a Pune-born relay operator who gives every time as a log entry and narrates his own evidence like a film ('cut to: me, floating'). He deflects with a joke or by pointing at somebody else's business, and if doubted he turns formal and wants the company advocate on the link before he repeats it.",
+   "voiceSample": "Twenty-three thirty-seven, hub, one witness, sober. I carry this station's mail; I know who was waiting on whom.",
+   "relationship": "He found Sorensen good company, the best gossip aboard and free with his real coffee; he is more excited than sad, and a little ashamed of that.",
+   "movements": [
+    {
+     "from": "18:00",
+     "to": "21:45",
+     "where": "his cabin, then galley",
+     "doing": "Dinner at 18:30, then a film in the rec corner; saw the card game start at 21:20.",
+     "seenBy": [
+      "Ginette Tremblay",
+      "Amara Okoye",
+      "Farid Nazari"
+     ]
+    },
+    {
+     "from": "21:50",
+     "to": "23:36",
+     "where": "comms blister",
+     "doing": "Sent Sorensen's report on the 22:00 window, watched a film alone with the traffic board beside him, ran the 23:30 window to 23:34.",
+     "seenBy": [
+      "Joaquim Sorensen"
+     ]
+    },
+    {
+     "from": "23:36",
+     "to": "23:38",
+     "where": "hub",
+     "doing": "Looked down the spine through the wedged forward hatch, then took the lift.",
+     "seenBy": []
+    },
+    {
+     "from": "23:42",
+     "to": "02:00",
+     "where": "galley, comms blister, his cabin",
+     "doing": "Joined the card table, was there for the 00:16 call and the muster, ran the 01:00 window with Polat from 00:55, and was sent to his cabin at 01:40.",
+     "seenBy": [
+      "Ginette Tremblay",
+      "Farid Nazari",
+      "Yusuf Polat"
+     ]
+    }
+   ],
+   "knows": [
+    "At dinner Sorensen had seconds of Okoye's salad and made her laugh; Nazari has had the two of them friendly for weeks (he saw it and heard the talk).",
+    "Sorensen badged into the blister at 21:56 with his grading report, lots 4 and 5 both 11 per cent under manifest, said 'Tremblay will want my head, tell her it's gone', and it went on the 22:00 window (he sent it).",
+    "He was alone in the blister from 22:06 until he badged out at 23:36; the 23:30 window ran to 23:34 (he did it).",
+    "His traffic board shows each internal message's sender and text as it passes, not the terminal: at 22:50 'Trays are ready when you are.' went from A. Okoye to Sorensen's slate, a line he has watched go by on other nights, and at 23:31 'Lot 6 can't take this long.' (he read them).",
+    "At 23:37 the forward hatch was wedged open with Sorensen's sample case; forty-five metres down the spine he saw a work lamp at bay 6, a pair of boots adrift behind the rack, and a figure in a grey spine jacket, hood up, back to him, pulling itself along the rack towards the bay panel; he heard nothing, and it was still there when he took the lift at 23:38 (he saw it).",
+    "At 23:42 he told the card table 'your surveyor's got company, Okoye's up in the spine with him'; Tremblay, Zhao, Nazari and Dr Khumalo were all at the table (he said it).",
+    "The comms log keeps the terminal each internal message was palm-sent from; he has not pulled last night's (he runs it)."
+   ],
+   "doesNotKnow": [
+    "Who killed Sorensen, or how; he saw boots and took them for a man at work.",
+    "Which terminal Okoye's messages were sent from, that she messaged again at 23:44, or where she was at 23:37.",
+    "That Okoye left her spine jacket in the reactor ring.",
+    "That the aft hatch was in maintenance mode."
+   ],
+   "secret": null,
+   "lies": [],
+   "honestMistake": {
+    "claim": "It was Amara Okoye at bay 6 at 23:37: spine jacket, hood up, working aft along the rack by his lamp. She had messaged him 'Lot 6 can't take this long' six minutes before, and there she was.",
+    "truth": "It was Marek Dvorak in his own spine jacket; she sent that line from the hydroponics wall terminal, nine minutes away, and was still there at 23:44.",
+    "why": "A hooded back at forty-five metres under one work lamp, in the grey jacket everyone wears; he had just read her message and knew the galley talk, so he saw the person he expected."
+   },
+   "tells": [
+    "Pulls his headset down round his neck and pushes it back up."
+   ],
+   "pressure": {
+    "baseline": 18,
+    "breakPoint": 66,
+    "lawyerPoint": 82,
+    "style": "lawyer"
+   },
+   "opening": "Cut to: me, floating at the hub hatch, twenty-three thirty-seven. Your surveyor had company at bay 6, and I'd watched her message him six minutes before, so no prizes: Amara Okoye."
+  },
+  {
+   "name": "Ginette Tremblay",
+   "part": "honest",
+   "personality": "Blunt, loud and proud of her trade, a Sept-Iles rigger with thirty years of canisters behind her who says 'weightless isn't massless' the way other people say good morning. She swears in Quebec French ('tabarnak'), bristles at any question about her clamps and turns it back on the asker ('you ever latched a canister, officer?'), but she does not lie, even when it is ugly for her.",
+   "voiceSample": "Six-C was green at twenty-one hundred. I put my own eyes on it. A clamp doesn't open because a surveyor looks at it funny.",
+   "relationship": "She resented Sorensen as a clipboard who had never shifted a tonne and was costing her crew their bonus; she is furious that he died in her spine under her canister.",
+   "movements": [
+    {
+     "from": "18:00",
+     "to": "19:00",
+     "where": "cargo office, then galley",
+     "doing": "Closed the day with her riggers and ate dinner with the crew.",
+     "seenBy": [
+      "Amara Okoye",
+      "Rohan Mehta"
+     ]
+    },
+    {
+     "from": "19:00",
+     "to": "20:05",
+     "where": "cargo office, off the hub",
+     "doing": "Worked the manifest, saw Okoye pass at 19:26 and 19:52; galley for coffee from 20:10.",
+     "seenBy": [
+      "Amara Okoye"
+     ]
+    },
+    {
+     "from": "21:00",
+     "to": "21:12",
+     "where": "cargo spine",
+     "doing": "Evening walk-through, badge in and out, every clamp green.",
+     "seenBy": []
+    },
+    {
+     "from": "21:20",
+     "to": "00:05",
+     "where": "galley",
+     "doing": "Cards with Zhao, Nazari and Dr Khumalo; left the table only for the galley intercom.",
+     "seenBy": [
+      "Wen Zhao",
+      "Farid Nazari",
+      "Naledi Khumalo"
+     ]
+    },
+    {
+     "from": "00:05",
+     "to": "02:00",
+     "where": "cargo office, bay 6, galley, her cabin",
+     "doing": "Went up late for her midnight read of the clamp board at 00:10, found Sorensen at 00:14, called it in at 00:16, then the muster and her cabin at 01:40.",
+     "seenBy": [
+      "Yusuf Polat",
+      "Naledi Khumalo"
+     ]
+    }
+   ],
+   "knows": [
+    "At the 16:00 meeting Sorensen said lots 4 and 5 would grade under manifest, which costs her crew the quarter's bonus, and she told him he could go home in one of her canisters (she said it).",
+    "From the cargo office she saw Okoye badge into the spine at 19:26 with a dinner tray and her spine jacket on, and out at 19:52 in shirtsleeves rubbing her arms; she asked 'left your coat with your husband?' and Okoye said 'he can bring it home' (she saw and heard it).",
+    "On her walk-through from 21:00 to 21:12 every clamp was green, 6-C included, and every dogging bar was in its bracket handle-up, the way she makes her riggers stow them (she checked).",
+    "At 22:15 Sorensen came for coffee and said 'it went at ten, Ginette, the numbers are the numbers'; he left about 22:25 (she heard it).",
+    "The night watch always calls the galley by 23:30 for a midnight tray; Dvorak did not, so at 23:33 she buzzed reactor control and it rang out near a minute; at 23:55 he called back, said he had been at the skid with his hands full and wanted nothing (she heard it).",
+    "At 23:42 Mehta came in and said Okoye was up in the spine with the surveyor (she heard it).",
+    "As cargo duty officer she reads the clamp board at midnight and the cards made her late; at 00:10 it read 6-C released, bay panel, 23:39, and the forward hatch was wedged with Sorensen's sample case (she saw it).",
+    "At 00:14 he was pinned to the bay 6 rail by 6-C; the release guard was up with a blue smear on it, and the bay 6 bar sat handle-down and clean as a spoon in a spine where everything is grey (she saw it); she touched only his neck and the intercom, and Polat and Dr Khumalo reached her at 00:26."
+   ],
+   "doesNotKnow": [
+    "Who killed Sorensen, or what he was hit with; she saw a clean bar and a man under a canister.",
+    "Where Okoye was at 23:37, beyond what Mehta said.",
+    "That the aft hatch was in maintenance mode, or that Dvorak left the reactor ring.",
+    "What was in the pocket of the jacket Okoye left aft."
+   ],
+   "secret": "Two embarrassments she owns if asked straight: she threatened Sorensen in front of her riggers at 16:00, and she was drinking Nazari's still spirit on a night she was cargo duty officer.",
+   "lies": [],
+   "honestMistake": null,
+   "tells": [
+    "Winds the clamp-key lanyard round her fist.",
+    "Swears in French and questions the asker's competence."
+   ],
+   "pressure": {
+    "baseline": 22,
+    "breakPoint": 70,
+    "lawyerPoint": 90,
+    "style": "anger"
+   },
+   "opening": "He died in my spine under my canister, so let's not pretend I'm not top of your list. Six-C was green at twenty-one hundred. Start there."
+  }
+ ]
+}

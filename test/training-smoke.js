@@ -17,7 +17,7 @@ const wrap = (body) => `<!doctype html><html><head><meta charset="utf-8"><meta n
   const url = `http://127.0.0.1:${srv.address().port}/`;
   const browser = await chromium.launch();
   let bad = 0;
-  for (const setting of ['country_house', 'noir_docks', 'antarctic']) {
+  for (const setting of ['country_house', 'noir_docks', 'antarctic', 'orbital']) {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, colorScheme: 'dark' });
     await ctx.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
     await ctx.addInitScript(() => { try { localStorage.setItem('ir.intro.v1', 'true'); } catch {} });
