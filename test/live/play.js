@@ -9,6 +9,8 @@ const { liveInit } = require('./init');
 
 const arg = (k, d) => { const a = process.argv.find((x) => x.startsWith(`--${k}=`)); return a ? a.slice(k.length + 3) : d; };
 const SETTING = arg('setting', 'country_house'), PRESET = arg('preset', 'inspector'), WRITER = arg('writer', 'standard'), TIER = arg('tier', 'quick');
+// --training=<file stem in training/> opens that hand-written case instead of generating one
+const TRAINING = arg('training', '');
 const SRC = path.join(__dirname, '..', '..', 'index.html');
 const OUT = path.join(__dirname, 'out', `${new Date().toISOString().replace(/[:.]/g, '-')}-${SETTING}-${PRESET}`);
 fs.mkdirSync(OUT, { recursive: true });
@@ -26,6 +28,13 @@ const say = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
   await ctx.route(/fonts\.(googleapis|gstatic)\.com/, (r) => r.abort());
   await ctx.addInitScript((s) => { localStorage.setItem('ir.settings.v1', JSON.stringify(s)); }, { tier: TIER, writer: WRITER, setting: SETTING, preset: PRESET, dials: null });
   await ctx.addInitScript(liveInit, { port });
+  if (TRAINING) {
+    // mark every other training case of this setting as already played, so the page offers only the one asked for
+    const dir = path.join(__dirname, '..', '..', 'training');
+    const others = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => ({ id: f.replace(/\.json$/, ''), c: JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) })).filter((x) => x.c.settingId === SETTING && x.id !== TRAINING);
+    const book = others.map((x, i) => ({ id: 'seed' + i, title: x.c.truth.title, setting: SETTING, settingId: SETTING, finishedAt: 1, total: 0, rank: '', killerCorrect: false, training: true, trainingId: x.id, game: null }));
+    await ctx.addInitScript((b) => { if (!localStorage.getItem('ir.casebook.v1')) localStorage.setItem('ir.casebook.v1', JSON.stringify(b)); }, book);
+  }
   const page = await ctx.newPage();
   const errs = [];
   page.on('pageerror', (e) => errs.push('pageerror: ' + e));
@@ -37,7 +46,7 @@ const say = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
   await page.goto(url);
   await page.waitForSelector('[data-act=new]');
   say('menu ready; starting a case', SETTING, PRESET, 'writer', WRITER, 'suspects', TIER);
-  await page.click('[data-act=new]');
+  await page.click(TRAINING ? '[data-act=training]' : '[data-act=new]');
   const t0 = Date.now();
   try { await page.waitForSelector('.file h2', { timeout: 900000 }); }
   catch (e) { await shot('gen-failed'); const err = await page.$eval('.err', (el) => el.textContent).catch(() => ''); say('GENERATION FAILED', err); fs.writeFileSync(path.join(OUT, 'FAILED.txt'), err + '\n' + errs.join('\n')); await browser.close(); bridge.close(); pageSrv.close(); process.exit(1); }
