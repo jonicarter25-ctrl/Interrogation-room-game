@@ -349,7 +349,7 @@
   ],
   "forensics": {
    "tod": "Two blows to the back of the skull from a rounded steel edge about three centimetres across, the second with the head already against the canister face. The broad pressure marks across the shoulders from canister 6-C have no bleeding under them and were made after the heart stopped; core temperature in a four-degree spine puts death between 23:20 and 23:50.",
-   "prints": "The bay 6 dogging bar is wiped of dust and prints, with Sorensen's blood left in the knurling; the release guard and button carry only a smeared blue film with no ridge detail, and neither Amara Okoye's palm nor Ginette Tremblay's is on the bay 6 panel, the bar or canister 6-C. Okoye's palm is on the hydroponics wall terminal, Tremblay's on the cargo office board and the bay 6 intercom. At the bottom of the rag bin at the pump 2 skid in the reactor ring is a pump rag carrying Sorensen's blood, spine dust and blue grease, folded round a sample tag in Sorensen's hand with a blue smear and no ridge detail: 'After lot 6, half eleven. Leave the door dark. J.' A spine jacket tabbed OKOYE hangs on the watch chair in reactor control with its pockets empty, and the paper rota there has six night watches ringed in grease pencil.",
+   "prints": "The bay 6 dogging bar is wiped of dust and prints, with Sorensen's blood left in the knurling; the release guard and button carry only a smeared blue film with no ridge detail, and neither Amara Okoye's palm nor Ginette Tremblay's is on the bay 6 panel, the bar or canister 6-C. Okoye's palm is on the hydroponics wall terminal, Tremblay's on the cargo office board and the bay 6 intercom. At the bottom of the rag bin at the pump 2 skid in the reactor ring is a pump rag carrying Sorensen's blood, spine dust and blue grease, folded round a sample tag in Sorensen's hand with a blue smear and no ridge detail: 'After lot 6, half eleven. Leave the door dark. J.' A spine jacket tabbed OKOYE hangs on the watch chair in reactor control with its pockets empty, and the paper rota there has six night watches ringed in grease pencil: 24 and 28 May, 1, 5, 8 and 12 June.",
    "comms": "Relay: Sorensen's grading report, lots 4 and 5 both 11 per cent under manifest, went to the buyer on the 22:00 window; the 23:30 window ran 23:30 to 23:34. Internal: A. Okoye, palm-unlocked at the hydroponics wall terminal, to Sorensen's slate at 22:50 'Trays are ready when you are.', 23:31 'Lot 6 can't take this long.' and 23:44 'Jo. Quarter to.'; the first line also went from that terminal on six earlier nights. Intercom: galley to reactor control 23:33, unanswered for 50 seconds; reactor control to galley 23:55.",
    "tox": "No drug, poison or alcohol in Sorensen's blood, and the spine's air held 21 per cent oxygen all night. The blue smear on the bay 6 release guard and another on his collar are fluorinated pump-seal grease, stocked only at the coolant pump skids in the reactor ring.",
    "logs": "Forward hatch: Dvorak in 17:49; Reyes out 18:07; Okoye in 19:26, out 19:52; Tremblay in 21:00, out 21:12; Sorensen in 22:58, then held open and unlogged until sealed at 00:50. Aft hatch: Dvorak in 17:52; Reyes out 18:04; Okoye in 19:29, out 19:49; no badge after that; in maintenance mode from its own panel 23:22 to 23:50. No airlock cycled and no suit was powered. Clamp 6-C: manual release at the bay 6 panel, 23:39. Pump 2, in maintenance from 22:15, drew a test cycle at 22:20, 22:30, 22:40, 22:50, 23:00 and 23:10, then nothing until 23:52, then every ten minutes to 00:22. Hydroponics door: in maintenance 22:45 to 00:22 with no work ticket, as on 24 and 28 May and 1, 5, 8 and 12 June. Comms blister: Mehta in 21:50, out 23:36; Sorensen in 21:56, out 22:06; Mehta and Polat in 00:55."
@@ -427,7 +427,7 @@
     "Where Amara was during the half hour he was gone, or that she sent messages from the hydroponics terminal.",
     "That Tremblay saw Amara leave the spine at 19:52 in shirtsleeves.",
     "That the rag left pump-seal grease on the release guard and on Sorensen's collar.",
-    "That the rag bin has been emptied and the tag found."
+    "Whether anyone has searched the rag bin at the pump 2 skid, until the detective tells him or shows him the trace sweep."
    ],
    "secret": "He killed Sorensen for sleeping with his wife and dressed it as a clamp failure. He will not have Amara blamed and will not have the marriage discussed: told that a witness puts her at bay 6, he says only 'Not correct. My wife was not in the spine,' and will not say how he knows.",
    "lies": [
@@ -450,10 +450,10 @@
      "crack": "The medical bay scan: two blows from a three-centimetre rounded bar, and the canister marks made after death."
     },
     {
-     "claim": "My wife and Sorensen? Not correct. He ate her salad, like ten other people. Somebody is selling you galley talk.",
+     "claim": "My wife and Sorensen? Not correct. He eats from her trays, like ten other people. Somebody is selling you galley talk.",
      "truth": "He had ringed the six dark-door nights on his rota and read Sorensen's tag at 19:55.",
      "when": "Asked about his marriage, Okoye and Sorensen, or the galley talk about them.",
-     "crack": "The reactor watch rota from his own watch board, with six of his night watches ringed in grease pencil."
+     "crack": "The trace sweep's finding of the paper rota on his watch board in reactor control, with six night watches ringed in grease pencil."
     }
    ],
    "honestMistake": null,

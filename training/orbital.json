@@ -3,8 +3,19 @@
  "truth": {
   "title": "The Lot 44 Reserve",
   "house": "Castellan Ore's station: a spinning ring of cabins, galley, medical bay and offices; a zero-g hub with hydroponics, tool crib, Airlock B and comms blister; a cargo spine, the assay bay at its hub end and Airlock A at the far dock; an outer-hull pod rack where tugs drop ore pods; a reactor ring aft.",
-  "victim": {"name": "Henrik Aalto", "age": 53, "role": "contract surveyor for Meridian Surety, the buyer's underwriter, sent up on the last shuttle to re-assay Lot 44", "sketch": "A tall, stooped Finn with a grey crew cut and reading lenses pushed up on his forehead, who weighed everything twice and wrote down the second number. Twelve days aboard, courteous to all and in nobody's pocket, he ate fast and went back to work."},
-  "night": {"start": "18:00", "end": "02:00", "discovered": "23:48", "discoveredBy": "Jun-ho Baek", "where": "the assay bay"},
+  "victim": {
+   "name": "Henrik Aalto",
+   "age": 53,
+   "role": "contract surveyor for Meridian Surety, the buyer's underwriter, sent up on the last shuttle to re-assay Lot 44",
+   "sketch": "A tall, stooped Finn with a grey crew cut and reading lenses pushed up on his forehead, who weighed everything twice and wrote down the second number. Twelve days aboard, courteous to all and in nobody's pocket, he ate fast and went back to work."
+  },
+  "night": {
+   "start": "18:00",
+   "end": "02:00",
+   "discovered": "23:48",
+   "discoveredBy": "Jun-ho Baek",
+   "where": "the assay bay"
+  },
   "weather": "13 September 2089, station time: ring at 0.4 g and 21 degrees; ore tug Marisol undocked at 17:40; no EVA on the board; relay windows at 20:00 and 02:00.",
   "publicFacts": [
    "Dr Henrik Aalto, the underwriter's surveyor, was found dead in the assay bay at the hub end of the cargo spine at 23:48 by Jun-ho Baek, floating against the inside of the door with blood at his ears and nose.",
@@ -16,44 +27,317 @@
    "Every suit keeps its own sealed recorder of pressure, oxygen and the wearer's pulse, whatever WARDEN is doing. Office lights drop to standby after five minutes without movement and wake when someone walks in; both show in WARDEN's power log. The grade office spectrometer takes a twelve-pellet carousel and, once loaded, feeds and logs a pellet every seven minutes with nobody in the room. Every lot's assay carries its own iridium ratio, which is how the lab tells one lot's rock from another's."
   ],
   "suspects": [
-   {"name": "Dalia Khoury", "age": 44, "role": "assay chief, six years aboard, whose certificate sets the grade and the price of every lot that leaves the station", "sketch": "Compact and immaculate, a grey streak in black hair pinned tight, clean nails in a station of dirty ones and a service key lying flat on her lanyard. She answers in whole sentences with figures in them and smiles after, not during.", "part": "killer"},
-   {"name": "Tobias Ekwueme", "age": 34, "role": "rigger and EVA lead from Port Harcourt, who runs the pod rack and the airlocks and services the suits", "sketch": "Very tall and loose-limbed, shaved head, wrists ringed with old suit-seal scars, known the length of the station by his orange rigger's jacket. He grins first and answers second, and sits in a chair as if it were borrowed.", "part": "liar"},
-   {"name": "Soledad Quispe", "age": 27, "role": "hydroponics technician from Arequipa, who grows the station's greens alone in the hub", "sketch": "Small and quick, green-stained cuticles, a braid tucked into her collar, hands that talk. She answers before you finish asking and does not like being asked twice.", "part": "mistaken"},
-   {"name": "Jun-ho Baek", "age": 25, "role": "assay technician on his first contract, second signature on Khoury's certificates", "sketch": "Slight and neat with dark rings under his eyes, a work slate hugged to his chest. He has not slept, answers as if filling in a lab log, and corrects himself to the minute.", "part": "honest"}
+   {
+    "name": "Dalia Khoury",
+    "age": 44,
+    "role": "assay chief, six years aboard, whose certificate sets the grade and the price of every lot that leaves the station",
+    "sketch": "Compact and immaculate, a grey streak in black hair pinned tight, clean nails in a station of dirty ones and a service key lying flat on her lanyard. She answers in whole sentences with figures in them and smiles after, not during.",
+    "part": "killer"
+   },
+   {
+    "name": "Tobias Ekwueme",
+    "age": 34,
+    "role": "rigger and EVA lead from Port Harcourt, who runs the pod rack and the airlocks and services the suits",
+    "sketch": "Very tall and loose-limbed, shaved head, wrists ringed with old suit-seal scars, known the length of the station by his orange rigger's jacket. He grins first and answers second, and sits in a chair as if it were borrowed.",
+    "part": "liar"
+   },
+   {
+    "name": "Soledad Quispe",
+    "age": 27,
+    "role": "hydroponics technician from Arequipa, who grows the station's greens alone in the hub",
+    "sketch": "Small and quick, green-stained cuticles, a braid tucked into her collar, hands that talk. She answers before you finish asking and does not like being asked twice.",
+    "part": "mistaken"
+   },
+   {
+    "name": "Jun-ho Baek",
+    "age": 25,
+    "role": "assay technician on his first contract, second signature on Khoury's certificates",
+    "sketch": "Slight and neat with dark rings under his eyes, a work slate hugged to his chest. He has not slept, answers as if filling in a lab log, and corrects himself to the minute.",
+    "part": "honest"
+   }
   ],
   "killer": "Dalia Khoury",
   "accomplice": null,
   "motive": "Khoury certified Lot 44 at 6.4 g/t platinum-group metal when it ran 1.9, salting the assay cores and two reserve boxes with rich Lot 39 core, for a third of the grade bonus the Vesta pit contractor drew on her certificates; she had already spent 280,000 of it buying out her own contract. Aalto, re-assaying the reserve cores for the buyer's underwriter, told her at 21:34 that he would file for clawback and an audit of her at the 02:00 relay window, and she killed him to stop the message and destroy his samples.",
   "method": "At 22:38 Khoury, wearing Ekwueme's orange jacket and having used his badge at the spine hatch, turned her service key to put the assay bay in maintenance mode, which kills its interlocks and its logging, and at 22:41 opened the dust purge with Aalto shut inside; the bay went to vacuum in under a minute, spine pressure held the door, and he was dead by 22:43. She refilled the bay at 22:54, took the two relabelled core boxes, restored normal mode at 23:08 and hung the jacket and badge back in Ekwueme's locker, leaving the hatch log to name him.",
-  "alibiGap": {"from": "22:26", "to": "23:16", "killerClaims": "That she sat at her desk in the grade office on the ring from 21:55 until the commander's call at 23:55, minding the Lot 45 run, whose log shows a pellet every seven minutes without a break.", "actually": "She loaded the twelve-pellet carousel, wedged the office door at 22:26, took Ekwueme's jacket and badge from locker 4 at 22:32, badged into the spine at 22:36, purged the bay at 22:41, refilled it at 22:54, took the boxes, badged out at 23:10, returned the jacket at 23:12 and was back at her desk at 23:16."},
+  "alibiGap": {
+   "from": "22:26",
+   "to": "23:16",
+   "killerClaims": "That she sat at her desk in the grade office on the ring from 21:55 until the commander's call at 23:55, minding the Lot 45 run, whose log shows a pellet every seven minutes without a break.",
+   "actually": "She loaded the twelve-pellet carousel, wedged the office door at 22:26, took Ekwueme's jacket and badge from locker 4 at 22:32, badged into the spine at 22:36, purged the bay at 22:41, refilled it at 22:54, took the boxes, badged out at 23:10, returned the jacket at 23:12 and was back at her desk at 23:16."
+  },
   "sharedStory": null,
   "timeline": [
-   {"time": "18:30", "place": "galley", "present": ["Henrik Aalto", "Dalia Khoury", "Tobias Ekwueme", "Soledad Quispe", "Jun-ho Baek", "Ines Carvalho", "Kwame Asante", "Stefan Varga", "Nilufar Rashidova"], "event": "Dinner for all but Pillai, on blister watch from 18:00: Aalto asks Ekwueme why pod-rack caddy masses do not match the tug manifests and is told to stick to rocks, then asks Baek to bring the Lot 44 certificate file to the bay at 23:45 to witness the last six cores.", "witnesses": ["Dalia Khoury", "Tobias Ekwueme", "Soledad Quispe", "Jun-ho Baek"]},
-   {"time": "19:10", "place": "grade office", "present": ["Dalia Khoury", "Jun-ho Baek"], "event": "Khoury and Baek pelletise Lot 45, Baek telling her at 19:15 that he pointed out the reserve rack to Aalto that afternoon and hearing 'Of course you did', until he leaves at 20:30 for tea in the galley and his cabin at 21:10 and she works on alone to 21:15; Ekwueme and Quispe have been in their cabins since 19:15 and 19:20, and Aalto badges into the spine at 19:40.", "witnesses": ["Dalia Khoury", "Jun-ho Baek"]},
-   {"time": "21:20", "place": "cargo spine", "present": ["Tobias Ekwueme", "Dalia Khoury", "Henrik Aalto"], "event": "Khoury badges in and reaches the assay bay door as Ekwueme, in Hold 2 on a lashing check of the Lot 45 pods since 20:10, passes on his way out at 21:25 and hears Aalto say from inside 'Close the door, Dalia. You will want it closed'; Quispe has been in hydroponics since 20:02.", "witnesses": ["Tobias Ekwueme", "Dalia Khoury"]},
-   {"time": "21:34", "place": "assay bay", "present": ["Henrik Aalto", "Dalia Khoury"], "event": "Behind the shut door Aalto, who saved a draft to the relay queue at 21:12, shows Khoury the reserve figures and the doubled labels and, asked to hold until the shuttle, says it goes at 02:00 once Baek has witnessed the last six; she badges out at 21:50, and Ekwueme is in his cabin from 21:35.", "witnesses": []},
-   {"time": "21:55", "place": "grade office", "present": ["Dalia Khoury"], "event": "Khoury loads the spectrometer's carousel with twelve Lot 45 pellets, starts the run at 22:02 and at 22:26 wedges the door on a core tray and leaves for Spoke 2; Baek has been in his cabin since 21:10 and Ekwueme in his since 21:35.", "witnesses": []},
-   {"time": "22:16", "place": "Airlock B locker room", "present": ["Tobias Ekwueme"], "event": "Ekwueme, out of his cabin at 22:12, takes the tool-crib key from its hook, sets Airlock B to maintenance mode at 22:21, hangs his orange jacket with his badge on its collar loop in locker 4 and seals Suit 4.", "witnesses": []},
-   {"time": "22:29", "place": "pod rack, outer hull", "present": ["Tobias Ekwueme"], "event": "Ekwueme goes out alone and unlogged, works along the rail to pod 17 and empties its tool caddy of the Marisol's drop of coffee, tobacco and rum, his helmet lamp noted from the comms blister by Pillai at 22:50.", "witnesses": ["Arjun Pillai"]},
-   {"time": "22:32", "place": "Airlock B locker room", "present": ["Dalia Khoury"], "event": "Khoury, seeing the amber maintenance lamp, walks into the unlogged locker room, pulls on Ekwueme's jacket bare-handed with the hood up, takes his badge off the collar loop and puts on nitrile gloves.", "witnesses": []},
-   {"time": "22:36", "place": "hub junction", "present": ["Soledad Quispe", "Dalia Khoury"], "event": "Quispe, badging out of hydroponics at 22:35, sees the orange jacket pull hand over hand along the rail to the spine hatch and badge through, says 'Night, Tobias' to its back and gets no answer, and notes Airlock B's lamp amber and the tool-crib hook empty.", "witnesses": ["Soledad Quispe", "Dalia Khoury"]},
-   {"time": "22:38", "place": "assay bay", "present": ["Dalia Khoury", "Henrik Aalto"], "event": "At the panel outside the shut door Khoury turns her key to maintenance at 22:38 and opens the purge at 22:41; Aalto reaches the door, cannot move it against spine pressure and is dead by 22:43, while Ekwueme on the hull sees dust and paper plume from the purge port.", "witnesses": ["Tobias Ekwueme"]},
-   {"time": "22:47", "place": "grade office", "present": ["Jun-ho Baek"], "event": "Baek comes from his cabin for the Lot 44 certificate file and finds the door wedged on a core tray, the lights on standby until he steps in, the spectrometer cycling by itself and nobody there; he takes the file and leaves at 22:50.", "witnesses": ["Jun-ho Baek"]},
-   {"time": "22:52", "place": "galley", "present": ["Soledad Quispe", "Jun-ho Baek", "Ines Carvalho", "Stefan Varga", "Kwame Asante", "Nilufar Rashidova"], "event": "Baek comes in with the Lot 44 file and says Dalia is not in the office and the batch is running itself, joining Quispe, who has sat with tea since 22:42 beside the card game Carvalho, Varga and Asante began at 21:30 while Rashidova wipes down; Quispe leaves for her cabin at 23:05 and Baek stays until 23:42.", "witnesses": ["Soledad Quispe", "Jun-ho Baek"]},
-   {"time": "22:54", "place": "assay bay", "present": ["Dalia Khoury", "Henrik Aalto"], "event": "Khoury shuts the purge and opens the equalising valve, dipping the spine's pressure, goes in at 22:58, takes core boxes 44-R3 and 44-R5 inside the jacket, fails to find Aalto's slate under the bags on the purge grille, restores normal mode at 23:08 and badges out with Ekwueme's badge at 23:10.", "witnesses": []},
-   {"time": "23:12", "place": "Airlock B locker room", "present": ["Dalia Khoury"], "event": "Khoury hangs the jacket in locker 4 on the left-hand hook with the badge clipped to its chest pocket and goes down Spoke 2 with the boxes under her arm.", "witnesses": []},
-   {"time": "23:16", "place": "grade office", "present": ["Dalia Khoury"], "event": "Khoury puts the two boxes in the bottom drawer of the sample cabinet behind the Lot 45 trays, kicks the core tray clear of the door and sits at her desk until Carvalho calls at 23:55.", "witnesses": []},
-   {"time": "23:19", "place": "Airlock B locker room", "present": ["Tobias Ekwueme"], "event": "Ekwueme comes in through the lock, racks Suit 4, finds his jacket on the wrong hook with the badge on the wrong pocket and grit on the cuffs, leaves both hanging untouched, restores normal mode at 23:27, hangs the key back on its hook and is in his cabin with the helmet bag by 23:34.", "witnesses": []},
-   {"time": "23:48", "place": "assay bay", "present": ["Jun-ho Baek", "Henrik Aalto"], "event": "Baek, badged into the spine at 23:46, opens the bay door and finds Aalto floating against it with the bench swept bare, and calls Asante and Carvalho on the spine intercom; Asante pronounces at 00:05.", "witnesses": ["Jun-ho Baek"]},
-   {"time": "00:30", "place": "galley", "present": ["Dalia Khoury", "Tobias Ekwueme", "Soledad Quispe", "Jun-ho Baek", "Ines Carvalho", "Kwame Asante", "Stefan Varga", "Nilufar Rashidova"], "event": "Carvalho, who woke the security officer at 00:10 and sealed the spine, musters the crew, Khoury from the grade office and Ekwueme and Quispe from their cabins, and sends her report at the 02:00 relay window.", "witnesses": ["Dalia Khoury", "Tobias Ekwueme", "Soledad Quispe", "Jun-ho Baek"]}
+   {
+    "time": "18:30",
+    "place": "galley",
+    "present": [
+     "Henrik Aalto",
+     "Dalia Khoury",
+     "Tobias Ekwueme",
+     "Soledad Quispe",
+     "Jun-ho Baek",
+     "Ines Carvalho",
+     "Kwame Asante",
+     "Stefan Varga",
+     "Nilufar Rashidova"
+    ],
+    "event": "Dinner for all but Pillai, on blister watch from 18:00: Aalto asks Ekwueme why pod-rack caddy masses do not match the tug manifests and is told to stick to rocks, then asks Baek to bring the Lot 44 certificate file to the bay at 23:45 to witness the last six cores.",
+    "witnesses": [
+     "Dalia Khoury",
+     "Tobias Ekwueme",
+     "Soledad Quispe",
+     "Jun-ho Baek"
+    ]
+   },
+   {
+    "time": "19:10",
+    "place": "grade office",
+    "present": [
+     "Dalia Khoury",
+     "Jun-ho Baek"
+    ],
+    "event": "Khoury and Baek pelletise Lot 45, Baek telling her at 19:15 that he pointed out the reserve rack to Aalto that afternoon and hearing 'Of course you did', until he leaves at 20:30 for tea in the galley and his cabin at 21:10 and she works on alone to 21:15; Ekwueme and Quispe have been in their cabins since 19:15 and 19:20, and Aalto badges into the spine at 19:40.",
+    "witnesses": [
+     "Dalia Khoury",
+     "Jun-ho Baek"
+    ]
+   },
+   {
+    "time": "21:20",
+    "place": "cargo spine",
+    "present": [
+     "Tobias Ekwueme",
+     "Dalia Khoury",
+     "Henrik Aalto"
+    ],
+    "event": "Khoury badges in and reaches the assay bay door as Ekwueme, in Hold 2 on a lashing check of the Lot 45 pods since 20:10, passes on his way out at 21:25 and hears Aalto say from inside 'Close the door, Dalia. You will want it closed'; Quispe has been in hydroponics since 20:02.",
+    "witnesses": [
+     "Tobias Ekwueme",
+     "Dalia Khoury"
+    ]
+   },
+   {
+    "time": "21:34",
+    "place": "assay bay",
+    "present": [
+     "Henrik Aalto",
+     "Dalia Khoury"
+    ],
+    "event": "Behind the shut door Aalto, who saved a draft to the relay queue at 21:12, shows Khoury the reserve figures and the doubled labels and, asked to hold until the shuttle, says it goes at 02:00 once Baek has witnessed the last six; she badges out at 21:50, and Ekwueme is in his cabin from 21:35.",
+    "witnesses": []
+   },
+   {
+    "time": "21:55",
+    "place": "grade office",
+    "present": [
+     "Dalia Khoury"
+    ],
+    "event": "Khoury loads the spectrometer's carousel with twelve Lot 45 pellets, starts the run at 22:02 and at 22:26 wedges the door on a core tray and leaves for Spoke 2; Baek has been in his cabin since 21:10 and Ekwueme in his since 21:35.",
+    "witnesses": []
+   },
+   {
+    "time": "22:16",
+    "place": "Airlock B locker room",
+    "present": [
+     "Tobias Ekwueme"
+    ],
+    "event": "Ekwueme, out of his cabin at 22:12, takes the tool-crib key from its hook, sets Airlock B to maintenance mode at 22:21, hangs his orange jacket with his badge on its collar loop in locker 4 and seals Suit 4.",
+    "witnesses": []
+   },
+   {
+    "time": "22:29",
+    "place": "pod rack, outer hull",
+    "present": [
+     "Tobias Ekwueme"
+    ],
+    "event": "Ekwueme goes out alone and unlogged, works along the rail to pod 17 and empties its tool caddy of the Marisol's drop of coffee, tobacco and rum, his helmet lamp noted from the comms blister by Pillai at 22:50.",
+    "witnesses": [
+     "Arjun Pillai"
+    ]
+   },
+   {
+    "time": "22:32",
+    "place": "Airlock B locker room",
+    "present": [
+     "Dalia Khoury"
+    ],
+    "event": "Khoury, seeing the amber maintenance lamp, walks into the unlogged locker room, pulls on Ekwueme's jacket bare-handed with the hood up, takes his badge off the collar loop and puts on nitrile gloves.",
+    "witnesses": []
+   },
+   {
+    "time": "22:36",
+    "place": "hub junction",
+    "present": [
+     "Soledad Quispe",
+     "Dalia Khoury"
+    ],
+    "event": "Quispe, badging out of hydroponics at 22:35, sees the orange jacket pull hand over hand along the rail to the spine hatch and badge through, says 'Night, Tobias' to its back and gets no answer, and notes Airlock B's lamp amber and the tool-crib hook empty.",
+    "witnesses": [
+     "Soledad Quispe",
+     "Dalia Khoury"
+    ]
+   },
+   {
+    "time": "22:38",
+    "place": "assay bay",
+    "present": [
+     "Dalia Khoury",
+     "Henrik Aalto"
+    ],
+    "event": "At the panel outside the shut door Khoury turns her key to maintenance at 22:38 and opens the purge at 22:41; Aalto reaches the door, cannot move it against spine pressure and is dead by 22:43, while Ekwueme on the hull sees dust and paper plume from the purge port.",
+    "witnesses": [
+     "Tobias Ekwueme"
+    ]
+   },
+   {
+    "time": "22:47",
+    "place": "grade office",
+    "present": [
+     "Jun-ho Baek"
+    ],
+    "event": "Baek comes from his cabin for the Lot 44 certificate file and finds the door wedged on a core tray, the lights on standby until he steps in, the spectrometer cycling by itself and nobody there; he takes the file and leaves at 22:50.",
+    "witnesses": [
+     "Jun-ho Baek"
+    ]
+   },
+   {
+    "time": "22:52",
+    "place": "galley",
+    "present": [
+     "Soledad Quispe",
+     "Jun-ho Baek",
+     "Ines Carvalho",
+     "Stefan Varga",
+     "Kwame Asante",
+     "Nilufar Rashidova"
+    ],
+    "event": "Baek comes in with the Lot 44 file and says Dalia is not in the office and the batch is running itself, joining Quispe, who has sat with tea since 22:42 beside the card game Carvalho, Varga and Asante began at 21:30 while Rashidova wipes down; Quispe leaves for her cabin at 23:05 and Baek stays until 23:42.",
+    "witnesses": [
+     "Soledad Quispe",
+     "Jun-ho Baek"
+    ]
+   },
+   {
+    "time": "22:54",
+    "place": "assay bay",
+    "present": [
+     "Dalia Khoury",
+     "Henrik Aalto"
+    ],
+    "event": "Khoury shuts the purge and opens the equalising valve, dipping the spine's pressure, goes in at 22:58, takes core boxes 44-R3 and 44-R5 inside the jacket, fails to find Aalto's slate under the bags on the purge grille, restores normal mode at 23:08 and badges out with Ekwueme's badge at 23:10.",
+    "witnesses": []
+   },
+   {
+    "time": "23:12",
+    "place": "Airlock B locker room",
+    "present": [
+     "Dalia Khoury"
+    ],
+    "event": "Khoury hangs the jacket in locker 4 on the left-hand hook with the badge clipped to its chest pocket and goes down Spoke 2 with the boxes under her arm.",
+    "witnesses": []
+   },
+   {
+    "time": "23:16",
+    "place": "grade office",
+    "present": [
+     "Dalia Khoury"
+    ],
+    "event": "Khoury puts the two boxes in the bottom drawer of the sample cabinet behind the Lot 45 trays, kicks the core tray clear of the door and sits at her desk until Carvalho calls at 23:55.",
+    "witnesses": []
+   },
+   {
+    "time": "23:19",
+    "place": "Airlock B locker room",
+    "present": [
+     "Tobias Ekwueme"
+    ],
+    "event": "Ekwueme comes in through the lock, racks Suit 4, finds his jacket on the wrong hook with the badge on the wrong pocket and grit on the cuffs, leaves both hanging untouched, restores normal mode at 23:27, hangs the key back on its hook and is in his cabin with the helmet bag by 23:34.",
+    "witnesses": []
+   },
+   {
+    "time": "23:48",
+    "place": "assay bay",
+    "present": [
+     "Jun-ho Baek",
+     "Henrik Aalto"
+    ],
+    "event": "Baek, badged into the spine at 23:46, opens the bay door and finds Aalto floating against it with the bench swept bare, and calls Asante and Carvalho on the spine intercom; Asante pronounces at 00:05.",
+    "witnesses": [
+     "Jun-ho Baek"
+    ]
+   },
+   {
+    "time": "00:30",
+    "place": "galley",
+    "present": [
+     "Dalia Khoury",
+     "Tobias Ekwueme",
+     "Soledad Quispe",
+     "Jun-ho Baek",
+     "Ines Carvalho",
+     "Kwame Asante",
+     "Stefan Varga",
+     "Nilufar Rashidova"
+    ],
+    "event": "Carvalho, who woke the security officer at 00:10 and sealed the spine, musters the crew, Khoury from the grade office and Ekwueme and Quispe from their cabins, and sends her report at the 02:00 relay window.",
+    "witnesses": [
+     "Dalia Khoury",
+     "Tobias Ekwueme",
+     "Soledad Quispe",
+     "Jun-ho Baek"
+    ]
+   }
   ],
   "evidence": [
-   {"id": "ev1", "name": "Purge panel", "where": "spine wall beside the assay bay door", "detail": "A panel with a key switch marked NORMAL and MAINT, a red purge handle and an equalising valve. Its placard reads 'PURGE REFUSED IF DOOR OPEN OR BADGE INSIDE. MAINT: INTERLOCKS OFF, NO LOG.' The switch stands at NORMAL with no key in it, and the bay has no purge control inside.", "proves": "The purge was run from outside the shut door, with the interlocks deliberately off, by someone holding a service key; Aalto could not have done it to himself.", "atScene": true},
-   {"id": "ev2", "name": "Bay door and core rack", "where": "inside the assay bay", "detail": "Aalto against the inner face of the door with three nails torn on its handle; the bench bare of powder and the purge grille matted with sample bags, paper and grey dust. In the rack marked LOT 44 RESERVE, slots R3 and R5 are empty and R7 to R12 unopened.", "proves": "The bay was emptied to vacuum while he worked and he died trying to get out; afterwards someone came in past his body and took two particular core boxes.", "atScene": true},
-   {"id": "ev3", "name": "Aalto's slate", "where": "under the sample bags on the purge grille", "detail": "His work slate, cracked but readable. Bench log: 'R1 1.8. R2 2.0. R3 6.6, label over label. R4 1.9. R5 6.3, label over label. R6 1.9. R7 to R12 tonight, Baek to witness 23:45.' Last note: '21:34 asked to hold until the shuttle. Refused. It goes at 02:00.'", "proves": "Lot 44 runs under a third of its certificate, two reserve boxes were doctored, and whoever was in the bay with him at 21:34 asked him to hold it back and learned he would report at 02:00.", "atScene": true},
-   {"id": "ev4", "name": "Orange jacket and badge", "where": "locker 4, Airlock B locker room", "detail": "Ekwueme's orange rigger's jacket on the left-hand hook, his badge clipped to the chest pocket, grey rock dust on both cuffs and down the inside front.", "proves": "The badge that passed the spine hatch at 22:36 hung in a room nobody was logging, and someone wore the jacket and carried something dusty inside it.", "atScene": false},
-   {"id": "ev5", "name": "Suit 4 and the helmet bag", "where": "Airlock B suit rack, and under Ekwueme's bunk", "detail": "Suit 4 racked damp, its recorder lamp amber for unread data. Under his bunk, a helmet bag holding a pod-rack caddy liner with two kilos of coffee, tobacco and a litre of rum, tagged from the Marisol's stores.", "proves": "Ekwueme was on the hull collecting a tug's contraband, which explains the Airlock B gap and the caddy masses Aalto queried.", "atScene": false},
-   {"id": "ev6", "name": "Core boxes 44-R3 and 44-R5", "where": "bottom drawer of the grade office sample cabinet, behind Lot 45 trays", "detail": "Two reserve core boxes labelled 44-R3 and 44-R5, each label stuck over an older one reading LOT 39 RESERVE, the core inside darker than Lot 44 rock.", "proves": "The boxes taken from the bay were carried to the assay chief's office that night, and they show the reserve set was salted with richer core.", "atScene": false}
+   {
+    "id": "ev1",
+    "name": "Purge panel",
+    "where": "spine wall beside the assay bay door",
+    "detail": "A panel with a key switch marked NORMAL and MAINT, a red purge handle and an equalising valve. Its placard reads 'PURGE REFUSED IF DOOR OPEN OR BADGE INSIDE. MAINT: INTERLOCKS OFF, NO LOG.' The switch stands at NORMAL with no key in it, and the bay has no purge control inside.",
+    "proves": "The purge was run from outside the shut door, with the interlocks deliberately off, by someone holding a service key; Aalto could not have done it to himself.",
+    "atScene": true
+   },
+   {
+    "id": "ev2",
+    "name": "Bay door and core rack",
+    "where": "inside the assay bay",
+    "detail": "Aalto against the inner face of the door with three nails torn on its handle; the bench bare of powder and the purge grille matted with sample bags, paper and grey dust. In the rack marked LOT 44 RESERVE, slots R3 and R5 are empty and R7 to R12 unopened.",
+    "proves": "The bay was emptied to vacuum while he worked and he died trying to get out; afterwards someone came in past his body and took two particular core boxes.",
+    "atScene": true
+   },
+   {
+    "id": "ev3",
+    "name": "Aalto's slate",
+    "where": "under the sample bags on the purge grille",
+    "detail": "His work slate, cracked but readable. Bench log: 'R1 1.8. R2 2.0. R3 6.6, label over label. R4 1.9. R5 6.3, label over label. R6 1.9. R7 to R12 tonight, Baek to witness 23:45.' Last note: '21:34 asked to hold until the shuttle. Refused. It goes at 02:00.'",
+    "proves": "Lot 44 runs under a third of its certificate, two reserve boxes were doctored, and whoever was in the bay with him at 21:34 asked him to hold it back and learned he would report at 02:00.",
+    "atScene": true
+   },
+   {
+    "id": "ev4",
+    "name": "Orange jacket and badge",
+    "where": "locker 4, Airlock B locker room",
+    "detail": "Ekwueme's orange rigger's jacket on the left-hand hook, his badge clipped to the chest pocket, grey rock dust on both cuffs and down the inside front.",
+    "proves": "The badge that passed the spine hatch at 22:36 hung in a room nobody was logging, and someone wore the jacket and carried something dusty inside it.",
+    "atScene": false
+   },
+   {
+    "id": "ev5",
+    "name": "Suit 4 and the helmet bag",
+    "where": "Airlock B suit rack, and under Ekwueme's bunk",
+    "detail": "Suit 4 racked damp, its recorder lamp amber for unread data. Under his bunk, a helmet bag holding a pod-rack caddy liner with two kilos of coffee, tobacco and a litre of rum, tagged from the Marisol's stores.",
+    "proves": "Ekwueme was on the hull collecting a tug's contraband, which explains the Airlock B gap and the caddy masses Aalto queried.",
+    "atScene": false
+   },
+   {
+    "id": "ev6",
+    "name": "Core boxes 44-R3 and 44-R5",
+    "where": "bottom drawer of the grade office sample cabinet, behind Lot 45 trays",
+    "detail": "Two reserve core boxes labelled 44-R3 and 44-R5, each label stuck over an older one reading LOT 39 RESERVE, the core inside darker than Lot 44 rock.",
+    "proves": "The boxes taken from the bay were carried to the assay chief's office that night, and they show the reserve set was salted with richer core.",
+    "atScene": false
+   }
   ],
   "forensics": {
    "tod": "Rapid decompression: both eardrums burst, lungs torn, gas in the heart and great vessels, three nails torn on the door handle; no blow and no wound. He was dead within two minutes of the bay losing pressure, and body temperature against the bay's 19 degrees puts that between 22:20 and 23:10.",
@@ -81,13 +365,66 @@
    "voiceSample": "For the record, a certificate states a grade within tolerance; it is not a promise. And the spine log has a name in it, which is not mine.",
    "relationship": "She thought Aalto an underwriter's bookkeeper sent to price six years of her work, was civil to him for twelve days, and felt only arithmetic when she pulled the handle; what frightens her is the money.",
    "movements": [
-    {"from": "18:30", "to": "21:15", "where": "galley, then grade office", "doing": "Dinner, where she heard Aalto book Baek for 23:45; from 19:10 pelletised Lot 45 with Baek, who told her at 19:15 that he had shown Aalto the reserve rack, until 20:30, then alone.", "seenBy": ["Jun-ho Baek", "Tobias Ekwueme", "Soledad Quispe"]},
-    {"from": "21:20", "to": "21:50", "where": "assay bay", "doing": "Aalto showed her the reserve figures; she asked him to hold until the shuttle and he refused.", "seenBy": ["Tobias Ekwueme"]},
-    {"from": "21:55", "to": "22:26", "where": "grade office", "doing": "Loaded the carousel, started the run at 22:02, wedged the door on a core tray.", "seenBy": []},
-    {"from": "22:26", "to": "22:36", "where": "Spoke 2, Airlock B locker room, hub junction", "doing": "Saw the amber lamp, took the jacket and badge from locker 4 at 22:32, gloved up and badged the spine hatch as Quispe called goodnight.", "seenBy": ["Soledad Quispe"]},
-    {"from": "22:36", "to": "23:10", "where": "assay bay and its panel", "doing": "Maintenance at 22:38, purge at 22:41, refill at 22:54, inside at 22:58 for the two boxes, restored at 23:08, out at 23:10.", "seenBy": []},
-    {"from": "23:10", "to": "23:16", "where": "Airlock B locker room, Spoke 2", "doing": "Hung the jacket and badge back in locker 4 and carried the boxes down.", "seenBy": []},
-    {"from": "23:16", "to": "02:00", "where": "grade office, then galley", "doing": "Hid the boxes, cleared the door, sat at her desk until Carvalho's call at 23:55, then the muster.", "seenBy": ["Ines Carvalho", "Jun-ho Baek"]}
+    {
+     "from": "18:30",
+     "to": "21:15",
+     "where": "galley, then grade office",
+     "doing": "Dinner, where she heard Aalto book Baek for 23:45; from 19:10 pelletised Lot 45 with Baek, who told her at 19:15 that he had shown Aalto the reserve rack, until 20:30, then alone.",
+     "seenBy": [
+      "Jun-ho Baek",
+      "Tobias Ekwueme",
+      "Soledad Quispe"
+     ]
+    },
+    {
+     "from": "21:20",
+     "to": "21:50",
+     "where": "assay bay",
+     "doing": "Aalto showed her the reserve figures; she asked him to hold until the shuttle and he refused.",
+     "seenBy": [
+      "Tobias Ekwueme"
+     ]
+    },
+    {
+     "from": "21:55",
+     "to": "22:26",
+     "where": "grade office",
+     "doing": "Loaded the carousel, started the run at 22:02, wedged the door on a core tray.",
+     "seenBy": []
+    },
+    {
+     "from": "22:26",
+     "to": "22:36",
+     "where": "Spoke 2, Airlock B locker room, hub junction",
+     "doing": "Saw the amber lamp, took the jacket and badge from locker 4 at 22:32, gloved up and badged the spine hatch as Quispe called goodnight.",
+     "seenBy": [
+      "Soledad Quispe"
+     ]
+    },
+    {
+     "from": "22:36",
+     "to": "23:10",
+     "where": "assay bay and its panel",
+     "doing": "Maintenance at 22:38, purge at 22:41, refill at 22:54, inside at 22:58 for the two boxes, restored at 23:08, out at 23:10.",
+     "seenBy": []
+    },
+    {
+     "from": "23:10",
+     "to": "23:16",
+     "where": "Airlock B locker room, Spoke 2",
+     "doing": "Hung the jacket and badge back in locker 4 and carried the boxes down.",
+     "seenBy": []
+    },
+    {
+     "from": "23:16",
+     "to": "02:00",
+     "where": "grade office, then galley",
+     "doing": "Hid the boxes, cleared the door, sat at her desk until Carvalho's call at 23:55, then the muster.",
+     "seenBy": [
+      "Ines Carvalho",
+      "Jun-ho Baek"
+     ]
+    }
    ],
    "knows": [
     "She salted the assay cores of Lots 38, 41 and 44, and reserve boxes 44-R3 and R5, with Lot 39 core, and took a third of the pit's grade bonus each time, the last on 19 August (she did it).",
@@ -109,14 +446,42 @@
    ],
    "secret": "She sold three lots' grades, spent the money on her own freedom and vented Aalto to keep it; Ekwueme's jacket and badge, and a rigger's reputation for cutting corners, are meant to carry the blame.",
    "lies": [
-    {"claim": "From 21:55 until the commander called at 23:55 I was at my desk in the grade office, minding the Lot 45 run. The run log shows a pellet every seven minutes, uninterrupted.", "truth": "The carousel fed itself; she left at 22:26, was in the spine from 22:36 to 23:10 and back at her desk at 23:16.", "when": "Asked where she was after leaving the bay, or between 22:00 and midnight.", "crack": "Baek's statement that he walked into the grade office at 22:47 and found it empty with the door wedged on a core tray."},
-    {"claim": "Henrik walked me through his numbers at half past nine and they were inside tolerance. He wanted a second signature for form's sake; there was nothing to hold over anyone.", "truth": "He told her the reserve set was salted and that he would report her at 02:00; she asked him to wait and he refused.", "when": "Asked what she and Aalto discussed, or about Lot 44.", "crack": "Aalto's slate, with the bench figures and the 21:34 note."},
-    {"claim": "I have never touched Tobias's jacket or his badge. I don't go into the B lockers; I have no suit rating.", "truth": "She took both from locker 4 at 22:32 and put them back at 23:12.", "when": "Asked about the jacket, the badge or Airlock B.", "crack": "The trace sweep finding her thumb over his prints on the back of the badge."},
-    {"claim": "Somebody keyed that bay to maintenance to clear dust and never looked to see who was in it. Riggers do it on a turnaround night to save the interlock checks. The spine log will tell you who was there.", "truth": "She keyed the panel and pulled the purge from outside, knowing he was shut in.", "when": "Asked how she thinks Aalto died.", "crack": "The bay door and core rack: after the purge someone came in past the body at the door and took boxes R3 and R5, which no careless rigger does."}
+    {
+     "claim": "From 21:55 until the commander called at 23:55 I was at my desk in the grade office, minding the Lot 45 run. The run log shows a pellet every seven minutes, uninterrupted.",
+     "truth": "The carousel fed itself; she left at 22:26, was in the spine from 22:36 to 23:10 and back at her desk at 23:16.",
+     "when": "Asked where she was after leaving the bay, or between 22:00 and midnight.",
+     "crack": "Baek's statement that he walked into the grade office at 22:47 and found it empty with the door wedged on a core tray."
+    },
+    {
+     "claim": "Henrik walked me through his numbers at half past nine and they were inside tolerance. He wanted a second signature for form's sake; there was nothing to hold over anyone.",
+     "truth": "He told her the reserve set was salted and that he would report her at 02:00; she asked him to wait and he refused.",
+     "when": "Asked what she and Aalto discussed, or about Lot 44.",
+     "crack": "Aalto's slate, with the bench figures and the 21:34 note."
+    },
+    {
+     "claim": "I have never touched Tobias's jacket or his badge. I don't go into the B lockers; I have no suit rating.",
+     "truth": "She took both from locker 4 at 22:32 and put them back at 23:12.",
+     "when": "Asked about the jacket, the badge or Airlock B.",
+     "crack": "The trace sweep finding her thumb over his prints on the back of the badge."
+    },
+    {
+     "claim": "Somebody keyed that bay to maintenance to clear dust and never looked to see who was in it. Riggers do it on a turnaround night to save the interlock checks. The spine log will tell you who was there.",
+     "truth": "She keyed the panel and pulled the purge from outside, knowing he was shut in.",
+     "when": "Asked how she thinks Aalto died.",
+     "crack": "The bay door and core rack: after the purge someone came in past the body at the door and took boxes R3 and R5, which no careless rigger does."
+    }
    ],
    "honestMistake": null,
-   "tells": ["Straightens her lanyard so the key lies flat.", "Cites a tolerance or clause nobody asked for."],
-   "pressure": {"baseline": 15, "breakPoint": 75, "lawyerPoint": 88, "style": "lawyer"},
+   "tells": [
+    "Straightens her lanyard so the key lies flat.",
+    "Cites a tolerance or clause nobody asked for."
+   ],
+   "pressure": {
+    "baseline": 15,
+    "breakPoint": 75,
+    "lawyerPoint": 88,
+    "style": "lawyer"
+   },
    "opening": "Officer. For the record, I was the last of us to speak to Dr Aalto on business, and better you hear that from me than find it in the hatch log."
   },
   {
@@ -126,13 +491,63 @@
    "voiceSample": "Sheriff, the man weighed my tool caddies. Twice. I have been married and had less attention.",
    "relationship": "He found Aalto funny and faintly dangerous, a man who weighed things for pleasure; the needling at dinner worried him for his sideline, never enough to wish him harm, and the plume he saw sits badly.",
    "movements": [
-    {"from": "18:30", "to": "20:10", "where": "galley, then his cabin", "doing": "Dinner, where he told Aalto to stick to rocks; cabin from 19:15.", "seenBy": ["Dalia Khoury", "Soledad Quispe", "Jun-ho Baek"]},
-    {"from": "20:10", "to": "21:25", "where": "cargo spine, Hold 2", "doing": "Lashing check on the Lot 45 pods, passing the assay bay both ways.", "seenBy": ["Dalia Khoury"]},
-    {"from": "21:35", "to": "22:12", "where": "his cabin", "doing": "Waited for the ring to go quiet.", "seenBy": []},
-    {"from": "22:12", "to": "22:29", "where": "hub tool crib and Airlock B locker room", "doing": "Took the key, set maintenance at 22:21, hung jacket and badge in locker 4, sealed Suit 4.", "seenBy": []},
-    {"from": "22:29", "to": "23:19", "where": "outer hull, pod rack", "doing": "Collected the Marisol's drop from pod 17's caddy and saw the purge plume at 22:41.", "seenBy": []},
-    {"from": "23:19", "to": "23:34", "where": "Airlock B locker room, hub, Spoke 3", "doing": "Racked the suit, found his jacket and badge moved and left them hanging, restored normal mode at 23:27 and hung the key back.", "seenBy": []},
-    {"from": "23:34", "to": "02:00", "where": "his cabin, then galley", "doing": "Stowed the helmet bag under his bunk; called to the muster at 00:30 and went without jacket or badge.", "seenBy": ["Ines Carvalho"]}
+    {
+     "from": "18:30",
+     "to": "20:10",
+     "where": "galley, then his cabin",
+     "doing": "Dinner, where he told Aalto to stick to rocks; cabin from 19:15.",
+     "seenBy": [
+      "Dalia Khoury",
+      "Soledad Quispe",
+      "Jun-ho Baek"
+     ]
+    },
+    {
+     "from": "20:10",
+     "to": "21:25",
+     "where": "cargo spine, Hold 2",
+     "doing": "Lashing check on the Lot 45 pods, passing the assay bay both ways.",
+     "seenBy": [
+      "Dalia Khoury"
+     ]
+    },
+    {
+     "from": "21:35",
+     "to": "22:12",
+     "where": "his cabin",
+     "doing": "Waited for the ring to go quiet.",
+     "seenBy": []
+    },
+    {
+     "from": "22:12",
+     "to": "22:29",
+     "where": "hub tool crib and Airlock B locker room",
+     "doing": "Took the key, set maintenance at 22:21, hung jacket and badge in locker 4, sealed Suit 4.",
+     "seenBy": []
+    },
+    {
+     "from": "22:29",
+     "to": "23:19",
+     "where": "outer hull, pod rack",
+     "doing": "Collected the Marisol's drop from pod 17's caddy and saw the purge plume at 22:41.",
+     "seenBy": []
+    },
+    {
+     "from": "23:19",
+     "to": "23:34",
+     "where": "Airlock B locker room, hub, Spoke 3",
+     "doing": "Racked the suit, found his jacket and badge moved and left them hanging, restored normal mode at 23:27 and hung the key back.",
+     "seenBy": []
+    },
+    {
+     "from": "23:34",
+     "to": "02:00",
+     "where": "his cabin, then galley",
+     "doing": "Stowed the helmet bag under his bunk; called to the muster at 00:30 and went without jacket or badge.",
+     "seenBy": [
+      "Ines Carvalho"
+     ]
+    }
    ],
    "knows": [
     "Tug crews leave him coffee, tobacco and spirits in the tool caddy on pod 17 and he sells them on; the Marisol undocked at 17:40 and last night was a collection (he does it).",
@@ -151,12 +566,30 @@
    ],
    "secret": "Solo, unlogged EVAs to collect tug contraband: his job, his EVA ticket and a customs charge. Under that, the fear that he watched a man die and went on packing coffee.",
    "lies": [
-    {"claim": "I was in my rack from half nine, sheriff, bar two trips up to the hub. The inner seal on B lock has been weeping, so I keyed it for a soak at twenty past ten and took it off at half eleven.", "truth": "He left his cabin at 22:12, keyed Airlock B to hide his own EVA, was outside in Suit 4 from 22:29 to 23:19 and back in his cabin at 23:34.", "when": "Asked where he was after 21:30 or during the murder, or about Airlock B's maintenance mode or the tool-crib key.", "crack": "The logs report's reading of Suit 4's sealed recorder: pressurised and outside, with a wearer's pulse, from 22:29 to 23:19."},
-    {"claim": "All right, I went out. Lashing walk on the pod rack after the Marisol pulled off, kept off the board because the paperwork takes a day. I brought nothing in.", "truth": "He went out to empty pod 17's tool caddy of the Marisol's drop of coffee, tobacco and rum, which he sells on.", "when": "Once he has admitted being outside: asked what he was doing on the hull or why the EVA was off the board.", "crack": "The trace sweep's find of the helmet bag of Marisol stores under his bunk."}
+    {
+     "claim": "I was in my rack from half nine, sheriff, bar two trips up to the hub. The inner seal on B lock has been weeping, so I keyed it for a soak at twenty past ten and took it off at half eleven.",
+     "truth": "He left his cabin at 22:12, keyed Airlock B to hide his own EVA, was outside in Suit 4 from 22:29 to 23:19 and back in his cabin at 23:34.",
+     "when": "Asked where he was after 21:30 or during the murder, or about Airlock B's maintenance mode or the tool-crib key.",
+     "crack": "The logs report's reading of Suit 4's sealed recorder: pressurised and outside, with a wearer's pulse, from 22:29 to 23:19."
+    },
+    {
+     "claim": "All right, I went out. Lashing walk on the pod rack after the Marisol pulled off, kept off the board because the paperwork takes a day. I brought nothing in.",
+     "truth": "He went out to empty pod 17's tool caddy of the Marisol's drop of coffee, tobacco and rum, which he sells on.",
+     "when": "Once he has admitted being outside: asked what he was doing on the hull or why the EVA was off the board.",
+     "crack": "The trace sweep's find of the helmet bag of Marisol stores under his bunk."
+    }
    ],
    "honestMistake": null,
-   "tells": ["The grin comes first, then the lie.", "Rubs the seal scar on his wrist and looks at his hands."],
-   "pressure": {"baseline": 25, "breakPoint": 60, "lawyerPoint": 85, "style": "shutdown"},
+   "tells": [
+    "The grin comes first, then the lie.",
+    "Rubs the seal scar on his wrist and looks at his hands."
+   ],
+   "pressure": {
+    "baseline": 25,
+    "breakPoint": 60,
+    "lawyerPoint": 85,
+    "style": "shutdown"
+   },
    "opening": "Morning, sheriff. Yes, I told him to stick to rocks; if I'd known it was his last supper I would have passed the salt nicer."
   },
   {
@@ -166,11 +599,59 @@
    "voiceSample": "Listen, I have watched that jacket go past my hatch for two years, and last night I watched it go into the spine. I'm telling you what I saw.",
    "relationship": "She liked Aalto: he came by hydroponics every afternoon, paid for a tomato with a story about Finland and asked real questions about her nutrient lines. She is angry and wants it simple.",
    "movements": [
-    {"from": "18:30", "to": "20:02", "where": "galley, then her cabin", "doing": "Dinner, then crop logs in her cabin from 19:20.", "seenBy": ["Dalia Khoury", "Tobias Ekwueme", "Jun-ho Baek"]},
-    {"from": "20:02", "to": "22:35", "where": "hydroponics", "doing": "Nutrient flush on the tomato racks, badged in and out.", "seenBy": []},
-    {"from": "22:35", "to": "22:42", "where": "hub junction, Spoke 1", "doing": "Saw the orange jacket go through the spine hatch, the amber lamp and the empty key hook.", "seenBy": ["Dalia Khoury"]},
-    {"from": "22:42", "to": "23:05", "where": "galley", "doing": "Tea beside the card game; Baek came in at 22:52.", "seenBy": ["Jun-ho Baek", "Ines Carvalho", "Stefan Varga", "Nilufar Rashidova"]},
-    {"from": "23:05", "to": "02:00", "where": "her cabin, then galley", "doing": "Asleep until the muster call at 00:25.", "seenBy": []}
+    {
+     "from": "18:30",
+     "to": "19:20",
+     "where": "galley",
+     "doing": "Dinner.",
+     "seenBy": [
+      "Dalia Khoury",
+      "Tobias Ekwueme",
+      "Jun-ho Baek"
+     ]
+    },
+    {
+     "from": "19:20",
+     "to": "20:02",
+     "where": "her cabin",
+     "doing": "Crop logs.",
+     "seenBy": []
+    },
+    {
+     "from": "20:02",
+     "to": "22:35",
+     "where": "hydroponics",
+     "doing": "Nutrient flush on the tomato racks, badged in and out.",
+     "seenBy": []
+    },
+    {
+     "from": "22:35",
+     "to": "22:42",
+     "where": "hub junction, Spoke 1",
+     "doing": "Saw the orange jacket go through the spine hatch, the amber lamp and the empty key hook.",
+     "seenBy": [
+      "Dalia Khoury"
+     ]
+    },
+    {
+     "from": "22:42",
+     "to": "23:05",
+     "where": "galley",
+     "doing": "Tea beside the card game; Baek came in at 22:52.",
+     "seenBy": [
+      "Jun-ho Baek",
+      "Ines Carvalho",
+      "Stefan Varga",
+      "Nilufar Rashidova"
+     ]
+    },
+    {
+     "from": "23:05",
+     "to": "02:00",
+     "where": "her cabin, then galley",
+     "doing": "Asleep until the muster call at 00:25.",
+     "seenBy": []
+    }
    ],
    "knows": [
     "She badged out of hydroponics at 22:35 and at 22:36 saw a figure in the orange rigger's jacket, hood up, back to her, twelve metres off, pull hand over hand along the rail to the spine hatch and badge through; she said 'Night, Tobias' and got no answer (she saw it).",
@@ -189,9 +670,21 @@
    ],
    "secret": null,
    "lies": [],
-   "honestMistake": {"claim": "Tobias Ekwueme went into the spine at 22:36. Orange jacket, hood up, badge to the reader; I said goodnight to his back.", "truth": "It was Dalia Khoury in Ekwueme's jacket with his badge; Ekwueme was outside in Suit 4 from 22:29.", "why": "Rigger's orange has only ever had Ekwueme inside it, she had three seconds at twelve metres from behind with the hood up, and zero-g hides height; she saw the jacket and supplied the man."},
-   "tells": ["Chops the table edge with the side of her hand when doubted.", "Repeats the same sentence, louder."],
-   "pressure": {"baseline": 15, "breakPoint": 70, "lawyerPoint": 90, "style": "anger"},
+   "honestMistake": {
+    "claim": "Tobias Ekwueme went into the spine at 22:36. Orange jacket, hood up, badge to the reader; I said goodnight to his back.",
+    "truth": "It was Dalia Khoury in Ekwueme's jacket with his badge; Ekwueme was outside in Suit 4 from 22:29.",
+    "why": "Rigger's orange has only ever had Ekwueme inside it, she had three seconds at twelve metres from behind with the hood up, and zero-g hides height; she saw the jacket and supplied the man."
+   },
+   "tells": [
+    "Chops the table edge with the side of her hand when doubted.",
+    "Repeats the same sentence, louder."
+   ],
+   "pressure": {
+    "baseline": 15,
+    "breakPoint": 70,
+    "lawyerPoint": 90,
+    "style": "anger"
+   },
    "opening": "I'll make this quick: I'd just badged out of hydro, so your log has the minute, and I watched Tobias go into the spine. Don't ask me to be glad about it."
   },
   {
@@ -201,12 +694,64 @@
    "voiceSample": "To be exact it was 22:47; I read it off the spectrometer clock, because there was nobody there to ask.",
    "relationship": "Aalto frightened him for a week and then treated him as a colleague, the first person aboard to ask what he thought; he is grieving, and ashamed that his name is on Lot 44.",
    "movements": [
-    {"from": "18:30", "to": "19:10", "where": "galley", "doing": "Dinner; Aalto asked him to the bay for 23:45.", "seenBy": ["Dalia Khoury", "Tobias Ekwueme", "Soledad Quispe"]},
-    {"from": "19:10", "to": "20:30", "where": "grade office", "doing": "Pelletised Lot 45 with Khoury and told her he had shown Aalto the reserve rack.", "seenBy": ["Dalia Khoury"]},
-    {"from": "20:30", "to": "22:45", "where": "galley, then his cabin", "doing": "Tea with Rashidova, then his cabin from 21:10, not sleeping.", "seenBy": ["Nilufar Rashidova"]},
-    {"from": "22:47", "to": "22:50", "where": "grade office", "doing": "Fetched the Lot 44 certificate file; nobody there.", "seenBy": []},
-    {"from": "22:52", "to": "23:42", "where": "galley", "doing": "Tea beside the card game.", "seenBy": ["Soledad Quispe", "Ines Carvalho", "Stefan Varga", "Kwame Asante"]},
-    {"from": "23:42", "to": "02:00", "where": "Spoke 1, cargo spine, assay bay, then galley", "doing": "Badged in at 23:46, found Aalto at 23:48, called Asante and Carvalho, then the muster.", "seenBy": ["Kwame Asante", "Ines Carvalho"]}
+    {
+     "from": "18:30",
+     "to": "19:10",
+     "where": "galley",
+     "doing": "Dinner; Aalto asked him to the bay for 23:45.",
+     "seenBy": [
+      "Dalia Khoury",
+      "Tobias Ekwueme",
+      "Soledad Quispe"
+     ]
+    },
+    {
+     "from": "19:10",
+     "to": "20:30",
+     "where": "grade office",
+     "doing": "Pelletised Lot 45 with Khoury and told her he had shown Aalto the reserve rack.",
+     "seenBy": [
+      "Dalia Khoury"
+     ]
+    },
+    {
+     "from": "20:30",
+     "to": "22:45",
+     "where": "galley, then his cabin",
+     "doing": "Tea with Rashidova, then his cabin from 21:10, not sleeping.",
+     "seenBy": [
+      "Nilufar Rashidova"
+     ]
+    },
+    {
+     "from": "22:47",
+     "to": "22:50",
+     "where": "grade office",
+     "doing": "Fetched the Lot 44 certificate file; nobody there.",
+     "seenBy": []
+    },
+    {
+     "from": "22:52",
+     "to": "23:42",
+     "where": "galley",
+     "doing": "Tea beside the card game.",
+     "seenBy": [
+      "Soledad Quispe",
+      "Ines Carvalho",
+      "Stefan Varga",
+      "Kwame Asante"
+     ]
+    },
+    {
+     "from": "23:42",
+     "to": "02:00",
+     "where": "Spoke 1, cargo spine, assay bay, then galley",
+     "doing": "Badged in at 23:46, found Aalto at 23:48, called Asante and Carvalho, then the muster.",
+     "seenBy": [
+      "Kwame Asante",
+      "Ines Carvalho"
+     ]
+    }
    ],
    "knows": [
     "In July he countersigned Lot 44's certificate at 6.4 g/t on Khoury's figures without re-running a core; the pit contractor's grade bonus is paid on that certificate (he did it).",
@@ -227,8 +772,16 @@
    "secret": "He saw the doubled labels in June and signed anyway; he admits it if asked straight and expects to lose his ticket for it.",
    "lies": [],
    "honestMistake": null,
-   "tells": ["Hugs the slate tighter and checks its clock.", "Says 'I should say' before anything that reflects on Khoury."],
-   "pressure": {"baseline": 35, "breakPoint": 55, "lawyerPoint": 82, "style": "tears"},
+   "tells": [
+    "Hugs the slate tighter and checks its clock.",
+    "Says 'I should say' before anything that reflects on Khoury."
+   ],
+   "pressure": {
+    "baseline": 35,
+    "breakPoint": 55,
+    "lawyerPoint": 82,
+    "style": "tears"
+   },
    "opening": "I'm sorry, I have not slept. I found him at 23:48, and I can give you everything from 23:42 to the minute, and before that if it helps."
   }
  ]

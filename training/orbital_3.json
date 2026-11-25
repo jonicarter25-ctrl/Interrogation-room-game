@@ -3,8 +3,19 @@
  "truth": {
   "title": "Very Tidy Out Here",
   "house": "Hypatia Relay, an ore-transfer station in high orbit: a spinning ring of cabins, galley, medical bay, hydroponics and the engineering office; a spoke up to the zero-gravity hub with the comms blister and the Airlock B suit bay; the cargo spine aft to the reactor ring and its radiator loops.",
-  "victim": {"name": "Emil Strand", "age": 58, "role": "chief engineer, four months aboard, sent up from the Trondheim yards", "sketch": "A short, bald, soft-spoken man who read maintenance archives the way other people read novels and thanked riggers by name. He never raised his voice and never let a thing go."},
-  "night": {"start": "18:00", "end": "02:00", "discovered": "23:03", "discoveredBy": "Rodel Macaraeg", "where": "Airlock B"},
+  "victim": {
+   "name": "Emil Strand",
+   "age": 58,
+   "role": "chief engineer, four months aboard, sent up from the Trondheim yards",
+   "sketch": "A short, bald, soft-spoken man who read maintenance archives the way other people read novels and thanked riggers by name. He never raised his voice and never let a thing go."
+  },
+  "night": {
+   "start": "18:00",
+   "end": "02:00",
+   "discovered": "23:03",
+   "discoveredBy": "Rodel Macaraeg",
+   "where": "Airlock B"
+  },
   "weather": "Thursday 14 April 2089, station time: quiet sun, no storm watch; one relay window to the company, at 02:00.",
   "publicFacts": [
    "Chief engineer Emil Strand died on a solo EVA to inspect radiator loop B. His tender, Rodel Macaraeg, winched him back into Airlock B and took his helmet off at 23:03; he was not breathing.",
@@ -16,44 +27,325 @@
    "At dinner at 18:30 Strand told Parata across the table that he was going out at 22:15 to look at loop B himself, and that Parata had until the 02:00 window to put his own name on it. The board showed EVA B, 22:15: tender Macaraeg, standby Tipene. Thursday is feed-change night in hydroponics: about an hour with feed pump F-1 running."
   ],
   "suspects": [
-   {"name": "Mere Tipene", "age": 46, "role": "hydroponics technician from Gisborne, nine years aboard, Tane Parata's elder sister (Tipene is her late husband's name) and last night's EVA standby", "sketch": "A tall, broad-shouldered woman with black hair in a topknot, a bloom of feed salts on her cuffs and root fibre under short nails. She talks slowly and looks at you as if judging whether you need water.", "part": "killer"},
-   {"name": "Tane Parata", "age": 37, "role": "reactor technician, acting chief engineer for the eleven months before Strand came aboard", "sketch": "Slight and quick, with his sister's black hair and none of her stillness, a dosimeter at his collar and a grin that arrives a beat early. He has not slept and keeps checking the door.", "part": "liar"},
-   {"name": "Kasia Wrona", "age": 29, "role": "comms operator from Gdansk, who runs the relay windows and queues every message that leaves the station", "sketch": "Small, straight-backed and cropped fair, with a slate under her arm like a clipboard and a stylus behind one ear. She gives times to the minute before she is asked and corrects yours.", "part": "mistaken"},
-   {"name": "Rodel Macaraeg", "age": 39, "role": "rigger and EVA lead from Cebu, who services the suits and tended Strand's EVA from the Airlock B console", "sketch": "Compact and thick-forearmed, with a rigger's split knuckles and red eyes. He sits with his hands open on the table as if waiting to be handed something heavy.", "part": "honest"}
+   {
+    "name": "Mere Tipene",
+    "age": 46,
+    "role": "hydroponics technician from Gisborne, nine years aboard, Tane Parata's elder sister (Tipene is her late husband's name) and last night's EVA standby",
+    "sketch": "A tall, broad-shouldered woman with black hair in a topknot, a bloom of feed salts on her cuffs and root fibre under short nails. She talks slowly and looks at you as if judging whether you need water.",
+    "part": "killer"
+   },
+   {
+    "name": "Tane Parata",
+    "age": 37,
+    "role": "reactor technician, acting chief engineer for the eleven months before Strand came aboard",
+    "sketch": "Slight and quick, with his sister's black hair and none of her stillness, a dosimeter at his collar and a grin that arrives a beat early. He has not slept and keeps checking the door.",
+    "part": "liar"
+   },
+   {
+    "name": "Kasia Wrona",
+    "age": 29,
+    "role": "comms operator from Gdansk, who runs the relay windows and queues every message that leaves the station",
+    "sketch": "Small, straight-backed and cropped fair, with a slate under her arm like a clipboard and a stylus behind one ear. She gives times to the minute before she is asked and corrects yours.",
+    "part": "mistaken"
+   },
+   {
+    "name": "Rodel Macaraeg",
+    "age": 39,
+    "role": "rigger and EVA lead from Cebu, who services the suits and tended Strand's EVA from the Airlock B console",
+    "sketch": "Compact and thick-forearmed, with a rigger's split knuckles and red eyes. He sits with his hands open on the table as if waiting to be handed something heavy.",
+    "part": "honest"
+   }
   ],
   "killer": "Mere Tipene",
   "accomplice": null,
   "motive": "Strand had found safety report SR-2231 in the archive: fourteen months ago rigger Noor Baptiste reported a weeping crack at the radiator loop B feed manifold, and Tane Parata, then acting chief, closed it uninspected as a sensor artefact to save a contract window and had Baptiste sent down as unsuited. Strand meant to send it with his own images to the Orbital Safety Board at the 02:00 window, costing Parata his licence and up to five years for falsifying a safety record; Mere Tipene, the sister who raised him and got him his berth, asked Strand at 19:38 to hold it until the shuttle, was refused, and killed him to stop it.",
   "method": "Between 20:09 and 20:34, with rack B in maintenance mode so that nothing logged, Tipene bled the oxygen from the bottle of Strand's suit 3 and refilled it from the black nitrogen line through an adapter made up from two hydroponics fittings, then pressed the seal cap from a spare cell over the oxygen cell in his helmet so that alarm and telemetry would go on reading normal air. Strand sealed his helmet at 22:19 and went out at 22:28; as he used up the oxygen in the suit the bottle topped it up with nitrogen, and he was slurring by 22:41, unconscious by 22:44 and dead at 22:53 at radiator loop B. She left it to read as a rack fault and a dud cell.",
-  "alibiGap": {"from": "20:03", "to": "20:40", "killerClaims": "That she was in hydroponics from 19:43 to 21:20 on the Thursday feed change for bay 2, in the seed store from eight pulling trays while feed pump F-1 ran, which is why Macaraeg found nobody when he looked in, and did not go up to the hub until he called her as standby at 22:45.", "actually": "She left hydroponics at 20:03 with the adapter, tape and gloves, was at rack B from 20:08 to 20:35 with it in maintenance mode from 20:09 to 20:34, tampered with suit 3's bottle and helmet cell, was back at 20:40 and only started feed pump F-1 at 20:43."},
+  "alibiGap": {
+   "from": "20:03",
+   "to": "20:40",
+   "killerClaims": "That she was in hydroponics from 19:43 to 21:20 on the Thursday feed change for bay 2, in the seed store from eight pulling trays while feed pump F-1 ran, which is why Macaraeg found nobody when he looked in, and did not go up to the hub until he called her as standby at 22:45.",
+   "actually": "She left hydroponics at 20:03 with the adapter, tape and gloves, was at rack B from 20:08 to 20:35 with it in maintenance mode from 20:09 to 20:34, tampered with suit 3's bottle and helmet cell, was back at 20:40 and only started feed pump F-1 at 20:43."
+  },
   "sharedStory": null,
   "timeline": [
-   {"time": "18:05", "place": "engineering office", "present": ["Emil Strand", "Tane Parata"], "event": "Strand shows Parata report SR-2231, Noor Baptiste's fourteen-month-old warning of a weeping crack at the loop B manifold that Parata closed as acting chief without inspection, and gives him until the 02:00 window to put his own name on it; Tipene is in hydroponics and Wrona in the galley.", "witnesses": ["Tane Parata"]},
-   {"time": "18:10", "place": "Airlock B suit bay", "present": ["Rodel Macaraeg"], "event": "Macaraeg's daily check finds suit 3's bottle full, its oxygen reading normal, four spare cells sealed in the drawer and the rack lamp green.", "witnesses": ["Rodel Macaraeg"]},
-   {"time": "18:30", "place": "galley", "present": ["Emil Strand", "Mere Tipene", "Tane Parata", "Kasia Wrona", "Rodel Macaraeg", "Hana Kobayashi", "Leila Nasser", "Luca Moretti", "Aylin Demir"], "event": "Dinner for all but Brandt on reactor watch: Strand tells Parata across the table that he is going out at 22:15 to look at loop B himself and that Parata has until the 02:00 window, and at 19:10 Strand goes to his office to draft, Macaraeg to his cabin to write the EVA sheet and Wrona up to the comms blister until 19:33.", "witnesses": ["Mere Tipene", "Tane Parata", "Kasia Wrona", "Rodel Macaraeg"]},
-   {"time": "19:12", "place": "hydroponics", "present": ["Tane Parata", "Mere Tipene"], "event": "Parata tells his sister everything, the report he closed uninspected and the five years it could cost him, and she says 'Go to your bunk. Leave Emil to me'; he goes to his cabin at 19:30.", "witnesses": ["Tane Parata", "Mere Tipene"]},
-   {"time": "19:38", "place": "ring corridor", "present": ["Mere Tipene", "Emil Strand", "Rodel Macaraeg"], "event": "Outside the engineering office Tipene asks Strand to hold the report until the shuttle and he answers 'He has had fourteen months, Mere'; Macaraeg, arriving with the EVA sheet, hears that and her 'Then give him nine more days', and takes Strand's thumb at 19:41 as she walks back to hydroponics; Wrona is in the rec room until a dish tracking fault at 19:57 sends her back up to the blister.", "witnesses": ["Mere Tipene", "Rodel Macaraeg"]},
-   {"time": "20:09", "place": "Airlock B suit bay", "present": ["Mere Tipene"], "event": "Tipene, who left hydroponics at 20:03 in green work gloves with an adapter made up from two of her fittings and thread tape, sets rack B to maintenance mode, bleeds the oxygen from suit 3's bottle, fills it from the black nitrogen line, presses the cap from a spare cell over the oxygen cell in Strand's helmet, restores the rack at 20:34 and goes back down the spoke.", "witnesses": ["Kasia Wrona"]},
-   {"time": "20:13", "place": "engineering office", "present": ["Tane Parata"], "event": "With Strand at his pre-EVA medical with Dr Nasser from 20:10 to 20:35, Parata badges in on his old acting-chief access, opens terminal ENG-1 and at 20:22 tries to delete SR-2231, is refused by Strand's compliance hold, badges out at 20:32 and goes back to his cabin.", "witnesses": []},
-   {"time": "20:18", "place": "hydroponics", "present": ["Rodel Macaraeg"], "event": "Macaraeg, after tea in the galley with Demir, comes for the standby's thumb and finds the lights on, the feed cart parked full, feed pump F-1 silent and nobody there or in the seed store; he stays until 20:22, writes 'hydro empty, pump off, 20:18' on the EVA sheet and goes back to the galley.", "witnesses": ["Rodel Macaraeg"]},
-   {"time": "20:21", "place": "hub junction", "present": ["Kasia Wrona"], "event": "Wrona badges out of the comms blister and sees, across the junction at rack B, Tipene's back, green gloves, a bottle on the charging arm and the rack lamp amber; she goes down the spoke with the tracking fault on her mind and joins Macaraeg and Demir in the galley at 20:27.", "witnesses": ["Kasia Wrona"]},
-   {"time": "20:50", "place": "hydroponics", "present": ["Mere Tipene", "Rodel Macaraeg"], "event": "Tipene, back at 20:40 with feed pump F-1 started at 20:43, is at bay 2 with the tank barely a hand's width down when Macaraeg returns; she thumbs the sheet as standby and says she has been in the seed store since eight, and after he leaves at 20:53 she runs the pump until 21:04, strips the adapter back into her fittings drawer and goes to her cabin at 21:20; Wrona has been asleep in her cabin since 20:50.", "witnesses": ["Mere Tipene", "Rodel Macaraeg"]},
-   {"time": "21:20", "place": "engineering office", "present": ["Emil Strand"], "event": "Strand, rested in his cabin on Dr Nasser's orders since 20:37, finds the refused-delete alert, adds a line about it to his draft at 21:31, leaves the slate on his desk at 21:50 and collects Macaraeg from his cabin.", "witnesses": []},
-   {"time": "21:52", "place": "reactor ring", "present": ["Tane Parata", "Ilse Brandt"], "event": "Parata, who left his cabin at 21:42, badges through the reactor hatch, takes the watch from Brandt at 22:00 (she badges out at 22:04) and stays in reactor control for the rest of the night.", "witnesses": ["Tane Parata"]},
-   {"time": "22:00", "place": "Airlock B suit bay", "present": ["Emil Strand", "Rodel Macaraeg"], "event": "Macaraeg dresses Strand in suit 3: the rack log shows his own green-line charge on the 9th and nothing since, the gauge reads full and the oxygen 20.9; with the analyser red-tagged he offers to fetch the portable one from Airlock A, Strand says they are late and to skip it, and the helmet is sealed at 22:19.", "witnesses": ["Rodel Macaraeg"]},
-   {"time": "22:41", "place": "radiator loop B", "present": ["Emil Strand"], "event": "Strand, through the lock from 22:24 to 22:28 and at the loop B manifold by 22:36, sends four images, laughs on the voice loop and slurs 'tell Parata it is very tidy out here' at 22:41, does not answer from 22:44, and his pulse, up to 124, falls away and stops at 22:53 while the oxygen reading on Macaraeg's console in the suit bay stays flat at 20.9.", "witnesses": ["Rodel Macaraeg"]},
-   {"time": "22:45", "place": "Airlock B suit bay", "present": ["Rodel Macaraeg", "Mere Tipene"], "event": "Macaraeg calls Kobayashi and the standby on the intercom, starts the tether winch at 22:46 and has Strand in the lock by 22:55; Tipene, answering from her cabin at 22:46, arrives at 22:52 and starts suiting, and Kobayashi and Dr Nasser come up at 22:53.", "witnesses": ["Rodel Macaraeg", "Mere Tipene"]},
-   {"time": "23:03", "place": "Airlock B", "present": ["Emil Strand", "Rodel Macaraeg", "Mere Tipene", "Hana Kobayashi", "Leila Nasser"], "event": "After the repress from 22:57 to 23:01 Macaraeg takes off the helmet at 23:03 and Strand is blue and not breathing; while Dr Nasser works on him Tipene reaches for the helmet 'to stow it' and Macaraeg says nobody touches the suit; after pronouncing at 23:21 Nasser finds a blue seal cap on the helmet's oxygen cell, and Kobayashi seals the lock at 23:25.", "witnesses": ["Rodel Macaraeg", "Mere Tipene"]},
-   {"time": "23:40", "place": "galley", "present": ["Mere Tipene", "Kasia Wrona", "Rodel Macaraeg", "Hana Kobayashi"], "event": "Kobayashi, whose all-hands at 23:10 woke Wrona and reached Parata on the reactor intercom, musters everyone but the reactor watch and confines them to their cabins from 00:20.", "witnesses": ["Mere Tipene", "Kasia Wrona", "Rodel Macaraeg"]},
-   {"time": "01:45", "place": "comms blister", "present": ["Kasia Wrona", "Hana Kobayashi"], "event": "Wrona and Kobayashi send the report on the 02:00 relay window, with Strand's draft still unsent in the queue, and the orbital authority deputises the security officer; Tipene and Macaraeg are in their cabins and Parata is on watch.", "witnesses": ["Kasia Wrona"]}
+   {
+    "time": "18:05",
+    "place": "engineering office",
+    "present": [
+     "Emil Strand",
+     "Tane Parata"
+    ],
+    "event": "Strand shows Parata report SR-2231, Noor Baptiste's fourteen-month-old warning of a weeping crack at the loop B manifold that Parata closed as acting chief without inspection, and gives him until the 02:00 window to put his own name on it; Tipene is in hydroponics and Wrona in the galley.",
+    "witnesses": [
+     "Tane Parata"
+    ]
+   },
+   {
+    "time": "18:10",
+    "place": "Airlock B suit bay",
+    "present": [
+     "Rodel Macaraeg"
+    ],
+    "event": "Macaraeg's daily check finds suit 3's bottle full, its oxygen reading normal, four spare cells sealed in the drawer and the rack lamp green.",
+    "witnesses": [
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "18:30",
+    "place": "galley",
+    "present": [
+     "Emil Strand",
+     "Mere Tipene",
+     "Tane Parata",
+     "Kasia Wrona",
+     "Rodel Macaraeg",
+     "Hana Kobayashi",
+     "Leila Nasser",
+     "Luca Moretti",
+     "Aylin Demir"
+    ],
+    "event": "Dinner for all but Brandt on reactor watch: Strand tells Parata across the table that he is going out at 22:15 to look at loop B himself and that Parata has until the 02:00 window, and at 19:10 Strand goes to his office to draft, Macaraeg to his cabin to write the EVA sheet and Wrona up to the comms blister until 19:33.",
+    "witnesses": [
+     "Mere Tipene",
+     "Tane Parata",
+     "Kasia Wrona",
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "19:12",
+    "place": "hydroponics",
+    "present": [
+     "Tane Parata",
+     "Mere Tipene"
+    ],
+    "event": "Parata tells his sister everything, the report he closed uninspected and the five years it could cost him, and she says 'Go to your bunk. Leave Emil to me'; he goes to his cabin at 19:30.",
+    "witnesses": [
+     "Tane Parata",
+     "Mere Tipene"
+    ]
+   },
+   {
+    "time": "19:38",
+    "place": "ring corridor",
+    "present": [
+     "Mere Tipene",
+     "Emil Strand",
+     "Rodel Macaraeg"
+    ],
+    "event": "Outside the engineering office Tipene asks Strand to hold the report until the shuttle and he answers 'He has had fourteen months, Mere'; Macaraeg, arriving with the EVA sheet, hears that and her 'Then give him nine more days', and takes Strand's thumb at 19:41 as she walks back to hydroponics; Wrona is in the rec room until a dish tracking fault at 19:57 sends her back up to the blister.",
+    "witnesses": [
+     "Mere Tipene",
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "20:09",
+    "place": "Airlock B suit bay",
+    "present": [
+     "Mere Tipene"
+    ],
+    "event": "Tipene, who left hydroponics at 20:03 in green work gloves with an adapter made up from two of her fittings and thread tape, sets rack B to maintenance mode, bleeds the oxygen from suit 3's bottle, fills it from the black nitrogen line, presses the cap from a spare cell over the oxygen cell in Strand's helmet, restores the rack at 20:34 and goes back down the spoke.",
+    "witnesses": [
+     "Kasia Wrona"
+    ]
+   },
+   {
+    "time": "20:13",
+    "place": "engineering office",
+    "present": [
+     "Tane Parata"
+    ],
+    "event": "With Strand at his pre-EVA medical with Dr Nasser from 20:10 to 20:35, Parata badges in on his old acting-chief access, opens terminal ENG-1 and at 20:22 tries to delete SR-2231, is refused by Strand's compliance hold, badges out at 20:32 and goes back to his cabin.",
+    "witnesses": []
+   },
+   {
+    "time": "20:18",
+    "place": "hydroponics",
+    "present": [
+     "Rodel Macaraeg"
+    ],
+    "event": "Macaraeg, after tea in the galley with Demir, comes for the standby's thumb and finds the lights on, the feed cart parked full, feed pump F-1 silent and nobody there or in the seed store; he stays until 20:22, writes 'hydro empty, pump off, 20:18' on the EVA sheet and goes back to the galley.",
+    "witnesses": [
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "20:21",
+    "place": "hub junction",
+    "present": [
+     "Kasia Wrona"
+    ],
+    "event": "Wrona badges out of the comms blister and sees, across the junction at rack B, Tipene's back, green gloves, a bottle on the charging arm and the rack lamp amber; she goes down the spoke with the tracking fault on her mind and joins Macaraeg and Demir in the galley at 20:27.",
+    "witnesses": [
+     "Kasia Wrona"
+    ]
+   },
+   {
+    "time": "20:50",
+    "place": "hydroponics",
+    "present": [
+     "Mere Tipene",
+     "Rodel Macaraeg"
+    ],
+    "event": "Tipene, back at 20:40 with feed pump F-1 started at 20:43, is at bay 2 with the tank barely a hand's width down when Macaraeg returns; she thumbs the sheet as standby and says she has been in the seed store since eight, and after he leaves at 20:53 she runs the pump until 21:04, strips the adapter back into her fittings drawer and goes to her cabin at 21:20; Wrona has been asleep in her cabin since 20:50.",
+    "witnesses": [
+     "Mere Tipene",
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "21:20",
+    "place": "engineering office",
+    "present": [
+     "Emil Strand"
+    ],
+    "event": "Strand, rested in his cabin on Dr Nasser's orders since 20:37, finds the refused-delete alert, adds a line about it to his draft at 21:31, leaves the slate on his desk at 21:50 and collects Macaraeg from his cabin.",
+    "witnesses": []
+   },
+   {
+    "time": "21:52",
+    "place": "reactor ring",
+    "present": [
+     "Tane Parata",
+     "Ilse Brandt"
+    ],
+    "event": "Parata, who left his cabin at 21:42, badges through the reactor hatch, takes the watch from Brandt at 22:00 (she badges out at 22:04) and stays in reactor control for the rest of the night.",
+    "witnesses": [
+     "Tane Parata"
+    ]
+   },
+   {
+    "time": "22:00",
+    "place": "Airlock B suit bay",
+    "present": [
+     "Emil Strand",
+     "Rodel Macaraeg"
+    ],
+    "event": "Macaraeg dresses Strand in suit 3: the rack log shows his own green-line charge on the 9th and nothing since, the gauge reads full and the oxygen 20.9; with the analyser red-tagged he offers to fetch the portable one from Airlock A, Strand says they are late and to skip it, and the helmet is sealed at 22:19.",
+    "witnesses": [
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "22:41",
+    "place": "radiator loop B",
+    "present": [
+     "Emil Strand"
+    ],
+    "event": "Strand, through the lock from 22:24 to 22:28 and at the loop B manifold by 22:36, sends four images, laughs on the voice loop and slurs 'tell Parata it is very tidy out here' at 22:41, does not answer from 22:44, and his pulse, up to 124, falls away and stops at 22:53 while the oxygen reading on Macaraeg's console in the suit bay stays flat at 20.9.",
+    "witnesses": [
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "22:45",
+    "place": "Airlock B suit bay",
+    "present": [
+     "Rodel Macaraeg",
+     "Mere Tipene"
+    ],
+    "event": "Macaraeg calls Kobayashi and the standby on the intercom, starts the tether winch at 22:46 and has Strand in the lock by 22:55; Tipene, answering from her cabin at 22:46, arrives at 22:52 and starts suiting, and Kobayashi and Dr Nasser come up at 22:53.",
+    "witnesses": [
+     "Rodel Macaraeg",
+     "Mere Tipene"
+    ]
+   },
+   {
+    "time": "23:03",
+    "place": "Airlock B",
+    "present": [
+     "Emil Strand",
+     "Rodel Macaraeg",
+     "Mere Tipene",
+     "Hana Kobayashi",
+     "Leila Nasser"
+    ],
+    "event": "After the repress from 22:57 to 23:01 Macaraeg takes off the helmet at 23:03 and Strand is blue and not breathing; while Dr Nasser works on him Tipene reaches for the helmet 'to stow it' and Macaraeg says nobody touches the suit; after pronouncing at 23:21 Nasser finds a blue seal cap on the helmet's oxygen cell, and Kobayashi seals the lock at 23:25.",
+    "witnesses": [
+     "Rodel Macaraeg",
+     "Mere Tipene"
+    ]
+   },
+   {
+    "time": "23:40",
+    "place": "galley",
+    "present": [
+     "Mere Tipene",
+     "Kasia Wrona",
+     "Rodel Macaraeg",
+     "Hana Kobayashi"
+    ],
+    "event": "Kobayashi, whose all-hands at 23:10 woke Wrona and reached Parata on the reactor intercom, musters everyone but the reactor watch and confines them to their cabins from 00:20.",
+    "witnesses": [
+     "Mere Tipene",
+     "Kasia Wrona",
+     "Rodel Macaraeg"
+    ]
+   },
+   {
+    "time": "01:45",
+    "place": "comms blister",
+    "present": [
+     "Kasia Wrona",
+     "Hana Kobayashi"
+    ],
+    "event": "Wrona and Kobayashi send the report on the 02:00 relay window, with Strand's draft still unsent in the queue, and the orbital authority deputises the security officer; Tipene and Macaraeg are in their cabins and Parata is on watch.",
+    "witnesses": [
+     "Kasia Wrona"
+    ]
+   }
   ],
   "evidence": [
-   {"id": "ev1", "name": "Seal cap on the helmet cell", "where": "inside the neck ring of Strand's helmet, Airlock B", "detail": "A blue seal cap pressed over the oxygen cell under the neck baffle. The cell's label reads fitted 4 March, forty-one days ago, by Macaraeg; a cap comes off when its cell is fitted.", "proves": "Someone capped a working cell so that alarm and telemetry would read ordinary air whatever Strand was breathing.", "atScene": true},
-   {"id": "ev2", "name": "Oxygen bottle on suit 3", "where": "on Strand's suit in Airlock B", "detail": "Gauge at 91 per cent after forty-four minutes sealed, as it should be. The coupling collar has fresh bright scratches across its keying lugs and a shred of white thread tape caught in them.", "proves": "Something other than the keyed green line was forced onto this bottle; the gauge says how much gas, not which.", "atScene": true},
-   {"id": "ev3", "name": "Spare-cell drawer", "where": "rack B, Airlock B suit bay", "detail": "Four spare oxygen cells: three sealed in foil, one pouch torn open with the cell bare and its cap gone. Macaraeg's 18:10 daily check lists four sealed. On the rack above, the gas analyser carries a red tag two weeks old: 'out of service, check by charge log and gauge'.", "proves": "The cap in Strand's helmet came out of this drawer after 18:10 that evening, and nobody at rack B could test what was in a bottle.", "atScene": true},
-   {"id": "ev4", "name": "Strand's draft to the Safety Board", "where": "his slate on the engineering office desk", "detail": "Held for 02:00 with SR-2231 attached: Noor Baptiste's report of a weeping crack at the loop B feed manifold, closed 'sensor artefact, no action' on T. Parata's badge with no inspection logged, and Baptiste sent down 'unsuited' a month later. Last line, added 21:31: 'Delete of SR-2231 attempted from ENG-1 at 20:22 on T. Parata's badge.'", "proves": "Strand was about to end Tane Parata's career, and Parata was at the office terminal at 20:22.", "atScene": false},
-   {"id": "ev5", "name": "EVA sheet", "where": "Macaraeg's slate, handed to Kobayashi at the muster", "detail": "EVA B, 22:15: Strand, thumbed 19:41; tender Macaraeg; standby Tipene, thumbed 20:50. Margin note: 'hydro empty, pump off, 20:18'. Mix check line: 'analyser red-tagged, by log and gauge; ES says skip the portable'.", "proves": "The gas in the bottle was never analysed, and the standby was not in hydroponics at 20:18.", "atScene": false},
-   {"id": "ev6", "name": "Two taped fittings", "where": "the fittings drawer on the hydroponics gas bench", "detail": "Among forty loose fittings, a black-line socket and a bottle-thread nipple each carry fresh white thread tape; nothing else in the drawer is taped. Hydroponics draws black-line nitrogen to blanket its feed tanks.", "proves": "Screwed together these two put black-line nitrogen into a suit bottle, and they were joined and parted recently.", "atScene": false}
+   {
+    "id": "ev1",
+    "name": "Seal cap on the helmet cell",
+    "where": "inside the neck ring of Strand's helmet, Airlock B",
+    "detail": "A blue seal cap pressed over the oxygen cell under the neck baffle. The cell's label reads fitted 4 March, forty-one days ago, by Macaraeg; a cap comes off when its cell is fitted.",
+    "proves": "Someone capped a working cell so that alarm and telemetry would read ordinary air whatever Strand was breathing.",
+    "atScene": true
+   },
+   {
+    "id": "ev2",
+    "name": "Oxygen bottle on suit 3",
+    "where": "on Strand's suit in Airlock B",
+    "detail": "Gauge at 91 per cent after forty-four minutes sealed, as it should be. The coupling collar has fresh bright scratches across its keying lugs and a shred of white thread tape caught in them.",
+    "proves": "Something other than the keyed green line was forced onto this bottle; the gauge says how much gas, not which.",
+    "atScene": true
+   },
+   {
+    "id": "ev3",
+    "name": "Spare-cell drawer",
+    "where": "rack B, Airlock B suit bay",
+    "detail": "Four spare oxygen cells: three sealed in foil, one pouch torn open with the cell bare and its cap gone. Macaraeg's 18:10 daily check lists four sealed. On the rack above, the gas analyser carries a red tag two weeks old: 'out of service, check by charge log and gauge'.",
+    "proves": "The cap in Strand's helmet came out of this drawer after 18:10 that evening, and nobody at rack B could test what was in a bottle.",
+    "atScene": true
+   },
+   {
+    "id": "ev4",
+    "name": "Strand's draft to the Safety Board",
+    "where": "his slate on the engineering office desk",
+    "detail": "Held for 02:00 with SR-2231 attached: Noor Baptiste's report of a weeping crack at the loop B feed manifold, closed 'sensor artefact, no action' on T. Parata's badge with no inspection logged, and Baptiste sent down 'unsuited' a month later. Last line, added 21:31: 'Delete of SR-2231 attempted from ENG-1 at 20:22 on T. Parata's badge.'",
+    "proves": "Strand was about to end Tane Parata's career, and Parata was at the office terminal at 20:22.",
+    "atScene": false
+   },
+   {
+    "id": "ev5",
+    "name": "EVA sheet",
+    "where": "Macaraeg's slate, handed to Kobayashi at the muster",
+    "detail": "EVA B, 22:15: Strand, thumbed 19:41; tender Macaraeg; standby Tipene, thumbed 20:50. Margin note: 'hydro empty, pump off, 20:18'. Mix check line: 'analyser red-tagged, by log and gauge; ES says skip the portable'.",
+    "proves": "The gas in the bottle was never analysed, and the standby was not in hydroponics at 20:18.",
+    "atScene": false
+   },
+   {
+    "id": "ev6",
+    "name": "Two taped fittings",
+    "where": "the fittings drawer on the hydroponics gas bench",
+    "detail": "Among forty loose fittings, a black-line socket and a bottle-thread nipple each carry fresh white thread tape; nothing else in the drawer is taped. Hydroponics draws black-line nitrogen to blanket its feed tanks.",
+    "proves": "Screwed together these two put black-line nitrogen into a suit bottle, and they were joined and parted recently.",
+    "atScene": false
+   }
   ],
   "forensics": {
    "tod": "Hypoxia: no injury, no decompression, lungs clear, blood oxygen near nil with no rise in carbon dioxide, as when rebreathed air runs out of oxygen and the man never feels it. Suit telemetry has the helmet sealed at 22:19, his pulse climbing to 124 by 22:43 and stopping at 22:53.",
@@ -81,13 +373,68 @@
    "voiceSample": "Yeah, nah. Bay 2 gets its feed changed Thursdays whether a man dies or not; lettuce doesn't read the incident board, eh.",
    "relationship": "She half liked Strand: he ate her tomatoes and said so. She thinks he was right about the manifold and had no give in him about people, and she is calmer about what she did than she ought to be.",
    "movements": [
-    {"from": "18:00", "to": "19:36", "where": "hydroponics, the galley, hydroponics", "doing": "Evening checks, dinner at 18:30; from 19:12 Tane told her about SR-2231 and she sent him to his bunk at 19:30.", "seenBy": ["Tane Parata", "Kasia Wrona", "Rodel Macaraeg"]},
-    {"from": "19:38", "to": "19:41", "where": "ring corridor", "doing": "Asked Strand to hold the report until the shuttle and was refused.", "seenBy": ["Rodel Macaraeg"]},
-    {"from": "19:43", "to": "20:03", "where": "hydroponics", "doing": "Parked the feed cart and made up the adapter from two fittings and tape.", "seenBy": []},
-    {"from": "20:03", "to": "20:40", "where": "spoke and Airlock B suit bay", "doing": "Rack B in maintenance mode 20:09 to 20:34: nitrogen into suit 3's bottle, cap on the helmet cell.", "seenBy": ["Kasia Wrona"]},
-    {"from": "20:40", "to": "21:20", "where": "hydroponics", "doing": "Ran feed pump F-1 from 20:43 to 21:04, thumbed Rodel's sheet at 20:50, stripped the adapter.", "seenBy": ["Rodel Macaraeg"]},
-    {"from": "21:20", "to": "22:46", "where": "her cabin", "doing": "Lay awake until Rodel's standby call.", "seenBy": []},
-    {"from": "22:46", "to": "02:00", "where": "Airlock B suit bay, galley, her cabin", "doing": "At the suit bay by 22:52, half suited when the helmet came off; muster 23:40; cabin from 00:20.", "seenBy": ["Rodel Macaraeg", "Hana Kobayashi"]}
+    {
+     "from": "18:00",
+     "to": "19:36",
+     "where": "hydroponics, the galley, hydroponics",
+     "doing": "Evening checks, dinner at 18:30; from 19:12 Tane told her about SR-2231 and she sent him to his bunk at 19:30.",
+     "seenBy": [
+      "Tane Parata",
+      "Kasia Wrona",
+      "Rodel Macaraeg"
+     ]
+    },
+    {
+     "from": "19:38",
+     "to": "19:41",
+     "where": "ring corridor",
+     "doing": "Asked Strand to hold the report until the shuttle and was refused.",
+     "seenBy": [
+      "Rodel Macaraeg"
+     ]
+    },
+    {
+     "from": "19:43",
+     "to": "20:03",
+     "where": "hydroponics",
+     "doing": "Parked the feed cart and made up the adapter from two fittings and tape.",
+     "seenBy": []
+    },
+    {
+     "from": "20:03",
+     "to": "20:40",
+     "where": "spoke and Airlock B suit bay",
+     "doing": "Rack B in maintenance mode 20:09 to 20:34: nitrogen into suit 3's bottle, cap on the helmet cell.",
+     "seenBy": [
+      "Kasia Wrona"
+     ]
+    },
+    {
+     "from": "20:40",
+     "to": "21:20",
+     "where": "hydroponics",
+     "doing": "Ran feed pump F-1 from 20:43 to 21:04, thumbed Rodel's sheet at 20:50, stripped the adapter.",
+     "seenBy": [
+      "Rodel Macaraeg"
+     ]
+    },
+    {
+     "from": "21:20",
+     "to": "22:46",
+     "where": "her cabin",
+     "doing": "Lay awake until Rodel's standby call.",
+     "seenBy": []
+    },
+    {
+     "from": "22:46",
+     "to": "02:00",
+     "where": "Airlock B suit bay, galley, her cabin",
+     "doing": "At the suit bay by 22:52, half suited when the helmet came off; muster 23:40; cabin from 00:20.",
+     "seenBy": [
+      "Rodel Macaraeg",
+      "Hana Kobayashi"
+     ]
+    }
    ],
    "knows": [
     "Tane, the brother she raised from when he was eleven (Tipene is her late husband's name), told her in hydroponics at 19:12 that Strand had found SR-2231, the loop B report he closed as acting chief without inspecting, and would send it at 02:00; she said 'Go to your bunk. Leave Emil to me' (she was there).",
@@ -108,14 +455,42 @@
    ],
    "secret": "She killed Strand to keep her brother out of prison. Tane must never know it was done for him, and she will not see him charged with it.",
    "lies": [
-    {"claim": "I was in hydro from quarter to eight till twenty past nine: seed store from eight pulling trays while the pump ran on bay 2. Rodel must have looked in and not come through; he got my thumb at ten to nine.", "truth": "She was out of hydroponics from 20:03 to 20:40 and only started feed pump F-1 at 20:43.", "when": "Asked where she was between eight and nine, or about the feed change.", "crack": "The WARDEN power log showing feed pump F-1 drew nothing until 20:43."},
-    {"claim": "I didn't go up to the hub at all between dinner and Rodel's call. No reason to, mate.", "truth": "She was at rack B from 20:08 to 20:35.", "when": "Asked whether she went to the hub, the suit bay or rack B that evening.", "crack": "Kasia Wrona's statement that she saw her at rack B with a bottle on the charging arm."},
-    {"claim": "All right, yes. About half seven I looked over my standby suit, two minutes, rack on green, never touched Emil's. Slipped my mind, eh.", "truth": "She was at rack B from 20:08 to 20:35, lamp amber, working on suit 3; at half past seven she was in hydroponics with Tane.", "when": "Only once Wrona's sighting has been put to her.", "crack": "The trace sweep finding hydroponics feed salts and a green-glove smear on the seal cap in Strand's helmet."},
-    {"claim": "Tane told me nothing. I stopped Emil in the corridor about my standby slot, that's all; first I heard of any report was at the muster.", "truth": "Tane told her everything at 19:12 and she asked Strand at 19:38 to hold the report.", "when": "Asked about the report, about Tane's trouble, or about her words with Strand.", "crack": "Rodel Macaraeg's statement that he heard Strand tell her 'He has had fourteen months, Mere'."}
+    {
+     "claim": "I was in hydro from quarter to eight till twenty past nine: seed store from eight pulling trays while the pump ran on bay 2. Rodel got my thumb there at ten to nine. If he says he looked in earlier and found nobody, he never came through to the seed store.",
+     "truth": "She was out of hydroponics from 20:03 to 20:40 and only started feed pump F-1 at 20:43.",
+     "when": "Asked where she was between eight and nine, or about the feed change.",
+     "crack": "The WARDEN power log showing feed pump F-1 drew nothing until 20:43."
+    },
+    {
+     "claim": "I didn't go up to the hub at all between dinner and Rodel's call. No reason to, mate.",
+     "truth": "She was at rack B from 20:08 to 20:35.",
+     "when": "Asked whether she went to the hub, the suit bay or rack B that evening.",
+     "crack": "Kasia Wrona's statement that she saw her at rack B with a bottle on the charging arm."
+    },
+    {
+     "claim": "All right, yes. About half seven I looked over my standby suit, two minutes, rack on green, never touched Emil's. Slipped my mind, eh.",
+     "truth": "She was at rack B from 20:08 to 20:35, lamp amber, working on suit 3; at half past seven she was in hydroponics with Tane.",
+     "when": "Only once Wrona's sighting has been put to her.",
+     "crack": "The trace sweep finding hydroponics feed salts and a green-glove smear on the seal cap in Strand's helmet."
+    },
+    {
+     "claim": "Tane told me nothing. I stopped Emil in the corridor about my standby slot, that's all; first I heard of any report was at the muster.",
+     "truth": "Tane told her everything at 19:12 and she asked Strand at 19:38 to hold the report.",
+     "when": "Asked about the report, about Tane's trouble, or about her words with Strand.",
+     "crack": "Rodel Macaraeg's statement that he heard Strand tell her 'He has had fourteen months, Mere'."
+    }
    ],
    "honestMistake": null,
-   "tells": ["Picks dead leaves off whatever is nearest and lines them up.", "Says Strand 'wouldn't have felt it', then asks how much longer this will take."],
-   "pressure": {"baseline": 12, "breakPoint": 74, "lawyerPoint": 90, "style": "anger"},
+   "tells": [
+    "Picks dead leaves off whatever is nearest and lines them up.",
+    "Says Strand 'wouldn't have felt it', then asks how much longer this will take."
+   ],
+   "pressure": {
+    "baseline": 12,
+    "breakPoint": 74,
+    "lawyerPoint": 90,
+    "style": "anger"
+   },
    "opening": "Morning. I've trays to turn at eight, so ask what you need. Thursday I was on the feed change, then my bunk, then Rodel's call; wish I'd been quicker up that spoke, eh."
   },
   {
@@ -125,13 +500,63 @@
    "voiceSample": "Look, honestly? Emil could find a fault in a glass of water, and then he'd file it.",
    "relationship": "Frightened of him and sore: Strand took the chief's chair Tane had kept warm for eleven months and then read the archive. Underneath he knows Strand was right and that Baptiste was wronged.",
    "movements": [
-    {"from": "18:05", "to": "18:22", "where": "engineering office", "doing": "Strand showed him SR-2231 and gave him until the 02:00 window.", "seenBy": []},
-    {"from": "18:30", "to": "19:10", "where": "galley", "doing": "Dinner; Strand repeated the deadline across the table.", "seenBy": ["Mere Tipene", "Kasia Wrona", "Rodel Macaraeg"]},
-    {"from": "19:12", "to": "19:30", "where": "hydroponics", "doing": "Told Mere everything.", "seenBy": ["Mere Tipene"]},
-    {"from": "19:32", "to": "20:11", "where": "his cabin", "doing": "Waited for Strand to go to his medical.", "seenBy": []},
-    {"from": "20:13", "to": "20:32", "where": "engineering office", "doing": "Badged in on his old access and tried to delete SR-2231 from ENG-1 at 20:22; refused.", "seenBy": []},
-    {"from": "20:34", "to": "21:42", "where": "his cabin", "doing": "Lay on his bunk, dressed.", "seenBy": []},
-    {"from": "21:52", "to": "02:00", "where": "reactor ring", "doing": "Took the watch from Brandt at 22:00 and kept it.", "seenBy": ["Ilse Brandt"]}
+    {
+     "from": "18:05",
+     "to": "18:22",
+     "where": "engineering office",
+     "doing": "Strand showed him SR-2231 and gave him until the 02:00 window.",
+     "seenBy": []
+    },
+    {
+     "from": "18:30",
+     "to": "19:10",
+     "where": "galley",
+     "doing": "Dinner; Strand repeated the deadline across the table.",
+     "seenBy": [
+      "Mere Tipene",
+      "Kasia Wrona",
+      "Rodel Macaraeg"
+     ]
+    },
+    {
+     "from": "19:12",
+     "to": "19:30",
+     "where": "hydroponics",
+     "doing": "Told Mere everything.",
+     "seenBy": [
+      "Mere Tipene"
+     ]
+    },
+    {
+     "from": "19:32",
+     "to": "20:11",
+     "where": "his cabin",
+     "doing": "Waited for Strand to go to his medical.",
+     "seenBy": []
+    },
+    {
+     "from": "20:13",
+     "to": "20:32",
+     "where": "engineering office",
+     "doing": "Badged in on his old access and tried to delete SR-2231 from ENG-1 at 20:22; refused.",
+     "seenBy": []
+    },
+    {
+     "from": "20:34",
+     "to": "21:42",
+     "where": "his cabin",
+     "doing": "Lay on his bunk, dressed.",
+     "seenBy": []
+    },
+    {
+     "from": "21:52",
+     "to": "02:00",
+     "where": "reactor ring",
+     "doing": "Took the watch from Brandt at 22:00 and kept it.",
+     "seenBy": [
+      "Ilse Brandt"
+     ]
+    }
    ],
    "knows": [
     "At 18:05 Strand showed him SR-2231, Baptiste's report of a weeping crack at the loop B manifold, closed 'sensor artefact' on his badge uninspected, with Baptiste sent down unsuited on his word: 'put your own name on it by 02:00 or I put mine' (he was there).",
@@ -151,13 +576,36 @@
    ],
    "secret": "He buried SR-2231, tried to delete it from Strand's office and told his sister everything. He is afraid of what 'Leave Emil to me' meant and will not say it aloud.",
    "lies": [
-    {"claim": "After dinner I went to my bunk and stayed there till I went on watch at ten to ten. Who's saying different?", "truth": "He was with Mere in hydroponics from 19:12 to 19:30 and in the engineering office from 20:13 to 20:32.", "when": "Asked where he was between dinner and his watch.", "crack": "The WARDEN door log with his badge into the engineering office at 20:13 and out at 20:32."},
-    {"claim": "It was a paperwork thing, a closure code he didn't like. To be fair, Emil didn't like most of them.", "truth": "He closed a real safety report without inspection and had its author sent down; it would cost him his licence and perhaps five years.", "when": "Asked what Strand meant at dinner, or about loop B.", "crack": "The comms report quoting Strand's unsent message to the Orbital Safety Board: 'SR-2231 attached. Closed without inspection by acting chief T. Parata.'"},
-    {"claim": "I didn't talk to anyone about it. Not even Mere; she's got enough on.", "truth": "He told Mere everything at 19:12 and she said 'Leave Emil to me'.", "when": "Asked who else knew about the report, or what he said to his sister.", "crack": "Rodel Macaraeg's statement of what he heard Strand say to Mere at 19:38: 'He has had fourteen months, Mere'."}
+    {
+     "claim": "After dinner I went to my bunk and stayed there till I went on watch at ten to ten. Who's saying different?",
+     "truth": "He was with Mere in hydroponics from 19:12 to 19:30 and in the engineering office from 20:13 to 20:32.",
+     "when": "Asked where he was between dinner and his watch.",
+     "crack": "The WARDEN door log with his badge into the engineering office at 20:13 and out at 20:32."
+    },
+    {
+     "claim": "It was a paperwork thing, a closure code he didn't like. To be fair, Emil didn't like most of them.",
+     "truth": "He closed a real safety report without inspection and had its author sent down; it would cost him his licence and perhaps five years.",
+     "when": "Asked what Strand meant at dinner, or about loop B.",
+     "crack": "The comms report quoting Strand's unsent message to the Orbital Safety Board: 'SR-2231 attached. Closed without inspection by acting chief T. Parata.'"
+    },
+    {
+     "claim": "I didn't talk to anyone about it. Not even Mere; she's got enough on.",
+     "truth": "He told Mere everything at 19:12 and she said 'Leave Emil to me'.",
+     "when": "Asked who else knew about the report, or what he said to his sister.",
+     "crack": "Rodel Macaraeg's statement of what he heard Strand say to Mere at 19:38: 'He has had fourteen months, Mere'."
+    }
    ],
    "honestMistake": null,
-   "tells": ["Thumbs the dosimeter at his collar as if checking his dose.", "Makes a joke, then asks who told you."],
-   "pressure": {"baseline": 32, "breakPoint": 60, "lawyerPoint": 82, "style": "lawyer"},
+   "tells": [
+    "Thumbs the dosimeter at his collar as if checking his dose.",
+    "Makes a joke, then asks who told you."
+   ],
+   "pressure": {
+    "baseline": 32,
+    "breakPoint": 60,
+    "lawyerPoint": 82,
+    "style": "lawyer"
+   },
    "opening": "Save you asking: yes, he had a go at me at dinner and the whole galley heard. Bunk, then watch. That's the lot, honestly."
   },
   {
@@ -167,12 +615,59 @@
    "voiceSample": "Nineteen thirty-three by my badge. I do not guess times; guessing is what the rest of the crew is for.",
    "relationship": "Fond and amused: Strand was the only officer who filed his traffic on time and in whole sentences. She called him the last literate engineer to his face, and he bowed.",
    "movements": [
-    {"from": "18:00", "to": "19:10", "where": "galley", "doing": "Helped Demir lay up, then dinner.", "seenBy": ["Mere Tipene", "Tane Parata", "Rodel Macaraeg"]},
-    {"from": "19:10", "to": "19:38", "where": "spoke and comms blister", "doing": "Queued the commander's routine traffic for 02:00; badge in 19:16, out 19:33.", "seenBy": []},
-    {"from": "19:40", "to": "20:26", "where": "rec room, then spoke, comms blister, hub junction", "doing": "Chess with Moretti until a dish tracking fault at 19:57; cleared it in the blister, badge in 20:03, out 20:21, passing rack B on the way out.", "seenBy": ["Luca Moretti"]},
-    {"from": "20:27", "to": "20:45", "where": "galley", "doing": "Tea with Macaraeg and Demir.", "seenBy": ["Rodel Macaraeg", "Aylin Demir"]},
-    {"from": "20:50", "to": "23:10", "where": "her cabin", "doing": "Asleep, alarm set for 01:15, until the all-hands.", "seenBy": []},
-    {"from": "23:40", "to": "02:00", "where": "galley, her cabin, comms blister", "doing": "Muster, cabin from 00:20, the blister with Kobayashi from 01:45.", "seenBy": ["Hana Kobayashi"]}
+    {
+     "from": "18:00",
+     "to": "19:10",
+     "where": "galley",
+     "doing": "Helped Demir lay up, then dinner.",
+     "seenBy": [
+      "Mere Tipene",
+      "Tane Parata",
+      "Rodel Macaraeg"
+     ]
+    },
+    {
+     "from": "19:10",
+     "to": "19:38",
+     "where": "spoke and comms blister",
+     "doing": "Queued the commander's routine traffic for 02:00; badge in 19:16, out 19:33.",
+     "seenBy": []
+    },
+    {
+     "from": "19:40",
+     "to": "20:26",
+     "where": "rec room, then spoke, comms blister, hub junction",
+     "doing": "Chess with Moretti until a dish tracking fault at 19:57; cleared it in the blister, badge in 20:03, out 20:21, passing rack B on the way out.",
+     "seenBy": [
+      "Luca Moretti"
+     ]
+    },
+    {
+     "from": "20:27",
+     "to": "20:45",
+     "where": "galley",
+     "doing": "Tea with Macaraeg and Demir.",
+     "seenBy": [
+      "Rodel Macaraeg",
+      "Aylin Demir"
+     ]
+    },
+    {
+     "from": "20:50",
+     "to": "23:10",
+     "where": "her cabin",
+     "doing": "Asleep, alarm set for 01:15, until the all-hands.",
+     "seenBy": []
+    },
+    {
+     "from": "23:40",
+     "to": "02:00",
+     "where": "galley, her cabin, comms blister",
+     "doing": "Muster, cabin from 00:20, the blister with Kobayashi from 01:45.",
+     "seenBy": [
+      "Hana Kobayashi"
+     ]
+    }
    ],
    "knows": [
     "At dinner Strand told Tane he was going out at 22:15 to look at loop B himself and that Tane had until the 02:00 window to put his own name on it (she heard it).",
@@ -190,9 +685,21 @@
    ],
    "secret": "An operator is not supposed to read the headers of other people's held traffic, and she noticed Strand's to the Safety Board at about 19:20. She owns up if asked what was in the 02:00 queue.",
    "lies": [],
-   "honestMistake": {"claim": "I saw Mere at rack B when I came out of the blister the first time, 19:33 by my badge: a bottle on the arm, lamp amber. The standby looking over her suit; nothing in it.", "truth": "She saw it on her second trip out, at 20:21; at 19:33 the suit bay was empty and the lamp green.", "why": "Two near-identical trips inside an hour, her mind on the tracking fault the second time, and a standby checking a suit just after the board went up made sense for the first."},
-   "tells": ["Taps her stylus on the slate once for each time she gives.", "Repeats your question back with one word corrected."],
-   "pressure": {"baseline": 18, "breakPoint": 66, "lawyerPoint": 88, "style": "shutdown"},
+   "honestMistake": {
+    "claim": "I saw Mere at rack B when I came out of the blister the first time, 19:33 by my badge: a bottle on the arm, lamp amber. The standby looking over her suit; nothing in it.",
+    "truth": "She saw it on her second trip out, at 20:21; at 19:33 the suit bay was empty and the lamp green.",
+    "why": "Two near-identical trips inside an hour, her mind on the tracking fault the second time, and a standby checking a suit just after the board went up made sense for the first."
+   },
+   "tells": [
+    "Taps her stylus on the slate once for each time she gives.",
+    "Repeats your question back with one word corrected."
+   ],
+   "pressure": {
+    "baseline": 18,
+    "breakPoint": 66,
+    "lawyerPoint": 88,
+    "style": "shutdown"
+   },
    "opening": "I have times for you. I was in the blister twice last night and WARDEN has me in and out to the minute, so let us not waste your morning on 'about'."
   },
   {
@@ -202,18 +709,61 @@
    "voiceSample": "Ay, boss, the board was all green and I let a man go out on a bottle nobody tested. Log and gauge, log and gauge.",
    "relationship": "He admired Strand: a chief who came down to the suit bay, learned riggers' names and said thank you. He believes he sent a good man out on an unchecked bottle.",
    "movements": [
-    {"from": "18:00", "to": "19:10", "where": "Airlock B suit bay, then the galley", "doing": "Daily suit check until 18:25, then dinner.", "seenBy": ["Mere Tipene", "Tane Parata", "Kasia Wrona"]},
-    {"from": "19:12", "to": "19:42", "where": "his cabin, then the ring corridor", "doing": "Wrote up the EVA sheet; at 19:38 heard the end of Mere and Strand and took Strand's thumb at 19:41.", "seenBy": ["Mere Tipene"]},
-    {"from": "19:45", "to": "20:53", "where": "galley and hydroponics", "doing": "Tea with Demir; hydroponics 20:18 to 20:22, empty, wrote the note; galley again, Wrona joining at 20:27; Mere's thumb in hydroponics at 20:50.", "seenBy": ["Kasia Wrona", "Aylin Demir", "Mere Tipene"]},
-    {"from": "20:55", "to": "21:52", "where": "his cabin", "doing": "Rested until Strand knocked.", "seenBy": []},
-    {"from": "21:55", "to": "02:00", "where": "spoke, Airlock B suit bay, galley, his cabin", "doing": "Dressed and tended Strand, reeled him in, helmet off 23:03; muster 23:40; cabin from 00:20.", "seenBy": ["Mere Tipene", "Hana Kobayashi"]}
+    {
+     "from": "18:00",
+     "to": "19:10",
+     "where": "Airlock B suit bay, then the galley",
+     "doing": "Daily suit check until 18:25, then dinner.",
+     "seenBy": [
+      "Mere Tipene",
+      "Tane Parata",
+      "Kasia Wrona"
+     ]
+    },
+    {
+     "from": "19:12",
+     "to": "19:42",
+     "where": "his cabin, then the ring corridor",
+     "doing": "Wrote up the EVA sheet; at 19:38 heard the end of Mere and Strand and took Strand's thumb at 19:41.",
+     "seenBy": [
+      "Mere Tipene"
+     ]
+    },
+    {
+     "from": "19:45",
+     "to": "20:53",
+     "where": "galley and hydroponics",
+     "doing": "Tea with Demir; hydroponics 20:18 to 20:22, empty, wrote the note; galley again, Wrona joining at 20:27; Mere's thumb in hydroponics at 20:50.",
+     "seenBy": [
+      "Kasia Wrona",
+      "Aylin Demir",
+      "Mere Tipene"
+     ]
+    },
+    {
+     "from": "20:55",
+     "to": "21:52",
+     "where": "his cabin",
+     "doing": "Rested until Strand knocked.",
+     "seenBy": []
+    },
+    {
+     "from": "21:55",
+     "to": "02:00",
+     "where": "spoke, Airlock B suit bay, galley, his cabin",
+     "doing": "Dressed and tended Strand, reeled him in, helmet off 23:03; muster 23:40; cabin from 00:20.",
+     "seenBy": [
+      "Mere Tipene",
+      "Hana Kobayashi"
+     ]
+    }
    ],
    "knows": [
     "At his 18:10 daily check suit 3 had a full bottle and a normal oxygen reading, four spare cells were sealed in the drawer and the rack lamp was green (he did it).",
     "He last charged suit 3's bottle on the 9th on the green line, and the rack log showed nothing since (he did it).",
     "At 19:38 outside the engineering office he heard Strand say 'He has had fourteen months, Mere' and her answer 'Then give him nine more days'; she walked off and Strand thumbed the sheet (he heard it).",
-    "At 20:18 hydroponics was lit and empty, the feed cart parked full and the pump silent; he called Mere's name, looked into the seed store, stayed four minutes and noted it on the sheet (he saw it).",
-    "At 20:50 Mere was at bay 2 with the pump running and the tank barely a hand's width down; she thumbed as standby and said she had been in the seed store since eight (he saw it).",
+    "At 20:18, on his first trip for the standby's thumb, hydroponics was lit and empty, the feed cart parked full and the pump silent; he called Mere's name, looked into the seed store, stayed four minutes and noted it on the sheet (he saw it).",
+    "At 20:50, on his second trip for her thumb, Mere was at bay 2 with the pump running and the tank barely a hand's width down; she thumbed as standby and said she had been in the seed store since eight (he saw it).",
     "Dressing Strand he had oxygen 20.9 and a full gauge; rack B's own analyser has been red-tagged for two weeks, so he offered to fetch the portable one from Airlock A, ten minutes, and Strand said 'we are late, skip it' (he did it).",
     "At 22:41 Strand laughed and slurred 'tell Parata it is very tidy out here', and answered nothing after 22:44; the board showed oxygen flat at 20.9 and his pulse at 124, then falling (he heard and saw it).",
     "At 23:03 Mere, half suited, reached to take the helmet 'to stow it' and he said nobody touches the suit; at 23:21 Dr Nasser found a blue seal cap on a cell he had fitted uncapped on 4 March (he saw it)."
@@ -227,8 +777,16 @@
    "secret": "His shame is the mix check: a portable analyser was ten minutes away in Airlock A and he let Strand wave it off. He admits it if asked directly.",
    "lies": [],
    "honestMistake": null,
-   "tells": ["Turns his open hands palm down on the table and presses them flat.", "Recites the pre-EVA checklist under his breath when it gets hard."],
-   "pressure": {"baseline": 30, "breakPoint": 56, "lawyerPoint": 85, "style": "tears"},
+   "tells": [
+    "Turns his open hands palm down on the table and presses them flat.",
+    "Recites the pre-EVA checklist under his breath when it gets hard."
+   ],
+   "pressure": {
+    "baseline": 30,
+    "breakPoint": 56,
+    "lawyerPoint": 85,
+    "style": "tears"
+   },
    "opening": "Boss. I dressed him, I checked him, I sent him out and I reeled him back in dead. Ask me anything; I have been asking myself all night."
   }
  ]
